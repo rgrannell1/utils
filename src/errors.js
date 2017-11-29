@@ -27,3 +27,23 @@ errors.create = config => {
     }
   }
 }
+
+errors.deprecate = (fn, message) => {
+  var warned = false
+  function deprecated () {
+    if (!warned) {
+      console.warn(message)
+    }
+  }
+
+  return deprecated
+}
+
+errors.create({name: 'SystemError', prefix: 'ERR'})
+
+console.log(new errors.SystemError('this is an error'))
+console.log(new errors.SystemError('this is an error'))
+console.log(new errors.SystemError('this is an error'))
+console.log(new errors.SystemError('this is an error'))
+console.log(new errors.SystemError('this is an error'))
+console.log(new errors.SystemError('this is an error'))
