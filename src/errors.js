@@ -1,17 +1,19 @@
 
 const errors =  {}
-let code = 0
+let codeCounter = 0
 
 errors.create = config => {
+  const code = config.hasOwnProperty('code')
+    ? config.code
+    : (codeCounter++)
+
+  if (errors.hasOwnProperty(config.name)) {
+    throw new Error(`${config.name} is already defined.`)
+  }
+
   errors[config.name] = class extends Error {
     constructor (...args) {
       super(...args)
-
-      if (config.code) {
-        this.code = (config.code++)
-      } else {
-        this.code = code++
-      }
 
       Object.defineProperties(this, {
         name: {
@@ -20,7 +22,7 @@ errors.create = config => {
         },
         code: {
           enumerable: false,
-          value: `${config.prefix}${('' + this.code).padStart(4, '0')}`
+          value: `${config.prefix}${('' + code).padStart(4, '0')}`
         }
       })
       this.message = `${this.code}: ${this.message}`
@@ -39,11 +41,4 @@ errors.deprecate = (fn, message) => {
   return deprecated
 }
 
-errors.create({name: 'SystemError', prefix: 'ERR'})
-
-console.log(new errors.SystemError('this is an error'))
-console.log(new errors.SystemError('this is an error'))
-console.log(new errors.SystemError('this is an error'))
-console.log(new errors.SystemError('this is an error'))
-console.log(new errors.SystemError('this is an error'))
-console.log(new errors.SystemError('this is an error'))
+module.exports = errors
