@@ -11,3 +11,4 @@
 - [ ] Implement deprecation & unimplemented
 - [ ] Implement feature-flagging utility
 - [ ] Implement random value utility
+- [ ] Implement JS-doc checker
