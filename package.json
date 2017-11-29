@@ -6,6 +6,7 @@
   "author": "rgrannell1 <r.grannell2@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "errors": "^0.3.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   }
