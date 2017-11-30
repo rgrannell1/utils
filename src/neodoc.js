@@ -1,6 +1,13 @@
 
 const neodoc = {}
 
+/**
+ * @param {object} options
+ *
+ * Remove dash-prefixes from neodoc arguments.
+ *
+ * @returns {Promise}
+ */
 neodoc.parse = options => {
   const parsed = {}
 
