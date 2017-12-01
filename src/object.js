@@ -23,3 +23,13 @@ Object.defineProperty(Object, 'remove', {
     return reduced
   }
 })
+
+
+Object.defineProperty(Object.prototype, 'unzipKeys', {
+
+  enumerable: false,
+  value: function ( ) {
+    return Object.keys(this).map( key => [key, this[key]] )
+  }
+
+})

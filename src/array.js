@@ -26,4 +26,26 @@ array.seqTo = num => {
   return nums
 }
 
+array.pluck = (key, coll) => coll.map(elem => elem[key])
+
+Object.defineProperty(Array.prototype, 'groupBy', {
+	enumerable: false,
+	value: function (fn) {
+
+		var table = { }
+
+		this.forEach(elem => {
+
+			const key  = fn(elem)
+			table[key] = (table[key] || [ ]).concat(elem)
+
+		})
+
+		return table
+
+	}
+})
+
+
+
 module.exports = array
