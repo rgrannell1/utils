@@ -12,3 +12,5 @@
 - [ ] Implement feature-flagging utility
 - [ ] Implement random value utility
 - [ ] Implement JS-doc checker
+- [x] Implement screenshot utility
+- [ ] Implement screenshot video
