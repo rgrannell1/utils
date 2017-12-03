@@ -15,6 +15,12 @@ browser.ScreenShot = class ScreenShot {
     Object.assign(this, {data, time})
     return this
   }
+  /**
+   *
+   * Convert the screenshot to a stream.
+   *
+   * @returns {object}
+   */
   asStream () {
     const {time, data} = this
 
@@ -24,10 +30,22 @@ browser.ScreenShot = class ScreenShot {
 
     return {time, stream: screenStream}
   }
+  /**
+   *
+   * Convert the screenshot to a buffer.
+   *
+   * @returns {object}
+   */
   asBuffer () {
     const {time, data} = this
     return {time, data}
   }
+  /**
+   *
+   * Convert the screenshot to a PNG.
+   *
+   * @returns {PNG}
+   */
   asPNG () {
     return new Promise(resolve => {
       this.asStream().stream.pipe(new PNG())
@@ -110,24 +128,32 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
    *
    * @param {ScreenShot} the first screenshot.
    * @param {ScreenShot} the second screenshot.
+   * @param {object} opts pixelmatch options.
    *
    * @returns {ScreenCapture}
    */
-  async compare (screenshot0, screenshot1) {
+  async compare (screenshot0, screenshot1, opts = {threshold: 0}) {
     const [png0, png1] = await Promise.all([screenshot0.asPNG(), screenshot1.asPNG()])
 
-    const width = 800
-    const height = 800
+    const width = png0.width
+    const height = png0.height
 
     const diff = new PNG({width, height});
 
-    const pixelDiff = pixelmatch(png0.data, png1.data, diff.data, width, height, {threshold: 0})
+    // compute the diff between two screenshots.
+    const pixelDiff = pixelmatch(png0.data, png1.data, diff.data, width, height, opts)
     const pixelDiffPercentage = (width * height) / pixelDiff
 
     return {
       diff: diff.pack(),
       pixelDiffPercentage
     }
+  }
+  record () {
+
+  }
+  recordDiff () {
+
   }
 }
 
