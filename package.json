@@ -7,6 +7,11 @@
   "license": "MIT",
   "dependencies": {
     "errors": "^0.3.0",
+    "imagediff": "^1.0.8",
+    "looks-same": "^3.2.1",
+    "pixelmatch": "^4.0.2",
+    "pngjs": "^3.3.1",
+    "puppeteer": "^0.13.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   }

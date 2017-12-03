@@ -37,4 +37,33 @@ promise.timeout = (error, duration = 0) {
   })
 }
 
+/**
+ *
+ * @param {function} fn a sync or async function.
+ * @param {number} interval the polling interval.
+ *
+ * Wait until a sync or async function resolves.
+ *
+ * @returns {promise}
+ *
+ */
+promise.waitUntil = (fn, interval = 0) {
+  const chain = Promise.resolve()
+
+  try {
+    if (fn() === true) {
+      return Promise.resolve()
+    } else {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(promise.waitUntil(fn))
+        }, interval)
+      })
+
+    }
+  } catch (err) {
+    return Promise.reject(err)
+  }
+}
+
 module.exports = promise
