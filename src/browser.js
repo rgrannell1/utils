@@ -6,6 +6,9 @@ const pixelmatch = require('pixelmatch')
 const PNG = require('pngjs').PNG
 const stream = require('stream')
 const fs = require('fs')
+const videoshow = require('videoshow')
+const fsUtils = require('./fs')
+
 
 const browser = {}
 const privateTag = Symbol('private')
@@ -61,7 +64,12 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
     super()
     const args = Object.assign({
       interval: 250
-    }, config, {state: {}})
+    }, config, {
+      buffers: {
+        unprocessed: [],
+        diffed: []
+      }
+    })
 
     Object.assertProperties(args, ['page', 'interval'])
     Object.assign(this, args, {
@@ -104,7 +112,7 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
 
     if (this.duration) {
       setTimeout(() => {
-        clearInterval(this.screenshotPid)
+        this.stop()
       }, this.duration)
     }
     return this
@@ -145,15 +153,30 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
     const pixelDiffPercentage = (width * height) / pixelDiff
 
     return {
-      diff: diff.pack(),
+      diff,
       pixelDiffPercentage
     }
   }
   record () {
-
+    this.start()
+    this.on('screenshot', screenshot => {
+      this.buffers.unprocessed.push(screenshot)
+      this.emit('record', this.buffers.unprocessed)
+    })
+    return this
   }
   recordDiff () {
-
+    this.start()
+    this.on('screenshot-pair', async ({time, previous, current}) => {
+      this.buffers.diffed.push(await this.compare(previous, current))
+      this.emit('record-diff', this.buffers.diffed)
+    })
+    return this
+  }
+  async renderDiff () {
+    const xx = (this.buffers.diffed[0]).diff
+    const diffs = await Promise.all(this.buffers.diffed.map(diff => fsUtils.writeTmpFile(diff.diff.data, '.png')))
+    videoshow(diffs).save('video.mp4')
   }
 }
 
@@ -166,18 +189,18 @@ async function run () {
   const page = await chrome.newPage()
   await page.goto('https://media.giphy.com/media/14kqI3Y4urS3rG/giphy.gif')
 
-  const screen = new browser.ScreenCapture({page, interval: 1500, duration: 20000}).start()
+  const screen = new browser.ScreenCapture({page, interval: 100, duration: 10000})
+  screen.recordDiff()
 
-  screen.on('screenshot-pair', async ({time, previous, current}) => {
-    const diff = await screen.compare(previous, current)
-    diff.diff.pipe(fs.createWriteStream(__dirname + '/diff.png'))
+  screen.on('record-diff', buffers => {
+
   })
-
   screen.on('error', err => {
     console.error(err)
   })
-
-
+  screen.on('close', () => {
+    screen.renderDiff()
+  })
 }
 run().catch(err => {
   console.error(err)

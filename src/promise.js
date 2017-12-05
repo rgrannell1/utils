@@ -11,7 +11,7 @@ const promise = {}
  * @returns {promise}
  *
  */
-promise.stall = (fn, duration = 0) {
+promise.stall = (fn, duration = 0) => {
   return new Promise(resolve => {
     setTimeout(( ) => {
       resolve(fn( ))
@@ -29,7 +29,7 @@ promise.stall = (fn, duration = 0) {
  * @returns {promise}
  *
  */
-promise.timeout = (error, duration = 0) {
+promise.timeout = (error, duration = 0) => {
   return new Promise((resolve, reject) => {
     setTimeout(( ) => {
       reject(error)
@@ -47,7 +47,7 @@ promise.timeout = (error, duration = 0) {
  * @returns {promise}
  *
  */
-promise.waitUntil = (fn, interval = 0) {
+promise.waitUntil = (fn, interval = 0) => {
   const chain = Promise.resolve()
 
   try {
