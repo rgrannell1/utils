@@ -12,9 +12,12 @@ stream.isReadable = data => {
   return data.readable
 }
 
-stream.once = ({reader, event, rejectOn = ['error']}) => {
+stream.asPromise = ({reader, event, resolveOn, rejectOn = ['error']}) => {
   return new Promise((resolve, reject) => {
-    reader.once(event, reject)
+
+    for (let resolved of resolveOn ) {
+      reader.once(resolved, resolve)
+    }
 
     for (let rejected of rejectOn) {
       reader.once(rejected, reject)

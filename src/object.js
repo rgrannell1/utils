@@ -24,14 +24,6 @@ Object.defineProperty(Object, 'remove', {
   }
 })
 
-
-Object.defineProperty(Object.prototype, 'unzipKeys', {
-  enumerable: false,
-  value: function ( ) {
-    return Object.keys(this).map( key => [key, this[key]] )
-  }
-})
-
 Object.defineProperty(Object.prototype, 'assertProperties', {
   enumerable: false,
   value: function (object, properties) {

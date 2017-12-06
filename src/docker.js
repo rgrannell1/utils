@@ -1,50 +1,58 @@
 
 const docker = {}
 
-docker.file = lines => lines.join('\n')
+docker.FILE = lines => lines.join('\n')
 
-docker.from = (id, name) => {
+docker.FROM = (id, name) => {
   return name
     ? `FROM ${id} AS ${name}`
     : `FROM ${id}`
 }
 
-docker.run = command => {
-  return array.isArray(command)
-    ? `RUN ${JSON.stringify(command)}`
-    : `RUN ${command}`
+docker.RUN = commands => {
+  return commands.map(command => `RUN ${command}`);
 }
 
-docker.cmd = command => {
+docker.CMD = command => {
   return array.isArray(command)
     ? `CMD ${JSON.stringify(command)}`
     : `CMD ${command}`
 }
 
-docker.label = (key, value) => {
-  return `LABEL "${key}"="${value}"`
+docker.LABEL = obj => {
+  return Object.entries(obj).map(([key, val]) => {
+    return `LABEL ${key}=${val}`
+  }).join('\n');
 }
 
-docker.expose = port => {
+docker.EXPOSE = port => {
   return `EXPORT ${port}`
 }
 
-docker.env = (key, val) => {
-  return `ENV ${key}="${val}"`
+docker.LABEL = obj => {
+  return Object.entries(obj).map(([key, val]) => {
+    return `ENV ${key}=${val}`
+  });
 }
 
-docker.add = (sources, dest) => {
+docker.ENV = obj => {
+  return Object.entries(obj).map(([key, val]) => {
+    return `ENV ${key}=${val}`
+  }).join('\n');
+}
+
+docker.ADD = (sources, dest) => {
   return `ADD ${JSON.stringify(sources.concat([dest]))}`
 }
 
-docker.copy = (sources, dest) => {
+docker.COPY = (sources, dest) => {
   return `COPY ${JSON.stringify(sources.concat([dest]))}`
 }
 
-docker.entrypoint = command => {
+docker.ENTRYPOINT = command => {
   return `ENTRYPOINT ${command}`
 }
 
-docker.workdir = path => {
+docker.WORKDIR = path => {
   return `WORKDIR ${path}`
 }
