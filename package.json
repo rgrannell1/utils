@@ -20,5 +20,8 @@
     "rimraf-promise": "^2.0.0",
     "tempfile": "^2.0.0",
     "tmpfile": "^0.2.0"
+  },
+  "devDependencies": {
+    "neodoc": "^1.4.0"
   }
 }
