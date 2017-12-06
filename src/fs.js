@@ -18,6 +18,18 @@ fs.tmpPath = (ext = '.png') => {
   return `/tmp/foo/${crypto.randomBytes(20).toString('hex')}${ext}`
 }
 
+fs.writeFile = (path, input) => {
+  const reader = stream.isReadable(input)
+    ? input
+    : fs.asReadStream(input)
+
+  return new Promise((resolve, reject) => {
+    reader.pipe(fsNative.createWriteStream(path))
+      .on('error', reject)
+      .on('finish', () => resolve(path))
+  })
+}
+
 fs.writeTmpFile = input => {
   const reader = stream.isReadable(input)
     ? input

@@ -2,7 +2,8 @@
 const exported = [
   'array',
   'docker',
-  'object'
+  'object',
+  'fs'
 ]
 
 for (let val of exported) {
