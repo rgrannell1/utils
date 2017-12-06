@@ -14,7 +14,7 @@ docker.RUN = commands => {
 }
 
 docker.CMD = command => {
-  return array.isArray(command)
+  return Array.isArray(command)
     ? `CMD ${JSON.stringify(command)}`
     : `CMD ${command}`
 }
