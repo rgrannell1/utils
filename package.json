@@ -19,7 +19,6 @@
     "request-promise-native": "^1.0.5",
     "rimraf-promise": "^2.0.0",
     "tempfile": "^2.0.0",
-    "tmpfile": "^0.2.0",
-    "videoshow": "^0.1.11"
+    "tmpfile": "^0.2.0"
   }
 }

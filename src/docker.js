@@ -10,11 +10,11 @@ docker.FROM = (id, name) => {
 }
 
 docker.RUN = commands => {
-  return commands.map(command => `RUN ${command}`);
+  return commands.map(command => `RUN ${command}`).join('\n');
 }
 
 docker.CMD = command => {
-  return array.isArray(command)
+  return Array.isArray(command)
     ? `CMD ${JSON.stringify(command)}`
     : `CMD ${command}`
 }
