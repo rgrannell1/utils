@@ -3,7 +3,6 @@ const fsNative = require('fs')
 const readline = require('readline')
 const crypto = require('crypto')
 const stream = require('./stream')
-const mkdirp = require('mkdirp')
 const cpr = require('cpr')
 const rimraf = require('rimraf-promise')
 const mkdirp = require('mkdirp-promise')
@@ -134,7 +133,7 @@ fs.removeFolder = path => {
  *
  * @returns {Promise} a result promise.
  */
-fsUtils.copyDir = (source, dest) => {
+fs.copyDir = (source, dest) => {
   return new Promise((resolve, reject) => {
     const opts = {
       deleteFirst: true,
