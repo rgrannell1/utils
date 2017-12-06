@@ -10,7 +10,7 @@ docker.FROM = (id, name) => {
 }
 
 docker.RUN = commands => {
-  return commands.map(command => `RUN ${command}`);
+  return commands.map(command => `RUN ${command}`).join('\n');
 }
 
 docker.CMD = command => {
