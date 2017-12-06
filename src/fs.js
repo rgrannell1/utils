@@ -47,7 +47,7 @@ fs.tmpPath = (ext = '.png') => {
 fs.writeFile = (path, input) => {
   const reader = stream.isReadable(input)
     ? input
-    : fs.asReadStream(input)
+    : stream.asReadStream(input)
 
   return new Promise((resolve, reject) => {
     reader.pipe(fsNative.createWriteStream(path))
@@ -59,7 +59,7 @@ fs.writeFile = (path, input) => {
 fs.writeTmpFile = input => {
   const reader = stream.isReadable(input)
     ? input
-    : fs.asReadStream(input)
+    : stream.asReadStream(input)
 
   return new Promise((resolve, reject) => {
 
