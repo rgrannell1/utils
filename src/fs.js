@@ -4,7 +4,7 @@ const readline = require('readline')
 const crypto = require('crypto')
 const stream = require('./stream')
 const cpr = require('cpr')
-const rimraf = require('rimraf-promise')
+const rmfr = require('rmfr')
 const mkdirp = require('mkdirp-promise')
 
 const fs = {}
@@ -123,7 +123,7 @@ fs.mkdir = path => {
  * @returns {Promise} a result promise.
  */
 fs.removeFolder = path => {
-  return rimraf(path)
+  return rmfr(path)
 }
 
 /**

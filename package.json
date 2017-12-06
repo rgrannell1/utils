@@ -12,14 +12,14 @@
     "looks-same": "^3.2.1",
     "mkdirp": "^0.5.1",
     "mkdirp-promise": "^5.0.1",
+    "neodoc": "^1.4.0",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",
     "puppeteer": "^0.13.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
-    "rimraf-promise": "^2.0.0",
+    "rmfr": "^1.0.3",
     "tempfile": "^2.0.0",
-    "tmpfile": "^0.2.0",
-    "neodoc": "^1.4.0"
+    "tmpfile": "^0.2.0"
   }
 }
