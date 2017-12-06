@@ -3,8 +3,28 @@ const fsNative = require('fs')
 const readline = require('readline')
 const crypto = require('crypto')
 const stream = require('./stream')
+const mkdirp = require('mkdirp')
+const cpr = require('cpr')
+const rimraf = require('rimraf-promise')
+const mkdirp = require('mkdirp-promise')
 
 const fs = {}
+
+/**
+ *
+ * @param {string} the path to read from.
+ *
+ * @returns {Promise} promise containing file content.
+ *
+ */
+
+fs.readFile = path => {
+  return new Promise((resolve, reject) => {
+    return fsNative.readFile(path, (err, res) => {
+      err ? reject(err) : resolve(res)
+    })
+  })
+}
 
 fs.readLines = (readStream, onLine) => {
   readline.createInterface({input: readStream})
@@ -18,6 +38,13 @@ fs.tmpPath = (ext = '.png') => {
   return `/tmp/foo/${crypto.randomBytes(20).toString('hex')}${ext}`
 }
 
+/**
+ *
+ * @param {string} path the path to write to.
+ * @param {string} content the content to write to a file
+ *
+ * @returns {Promise} a result promise.
+ */
 fs.writeFile = (path, input) => {
   const reader = stream.isReadable(input)
     ? input
@@ -41,6 +68,82 @@ fs.writeTmpFile = input => {
     reader.pipe(fsNative.createWriteStream(tpath))
       .on('error', reject)
       .on('finish', () => resolve(tpath))
+  })
+}
+
+fs.testFile = path => {
+  if (!path) {
+    throw new Error('path not provided.')
+  }
+
+  return new Promise((resolve, reject) => {
+    fsNative.stat(path, err => {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          resolve(false)
+        } else {
+          reject(err)
+        }
+      } else {
+        resolve(true)
+      }
+    })
+  })
+}
+
+/**
+ *
+ * @param {string} source the path to copy
+ * @param {string} source the destination of the file
+ *
+ * @returns {Promise} a result promise.
+ */
+fs.copy = (source, dest) => {
+  return new Promise((resolve, reject) => {
+    fs.copyFile(source, dest, err => {
+      err ? reject(err) : resolve()
+    })
+  })
+}
+
+/**
+ *
+ * @param {string} path the path to create.
+ *
+ * @returns {Promise} a result promise.
+ */
+fs.mkdir = path => {
+  return mkdirp(path)
+}
+
+
+/**
+ *
+ * @param {string} path the path to remove.
+ *
+ * @returns {Promise} a result promise.
+ */
+fs.removeFolder = path => {
+  return rimraf(path)
+}
+
+/**
+ *
+ * @param {string} source the folder to copy
+ * @param {string} source the destination of the folder
+ *
+ * @returns {Promise} a result promise.
+ */
+fsUtils.copyDir = (source, dest) => {
+  return new Promise((resolve, reject) => {
+    const opts = {
+      deleteFirst: true,
+      overwrite: true,
+      confirm: true
+    }
+    cpr(source, dest, opts, err => {
+      err ? reject(err) : resolve()
+    })
   })
 }
 
