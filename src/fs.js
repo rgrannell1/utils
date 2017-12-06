@@ -99,7 +99,7 @@ fs.testFile = path => {
  */
 fs.copy = (source, dest) => {
   return new Promise((resolve, reject) => {
-    fs.copyFile(source, dest, err => {
+    fsNative.copyFile(source, dest, err => {
       err ? reject(err) : resolve()
     })
   })
