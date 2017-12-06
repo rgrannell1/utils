@@ -1,8 +1,10 @@
 
+const streamNative = require('stream')
+
 const stream = {}
 
 stream.asReadStream = data => {
-  const dstream = new stream.Readable()
+  const dstream = new streamNative.Readable()
   dstream.push(data)
   dstream.push(null)
   return dstream
