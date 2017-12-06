@@ -56,3 +56,5 @@ docker.ENTRYPOINT = command => {
 docker.WORKDIR = path => {
   return `WORKDIR ${path}`
 }
+
+module.exports = docker
