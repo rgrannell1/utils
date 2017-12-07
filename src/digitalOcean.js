@@ -302,7 +302,7 @@ class DigitalOcean {
   setVM (conf, {sshKeyPath, sshKeyName, vmName}) {
     return api.setVM(conf, {sshKeyPath, sshKeyName, vmName})
   }
-})
+}
 
 module.exports = DigitalOcean
 
