@@ -254,54 +254,55 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
   }
 }
 
-function DigitalOcean (token) {
-  this.token = token
-  return this
-}
 
-Object.assign(DigitalOcean.prototype, {
+class DigitalOcean {
+  constructor () {
+    this.token = token
+    return this    
+  }
   listSSHKeys () {
     return api.listSSHKeys()
-  },
+  }
   findSSHKeys (fields) {
     return api.findSSHKeys(fields)
-  },
+  }
   newSSHKey (name, publicKey) {
     return api.newSSHKey(name, public_key)
-  },
+  }
   updateSSHKey (name, publicKey) {
     return api.updateSSHKey(name, publicKey)
-  },
+  }
   setSSHKey (name, publicKey) {
     return api.setSSHKey(name, publicKey)
-  },
+  }
   listDomainRecords (domain) {
     return api.listDomainRecords(domain)
-  },
+  }
   findDomainRecord (domain, fields) {
     return api.findDomainRecord(domain, fields)
-  },
+  }
   newDomainRecord (conf) {
     return api.newDomainRecord(conf)
-  },
+  }
   removeDomainRecord (domain, subDomain) {
     return api.removeDomainRecord(domain, subDomain)
-  },
+  }
   setDomainRecord (conf) {
     return api.setDomainRecord(conf)
-  },
+  }
   listVMs () {
     return api.listVMs()
-  },
+  }
   findVMs (fields) {
     return api.findVMs(fields)
-  },
+  }
   newVm (conf) {
     return api.newVm(conf)
-  },
+  }
   setVM (conf, {sshKeyPath, sshKeyName, vmName}) {
     return api.setVM(conf, {sshKeyPath, sshKeyName, vmName})
   }
 })
 
 module.exports = DigitalOcean
+
