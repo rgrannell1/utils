@@ -303,4 +303,4 @@ Object.assign(DigitalOcean.prototype, {
   }
 })
 
-module.exports = api
+module.exports = DigitalOcean
