@@ -261,46 +261,46 @@ class DigitalOcean {
     return this    
   }
   listSSHKeys () {
-    return api.listSSHKeys()
+    return api.listSSHKeys.call.this, call(this)
   }
   findSSHKeys (fields) {
-    return api.findSSHKeys(fields)
+    return api.findSSHKeys.call.this, call(this, fields)
   }
   newSSHKey (name, publicKey) {
-    return api.newSSHKey(name, public_key)
+    return api.newSSHKey.call.this, call(this, name, public_key)
   }
   updateSSHKey (name, publicKey) {
-    return api.updateSSHKey(name, publicKey)
+    return api.updateSSHKey.call(this, name, publicKey)
   }
   setSSHKey (name, publicKey) {
-    return api.setSSHKey(name, publicKey)
+    return api.setSSHKey.call(this, name, publicKey)
   }
   listDomainRecords (domain) {
-    return api.listDomainRecords(domain)
+    return api.listDomainRecords.call(this, domain)
   }
   findDomainRecord (domain, fields) {
-    return api.findDomainRecord(domain, fields)
+    return api.findDomainRecord.call(this, domain, fields)
   }
   newDomainRecord (conf) {
-    return api.newDomainRecord(conf)
+    return api.newDomainRecord.call(this, conf)
   }
   removeDomainRecord (domain, subDomain) {
-    return api.removeDomainRecord(domain, subDomain)
+    return api.removeDomainRecord.call(this, domain, subDomain)
   }
   setDomainRecord (conf) {
-    return api.setDomainRecord(conf)
+    return api.setDomainRecord.call(this, conf)
   }
   listVMs () {
-    return api.listVMs()
+    return api.listVMs.call(this, )
   }
   findVMs (fields) {
-    return api.findVMs(fields)
+    return api.findVMs.call(this, fields)
   }
   newVm (conf) {
-    return api.newVm(conf)
+    return api.newVm.call(this, conf)
   }
   setVM (conf, {sshKeyPath, sshKeyName, vmName}) {
-    return api.setVM(conf, {sshKeyPath, sshKeyName, vmName})
+    return api.setVM.call(this, conf, {sshKeyPath, sshKeyName, vmName})
   }
 }
 
