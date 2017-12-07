@@ -256,6 +256,7 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
 
 function DigitalOcean (token) {
   this.token = token
+  return this
 }
 
 Object.assign(DigitalOcean.prototype, {
