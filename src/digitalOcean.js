@@ -256,7 +256,7 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
 
 
 class DigitalOcean {
-  constructor () {
+  constructor (token) {
     this.token = token
     return this    
   }
