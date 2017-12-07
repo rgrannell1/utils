@@ -1,5 +1,5 @@
 
-const fs = require('fs')
+const fs = require('./fs')
 const request = require('request-promise')
 const digitalOceanUrl = 'https://api.digitalocean.com/v2'
 
@@ -230,9 +230,7 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
 
   const signaturePath = `${sshKeyPath}.sig`
   const signature = await new Promise((resolve, reject) => {
-    fs.readFile(signaturePath, (err, body) => {
-      err ? reject(err) : resolve(body.toString())
-    })
+    return fs.readFile(signaturePath)
   })
 
   const sshKey = await api.findSSHKeys({
@@ -241,9 +239,7 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
 
   if (signature !== sshKey.fingerprint) {
     const publicKey = await new Promise((resolve, reject) => {
-      fs.readFile(`${sshKeyPath}.pub`, (err, content) => {
-        err ? reject(err) : resolve(content.toString())
-      })
+      return fs.readFile(`${sshKeyPath}.pub`)
     })
 
   //  await api.updateSSHKey(config.get('digitalOcean.sshKeyName'), publicKey)
