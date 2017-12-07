@@ -99,7 +99,7 @@ api.newDomainRecord = async conf => {
     uri: `${digitalOceanUrl}/domains/${conf.domain}/records`,
     headers: {
       Authorization: `Bearer ${this.token}`
-    },`
+    },
     json: {
       type: conf.type,
       name: conf.subDomain,
