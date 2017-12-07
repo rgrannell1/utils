@@ -1,7 +1,7 @@
 
 const exported = [
   'array',
-  'digital-ocean',
+  'digitalOcean',
   'docker',
   'object',
   'fs'
