@@ -5,11 +5,11 @@ const digitalOceanUrl = 'https://api.digitalocean.com/v2'
 
 const api = { }
 
-api.listSSHKeys = token => {
+api.listSSHKeys = () => {
   const listOpts = {
     url: `${digitalOceanUrl}/account/keys`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     }
   }
 
@@ -30,11 +30,11 @@ api.findSSHKeys = async fields => {
   })
 }
 
-api.newSSHKey = async (name, publicKey, token) => {
+api.newSSHKey = async (name, publicKey) => {
   const newOpts = {
     uri: `${digitalOceanUrl}/account/keys/`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     },
     json: {
       name,
@@ -45,13 +45,13 @@ api.newSSHKey = async (name, publicKey, token) => {
   return request.post(newOpts)
 }
 
-api.updateSSHKey = async (name, publicKey, token) => {
+api.updateSSHKey = async (name, publicKey) => {
   const existingKey = await api.findSSHKeys({name})
 
   const deleteOpts = {
     uri: `${digitalOceanUrl}/account/keys/${existingKey.id}`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     }
   }
 
@@ -69,11 +69,11 @@ api.setSSHKey = async (name, publicKey) => {
   }
 }
 
-api.listDomainRecords = async (domain, token) => {
+api.listDomainRecords = async (domain) => {
   const getOpts = {
     uri: `${digitalOceanUrl}/domains/${domain}/records`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     }
   }
 
@@ -94,12 +94,12 @@ api.findDomainRecord = async (domain, fields) => {
   })
 }
 
-api.newDomainRecord = async (conf, token) => {
+api.newDomainRecord = async conf => {
   const reqOpts = {
     uri: `${digitalOceanUrl}/domains/${conf.domain}/records`,
     headers: {
-      Authorization: `Bearer ${token}`
-    },
+      Authorization: `Bearer ${this.token}`
+    },`
     json: {
       type: conf.type,
       name: conf.subDomain,
@@ -116,7 +116,7 @@ api.newDomainRecord = async (conf, token) => {
   return request.post(reqOpts)
 }
 
-api.removeDomainRecord = async (domain, subDomain, token) => {
+api.removeDomainRecord = async (domain, subDomain) => {
   const existingRecord = await api.findDomainRecord(domain, {
     type: 'A',
     name: subDomain
@@ -126,7 +126,7 @@ api.removeDomainRecord = async (domain, subDomain, token) => {
     const reqOpts = {
       uri: `${digitalOceanUrl}/domains/${domain}/records/${existingRecord.id}`,
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${this.token}`
       }
     }
 
@@ -176,11 +176,11 @@ api.setDomainRecord = async (conf) => {
   }
 }
 
-api.listVMs = async (token) => {
+api.listVMs = async () => {
   const reqOpts = {
     uri: `${digitalOceanUrl}/droplets?`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     }
   }
 
@@ -201,11 +201,11 @@ api.findVMs = async fields => {
   })
 }
 
-api.newVm = async (conf, token) => {
+api.newVm = async (conf) => {
   const reqOpts = {
     uri: `${digitalOceanUrl}/droplets`,
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     },
     json: {
       name: conf.name,
@@ -257,5 +257,54 @@ api.setVM = async (conf, {sshKeyPath, sshKeyName, vmName}) => {
     }))
   }
 }
+
+function DigitalOcean (token) {
+  this.token = token
+}
+
+Object.assign(DigitalOcean.prototype, {
+  listSSHKeys () {
+    return api.listSSHKeys()
+  }
+  findSSHKeys (fields) {
+    return api.findSSHKeys(fields)
+  }
+  newSSHKey (name, publicKey) {
+    return api.newSSHKey(name, public_key)
+  }
+  updateSSHKey (name, publicKey) {
+    return api.updateSSHKey(name, publicKey)
+  }
+  setSSHKey (name, publicKey) {
+    return api.setSSHKey(name, publicKey)
+  }
+  listDomainRecords (domain) {
+    return api.listDomainRecords(domain)
+  }
+  findDomainRecord (domain, fields) {
+    return api.findDomainRecord(domain, fields)
+  }
+  newDomainRecord (conf) {
+    return api.newDomainRecord(conf)
+  }
+  removeDomainRecord (domain, subDomain) {
+    return api.removeDomainRecord(domain, subDomain)
+  }
+  setDomainRecord (conf) {
+    return api.setDomainRecord(conf)
+  }
+  listVMs () {
+    return api.listVMs()
+  }
+  findVMs (fields) {
+    return api.findVMs(fields)
+  }
+  newVm (conf) {
+    return api.newVm(conf)
+  }
+  setVM (conf, {sshKeyPath, sshKeyName, vmName}) {
+    return api.setVM(conf, {sshKeyPath, sshKeyName, vmName})
+  }
+})
 
 module.exports = api
