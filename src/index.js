@@ -4,7 +4,8 @@ const exported = [
   'digitalOcean',
   'docker',
   'object',
-  'fs'
+  'fs',
+  'handlers'
 ]
 
 for (let val of exported) {
