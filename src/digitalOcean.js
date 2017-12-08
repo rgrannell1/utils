@@ -1,19 +1,26 @@
 
 const fs = require('./fs')
+const url = require('url')
 const request = require('request-promise')
 const digitalOceanUrl = 'https://api.digitalocean.com/v2'
+
+function digitalOceanOpts (token, path) {
+  return {
+    uri: url.format({
+      host: 'api.digitalocean.com/v2',
+      pathname: path
+    }),
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    json: true
+  }
+}
 
 const api = { }
 
 api.listSSHKeys = (token) => {
-  const listOpts = {
-    url: `${digitalOceanUrl}/account/keys`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }
-
-  return request.get(listOpts)
+  return request.get(digitalOceanOpts(token, '/account/keys'))
 }
 
 api.findSSHKeys = async (token, fields) => {
@@ -21,7 +28,7 @@ api.findSSHKeys = async (token, fields) => {
     throw new Error('no fields provided.')
   }
 
-  const res = JSON.parse(await api.listSSHKeys(token))
+  const res = await api.listSSHKeys(token)
 
   return res.ssh_keys.find(keyFields => {
     return Object.keys(fields).every(field => {
@@ -31,36 +38,25 @@ api.findSSHKeys = async (token, fields) => {
 }
 
 api.newSSHKey = async (token, name, publicKey) => {
-  const newOpts = {
-    uri: `${digitalOceanUrl}/account/keys/`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-    json: {
+  const opts = Object.assign(digitalOceanOpts(token, '/account/keys'), {
+    body: {
       name,
       public_key: publicKey
     }
-  }
+  })
 
-  return request.post(newOpts)
+  return request.post(opts)
 }
 
 api.updateSSHKey = async (token, name, publicKey) => {
-  const existingKey = await api.findSSHKeys({name})
+  const existingKey = await api.findSSHKeys(token, {name})
 
-  const deleteOpts = {
-    uri: `${digitalOceanUrl}/account/keys/${existingKey.id}`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }
-
-  await request.delete(deleteOpts)
+  await request.delete(digitalOceanOpts(token, `account/keys/${existingKey.id}`))
   await api.newSSHKey(token, name, publicKey)
 }
 
 api.setSSHKey = async (token, name, publicKey) => {
-  const existingKey = await api.findSSHKeys({name})
+  const existingKey = await api.findSSHKeys(token, {name})
 
   if (!existingKey) {
     return api.newSSHKey(token, name, publicKey)
@@ -70,14 +66,7 @@ api.setSSHKey = async (token, name, publicKey) => {
 }
 
 api.listDomainRecords = async (token, domain) => {
-  const getOpts = {
-    uri: `${digitalOceanUrl}/domains/${domain}/records`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }
-
-  return request.get(getOpts)
+  return request.get(digitalOceanOpts(token, `/domains/${domain}/records`))
 }
 
 api.findDomainRecord = async (token, domain, fields) => {
@@ -95,12 +84,8 @@ api.findDomainRecord = async (token, domain, fields) => {
 }
 
 api.newDomainRecord = async (token, conf) => {
-  const reqOpts = {
-    uri: `${digitalOceanUrl}/domains/${conf.domain}/records`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-    json: {
+  const opts = Object.assign(digitalOceanOpts(token, `/domains/${conf.domain}/records`), {
+    body: {
       type: conf.type,
       name: conf.subDomain,
       data: conf.ipv4Address,
@@ -111,9 +96,9 @@ api.newDomainRecord = async (token, conf) => {
       flags: null,
       tag: null
     }
-  }
+  })
 
-  return request.post(reqOpts)
+  return request.post(opts)
 }
 
 api.removeDomainRecord = async (token, domain, subDomain) => {
@@ -299,8 +284,8 @@ class DigitalOcean {
   newVm (conf) {
     return api.newVm(this.token, conf)
   }
-  setVM (conf, {sshKeyPath, sshKeyName, vmName}) {
-    return api.setVM(this.token, conf, {sshKeyPath, sshKeyName, vmName})
+  setVM (conf, serverConf) {
+    return api.setVM(this.token, conf, serverConf)
   }
 }
 
