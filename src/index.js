@@ -6,7 +6,7 @@ const exported = [
   'object',
   'fs',
   'handlers',
-  'ssl-labs'
+  'sslLabs'
 ]
 
 for (let val of exported) {
