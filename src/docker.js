@@ -26,13 +26,7 @@ docker.LABEL = obj => {
 }
 
 docker.EXPOSE = port => {
-  return `EXPORT ${port}`
-}
-
-docker.LABEL = obj => {
-  return Object.entries(obj).map(([key, val]) => {
-    return `ENV ${key}=${val}`
-  });
+  return `EXPOSE ${port}`
 }
 
 docker.ENV = obj => {
