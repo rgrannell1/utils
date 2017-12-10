@@ -34,7 +34,7 @@ fs.readLines = (readStream, onLine) => {
 }
 
 fs.tmpPath = (folder = '/tmp', ext = '.png') => {
-  return `/tmp/${crypto.randomBytes(20).toString('hex')}${ext}`
+  return `${folder}/${crypto.randomBytes(20).toString('hex')}${ext}`
 }
 
 /**
