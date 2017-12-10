@@ -33,8 +33,8 @@ fs.readLines = (readStream, onLine) => {
     })
 }
 
-fs.tmpPath = (ext = '.png') => {
-  return `/tmp/foo/${crypto.randomBytes(20).toString('hex')}${ext}`
+fs.tmpPath = (folder = '/tmp', ext = '.png') => {
+  return `/tmp/${crypto.randomBytes(20).toString('hex')}${ext}`
 }
 
 /**
@@ -56,18 +56,18 @@ fs.writeFile = (path, input) => {
   })
 }
 
-fs.writeTmpFile = input => {
+fs.writeTmpFile = (input, folder = '/tmp') => {
 
   if (stream.isReadable(input)) {
     return new Promise((resolve, reject) => {
-      const tpath = fs.tmpPath('')
+      const tpath = fs.tmpPath(folder)
       reader.pipe(fsNative.createWriteStream(tpath))
         .on('error', reject)
         .on('finish', () => resolve(tpath))
     })
   } else {
     return new Promise((resolve, reject) => {
-      const tpath = fs.tmpPath('')
+      const tpath = fs.tmpPath(folder)
       fsNative.writeFile(tpath, err => {
         err ? reject(err) : resolve(tpath)
       })
