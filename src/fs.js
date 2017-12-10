@@ -68,7 +68,7 @@ fs.writeTmpFile = input => {
   } else {
     return new Promise((resolve, reject) => {
       const tpath = fs.tmpPath('')
-      fsNative.writeFile(tpath, err => {
+      fsNative.writeFile(tpath, input, err => {
         err ? reject(err) : resolve(tpath)
       })
     })
