@@ -57,17 +57,23 @@ fs.writeFile = (path, input) => {
 }
 
 fs.writeTmpFile = input => {
-  const reader = stream.isReadable(input)
-    ? input
-    : stream.asReadStream(input)
 
-  return new Promise((resolve, reject) => {
+  if (stream.isReadable(input)) {
+    return new Promise((resolve, reject) => {
+      const tpath = fs.tmpPath('')
+      reader.pipe(fsNative.createWriteStream(tpath))
+        .on('error', reject)
+        .on('finish', () => resolve(tpath))
+    })
+  } else {
+    return new Promise((resolve, reject) => {
+      const tpath = fs.tmpPath('')
+      fsNative.writeFile(tpath, err => {
+        err ? reject(err) : resolve(tpath)
+      })
+    })
+  }
 
-    const tpath = fs.tmpPath('')
-    reader.pipe(fsNative.createWriteStream(tpath))
-      .on('error', reject)
-      .on('finish', () => resolve(tpath))
-  })
 }
 
 fs.testFile = path => {
