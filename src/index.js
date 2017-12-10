@@ -5,7 +5,8 @@ const exported = [
   'docker',
   'object',
   'fs',
-  'handlers'
+  'handlers',
+  'ssl-labs'
 ]
 
 for (let val of exported) {
