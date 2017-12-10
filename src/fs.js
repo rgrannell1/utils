@@ -63,7 +63,7 @@ fs.writeTmpFile = input => {
 
   return new Promise((resolve, reject) => {
 
-    const tpath = fs.tmpPath()
+    const tpath = fs.tmpPath('')
     reader.pipe(fsNative.createWriteStream(tpath))
       .on('error', reject)
       .on('finish', () => resolve(tpath))
