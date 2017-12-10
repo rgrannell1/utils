@@ -30,9 +30,9 @@ let rest = {
 const sslLabsClient = () => {
   const methods = {}
 
-  methods.scan = () => {
+  methods.scan = (host) => {
     return new Promise((resolve, reject) => {
-      ssllabs.scan('polonium.rgrannell.world', (err, host) => {
+      ssllabs.scan(host, (err, host) => {
         err ? reject(err) :  resolve(host)
       })
     })
@@ -52,21 +52,5 @@ const sslLabsClient = () => {
 
   return methods
 }
-
-
-
-
-async function run () {
-  sslLabsClient().scan()
-    .then(host => {
-      console.dir(host, {depth: 100, colors: true})
-    })
-    .catch(err => {
-      console.log(err)
-      console.log('++ ++ ++')
-    })
-
-}
-run()
 
 module.exports = sslLabsClient
