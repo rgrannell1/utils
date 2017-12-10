@@ -52,7 +52,7 @@ docker.WORKDIR = path => {
 }
 
 docker.HEALTHCHECK = ({interval, timeout}, content) => {
-  return `HEALTHCHECK --interval=${interval}s --timeout=${timeout} ${content}`
+  return `HEALTHCHECK --interval=${interval} --timeout=${timeout} ${content}`
 }
 
 module.exports = docker
