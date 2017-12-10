@@ -7,6 +7,7 @@ const digitalOceanUrl = 'https://api.digitalocean.com/v2'
 function digitalOceanOpts (token, path) {
   return {
     uri: url.format({
+      protocol: 'https',
       host: 'api.digitalocean.com/v2',
       pathname: path
     }),
@@ -214,23 +215,20 @@ api.setVM = async (token, conf, {sshKeyPath, sshKeyName, vmName}) => {
   })
 
   const signaturePath = `${sshKeyPath}.sig`
-  const signature = await new Promise((resolve, reject) => {
-    return fs.readFile(signaturePath)
-  })
+
+  const signature = fs.readFile(signaturePath)
 
   const sshKey = await api.findSSHKeys(token, {
     name: sshKeyName
   })
 
   if (signature !== sshKey.fingerprint) {
-    const publicKey = await new Promise((resolve, reject) => {
-      return fs.readFile(`${sshKeyPath}.pub`)
-    })
+    const publicKey = await fs.readFile(`${sshKeyPath}.pub`)
+  }
 
   //  await api.updateSSHKey(config.get('digitalOcean.sshKeyName'), publicKey)
 
   //  throw new Error(`mismatching local / remote SSH key signatures; ${ signature }, ${ sshKey.fingerprint }`)
-  }
 
   if (!existingVM) {
     return api.newVm(token, Object.assign(conf, {
@@ -238,7 +236,6 @@ api.setVM = async (token, conf, {sshKeyPath, sshKeyName, vmName}) => {
     }))
   }
 }
-
 
 class DigitalOcean {
   constructor (token) {
