@@ -77,6 +77,12 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
     })
     return this
   }
+  async capture () {
+    return new browser.ScreenShot({
+      data: await this.page.screenshot(),
+      time: Date.now()
+    })
+  }
   /**
    *
    * Start emitting screenshots.
@@ -86,10 +92,7 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
   start () {
     this.screenshotPid = setInterval(async () => {
       try {
-
-        const time = Date.now()
-        const data = await this.page.screenshot()
-        const screenshot = new browser.ScreenShot({data, time})
+        const screenshot = this.capture()
 
         this[privateTag].buffer.previous = this[privateTag].buffer.current
         this[privateTag].buffer.current = screenshot
@@ -140,7 +143,7 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
    *
    * @returns {ScreenCapture}
    */
-  async compare (screenshot0, screenshot1, opts = {threshold: 0}) {
+  static async compare (screenshot0, screenshot1, opts = {threshold: 0}) {
     const [png0, png1] = await Promise.all([screenshot0.asPNG(), screenshot1.asPNG()])
 
     const width = png0.width
@@ -157,6 +160,14 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
       pixelDiffPercentage
     }
   }
+  /**
+   *
+   * Record screenshots to a buffer object.
+   *
+   * @fires record indicates the screenshot buffer was updated
+   *
+   * @returns {EventEmitter}
+   */
   record () {
     this.start()
     this.on('screenshot', screenshot => {
@@ -173,16 +184,7 @@ browser.ScreenCapture = class ScreenCapture extends events.EventEmitter {
     })
     return this
   }
-  async renderDiff () {
-    const xx = (this.buffers.diffed[0]).diff
-    const diffs = await Promise.all(this.buffers.diffed.map(diff => fsUtils.writeTmpFile(diff.diff.data, '.png')))
-    videoshow(diffs).save('video.mp4')
-  }
 }
-
-
-
-
 
 async function run () {
   const chrome = await puppeteer.launch({headless: true})
