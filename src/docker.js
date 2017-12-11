@@ -47,7 +47,7 @@ docker.ENTRYPOINT = command => {
   return `ENTRYPOINT ${command}`
 }
 
-docker.WORKDIR => path => {
+docker.WORKDIR = path => {
   return `WORKDIR ${path}`
 }
 
