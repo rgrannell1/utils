@@ -8,7 +8,6 @@
   "dependencies": {
     "cpr": "^3.0.1",
     "errors": "^0.3.0",
-    "imagediff": "^1.0.8",
     "looks-same": "^3.2.1",
     "mkdirp": "^0.5.1",
     "mkdirp-promise": "^5.0.1",
