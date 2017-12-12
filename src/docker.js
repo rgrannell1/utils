@@ -57,6 +57,10 @@ docker.WORKDIR = path => {
   return `WORKDIR ${path}`
 }
 
+docker.WORKDIR = path => {
+  return `WORKDIR ${path}`
+}
+
 docker.HEALTHCHECK = ({interval, timeout}, content) => {
   return `HEALTHCHECK --interval=${interval} --timeout=${timeout} ${content}`
 }
