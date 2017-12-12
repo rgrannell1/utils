@@ -39,14 +39,14 @@ docker.ADD = (sources, dest) => {
   return `ADD ${JSON.stringify(sources.concat([dest]))}`
 }
 
-docker.COPY = (sources, dest, opts = {}) => {
+docker.COPY = (source, dest, opts = {}) => {
   let optStrings = ''
 
   Object.entries(opts).forEach(([param, val]) => {
     optStrings += ` --${param}="${val}"`
   })
 
-  return `COPY ${optStrings} ${JSON.stringify(sources.concat([dest]))}`
+  return `COPY ${optStrings} ${source} ${dest}`
 }
 
 docker.ENTRYPOINT = command => {
