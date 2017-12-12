@@ -42,7 +42,7 @@ docker.ADD = (sources, dest) => {
 docker.COPY = (sources, dest, opts = {}) => {
   let optStrings = ''
 
-  Object.entries(opts).forEach((param, val) => {
+  Object.entries(opts).forEach(([param, val]) => {
     optStrings += ` --${param}="${val}"`
   })
 
