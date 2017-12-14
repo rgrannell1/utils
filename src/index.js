@@ -6,6 +6,7 @@ const exported = [
   'object',
   'fs',
   'handlers',
+  'httpResponses',
   'sslLabs'
 ]
 
