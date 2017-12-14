@@ -1,5 +1,5 @@
 
-const httpStatuses = {}
+const httpStatuses = {is:{}}
 
 const requestData = {
   BadRequest: 400,
@@ -45,10 +45,13 @@ const requestData = {
   NetworkAuthenticationRequired: 511
 }
 
-Object.entries(requestData).forEach(([description, statusCode]) => {
+Object.entries(requestData).forEach(([description, status]) => {
   httpStatuses[description] = ctxData => {
-  	Object.assign({}, ctxData, {statusCode})
+  	Object.assign({}, ctxData, {status})
   }
+  httpStatuses.is[description] = ctx => {
+  	return ctx.status === statusCode
+  }  
 })
 
 module.exports = httpStatuses
