@@ -50,7 +50,7 @@ Object.entries(requestData).forEach(([description, status]) => {
   	Object.assign({}, ctxData, {status})
   }
   httpStatuses.is[description] = ctx => {
-  	return ctx.status === statusCode
+  	return ctx.status === status
   }  
 })
 
