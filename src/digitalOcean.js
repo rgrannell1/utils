@@ -237,6 +237,33 @@ api.setVM = async (token, conf, {sshKeyPath, sshKeyName, vmName}) => {
   }
 }
 
+api.newFirewall = async (token, {}) => {
+
+}
+
+api.setFirewall = async (token, {vmName, firewallName}) => {
+  const vm = await api.findVMs({
+    name: vmName
+  })
+
+  console.log(vm)
+
+  const opts = {
+    name: firewallName,
+    inbound_rules: config.inbound.map(inbound => {
+      return {protocol: 'tcp', ports: inbound.ports, addresses: inbound.addresses }
+    }),
+    outbound_rules: config.outbound.map(outbound => {
+      return {protocol: 'tcp', ports: outbound.ports, addresses: outbound.addresses }
+    }),
+    droplet_ids: []
+  }
+
+  if (!existingFirewall) {
+    return api.newFirewall(token, {vmName, firewallName})
+  }
+}
+
 class DigitalOcean {
   constructor (token) {
     this.token = token
