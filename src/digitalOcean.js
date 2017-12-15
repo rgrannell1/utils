@@ -284,7 +284,13 @@ api.newFirewall = async (token, {vmName, firewallName, inbound, outbound}) => {
         }
       }),
       outbound_rules: outbound.map(outbound => {
-        return {protocol: 'tcp', ports: outbound.ports, addresses: outbound.addresses}
+        return {
+          protocol: 'tcp',
+          ports: outbound.ports,
+          destinations: {
+            addresses: outbound.addresses
+          }
+        }
       }),
       droplet_ids: [vm.id]
     }
