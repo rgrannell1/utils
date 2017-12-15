@@ -167,18 +167,23 @@ api.listVMs = async (token) => {
     uri: `${digitalOceanUrl}/droplets?`,
     headers: {
       Authorization: `Bearer ${token}`
-    }
+    },
+    json: true
   }
 
   return request.get(reqOpts)
 }
 
 api.findVMs = async (token, fields) => {
+  if (!fields) {
+    throw new Error('fields object missing.')
+  }
+
   if (Object.keys(fields).length === 0) {
     throw new Error('no fields provided.')
   }
 
-  const res = JSON.parse(await api.listVMs(token))
+  const res = await api.listVMs(token)
 
   return res.droplets.find(keyFields => {
     return Object.keys(fields).every(field => {
@@ -237,30 +242,56 @@ api.setVM = async (token, conf, {sshKeyPath, sshKeyName, vmName}) => {
   }
 }
 
-api.newFirewall = async (token, {}) => {
-
-}
-
-api.setFirewall = async (token, {vmName, firewallName}) => {
-  const vm = await api.findVMs({
-    name: vmName
-  })
-
-  console.log(vm)
-
-  const opts = {
-    name: firewallName,
-    inbound_rules: config.inbound.map(inbound => {
-      return {protocol: 'tcp', ports: inbound.ports, addresses: inbound.addresses }
-    }),
-    outbound_rules: config.outbound.map(outbound => {
-      return {protocol: 'tcp', ports: outbound.ports, addresses: outbound.addresses }
-    }),
-    droplet_ids: []
+api.listFirewalls = async (token) => {
+  const reqOpts = {
+    uri: `${digitalOceanUrl}/firewalls`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    json: true
   }
 
-  if (!existingFirewall) {
-    return api.newFirewall(token, {vmName, firewallName})
+  return request.get(reqOpts)
+}
+
+api.findFirewall = async (token, fields) => {
+  const res = await api.listFirewalls(token)
+
+  return res.firewalls.find(keyFields => {
+    return Object.keys(fields).every(field => {
+      return keyFields[field] === fields[field]
+    })
+  })
+}
+
+api.newFirewall = async (token, {vmName, firewallName, inbound, outbound}) => {
+  const vm = await api.findVMs(token, {name: vmName})
+
+  const reqOpts = {
+    uri: `${digitalOceanUrl}/firewalls`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    json: {
+      name: firewallName,
+      inbound_rules: inbound.map(inbound => {
+        return {protocol: 'tcp', ports: inbound.ports, addresses: inbound.addresses}
+      }),
+      outbound_rules: outbound.map(outbound => {
+        return {protocol: 'tcp', ports: outbound.ports, addresses: outbound.addresses}
+      }),
+      droplet_ids: [vm.id]
+    }
+  }
+
+  return request.post(reqOpts)
+}
+
+api.setFirewall = async (token, {vmName, firewallName, inbound = [], outbound = []}) => {
+  const firewall = await api.findFirewall(token, {name: firewallName})
+
+  if (!firewall) {
+    return api.newFirewall(token, {vmName, firewallName, inbound, outbound})
   }
 }
 
@@ -310,6 +341,9 @@ class DigitalOcean {
   }
   setVM (conf, serverConf) {
     return api.setVM(this.token, conf, serverConf)
+  }
+  setFirewall (conf) {
+    return api.setFirewall(this.token, conf)
   }
 }
 
