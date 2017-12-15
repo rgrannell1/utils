@@ -275,7 +275,13 @@ api.newFirewall = async (token, {vmName, firewallName, inbound, outbound}) => {
     json: {
       name: firewallName,
       inbound_rules: inbound.map(inbound => {
-        return {protocol: 'tcp', ports: inbound.ports, addresses: inbound.addresses}
+        return {
+          protocol: 'tcp',
+          ports: inbound.ports,
+          sources: {
+            addresses: inbound.addresses
+          }
+        }
       }),
       outbound_rules: outbound.map(outbound => {
         return {protocol: 'tcp', ports: outbound.ports, addresses: outbound.addresses}
