@@ -1,5 +1,5 @@
 
-const httpStatuses = {}
+const httpStatuses = {is: {}}
 
 const requestData = {
   BadRequest: 400,
@@ -48,6 +48,9 @@ const requestData = {
 Object.entries(requestData).forEach(([description, statusCode]) => {
   httpStatuses[description] = ctxData => {
   	Object.assign({}, ctxData, {statusCode})
+  }
+  httpStatuses.is[description] = ctx => {
+  	return ctx.statusCode === statusCode
   }
 })
 

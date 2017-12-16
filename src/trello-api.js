@@ -20,13 +20,14 @@ const request = require('request-promise-native')
  * @returns {Promise}
  */
 const makeRequest = async (method, path, credentials, params = {}) => {
-  return JSON.parse(await request[method]({
+  return request[method]({
     uri: `https://api.trello.com/1/${path}`,
+    json: true,
     qs: Object.assign({}, credentials, params)
-  }))
+  })
 }
 
-let rest = {
+const rest = {
   get: makeRequest.bind(null, 'get'),
   put: makeRequest.bind(null, 'put'),
   post: makeRequest.bind(null, 'post')
