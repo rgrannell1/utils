@@ -43,7 +43,7 @@ class Elasticsearch {
   index ({index = 'logs', type = 'logs', body}) {
     return rest.put(this.host, `/${index}/${type}`, {}, body)
   }
-  dynamicMapping ({name, body}) {
+  setDynamicMapping ({name, body}) {
     return rest.put(this.host, `/_template/${name}`, {}, body)
   }
 }
