@@ -3,6 +3,7 @@ const exported = [
   'array',
   'digitalOcean',
   'docker',
+  'elasticsearch',
   'object',
   'fs',
   'handlers',
