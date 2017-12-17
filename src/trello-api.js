@@ -11,8 +11,7 @@ const request = require('request-promise-native')
 
 /**
  * @param {string} mathod the HTTP method to use
- * @param {string} path the trello API uri-path
- * @param {object} credentials trello credentials
+ * @param {string} path the trello API uri-path    * @param {object} credentials trello credentials
  * @param {object} credentials.key trello key
  * @param {object} credentials.token trello token
  * @param {object} params query-parameters

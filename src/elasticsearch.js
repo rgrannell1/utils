@@ -19,10 +19,10 @@ const request = require('request-promise-native')
  *
  * @returns {Promise}
  */
-const makeRequest = async (method, host, path, params = {}) => {
+const makeRequest = async (method, host, path, params = {}, body) => {
   return request[method]({
     uri: `${host}/${path}`,
-    json: true,
+    json: body || true,
     qs: Object.assign({}, params)
   })
 }
@@ -33,16 +33,18 @@ const rest = {
   post: makeRequest.bind(null, 'post')
 }
 
-const elasticsearch = {}
-
-elasticsearch.health = {}
-
 class Elasticsearch {
   constructor (config) {
     Object.assign(this, config)
   }
   health () {
-    return rest.get(this.host,  '_cluster/health')
+    return rest.get(this.host,  '/_cluster/health')
+  }
+  index ({index = 'logs', type = 'logs', body}) {
+    return rest.put(this.host, `/${index}/${type}`, {}, body)
+  }
+  dynamicMapping ({name, body}) {
+    return rest.put(this.host, `/_template/${name}`, {}, body)
   }
 }
 
