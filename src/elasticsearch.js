@@ -42,7 +42,7 @@ class Elasticsearch {
     return rest.get(this.host,  '/_cluster/health')
   }
   index ({index = 'logs', type = 'logs', body}) {
-    return rest.put(this.host, `/${index}/${type}`, {}, body)
+    return rest.post(this.host, `/${index}/${type}`, {}, body)
   }
   setDynamicMapping ({name, body}) {
     return rest.put(this.host, `/_template/${name}`, {}, body)
