@@ -22,7 +22,8 @@ const request = require('request-promise-native')
 const makeRequest = async (method, host, path, params = {}, body) => {
   return request[method]({
     uri: `${host}/${path}`,
-    json: body || true,
+    json: body,
+    body: body || null,
     qs: Object.assign({}, params)
   })
 }
