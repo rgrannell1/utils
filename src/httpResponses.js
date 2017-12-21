@@ -46,7 +46,7 @@ const requestData = {
 
 Object.entries(requestData).forEach(([description, status]) => {
   httpStatuses[description] = ctxData => {
-  	Object.assign({}, ctxData, {status})
+  	return Object.assign({}, ctxData, {status})
   }
   httpStatuses.is[description] = ctx => {
   	return ctx.status === status
