@@ -22,7 +22,8 @@ const request = require('request-promise-native')
 const makeRequest = async (method, host, path, params = {}, body) => {
   return request[method]({
     uri: `${host}/${path}`,
-    json: body || true,
+    json: true,
+    body: body || null,
     qs: Object.assign({}, params)
   })
 }
@@ -38,13 +39,13 @@ class Elasticsearch {
     Object.assign(this, config)
   }
   health () {
-    return rest.get(this.host,  '/_cluster/health')
+    return rest.get(this.host,  '_cluster/health')
   }
   index ({index = 'logs', type = 'logs', body}) {
-    return rest.put(this.host, `/${index}/${type}`, {}, body)
+    return rest.post(this.host, `${index}/${type}`, {}, body)
   }
-  dynamicMapping ({name, body}) {
-    return rest.put(this.host, `/_template/${name}`, {}, body)
+  setDynamicMapping ({name, body}) {
+    return rest.put(this.host, `_template/${name}`, {}, body)
   }
 }
 
