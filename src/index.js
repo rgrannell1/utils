@@ -1,6 +1,7 @@
 
 const exported = [
   'array',
+  'dependencies',
   'digitalOcean',
   'docker',
   'elasticsearch',
