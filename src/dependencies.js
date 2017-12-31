@@ -1,5 +1,6 @@
 
 const fs = require('fs')
+const object = require('./object')
 
 const reportState = {
   failed: Symbol('failed'),
@@ -17,16 +18,6 @@ const deps = {}
 class Dependency {
   constructor (config) {
     Object.assign(this, config)
-  }
-  assertFieldsPresent () {
-    const fields = this[symbols.requiredFields]()
-
-    for (let field of fields) {
-      if (!this.hasOwnProperty(field)) {
-        throw new Error(`missing required field "${field}"`)
-      }
-    }
-
   }
 }
 
@@ -57,11 +48,9 @@ deps.check = async schemas => {
 }
 
 deps.Path = class extends Dependency {
-  [symbols.requiredFields] () {
-    return new Set(['path'])
-  }
   [symbols.inspect] () {
-    super.assertFieldsPresent()
+    Object.assertProperties(this, ['path'])
+
     return new Promise((resolve, reject) => {
       fs.stat(this.path, err => {
         const ctx = {
@@ -76,11 +65,9 @@ deps.Path = class extends Dependency {
 }
 
 deps.EnvVar = class extends Dependency {
-  [symbols.requiredFields] () {
-    return new Set(['variable'])
-  }
   [symbols.inspect] () {
-    super.assertFieldsPresent()
+    Object.assertProperties(this, ['variable'])
+
     return new Promise((resolve, reject) => {
       const ctx = {
         variable: this.variable
@@ -94,11 +81,9 @@ deps.EnvVar = class extends Dependency {
 }
 
 deps.Droplet = class extends Dependency {
-  [symbols.requiredFields] () {
-    return new Set(['name'])
-  }
   [symbols.inspect] () {
-    super.assertFieldsPresent()
+    Object.assertProperties(this, ['name'])
+
     return new Promise((resolve, reject) => {
       const ctx = {
         variable: this.variable
@@ -114,5 +99,5 @@ deps.Droplet = class extends Dependency {
     })
   }
 }
-
+new deps.EnvVar({variable:'asdasd'})[symbols.inspect]()
 module.exports = deps
