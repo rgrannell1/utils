@@ -139,7 +139,5 @@ deps.Droplet = class extends Dependency {
     })
   }
 }
-deps.check([
-  new deps.EnvVar({variable: 'xxxxxx'})
-])
+
 module.exports = deps
