@@ -3,6 +3,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const object = require('./object')
 const request = require('request')
+const dns = require('dns')
 
 const reportState = {
   failed: Symbol('failed'),
@@ -39,8 +40,7 @@ class Dependency {
 }
 
 deps.check = async schemas => {
-
-  const results = schemas.map(schema => {
+  const results = schemas.map(async schema => {
     if (schema[symbols.inspect]) {
       return schema[symbols.inspect]()
     } else {
@@ -63,7 +63,7 @@ deps.check = async schemas => {
     err.results = resolvedResults
     throw err
   } else {
-    return
+    console.error(report)
   }
 }
 
@@ -128,9 +128,6 @@ deps.Droplet = class extends Dependency {
   [symbols.inspect] () {
     Object.assertProperties(this, ['name', 'label'])
 
-    const ctx = {
-      variable: this.variable
-    }
     return digitalOcean.findVMs({name: this.name})
       .then(vm => {
         const ctx = {
@@ -146,6 +143,40 @@ deps.Droplet = class extends Dependency {
       .catch(err => {
         return {status: reportState.failed, ctx, reason: 'an error occurred'}
       })
+  }
+}
+
+deps.Domain = class extends Dependency {
+  constructor (...args) {
+    super(...args)
+    Object.assign(this, {
+      label: 'domain'
+    })
+  }
+  [symbols.inspect] () {
+    Object.assertProperties(this, ['host', 'label'])
+
+    return new Promise(resolve => {
+      dns.lookup(this.host, (err, result) => {
+        const ctx = {
+          host: this.host,
+          label: this.label
+        }
+        const status = {ctx}
+
+        if (err) {
+          status.status = reportState.failed
+          ctx.err = err
+          ctx.reason = 'an error occurred'
+        } else {
+          status.status = reportState.passed
+          ctx.reason = 'domain resolved to IP address'
+        }
+
+        resolve(status)
+
+      })
+    })
   }
 }
 
