@@ -1,7 +1,16 @@
 
 const docker = {}
 
-docker.FILE = lines => lines.join('\n')
+docker.FILE = lines => {
+  
+  lines.forEach(line => {
+    if (typeof line === 'undefined') {
+      throw new Error(`line was undefined in: \n${lines.join('\n')}`)
+    }
+  })
+  
+  return lines.join('\n')
+}
 
 docker.FROM = (id, name) => {
   return name
