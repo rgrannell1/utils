@@ -49,6 +49,14 @@ docker.ADD = (sources, dest) => {
 }
 
 docker.COPY = (source, dest, opts = {}) => {
+  
+  if (!source) {
+    throw new Error('source not specifed')
+  }
+  if (!dest) {
+    throw new Error('dest not specifed')
+  }
+  
   let optStrings = ''
 
   Object.entries(opts).forEach(([param, val]) => {
