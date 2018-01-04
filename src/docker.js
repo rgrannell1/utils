@@ -9,7 +9,13 @@ docker.FILE = lines => {
     }
   })
   
-  return lines.join('\n')
+  const content = lines.join('\n')
+  
+  if (content.indexOf('undefined') !== -1) {
+    throw new Error(`"undefined" detected in content: ${content}`)
+  }
+  
+  return content
 }
 
 docker.FROM = (id, name) => {
