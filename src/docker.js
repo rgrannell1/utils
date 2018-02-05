@@ -1,7 +1,22 @@
 
 const docker = {}
 
-docker.FILE = lines => lines.join('\n')
+docker.FILE = lines => {
+  
+  lines.forEach(line => {
+    if (typeof line === 'undefined') {
+      throw new Error(`line was undefined in: \n${lines.join('\n')}`)
+    }
+  })
+  
+  const content = lines.join('\n')
+  
+  if (content.indexOf('undefined') !== -1) {
+    throw new Error(`"undefined" detected in content: ${content}`)
+  }
+  
+  return content
+}
 
 docker.FROM = (id, name) => {
   return name
@@ -40,6 +55,14 @@ docker.ADD = (sources, dest) => {
 }
 
 docker.COPY = (source, dest, opts = {}) => {
+  
+  if (!source) {
+    throw new Error('source not specifed')
+  }
+  if (!dest) {
+    throw new Error('dest not specifed')
+  }
+  
   let optStrings = ''
 
   Object.entries(opts).forEach(([param, val]) => {
