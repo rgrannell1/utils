@@ -5,7 +5,7 @@ const exported = [
   'digitalOcean',
   'docker',
   'elasticsearch',
-  'google-cloud-storage',
+  'googleCloudStorage',
   'object',
   'fs',
   'handlers',
