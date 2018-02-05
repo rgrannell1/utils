@@ -1,7 +1,7 @@
 
 const fs = require('./fs')
 const url = require('url')
-const request = require('request-promise')
+const request = require('request-promise-native')
 const digitalOceanUrl = 'https://api.digitalocean.com/v2'
 
 function digitalOceanOpts (token, path) {
