@@ -20,9 +20,9 @@ cloudStorage.listFiles = bucket => {
   return storage.bucket(bucket).getFiles().then(results => results[0])
 }
 
-cloudStorage.downloadFile = (bucket, src, dest) => {
+cloudStorage.downloadFile = (bucket, src) => {
   const storage = new Storage()
-  return storage.bucket(bucket).file(src).download({destination: dest}).then(() => dest)
+  return storage.bucket(bucket).file(src).download()
 }
 
 cloudStorage.downloadBlobFiles = bucket => {
@@ -30,7 +30,7 @@ cloudStorage.downloadBlobFiles = bucket => {
     .then(files => files.map(file => file.name))
     .then(names => {
       const chain = names.map((name, ith) => {
-        return cloudStorage.downloadFile(bucket, name, `data/${ith}.json`)
+        return cloudStorage.downloadFile(bucket, name)
       })
       return Promise.all(chain)
     })

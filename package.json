@@ -6,6 +6,7 @@
   "author": "rgrannell1 <r.grannell2@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/storage": "^1.5.2",
     "chalk": "^2.3.0",
     "cpr": "^3.0.1",
     "errors": "^0.3.0",
