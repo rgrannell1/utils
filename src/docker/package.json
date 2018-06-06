@@ -1,0 +1,6 @@
+{
+  "name": "@rgrannell1/docker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
