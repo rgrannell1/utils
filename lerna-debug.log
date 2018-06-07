@@ -1,0 +1,302 @@
+0 silly input [ 'publish', '--access=public' ]
+1 silly flags { _: [ 'publish', '--access=public' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false }
+2 verbose rootPath /home/ryan/Code/utils
+3 info version 2.11.0
+4 silly isInitialized
+5 silly isInitialized true
+6 silly existsSync /home/ryan/Code/utils/VERSION
+7 silly initialize attempt
+8 info current version 3.0.0-0
+9 silly isDetachedHead
+10 silly getCurrentBranch
+11 verbose getCurrentBranch master
+12 verbose isDetachedHead false
+13 silly getCurrentBranch
+14 verbose getCurrentBranch master
+15 silly getUpdates
+16 info Checking for updated packages...
+17 silly hasTags
+18 verbose hasTags true
+19 silly getLastTag
+20 verbose getLastTag v3.0.0-0
+21 info Comparing with v3.0.0-0.
+22 silly diffSinceIn v3.0.0-0 packages/chain
+23 silly diff
+24 silly diffSinceIn v3.0.0-0 packages/docker
+25 silly diff
+26 silly diffSinceIn v3.0.0-0 packages/markdown
+27 silly diff
+28 silly diffSinceIn v3.0.0-0 packages/mustache
+29 silly diff
+30 silly diffSinceIn v3.0.0-0 packages/promise
+31 silly diff
+32 silly diffSinceIn v3.0.0-0 packages/set
+33 silly diff
+34 silly diffSinceIn v3.0.0-0 packages/ssl-labs
+35 silly diff
+36 silly diffSinceIn v3.0.0-0 packages/units
+37 silly diff
+38 info Checking for prereleased packages...
+39 verbose prereleased @rgrannell/chain
+40 verbose prereleased @rgrannell/docker
+41 verbose prereleased @rgrannell/markdown
+42 verbose prereleased @rgrannell/mustache
+43 verbose prereleased @rgrannell/promise
+44 verbose prereleased @rgrannell/set
+45 verbose prereleased @rgrannell/mustache
+46 verbose prereleased @rgrannell/units
+47 silly collectDependents
+48 silly isPackageDependentOf @rgrannell/chain @rgrannell/chain
+49 silly isPackageDependentOf @rgrannell/chain @rgrannell/docker
+50 silly isPackageDependentOf @rgrannell/chain @rgrannell/markdown
+51 silly isPackageDependentOf @rgrannell/chain @rgrannell/mustache
+52 silly isPackageDependentOf @rgrannell/chain @rgrannell/promise
+53 silly isPackageDependentOf @rgrannell/chain @rgrannell/set
+54 silly isPackageDependentOf @rgrannell/chain @rgrannell/units
+55 silly isPackageDependentOf @rgrannell/docker @rgrannell/chain
+56 silly isPackageDependentOf @rgrannell/docker @rgrannell/docker
+57 silly isPackageDependentOf @rgrannell/docker @rgrannell/markdown
+58 silly isPackageDependentOf @rgrannell/docker @rgrannell/mustache
+59 silly isPackageDependentOf @rgrannell/docker @rgrannell/promise
+60 silly isPackageDependentOf @rgrannell/docker @rgrannell/set
+61 silly isPackageDependentOf @rgrannell/docker @rgrannell/units
+62 silly isPackageDependentOf @rgrannell/markdown @rgrannell/chain
+63 silly isPackageDependentOf @rgrannell/markdown @rgrannell/docker
+64 silly isPackageDependentOf @rgrannell/markdown @rgrannell/markdown
+65 silly isPackageDependentOf @rgrannell/markdown @rgrannell/mustache
+66 silly isPackageDependentOf @rgrannell/markdown @rgrannell/promise
+67 silly isPackageDependentOf @rgrannell/markdown @rgrannell/set
+68 silly isPackageDependentOf @rgrannell/markdown @rgrannell/units
+69 silly isPackageDependentOf @rgrannell/mustache @rgrannell/chain
+70 silly isPackageDependentOf @rgrannell/mustache @rgrannell/docker
+71 silly isPackageDependentOf @rgrannell/mustache @rgrannell/markdown
+72 silly isPackageDependentOf @rgrannell/mustache @rgrannell/mustache
+73 silly isPackageDependentOf @rgrannell/mustache @rgrannell/promise
+74 silly isPackageDependentOf @rgrannell/mustache @rgrannell/set
+75 silly isPackageDependentOf @rgrannell/mustache @rgrannell/units
+76 silly isPackageDependentOf @rgrannell/promise @rgrannell/chain
+77 silly isPackageDependentOf @rgrannell/promise @rgrannell/docker
+78 silly isPackageDependentOf @rgrannell/promise @rgrannell/markdown
+79 silly isPackageDependentOf @rgrannell/promise @rgrannell/mustache
+80 silly isPackageDependentOf @rgrannell/promise @rgrannell/promise
+81 silly isPackageDependentOf @rgrannell/promise @rgrannell/set
+82 silly isPackageDependentOf @rgrannell/promise @rgrannell/units
+83 silly isPackageDependentOf @rgrannell/set @rgrannell/chain
+84 silly isPackageDependentOf @rgrannell/set @rgrannell/docker
+85 silly isPackageDependentOf @rgrannell/set @rgrannell/markdown
+86 silly isPackageDependentOf @rgrannell/set @rgrannell/mustache
+87 silly isPackageDependentOf @rgrannell/set @rgrannell/promise
+88 silly isPackageDependentOf @rgrannell/set @rgrannell/set
+89 silly isPackageDependentOf @rgrannell/set @rgrannell/units
+90 silly isPackageDependentOf @rgrannell/mustache @rgrannell/chain
+91 silly isPackageDependentOf @rgrannell/mustache @rgrannell/docker
+92 silly isPackageDependentOf @rgrannell/mustache @rgrannell/markdown
+93 silly isPackageDependentOf @rgrannell/mustache @rgrannell/mustache
+94 silly isPackageDependentOf @rgrannell/mustache @rgrannell/promise
+95 silly isPackageDependentOf @rgrannell/mustache @rgrannell/set
+96 silly isPackageDependentOf @rgrannell/mustache @rgrannell/units
+97 silly isPackageDependentOf @rgrannell/units @rgrannell/chain
+98 silly isPackageDependentOf @rgrannell/units @rgrannell/docker
+99 silly isPackageDependentOf @rgrannell/units @rgrannell/markdown
+100 silly isPackageDependentOf @rgrannell/units @rgrannell/mustache
+101 silly isPackageDependentOf @rgrannell/units @rgrannell/promise
+102 silly isPackageDependentOf @rgrannell/units @rgrannell/set
+103 silly isPackageDependentOf @rgrannell/units @rgrannell/units
+104 silly collectUpdates
+105 verbose has filtered update @rgrannell/chain
+106 verbose has filtered update @rgrannell/docker
+107 verbose has filtered update @rgrannell/markdown
+108 verbose has filtered update @rgrannell/mustache
+109 verbose has filtered update @rgrannell/promise
+110 verbose has filtered update @rgrannell/set
+111 verbose has filtered update @rgrannell/mustache
+112 verbose has filtered update @rgrannell/units
+113 silly initialize success
+114 silly execute attempt
+115 silly addFile /home/ryan/Code/utils/lerna.json
+116 silly runScriptSync preversion @rgrannell1/utils
+117 silly runScriptSync preversion @rgrannell/chain
+118 silly runScriptSync version @rgrannell/chain
+119 silly runScriptSync preversion @rgrannell/docker
+120 silly runScriptSync version @rgrannell/docker
+121 silly runScriptSync preversion @rgrannell/markdown
+122 silly runScriptSync version @rgrannell/markdown
+123 silly runScriptSync preversion @rgrannell/mustache
+124 silly runScriptSync version @rgrannell/mustache
+125 silly runScriptSync preversion @rgrannell/promise
+126 silly runScriptSync version @rgrannell/promise
+127 silly runScriptSync preversion @rgrannell/set
+128 silly runScriptSync version @rgrannell/set
+129 silly runScriptSync preversion @rgrannell/mustache
+130 silly runScriptSync version @rgrannell/mustache
+131 silly runScriptSync preversion @rgrannell/units
+132 silly runScriptSync version @rgrannell/units
+133 silly runScriptSync version @rgrannell1/utils
+134 silly addFile /home/ryan/Code/utils/packages/chain/package.json
+135 silly addFile /home/ryan/Code/utils/packages/docker/package.json
+136 silly addFile /home/ryan/Code/utils/packages/markdown/package.json
+137 silly addFile /home/ryan/Code/utils/packages/mustache/package.json
+138 silly addFile /home/ryan/Code/utils/packages/promise/package.json
+139 silly addFile /home/ryan/Code/utils/packages/set/package.json
+140 silly addFile /home/ryan/Code/utils/packages/ssl-labs/package.json
+141 silly addFile /home/ryan/Code/utils/packages/units/package.json
+142 silly commit v4.0.0-0
+143 verbose commit [ 'commit', '--no-verify', '-m', 'v4.0.0-0' ]
+144 silly addTag v4.0.0-0
+145 silly runScriptSync postversion @rgrannell/chain
+146 silly runScriptSync postversion @rgrannell/docker
+147 silly runScriptSync postversion @rgrannell/markdown
+148 silly runScriptSync postversion @rgrannell/mustache
+149 silly runScriptSync postversion @rgrannell/promise
+150 silly runScriptSync postversion @rgrannell/set
+151 silly runScriptSync postversion @rgrannell/mustache
+152 silly runScriptSync postversion @rgrannell/units
+153 silly runScriptSync postversion @rgrannell1/utils
+154 info publish Publishing packages to npm...
+155 silly existsSync /home/ryan/Code/utils/packages/chain/scripts/prepublish.js
+156 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/chain/scripts/prepublish.js
+157 silly existsSync /home/ryan/Code/utils/packages/docker/scripts/prepublish.js
+158 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/docker/scripts/prepublish.js
+159 silly existsSync /home/ryan/Code/utils/packages/markdown/scripts/prepublish.js
+160 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/markdown/scripts/prepublish.js
+161 silly existsSync /home/ryan/Code/utils/packages/mustache/scripts/prepublish.js
+162 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/mustache/scripts/prepublish.js
+163 silly existsSync /home/ryan/Code/utils/packages/promise/scripts/prepublish.js
+164 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/promise/scripts/prepublish.js
+165 silly existsSync /home/ryan/Code/utils/packages/set/scripts/prepublish.js
+166 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/set/scripts/prepublish.js
+167 silly existsSync /home/ryan/Code/utils/packages/ssl-labs/scripts/prepublish.js
+168 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/ssl-labs/scripts/prepublish.js
+169 silly existsSync /home/ryan/Code/utils/packages/units/scripts/prepublish.js
+170 verbose execScript No prepublish script found at /home/ryan/Code/utils/packages/units/scripts/prepublish.js
+171 verbose publishing @rgrannell/chain
+172 silly publishTaggedInDir latest chain
+173 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/chain' }
+174 verbose publishing @rgrannell/docker
+175 silly publishTaggedInDir latest docker
+176 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/docker' }
+177 verbose publishing @rgrannell/markdown
+178 silly publishTaggedInDir latest markdown
+179 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/markdown' }
+180 verbose publishing @rgrannell/mustache
+181 silly publishTaggedInDir latest mustache
+182 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/mustache' }
+183 error publish Retrying failed publish: @rgrannell/docker
+184 verbose publish error undefined
+185 verbose publishing @rgrannell/docker
+186 silly publishTaggedInDir latest docker
+187 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/docker' }
+188 error publish Retrying failed publish: @rgrannell/markdown
+189 verbose publish error undefined
+190 verbose publishing @rgrannell/markdown
+191 silly publishTaggedInDir latest markdown
+192 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/markdown' }
+193 error publish Retrying failed publish: @rgrannell/mustache
+194 verbose publish error undefined
+195 verbose publishing @rgrannell/mustache
+196 silly publishTaggedInDir latest mustache
+197 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/mustache' }
+198 error publish Retrying failed publish: @rgrannell/chain
+199 verbose publish error undefined
+200 verbose publishing @rgrannell/chain
+201 silly publishTaggedInDir latest chain
+202 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/chain' }
+203 error publish Retrying failed publish: @rgrannell/chain
+204 verbose publish error undefined
+205 verbose publishing @rgrannell/chain
+206 silly publishTaggedInDir latest chain
+207 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/chain' }
+208 error publish Retrying failed publish: @rgrannell/mustache
+209 verbose publish error undefined
+210 verbose publishing @rgrannell/mustache
+211 silly publishTaggedInDir latest mustache
+212 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/mustache' }
+213 error publish Retrying failed publish: @rgrannell/markdown
+214 verbose publish error undefined
+215 verbose publishing @rgrannell/markdown
+216 silly publishTaggedInDir latest markdown
+217 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/markdown' }
+218 error publish Retrying failed publish: @rgrannell/chain
+219 verbose publish error undefined
+220 verbose publishing @rgrannell/chain
+221 silly publishTaggedInDir latest chain
+222 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/chain' }
+223 error publish Retrying failed publish: @rgrannell/mustache
+224 verbose publish error undefined
+225 verbose publishing @rgrannell/mustache
+226 silly publishTaggedInDir latest mustache
+227 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/mustache' }
+228 error publish Retrying failed publish: @rgrannell/markdown
+229 verbose publish error undefined
+230 verbose publishing @rgrannell/markdown
+231 silly publishTaggedInDir latest markdown
+232 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/markdown' }
+233 error publish Retrying failed publish: @rgrannell/mustache
+234 verbose publish error undefined
+235 verbose publishing @rgrannell/mustache
+236 silly publishTaggedInDir latest mustache
+237 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/mustache' }
+238 error publish Retrying failed publish: @rgrannell/chain
+239 verbose publish error undefined
+240 verbose publishing @rgrannell/chain
+241 silly publishTaggedInDir latest chain
+242 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/chain' }
+243 error publish Retrying failed publish: @rgrannell/markdown
+244 verbose publish error undefined
+245 verbose publishing @rgrannell/markdown
+246 silly publishTaggedInDir latest markdown
+247 silly getExecOpts { cwd: '/home/ryan/Code/utils/packages/markdown' }
+248 error publish Ran out of retries while publishing @rgrannell/mustache Error: Command failed: npm publish --tag latest
+248 error publish npm notice
+248 error publish npm notice 📦  @rgrannell/mustache@4.0.0-0
+248 error publish npm notice === Tarball Contents ===
+248 error publish npm notice 102B  package.json
+248 error publish npm notice 250B  index.js
+248 error publish npm notice 1.1kB LICENSE.md
+248 error publish npm notice === Tarball Details ===
+248 error publish npm notice name:          @rgrannell/mustache
+248 error publish npm notice version:       4.0.0-0
+248 error publish npm notice package size:  1.0 kB
+248 error publish npm notice unpacked size: 1.4 kB
+248 error publish npm notice shasum:        f9f73aac3c736b3213b15e3335209789ba46071d
+248 error publish npm notice integrity:     sha512-B7OCUgu9ClsAT[...]iKNcqZVsp5JqA==
+248 error publish npm notice total files:   3
+248 error publish npm notice
+248 error publish npm ERR! publish Failed PUT 402
+248 error publish npm ERR! code E402
+248 error publish npm ERR! You must sign up for private packages : @rgrannell/mustache
+248 error publish
+248 error publish npm ERR! A complete log of this run can be found in:
+248 error publish npm ERR!     /home/ryan/.npm/_logs/2018-06-07T19_10_16_077Z-debug.log
+248 error publish
+248 error publish     at Promise.all.then.arr (/home/ryan/Code/utils/node_modules/execa/index.js:236:11)
+248 error publish     at <anonymous>
+248 error publish     at process._tickCallback (internal/process/next_tick.js:182:7)
+249 error execute callback with error
+250 error Error: Command failed: npm publish --tag latest
+250 error npm notice
+250 error npm notice 📦  @rgrannell/mustache@4.0.0-0
+250 error npm notice === Tarball Contents ===
+250 error npm notice 102B  package.json
+250 error npm notice 250B  index.js
+250 error npm notice 1.1kB LICENSE.md
+250 error npm notice === Tarball Details ===
+250 error npm notice name:          @rgrannell/mustache
+250 error npm notice version:       4.0.0-0
+250 error npm notice package size:  1.0 kB
+250 error npm notice unpacked size: 1.4 kB
+250 error npm notice shasum:        f9f73aac3c736b3213b15e3335209789ba46071d
+250 error npm notice integrity:     sha512-B7OCUgu9ClsAT[...]iKNcqZVsp5JqA==
+250 error npm notice total files:   3
+250 error npm notice
+250 error npm ERR! publish Failed PUT 402
+250 error npm ERR! code E402
+250 error npm ERR! You must sign up for private packages : @rgrannell/mustache
+250 error
+250 error npm ERR! A complete log of this run can be found in:
+250 error npm ERR!     /home/ryan/.npm/_logs/2018-06-07T19_10_16_077Z-debug.log
+250 error
+250 error     at Promise.all.then.arr (/home/ryan/Code/utils/node_modules/execa/index.js:236:11)
+250 error     at <anonymous>
