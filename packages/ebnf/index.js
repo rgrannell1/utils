@@ -1,7 +1,6 @@
 
 const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
-const generate = require('./src/generate')
 
 {
   var types = {}
@@ -111,19 +110,6 @@ ebnf.group = value => {
     value,
     type: types.group
   }
-}
-
-let grammar = ebnf.grammar()
-  .rule({
-    id: 'digit',
-    value: ebnf.or(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
-  })
-  .rules()
-
-const generator = generate(grammar)
-
-for (let s of generator) {
-  console.log(JSON.stringify(s))
 }
 
 module.exports = ebnf

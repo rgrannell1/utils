@@ -1,6 +1,17 @@
 
 const {expect} = require('chai')
+const ebnf = require('../index')
 const generate = {}
+
+const array = {
+  oneOf (value) {
+    return value[Math.floor(Math.random() * value.length)]
+  }
+}
+
+const asType = value => {
+  return value.type ? value : ebnf.literal(value)
+}
 
 {
   var types = {}
@@ -38,7 +49,7 @@ generate[types.and] = function* ({value}) {
   let result = ''
 
   for (let subterm in value) {
-    result += yield* ebnf.generate(subterm)
+    result += yield* foo(subterm)
   }
 
   return result
@@ -73,8 +84,9 @@ generate[types.literal] = function* ({value}) {
  * @yield {[type]} [description]
  */
 generate[types.or] = function* ({value}) {
-  let subterm = array.oneOf(value)
-  yield* ebnf.generate(subterm)
+  for (let subterm of value) {
+    yield* foo(asType(subterm))
+  }
 }
 /**
  * [* description]
@@ -106,17 +118,22 @@ const foo = function * (term) {
 
   let bindings = {}
 
-  console.log(type)
-
   if (type === 'rules') {
-    term.rules.forEach(function * (rule) {
-      bindings[rule.id] = yield* foo(rule.value)
+
+    term.rules.forEach(rule => {
+      bindings[rule.id] = foo.bind(null, rule.value)
     })
+
+    for (let aaa of bindings.digit()) {
+      console.log(aaa)
+    }
 
   } else if (type === 'or') {
     yield* generate[types.or](term)
+  } else if (type === 'literal') {
+    yield term.value
   } else {
-    throw new Error(JSON.stringify(term, null, 2))
+    throw new Error(`unknown type "${type}"`)
   }
 }
 
