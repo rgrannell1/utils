@@ -1,6 +1,7 @@
 
 const {expect} = require('chai')
 const ebnf = require('../index')
+const constants = require('./shared/constants')
 const generate = {}
 
 const array = {
@@ -50,7 +51,7 @@ generate[types.and] = function* ({value}) {
 
   // -- todo can this be tidied up?
   for (let subterm of value) {
-    subvalue = foo(asType(subterm)).next()
+    subvalue = ruleGenerator(asType(subterm)).next()
     result.push(subvalue.value)
   }
 
@@ -87,7 +88,7 @@ generate[types.literal] = function* (term) {
  */
 generate[types.or] = function* ({value}) {
   for (let subterm of value) {
-    yield* foo(asType(subterm))
+    yield* ruleGenerator(asType(subterm))
   }
 }
 /**
@@ -99,12 +100,14 @@ generate[types.ref] = function* () {
 
 }
 /**
- * [* description]
+ * Repeately yield from the term provided
  *
  * @yield {[type]} [description]
  */
-generate[types.repeat] = function* () {
-
+generate[types.repeat] = function* ({value}) {
+  for (let subterm of value) {
+    yield* ruleGenerator(asType(subterm))
+  }
 }
 /**
  * [* description]
@@ -115,37 +118,34 @@ generate[types.rule] = function * () {
 
 }
 
-const foo = function * (term) {
+const ruleGenerator = function * (term) {
   const {type} = term
   let bindings = {}
 
-  if (type === 'rules') {
-
-    term.rules.forEach(rule => {
-      bindings[rule.id] = foo.bind(null, rule.value)
-    })
-
-    yield bindings
-
-  } else if (type === 'or') {
-    yield* generate[types.or](term)
-  } else if (type === 'and') {
-    yield* generate[types.and](term)
-  } else if (type === 'literal') {
-    yield* generate[types.literal](term)
+  if (generate.hasOwnProperty(type)) {
+    yield* generate[type](term)
   } else {
-    throw new Error(`unknown type "${type}"`)
+    throw new Error(`unknown type provided`)
   }
 }
 
-const bar = rules => {
+/**
+ * Convert an EBNF grammar definition into a set of rules that can be used to
+ *   generate sentences in that grammar.
+ *
+ * @param  {Object} rules [description]
+ *
+ * @return {Object} an object of `id:generator` mappings, where
+ *                    each generator yields sentences within that ids definition.
+ */
+const generator = rules => {
   const {type} = rules
   let bindings = {}
 
   if (type === 'rules') {
 
     rules.rules.forEach(rule => {
-      bindings[rule.id] = foo.bind(null, rule.value)
+      bindings[rule.id] = ruleGenerator.bind(null, rule.value)
     })
 
     return bindings
@@ -157,4 +157,4 @@ const bar = rules => {
 
 
 
-module.exports = bar
+module.exports = generator
