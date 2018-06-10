@@ -94,8 +94,6 @@ ebnf.excluding = value => {
 }
 
 ebnf.repeat = value => {
-  expect(value).to.be.an('array')
-
   return {
     value,
     type: types.repeat

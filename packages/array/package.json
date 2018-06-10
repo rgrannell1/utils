@@ -1,0 +1,12 @@
+{
+  "name": "@rgrannell/array",
+  "version": "5.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}

@@ -10,6 +10,13 @@ const array = {
   }
 }
 
+/**
+ * Cast literal values to a EBNF type
+ *
+ * @param {any} value an arbitrary value.
+ *
+ * @return {Object} an EBNF type
+ */
 const asType = value => {
   return value.type ? value : ebnf.literal(value)
 }
@@ -46,12 +53,12 @@ generate[types.grammar] = function* () {
  *
  * @yield {Array} an array of yielded subterms
  */
-generate[types.and] = function* ({value}) {
+generate[types.and] = function* ({value}, bindings) {
   let result = []
 
   // -- todo can this be tidied up?
   for (let subterm of value) {
-    subvalue = ruleGenerator(asType(subterm)).next()
+    subvalue = ruleGenerator(asType(subterm), bindings).next()
     result.push(subvalue.value)
   }
 
@@ -86,9 +93,9 @@ generate[types.literal] = function* (term) {
  *
  * @yield {[type]} [description]
  */
-generate[types.or] = function* ({value}) {
+generate[types.or] = function* ({value}, bindings) {
   for (let subterm of value) {
-    yield* ruleGenerator(asType(subterm))
+    yield* ruleGenerator(asType(subterm), bindings)
   }
 }
 /**
@@ -96,34 +103,42 @@ generate[types.or] = function* ({value}) {
  *
  * @yield {[type]} [description]
  */
-generate[types.ref] = function* () {
+generate[types.ref] = function* ({value}, bindings) {
+  expect(bindings).to.be.an('object')
+  expect(bindings).to.have.property(value)
 
+  yield* bindings[value]();
 }
 /**
- * Repeately yield from the term provided
+ * Repeately yield results from a generator
  *
- * @yield {[type]} [description]
+ * @yield {Array}
  */
-generate[types.repeat] = function* ({value}) {
-  for (let subterm of value) {
-    yield* ruleGenerator(asType(subterm))
+generate[types.repeat] = function* ({value}, bindings) {
+  let results = []
+
+  // -- TODO does not work.
+
+  for (let rep = 0; rep < 10; rep++) {
+    let genny = ruleGenerator(asType(value), bindings)
+    results.push(yield* genny)
+    yield* results
   }
 }
+
 /**
- * [* description]
+ * [*ruleGenerator description]
+ *
+ * @param {[type]} term          [description]
+ * @param {[type]} bindings      [description]
  *
  * @yield {[type]} [description]
  */
-generate[types.rule] = function * () {
-
-}
-
-const ruleGenerator = function * (term) {
+const ruleGenerator = function * (term, bindings) {
   const {type} = term
-  let bindings = {}
 
   if (generate.hasOwnProperty(type)) {
-    yield* generate[type](term)
+    yield* generate[type](term, bindings)
   } else {
     throw new Error(`unknown type provided`)
   }
@@ -133,7 +148,7 @@ const ruleGenerator = function * (term) {
  * Convert an EBNF grammar definition into a set of rules that can be used to
  *   generate sentences in that grammar.
  *
- * @param  {Object} rules [description]
+ * @param  {Object} rules
  *
  * @return {Object} an object of `id:generator` mappings, where
  *                    each generator yields sentences within that ids definition.
@@ -145,7 +160,7 @@ const generator = rules => {
   if (type === 'rules') {
 
     rules.rules.forEach(rule => {
-      bindings[rule.id] = ruleGenerator.bind(null, rule.value)
+      bindings[rule.id] = ruleGenerator.bind(null, rule.value, bindings)
     })
 
     return bindings
@@ -154,7 +169,5 @@ const generator = rules => {
     throw new Error(`unknown type "${type}"`)
   }
 }
-
-
 
 module.exports = generator

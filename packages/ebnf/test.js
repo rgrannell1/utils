@@ -5,9 +5,7 @@ const ebnf = require('./index')
 let grammar = ebnf.grammar()
   .rule({
     id: 'number',
-    value: ebnf.repeat([
-      ebnf.ref('digit')
-    ])
+    value: ebnf.repeat(ebnf.ref('digit'))
   })
   .rule({
     id: 'digit',
@@ -20,8 +18,8 @@ const generator = generate(grammar)
 // return rules definitions?
 
 for (let aaa of generator.number()) {
-  console.log('-- -- -- --')
+  console.log('--------')
   console.log(aaa)
-  console.log('++ ++ ++ ++')
+  console.log('++++++++')
 }
 
