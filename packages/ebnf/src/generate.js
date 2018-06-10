@@ -41,13 +41,14 @@ generate[types.grammar] = function* () {
 
 }
 /**
- * [* description]
+ * Yield from each subexpression provided as value
  *
- * @yield {[type]} [description]
+ * @yield {Array} an array of yielded subterms
  */
 generate[types.and] = function* ({value}) {
   let result = []
 
+  // -- todo can this be tidied up?
   for (let subterm of value) {
     subvalue = foo(asType(subterm)).next()
     result.push(subvalue.value)
@@ -116,7 +117,6 @@ generate[types.rule] = function * () {
 
 const foo = function * (term) {
   const {type} = term
-  console.log(`type ${type}`)
   let bindings = {}
 
   if (type === 'rules') {
@@ -125,9 +125,7 @@ const foo = function * (term) {
       bindings[rule.id] = foo.bind(null, rule.value)
     })
 
-    for (let aaa of bindings.digit()) {
-      console.log(aaa)
-    }
+    yield bindings
 
   } else if (type === 'or') {
     yield* generate[types.or](term)
@@ -140,4 +138,23 @@ const foo = function * (term) {
   }
 }
 
-module.exports = foo
+const bar = rules => {
+  const {type} = rules
+  let bindings = {}
+
+  if (type === 'rules') {
+
+    rules.rules.forEach(rule => {
+      bindings[rule.id] = foo.bind(null, rule.value)
+    })
+
+    return bindings
+
+  } else {
+    throw new Error(`unknown type "${type}"`)
+  }
+}
+
+
+
+module.exports = bar

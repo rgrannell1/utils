@@ -1,4 +1,4 @@
-
+1
 const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 
@@ -66,9 +66,6 @@ ebnf.grammar = () => {
 }
 
 ebnf.literal = value => {
-  expect(value).to.be.a('string')
-  expect(value).to.not.be.empty
-
   return {
     value,
     type: types.literal
