@@ -1,4 +1,6 @@
 
-const bing = require('./index')
+const readme = require('./index')
 
-bing('../ebnf')
+const metadata = readme.package.extractMetadata('../ebnf')
+
+console.log(JSON.stringify(metadata, null, 2))
