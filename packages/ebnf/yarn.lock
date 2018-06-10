@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@rgrannell/array@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-6.0.0.tgz#0ee397e66cc4831d8c7d091b2eb3c2b2517bbe74"
+"@rgrannell/array@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-6.0.1.tgz#6a5b1cfa6c8a4c2a36616c0b8fc9445236bd346a"
   dependencies:
     chai "^4.1.2"
 
