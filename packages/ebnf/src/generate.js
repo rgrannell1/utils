@@ -48,11 +48,12 @@ generate[types.grammar] = function* () {
 generate[types.and] = function* ({value}) {
   let result = ''
 
-  for (let subterm in value) {
-    result += yield* foo(subterm)
+  for (let subterm of value) {
+    subvalue = foo(asType(subterm)).next()
+    result += subvalue.value
   }
 
-  return result
+  yield result
 }
 /**
  * [* description]
@@ -115,7 +116,7 @@ generate[types.rule] = function * () {
 
 const foo = function * (term) {
   const {type} = term
-
+  console.log(`type ${type}`)
   let bindings = {}
 
   if (type === 'rules') {
@@ -130,6 +131,8 @@ const foo = function * (term) {
 
   } else if (type === 'or') {
     yield* generate[types.or](term)
+  } else if (type === 'and') {
+    yield* generate[types.and](term)
   } else if (type === 'literal') {
     yield term.value
   } else {
