@@ -7,6 +7,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@rgrannell/array": "^6.0.0",
     "@rgrannell/chain": "^5.0.0"
   }
 }

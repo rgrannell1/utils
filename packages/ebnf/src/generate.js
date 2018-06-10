@@ -1,14 +1,9 @@
 
 const {expect} = require('chai')
+const array = require('@rgrannell/array')
 const ebnf = require('../index')
 const constants = require('./shared/constants')
 const generate = {}
-
-const array = {
-  oneOf (value) {
-    return value[Math.floor(Math.random() * value.length)]
-  }
-}
 
 /**
  * Cast literal values to a EBNF type
