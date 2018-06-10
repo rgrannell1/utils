@@ -46,11 +46,11 @@ generate[types.grammar] = function* () {
  * @yield {[type]} [description]
  */
 generate[types.and] = function* ({value}) {
-  let result = ''
+  let result = []
 
   for (let subterm of value) {
     subvalue = foo(asType(subterm)).next()
-    result += subvalue.value
+    result.push(subvalue.value)
   }
 
   yield result
@@ -76,8 +76,8 @@ generate[types.group] = function* () {
  *
  * @yield {[type]} [description]
  */
-generate[types.literal] = function* ({value}) {
-  yield value
+generate[types.literal] = function* (term) {
+  yield term
 }
 /**
  * [* description]
@@ -134,7 +134,7 @@ const foo = function * (term) {
   } else if (type === 'and') {
     yield* generate[types.and](term)
   } else if (type === 'literal') {
-    yield term.value
+    yield* generate[types.literal](term)
   } else {
     throw new Error(`unknown type "${type}"`)
   }
