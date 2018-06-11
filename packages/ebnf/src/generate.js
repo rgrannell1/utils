@@ -16,31 +16,12 @@ const asType = value => {
   return value.type ? value : ebnf.literal(value)
 }
 
-{
-  var types = {}
-
-  let esbnTypes = new Set([
-    'and',
-    'excluding',
-    'group',
-    'literal',
-    'or',
-    'ref',
-    'repeat',
-    'rule'
-  ])
-
-  for (let type of esbnTypes) {
-    types[type] = type
-  }
-}
-
 /**
  * [* description]
  *
  * @yield {[type]} [description]
  */
-generate[types.grammar] = function* () {
+generate[constants.types.grammar] = function* () {
 
 }
 /**
@@ -48,7 +29,7 @@ generate[types.grammar] = function* () {
  *
  * @yield {Array} an array of yielded subterms
  */
-generate[types.and] = function* ({value}, bindings) {
+generate[constants.types.and] = function* ({value}, bindings) {
   let result = []
 
   // -- todo can this be tidied up?
@@ -64,7 +45,7 @@ generate[types.and] = function* ({value}, bindings) {
  *
  * @yield {[type]} [description]
  */
-generate[types.excluding] = function* ({value}) {
+generate[constants.types.excluding] = function* ({value}) {
 
 }
 /**
@@ -72,7 +53,7 @@ generate[types.excluding] = function* ({value}) {
  *
  * @yield {[type]} [description]
  */
-generate[types.group] = function* () {
+generate[constants.types.group] = function* () {
 
 }
 /**
@@ -80,7 +61,7 @@ generate[types.group] = function* () {
  *
  * @yield {[type]} [description]
  */
-generate[types.literal] = function* (term) {
+generate[constants.types.literal] = function* (term) {
   yield term
 }
 /**
@@ -88,7 +69,7 @@ generate[types.literal] = function* (term) {
  *
  * @yield {[type]} [description]
  */
-generate[types.or] = function* ({value}, bindings) {
+generate[constants.types.or] = function* ({value}, bindings) {
   for (let subterm of value) {
     yield* ruleGenerator(asType(subterm), bindings)
   }
@@ -98,7 +79,7 @@ generate[types.or] = function* ({value}, bindings) {
  *
  * @yield {[type]} [description]
  */
-generate[types.ref] = function* ({value}, bindings) {
+generate[constants.types.ref] = function* ({value}, bindings) {
   expect(bindings).to.be.an('object')
   expect(bindings).to.have.property(value)
 
@@ -109,15 +90,15 @@ generate[types.ref] = function* ({value}, bindings) {
  *
  * @yield {Array}
  */
-generate[types.repeat] = function* ({value}, bindings) {
-  let results = []
+generate[constants.types.repeat] = function* ({value}, bindings) {
+  const iter = ruleGenerator(asType(value), bindings)
 
-  // -- TODO does not work.
+  let repeats = 0
 
-  for (let rep = 0; rep < 10; rep++) {
-    let genny = ruleGenerator(asType(value), bindings)
-    results.push(yield* genny)
-    yield* results
+  while (true) {
+    let generators = array.seqTo(repeats).map(() => ruleGenerator(asType(value), bindings))
+
+    yield generators.map(() => 10)
   }
 }
 

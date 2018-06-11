@@ -1,5 +1,5 @@
 
-const esprima = require('esprima')
+const acorn = require('acorn')
 const markdown = require('@rgrannell/markdown')
 
 const readme = {
@@ -23,7 +23,10 @@ readme.package.analyseValue = (name, value) => {
 }
 
 readme.package.analyseValue.function = value => {
-  const parsed = esprima.parseScript(value)
+  const {body} = acorn.parse(value.toString())
+  const expr = body[0]
+
+  console.log(JSON.stringify(expr, null,2))
 }
 
 readme.package.extractMetadata = path => {

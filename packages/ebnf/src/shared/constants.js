@@ -10,7 +10,8 @@
     'or',
     'ref',
     'repeat',
-    'rule'
+    'rule',
+    'rules'
   ])
 
   for (let type of esbnTypes) {

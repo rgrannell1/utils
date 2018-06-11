@@ -1,26 +1,7 @@
-1
+
 const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
-
-{
-  var types = {}
-
-  let esbnTypes = new Set([
-    'and',
-    'excluding',
-    'group',
-    'literal',
-    'or',
-    'ref',
-    'repeat',
-    'rule',
-    'rules'
-  ])
-
-  for (let type of esbnTypes) {
-    types[type] = type
-  }
-}
+const constants = require('./src/shared/constants')
 
 const methods = {}
 
@@ -31,7 +12,7 @@ methods.rule = ({rules}, {id, value}) => {
   const rule = {
     id,
     value,
-    type: types.rule
+    type: constants.types.rule
   }
 
   return chain({
@@ -45,7 +26,7 @@ methods.rule = ({rules}, {id, value}) => {
 methods.rules = ({rules}) => {
   return {
     rules,
-    type: types.rules
+    type: constants.types.rules
   }
 }
 
@@ -57,7 +38,7 @@ ebnf.ref = value => {
 
   return {
     value,
-    type: types.ref
+    type: constants.types.ref
   }
 }
 
@@ -68,42 +49,42 @@ ebnf.grammar = () => {
 ebnf.literal = value => {
   return {
     value,
-    type: types.literal
+    type: constants.types.literal
   }
 }
 
 ebnf.or = value => {
   return {
     value,
-    type: types.or
+    type: constants.types.or
   }
 }
 
 ebnf.and = value => {
   return {
     value,
-    type: types.and
+    type: constants.types.and
   }
 }
 
 ebnf.excluding = value => {
   return {
     value,
-    type: types.excluding
+    type: constants.types.excluding
   }
 }
 
 ebnf.repeat = value => {
   return {
     value,
-    type: types.repeat
+    type: constants.types.repeat
   }
 }
 
 ebnf.group = value => {
   return {
     value,
-    type: types.group
+    type: constants.types.group
   }
 }
 

@@ -11,4 +11,14 @@ array.oneOf = value => {
   return value[Math.floor(Math.random() * value.length)]
 }
 
+array.seqTo = number => {
+  let entries = []
+
+  for (let ith = 0; ith < number; ++ith) {
+    entries.push(ith)
+  }
+
+  return entries
+}
+
 module.exports = array
