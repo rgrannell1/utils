@@ -5,12 +5,20 @@ const array = { }
  * Choose a single value from an array
  *
  * @param  {Array<any>} value an array of values
+ *
  * @return {any}        a randomly selected value from the array
  */
 array.oneOf = value => {
   return value[Math.floor(Math.random() * value.length)]
 }
 
+/**
+ * Create indices up to a number
+ *
+ * @param  {Number} number a positive number
+ *
+ * @return {Array<Number>} an array of indices
+ */
 array.seqTo = number => {
   let entries = []
 
@@ -19,6 +27,17 @@ array.seqTo = number => {
   }
 
   return entries
+}
+
+/**
+ * Return an array of indices for an array
+ *
+ * @param  {Array<Any>} array an arbitrary array
+ *
+ * @return {Array<Number>} return an array of indices
+ */
+array.seqAlong = array => {
+  return array.map((_, ith) => ith)
 }
 
 module.exports = array

@@ -85,20 +85,44 @@ generate[constants.types.ref] = function* ({value}, bindings) {
 
   yield* bindings[value]();
 }
+
+function* zip (iter0, iter1) {
+  for (elem0 of iter0) {
+    for (let elem1 of iter1) {
+      yield [elem0].concat(elem1)
+    }
+  }
+}
+
+function* crossProduct (generators) {
+  if (generators.length === 0) {
+    yield []
+  } else if (generators.length === 1) {
+    yield* generators[0]
+  } else {
+
+  }
+}
+
 /**
  * Repeately yield results from a generator
  *
  * @yield {Array}
  */
 generate[constants.types.repeat] = function* ({value}, bindings) {
-  const iter = ruleGenerator(asType(value), bindings)
+  const iter = () => ruleGenerator(asType(value), bindings)
 
   let repeats = 0
 
   while (true) {
-    let generators = array.seqTo(repeats).map(() => ruleGenerator(asType(value), bindings))
+    let generators = array.seqTo(repeats).map(iter)
 
-    yield generators.map(() => 10)
+    let (const gen of generators) {
+      for (const combo of crossProduct()) {
+        yield* combo
+      }
+    }
+    repeats++
   }
 }
 
