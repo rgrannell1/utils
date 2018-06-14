@@ -71,7 +71,7 @@ generator.crossProduct = function* (gens) {
   yield* acc
 }
 
-generator.increment = function* (num) => {
+generator.increment = function* (num) {
   let ith = 0
   while (true) {
     if (ith + 1 === num) {

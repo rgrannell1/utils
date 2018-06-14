@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@rgrannell/array": "^6.3.0",
-    "@rgrannell/chain": "^5.0.0"
+    "@rgrannell/chain": "^5.0.0",
+    "@rgrannell/generator": "^6.3.0"
   }
 }
