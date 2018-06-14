@@ -42,7 +42,8 @@ generate[constants.types.and] = function* ({value}, bindings) {
  * @yield {[type]} [description]
  */
 generate[constants.types.optional] = function* ({value}) {
-
+  yield* ruleGenerator(asType(subterm), bindings)
+  yield
 }
 
 /**
@@ -108,9 +109,9 @@ generate[constants.types.repeat] = function* ({value}, bindings) {
 }
 
 /**
- * [*ruleGenerator description]
+ * Yield iterables for each type of term provided
  *
- * @param {[type]} term          [description]
+ * @param {Object} term          [description]
  * @param {[type]} bindings      [description]
  *
  * @yield {[type]} [description]

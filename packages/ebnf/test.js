@@ -17,15 +17,8 @@ let grammar = ebnf.grammar()
   })
   .rules()
 
-
-
-const generator = generate(grammar)
-
-// return rules definitions?
-
-for (let aaa of generator.string()) {
+for (let aaa of generate(grammar).string()) {
   console.log('--------')
   console.log(aaa)
   console.log('++++++++')
 }
-

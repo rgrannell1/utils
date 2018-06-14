@@ -67,6 +67,13 @@ ebnf.and = value => {
   }
 }
 
+ebnf.optional = value => {
+  return {
+    value,
+    type: constants.types.optional
+  }
+}
+
 ebnf.excluding = value => {
   return {
     value,
