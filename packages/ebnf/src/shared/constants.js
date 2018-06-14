@@ -7,6 +7,7 @@
     'excluding',
     'group',
     'literal',
+    'optional',
     'or',
     'ref',
     'repeat',

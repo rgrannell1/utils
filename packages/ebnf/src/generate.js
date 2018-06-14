@@ -46,7 +46,17 @@ generate[constants.types.and] = function* ({value}, bindings) {
  *
  * @yield {[type]} [description]
  */
+generate[constants.types.optional] = function* ({value}) {
+
+}
+
+/**
+ * [* description]
+ *
+ * @yield {[type]} [description]
+ */
 generate[constants.types.excluding] = function* ({value}) {
+
 
 }
 /**
@@ -134,7 +144,6 @@ const generator = rules => {
   let bindings = {}
 
   if (type === 'rules') {
-
     rules.rules.forEach(rule => {
       bindings[rule.id] = ruleGenerator.bind(null, rule.value, bindings)
     })
