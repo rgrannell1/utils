@@ -33,13 +33,8 @@ generate[constants.types.grammar] = function* () {
 generate[constants.types.and] = function* ({value}, bindings) {
   let result = []
 
-  // -- todo can this be tidied up?
-  for (let subterm of value) {
-    subvalue = ruleGenerator(asType(subterm), bindings).next()
-    result.push(subvalue.value)
-  }
-
-  yield result
+  const generators = value.map(subterm => () => ruleGenerator(subterm, bindings))
+  yield* genUtils.crossProduct(generators)
 }
 /**
  * [* description]
