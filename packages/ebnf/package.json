@@ -1,13 +1,13 @@
 {
   "name": "@rgrannell/ebnf",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/array": "^6.1.0",
+    "@rgrannell/array": "^6.3.0",
     "@rgrannell/chain": "^5.0.0"
   }
 }
