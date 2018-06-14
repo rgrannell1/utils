@@ -23,10 +23,20 @@ readme.package.analyseValue = (name, value) => {
 }
 
 readme.package.analyseValue.function = value => {
-  const {body} = acorn.parse(value.toString())
-  const expr = body[0]
+  const src = value.toString()
+  const [def] = src.split('\n')
+  let functionType = 'function'
+  const isGenerator = def.includes('*')
 
-  console.log(JSON.stringify(expr, null,2))
+  if (def.includes('=>')) {
+    functionType = 'arrow'
+  }
+
+  return {
+    functionType,
+    isGenerator,
+    linesOfCode: src.split('\n').length
+  }
 }
 
 readme.package.extractMetadata = path => {

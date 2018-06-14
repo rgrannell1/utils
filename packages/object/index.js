@@ -43,7 +43,6 @@ object.remove = (object, props) => {
   })
 
   return restricted
-
 }
 
 module.exports = object

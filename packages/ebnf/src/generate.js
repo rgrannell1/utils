@@ -94,14 +94,13 @@ function* zip (iter0, iter1) {
   }
 }
 
-function* crossProduct (generators) {
-  if (generators.length === 0) {
-    yield []
-  } else if (generators.length === 1) {
-    yield* generators[0]
-  } else {
+function* cycle (gen) {
+  while (true)
+}
 
-  }
+function* crossProduct ([iter0, iter1, ...rest]) {
+
+
 }
 
 /**
@@ -117,11 +116,8 @@ generate[constants.types.repeat] = function* ({value}, bindings) {
   while (true) {
     let generators = array.seqTo(repeats).map(iter)
 
-    let (const gen of generators) {
-      for (const combo of crossProduct()) {
-        yield* combo
-      }
-    }
+    yield* crossProduct()
+
     repeats++
   }
 }
