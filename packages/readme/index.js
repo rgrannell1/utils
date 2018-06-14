@@ -1,6 +1,6 @@
 
-const acorn = require('acorn')
 const markdown = require('@rgrannell/markdown')
+const parseFunction = require('parse-function')
 
 const readme = {
   package: {}
@@ -23,19 +23,10 @@ readme.package.analyseValue = (name, value) => {
 }
 
 readme.package.analyseValue.function = value => {
-  const src = value.toString()
-  const [def] = src.split('\n')
-  let functionType = 'function'
-  const isGenerator = def.includes('*')
-
-  if (def.includes('=>')) {
-    functionType = 'arrow'
-  }
+  const parsed = parseFunction({ecmaVersion: 2017}).parse(value)
 
   return {
-    functionType,
-    isGenerator,
-    linesOfCode: src.split('\n').length
+    params: parsed.params
   }
 }
 
