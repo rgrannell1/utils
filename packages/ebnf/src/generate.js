@@ -87,14 +87,6 @@ generate[constants.types.ref] = function* ({value}, bindings) {
   yield* bindings[value]();
 }
 
-function* zip (iter0, iter1) {
-  for (elem0 of iter0) {
-    for (let elem1 of iter1) {
-      yield [elem0].concat(elem1)
-    }
-  }
-}
-
 /**
  * Repeately yield results from a generator
  *
