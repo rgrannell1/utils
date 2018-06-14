@@ -42,6 +42,14 @@ generator.iterMap = function* (fn, iter) {
   }
 }
 
+function* cross (iter0, gen0) {
+  for (const elem0 of iter0) {
+    for (const elem1 of gen0()) {
+      yield elem0.concat(elem1)
+    }
+  }
+}
+
 /**
  * Take the cross-product of several generators
  *
