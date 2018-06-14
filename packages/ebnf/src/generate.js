@@ -106,7 +106,7 @@ generate[constants.types.repeat] = function* ({value}, bindings) {
   let repeats = 0
 
   for (let repeats of genUtils.increment()) {
-    yield* genUtils.product(array.repeat(iter, repeats))
+    yield* genUtils.crossProduct(array.repeat(iter, repeats))
   }
 }
 
