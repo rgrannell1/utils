@@ -56,7 +56,7 @@ function* cross (iter0, gen0) {
  * @param {Array<Gen>} gens an array of nullary generator functions
  * @yield {Array<Any>}
  */
-generator.product = function* (gens) {
+generator.crossProduct = function* (gens) {
   if (gens.length === 0) {
     return
   }
@@ -69,6 +69,18 @@ generator.product = function* (gens) {
   }
 
   yield* acc
+}
+
+generator.increment = function* (num) => {
+  let ith = 0
+  while (true) {
+    if (ith + 1 === num) {
+      break
+    } else {
+      yield ith
+      ith++
+    }
+  }
 }
 
 module.exports = generator

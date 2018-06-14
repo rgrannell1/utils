@@ -40,4 +40,13 @@ array.seqAlong = array => {
   return array.map((_, ith) => ith)
 }
 
+array.repeat = (value, count) => {
+	let copies = []
+
+	for (let ith = 0; ith < count; ith++) {
+		copies.push(value)
+	}
+	return copies
+}
+
 module.exports = array

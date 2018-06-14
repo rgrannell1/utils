@@ -1,6 +1,7 @@
 
 const {expect} = require('chai')
 const array = require('@rgrannell/array')
+const genUtils = require('@rgrannell/generator')
 const ebnf = require('../index')
 const constants = require('./shared/constants')
 const generate = {}
@@ -94,15 +95,6 @@ function* zip (iter0, iter1) {
   }
 }
 
-function* cycle (gen) {
-  while (true)
-}
-
-function* crossProduct ([iter0, iter1, ...rest]) {
-
-
-}
-
 /**
  * Repeately yield results from a generator
  *
@@ -113,12 +105,8 @@ generate[constants.types.repeat] = function* ({value}, bindings) {
 
   let repeats = 0
 
-  while (true) {
-    let generators = array.seqTo(repeats).map(iter)
-
-    yield* crossProduct()
-
-    repeats++
+  for (let repeats of genUtils.increment()) {
+    yield* genUtils.product(array.repeat(iter, repeats))
   }
 }
 
