@@ -42,6 +42,21 @@ generator.iterMap = function* (fn, iter) {
   }
 }
 
+/**
+ * Filter an iterable
+ *
+ * @param {Function} pred  a boolean function
+ * @param {Any}   iter     the iterator to filter
+ * @yield {Any}            a filtered iterator
+ */
+generator.iterSelect = function* (pred, iter) {
+  for (let elem of iter) {
+    if (pred(elem)) {
+      yield elem
+    }
+  }
+}
+
 function* cross (iter0, gen0) {
   for (const elem0 of iter0) {
     for (const elem1 of gen0()) {
