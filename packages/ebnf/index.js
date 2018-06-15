@@ -3,6 +3,7 @@ const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 const constants = require('./src/shared/constants')
 const generator = require('@rgrannell/generator')
+const object = require('@rgrannell/object')
 const fp = require('@rgrannell/fp')
 
 /**
