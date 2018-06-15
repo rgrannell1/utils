@@ -48,7 +48,7 @@ object.remove = (object, props) => {
 object.take = (object, props) => {
   const restricted = {}
 
-  Object.keys(props).forEach(prop => {
+  props.forEach(prop => {
     restricted[prop] = object[prop]
   })
 

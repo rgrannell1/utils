@@ -67,6 +67,8 @@ methods.rule = (state, {id, value}) => {
     type: constants.types.rule
   }
 
+  console.log(object.take(methods, ['rule', 'rules']))
+
   return chain(object.take(methods, ['rule', 'rules']), {
     value: state.value.concat(rule)
   })
