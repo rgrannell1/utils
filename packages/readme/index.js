@@ -12,6 +12,8 @@ readme.package.analyseValue = (name, value) => {
   var analyser
   if (type === 'function') {
     analyser = readme.package.analyseValue.function
+  } else if (type === 'object') {
+    analyser = readme.package.analyseValue.object
   }
 
   return {
@@ -27,6 +29,12 @@ readme.package.analyseValue.function = value => {
 
   return {
     params: parsed.params
+  }
+}
+
+readme.package.analyseValue.object = value => {
+  return {
+    propCount: Object.keys(value)
   }
 }
 
