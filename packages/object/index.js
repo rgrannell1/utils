@@ -45,4 +45,14 @@ object.remove = (object, props) => {
   return restricted
 }
 
+object.take = (object, props) => {
+  const restricted = {}
+
+  Object.keys(props).forEach(prop => {
+    restricted[prop] = object[prop]
+  })
+
+  return restricted
+}
+
 module.exports = object
