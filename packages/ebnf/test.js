@@ -5,7 +5,7 @@ const ebnf = require('./index')
 let grammar = ebnf.grammar()
   .rule({
     id: 'letter',
-    value: ebnf.or(ebnf.LETTERS)
+    value: ebnf.or(ebnf.sets.HEX_DIGITS())
   })
   .rule({
     id: 'string',

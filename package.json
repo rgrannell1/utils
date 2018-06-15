@@ -12,6 +12,7 @@
     "esprima-fb": "^15001.1001.0-dev-harmony-fb"
   },
   "devDependencies": {
-    "lerna": "^2.11.0"
+    "lerna": "^2.11.0",
+    "longjohn": "^0.2.12"
   }
 }

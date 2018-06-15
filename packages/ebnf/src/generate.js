@@ -1,4 +1,5 @@
 
+require('longjohn')
 const {expect} = require('chai')
 const array = require('@rgrannell/array')
 const genUtils = require('@rgrannell/generator')
@@ -75,9 +76,9 @@ generate[constants.types.or] = function* ({value}, bindings) {
   }
 }
 /**
- * [* description]
+ * Yield results from a named EBNF rule
  *
- * @yield {[type]} [description]
+ * @yield {Any} values from a named EBNF
  */
 generate[constants.types.ref] = function* ({value}, bindings) {
   expect(bindings).to.be.an('object')

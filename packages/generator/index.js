@@ -99,7 +99,7 @@ generator.increment = function* (num) {
 }
 
 /**
- * Yiled a list of characters in an inclusive range
+ * Yield a list of characters in an inclusive range
  *
  * @param {Number} lower         The lower char-code used
  * @param {Number} upper         The upper char-code used
