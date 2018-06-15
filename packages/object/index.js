@@ -45,6 +45,14 @@ object.remove = (object, props) => {
   return restricted
 }
 
+/**
+ * Select listed properties from an object
+ *
+ * @param  {Object} object
+ * @param  {Array} props   a list of string
+ *
+ * @return {Object}
+ */
 object.take = (object, props) => {
   const restricted = {}
 
