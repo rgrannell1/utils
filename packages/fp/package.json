@@ -1,0 +1,10 @@
+{
+  "name": "@rgrannell/fp",
+  "version": "6.3.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}

@@ -5,8 +5,9 @@ const constants = require('./src/shared/constants')
 const generator = require('@rgrannell/generator')
 
 const makeEsbnType = (prop, precond, value) => {
+  let transformed = precond(value)
   return {
-    value,
+    value: transformed,
     type: constants.types[prop]
   }
 }
@@ -15,40 +16,40 @@ const ebnf = {
   sets: {}
 }
 
-const preconds = {}
+const transforms = {}
 
-preconds.and = value => {
-
+transforms.and = value => {
+  return Array.from(value)
 }
-preconds.excluding = value => {
-
+transforms.excluding = value => {
+  return value
 }
-preconds.literal = value => {
-
+transforms.literal = value => {
+  return value
 }
-preconds.optional = value => {
-
+transforms.optional = value => {
+  return value
 }
-preconds.or = value => {
-
+transforms.or = value => {
+  return Array.from(value)
 }
-preconds.ref = value => {
-
+transforms.ref = value => {
+  return value
 }
-preconds.repeat = value => {
-
+transforms.repeat = value => {
+  return value
 }
-preconds.rules = value => {
-
+transforms.rules = value => {
+  return value
 }
 
 const methods = {}
 
-methods.rules = makeEsbnType.bind(null, 'rules', preconds.rules)
+methods.rules = makeEsbnType.bind(null, 'rules', transforms.rules)
 
 const esbnTypes = new Set(['and', 'excluding', 'literal', 'optional', 'or', 'ref', 'repeat'])
 for (let type of esbnTypes) {
-  ebnf[type] = makeEsbnType.bind(null, type, preconds[type])
+  ebnf[type] = makeEsbnType.bind(null, type, transforms[type])
 }
 
 ebnf.grammar = () => {
