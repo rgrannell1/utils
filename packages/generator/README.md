@@ -1,2 +1,2 @@
 
-# @rgrannell/array
+# @rgrannell/generator
