@@ -14,7 +14,7 @@ const chain = (methods, state = {}) => {
 
   Object.keys(methods).forEach(key => {
     const method = methods[key]
-    expect(method).to.be.a('function')
+    expect(method, `invalid value for methods.${key}`).to.be.a('function')
   })
 
   return new Proxy(state, {

@@ -5,7 +5,7 @@ const constants = require('./src/shared/constants')
 
 const methods = {}
 
-methods.rule = ({rules}, {id, value}) => {
+methods.rule = (state, {id, value}) => {
   expect(id).to.be.a('string')
   expect(value).to.be.an('object')
 
@@ -19,80 +19,26 @@ methods.rule = ({rules}, {id, value}) => {
     rule: methods.rule,
     rules: methods.rules
   }, {
-    rules: rules.concat(rule)
+    value: state.value.concat(rule)
   })
 }
 
-methods.rules = ({rules}) => {
+const makeEsbnType = (prop, value) => {
   return {
-    rules,
-    type: constants.types.rules
+    value,
+    type: constants.types[prop]
   }
 }
 
 const ebnf = {}
 
-ebnf.ref = value => {
-  expect('value').to.be.a('string')
-  expect('value').to.not.be.empty
-
-  return {
-    value,
-    type: constants.types.ref
-  }
+const esbnTypes = new Set(['and', 'excluding', 'literal', 'optional', 'or', 'ref', 'repeat', 'rules'])
+for (let type of esbnTypes) {
+  ebnf[type] = makeEsbnType.bind(null, type)
 }
 
 ebnf.grammar = () => {
-  return chain({rule: methods.rule}, {rules: []})
-}
-
-ebnf.literal = value => {
-  return {
-    value,
-    type: constants.types.literal
-  }
-}
-
-ebnf.or = value => {
-  return {
-    value,
-    type: constants.types.or
-  }
-}
-
-ebnf.and = value => {
-  return {
-    value,
-    type: constants.types.and
-  }
-}
-
-ebnf.optional = value => {
-  return {
-    value,
-    type: constants.types.optional
-  }
-}
-
-ebnf.excluding = value => {
-  return {
-    value,
-    type: constants.types.excluding
-  }
-}
-
-ebnf.repeat = value => {
-  return {
-    value,
-    type: constants.types.repeat
-  }
-}
-
-ebnf.group = value => {
-  return {
-    value,
-    type: constants.types.group
-  }
+  return chain({rule: methods.rule}, {value: []})
 }
 
 ebnf.LETTERS = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
