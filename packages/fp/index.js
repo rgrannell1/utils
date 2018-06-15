@@ -10,4 +10,12 @@ const fp = {}
  */
 fp.id = value => value
 
+/**
+ * Constant function
+ *
+ * @param  {any} value an arbitrary
+ * @return {function}  a function yielding that value
+ */
+fp.constant = value => () => value
+
 module.exports = fp

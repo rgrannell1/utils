@@ -3,6 +3,7 @@ const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 const constants = require('./src/shared/constants')
 const generator = require('@rgrannell/generator')
+const fp = require('@rgrannell/fp')
 
 const makeEsbnType = (prop, precond, value) => {
   let transformed = precond(value)
@@ -21,27 +22,22 @@ const transforms = {}
 transforms.and = value => {
   return Array.from(value)
 }
-transforms.excluding = value => {
-  return value
-}
-transforms.literal = value => {
-  return value
-}
-transforms.optional = value => {
-  return value
-}
+
+transforms.excluding = fp.id
+
+transforms.literal = fp.id
+
+transforms.optional = fp.id
+
 transforms.or = value => {
   return Array.from(value)
 }
-transforms.ref = value => {
-  return value
-}
-transforms.repeat = value => {
-  return value
-}
-transforms.rules = value => {
-  return value
-}
+
+transforms.ref = fp.id
+
+transforms.repeat = fp.id
+
+transforms.rules = fp.id
 
 const methods = {}
 

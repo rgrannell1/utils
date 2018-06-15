@@ -57,7 +57,6 @@ generate[constants.types.optional] = function* ({value}) {
  */
 generate[constants.types.excluding] = function* ({value}) {
 
-
 }
 
 /**
