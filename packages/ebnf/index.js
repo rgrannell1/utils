@@ -53,6 +53,11 @@ for (let type of esbnTypes) {
   ebnf[type] = makeEsbnType.bind(null, type, transforms[type])
 }
 
+/**
+ * Create an EBNF grammar
+ *
+ * @return {Object} chaining methods & state to create a EBNF ruleset
+ */
 ebnf.grammar = () => {
   return chain({rule: methods.rule}, {value: []})
 }
@@ -66,8 +71,6 @@ methods.rule = (state, {id, value}) => {
     value,
     type: constants.types.rule
   }
-
-  console.log(object.take(methods, ['rule', 'rules']))
 
   return chain(object.take(methods, ['rule', 'rules']), {
     value: state.value.concat(rule)
