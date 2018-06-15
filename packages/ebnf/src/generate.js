@@ -55,21 +55,14 @@ generate[constants.types.excluding] = function* ({value}) {
 
 
 }
-/**
- * [* description]
- *
- * @yield {[type]} [description]
- */
-generate[constants.types.group] = function* () {
 
-}
 /**
- * [* description]
+ * Yield a literal value from a term
  *
- * @yield {[type]} [description]
+ * @yield {any} A literal value
  */
 generate[constants.types.literal] = function* (term) {
-  yield term
+  yield term.value
 }
 /**
  * [* description]
@@ -100,7 +93,6 @@ generate[constants.types.ref] = function* ({value}, bindings) {
  */
 generate[constants.types.repeat] = function* ({value}, bindings) {
   const iter = () => ruleGenerator(asType(value), bindings)
-
   let repeats = 0
 
   for (let repeats of genUtils.increment()) {
@@ -140,7 +132,7 @@ const generator = rules => {
   let bindings = {}
 
   if (type === 'rules') {
-    rules.rules.forEach(rule => {
+    rules.value.value.forEach(rule => {
       bindings[rule.id] = ruleGenerator.bind(null, rule.value, bindings)
     })
 

@@ -17,8 +17,6 @@ let grammar = ebnf.grammar()
   })
   .rules()
 
-for (let aaa of generate(grammar).string()) {
-  console.log('--------')
-  console.log(aaa)
-  console.log('++++++++')
+for (let sentence of generate(grammar).string()) {
+  console.log(sentence.join(''))
 }

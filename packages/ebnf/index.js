@@ -3,7 +3,30 @@ const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 const constants = require('./src/shared/constants')
 
+const makeEsbnType = (prop, value) => {
+  return {
+    value,
+    type: constants.types[prop]
+  }
+}
+
 const methods = {}
+
+methods.rules = makeEsbnType.bind(null, 'rules')
+
+const ebnf = {
+  sets: {}
+}
+
+const esbnTypes = new Set(['and', 'excluding', 'literal', 'optional', 'or', 'ref', 'repeat'])
+for (let type of esbnTypes) {
+  ebnf[type] = makeEsbnType.bind(null, type)
+}
+
+ebnf.grammar = () => {
+  return chain({rule: methods.rule}, {value: []})
+}
+
 
 methods.rule = (state, {id, value}) => {
   expect(id).to.be.a('string')
@@ -23,24 +46,9 @@ methods.rule = (state, {id, value}) => {
   })
 }
 
-const makeEsbnType = (prop, value) => {
-  return {
-    value,
-    type: constants.types[prop]
-  }
+ebnf.sets.ALPHABET = function * () {
+  yield* generator.charRange(x41, x5A)
+  yield* generator.charRange(x61, xA7)
 }
-
-const ebnf = {}
-
-const esbnTypes = new Set(['and', 'excluding', 'literal', 'optional', 'or', 'ref', 'repeat', 'rules'])
-for (let type of esbnTypes) {
-  ebnf[type] = makeEsbnType.bind(null, type)
-}
-
-ebnf.grammar = () => {
-  return chain({rule: methods.rule}, {value: []})
-}
-
-ebnf.LETTERS = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 module.exports = ebnf

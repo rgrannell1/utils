@@ -10,6 +10,7 @@
     'optional',
     'or',
     'ref',
+    'range',
     'repeat',
     'rule',
     'rules'
