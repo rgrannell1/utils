@@ -1,6 +1,6 @@
 {
   "name": "@rgrannell/ebnf",
-  "version": "6.9.0",
+  "version": "6.10.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
@@ -11,6 +11,6 @@
     "@rgrannell/chain": "^6.5.0",
     "@rgrannell/fp": "^6.8.0",
     "@rgrannell/generator": "^6.7.0",
-    "@rgrannell/object": "^6.9.0"
+    "@rgrannell/object": "^6.10.0"
   }
 }
