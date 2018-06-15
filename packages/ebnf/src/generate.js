@@ -1,6 +1,9 @@
 
-require('longjohn')
-const {expect} = require('chai')
+const chai = require('chai')
+chai.config.useProxy = false
+
+const {expect} = chai
+
 const array = require('@rgrannell/array')
 const genUtils = require('@rgrannell/generator')
 const ebnf = require('../index')
@@ -81,9 +84,6 @@ generate[constants.types.or] = function* ({value}, bindings) {
  * @yield {Any} values from a named EBNF
  */
 generate[constants.types.ref] = function* ({value}, bindings) {
-  expect(bindings).to.be.an('object')
-  expect(bindings).to.have.property(value)
-
   yield* bindings[value]();
 }
 

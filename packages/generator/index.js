@@ -86,6 +86,12 @@ generator.crossProduct = function* (gens) {
   yield* acc
 }
 
+/**
+ * Yield an incrementing sequence of numbers
+ *
+ * @param {number} num an (exclusive) upper limiting number
+ * @yield {number}     a list of incrementing numbers
+ */
 generator.increment = function* (num) {
   let ith = 0
   while (true) {
