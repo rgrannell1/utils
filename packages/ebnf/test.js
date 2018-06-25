@@ -1,11 +1,12 @@
 
 const generate = require('./src/generate')
 const ebnf = require('./index')
+const {sets} = require('./index')
 
 let grammar = ebnf.grammar()
   .rule({
     id: 'letter',
-    value: ebnf.or(ebnf.sets.HEX_DIGITS())
+    value: ebnf.or(sets.HEX_DIGITS())
   })
   .rule({
     id: 'string',

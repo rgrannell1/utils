@@ -1,4 +1,6 @@
 
+const chain = require('@rgrannell/chain')
+
 const units = {}
 
 const numericPrefixes = {
@@ -10,6 +12,7 @@ const numericPrefixes = {
   giga: 10e9,
   mega: 10e6,
   kilo: 10e3,
+  centi: 10e-2,
   milli: 10e-3,
   micro: 10e-6,
   nano: 10e-9,

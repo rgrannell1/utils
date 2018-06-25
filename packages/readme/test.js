@@ -1,6 +1,6 @@
 
 const readme = require('./index')
 
-const metadata = readme.package.extractMetadata('../ebnf')
+const metadata = readme.package.summariseExports('../ebnf')
 
-console.log(JSON.stringify(metadata, null, 2))
+console.log(metadata)

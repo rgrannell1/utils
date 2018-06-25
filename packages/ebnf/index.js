@@ -107,6 +107,15 @@ ebnf.sets.HEX_DIGITS = function * () {
 }
 
 /**
+ * Binary bits
+ *
+ * @yield {string}
+ */
+ebnf.sets.BITS = function * () {
+  yield* generator.charRange(0x30, 0x31)
+}
+
+/**
  * A double-quote
  *
  * @yield {string}

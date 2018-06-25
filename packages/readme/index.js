@@ -3,7 +3,8 @@ const markdown = require('@rgrannell/markdown')
 const parseFunction = require('parse-function')
 
 const readme = {
-  package: {}
+  package: {},
+  markdown: {}
 }
 
 readme.package.analyseValue = (name, value) => {
@@ -17,7 +18,7 @@ readme.package.analyseValue = (name, value) => {
   }
 
   return {
-    name: value,
+    name,
     value,
     type: Object.prototype.toString.call(value).slice(8, -1).toLowerCase(),
     details: analyser(value)
@@ -25,16 +26,13 @@ readme.package.analyseValue = (name, value) => {
 }
 
 readme.package.analyseValue.function = value => {
-  const parsed = parseFunction({ecmaVersion: 2017}).parse(value)
 
-  return {
-    params: parsed.params
-  }
 }
 
 readme.package.analyseValue.object = value => {
   return {
-    propCount: Object.keys(value)
+    propCount: Object.keys(value).length,
+    props: Object.keys(value)
   }
 }
 
@@ -52,6 +50,15 @@ readme.package.extractMetadata = path => {
   })
 
   return metadata
+}
+
+readme.package.summariseExports = path => {
+  const metadata = readme.package.extractMetadata(path)
+  const titles =  metadata.exports.map(exports => {
+    return markdown.mono(markdown.h3(exports.name))
+  })
+
+  return markdown.document(markdown.list(titles))
 }
 
 module.exports = readme
