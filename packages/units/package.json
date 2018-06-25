@@ -1,6 +1,6 @@
 {
   "name": "@rgrannell/units",
-  "version": "6.4.0",
+  "version": "6.11.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
