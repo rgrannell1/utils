@@ -1,6 +1,6 @@
 {
   "name": "@rgrannell/async",
-  "version": "6.3.0",
+  "version": "6.14.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
