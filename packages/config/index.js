@@ -1,7 +1,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const finder = require('find-package-json')
+const merge = require('deepmerge')
 
 const yieldConfig = (configPath, defaultConf) => {
   const loaded = require(configPath)
@@ -15,11 +15,13 @@ const yieldConfig = (configPath, defaultConf) => {
   }
 }
 
-const config = (environment = process.env.NODE_ENV, opts) => {
-  const {filename} = finder().next()
-  const paths = {}
+const config = (environment, opts) => {
+  if (!environment) {
+    environment = process.env.NODE_ENV || 'development'
+  }
 
-  paths.root = path.dirname(filename)
+  const paths = {}
+  paths.root = process.cwd()
   paths.configDir = path.join(paths.root, 'config')
   paths.default = path.join(paths.configDir, 'default.js')
   paths.environment = path.join(paths.configDir, `${environment}.js`)
@@ -28,13 +30,13 @@ const config = (environment = process.env.NODE_ENV, opts) => {
     throw new Error(`folder "${paths.configDir}" missing`)
   }
 
-  let defaultConf
-  if (!fs.existsSync(paths.default)) {
+  let defaultConf = {}
+  if (fs.existsSync(paths.default)) {
     defaultConf = yieldConfig(paths.default)
   }
 
-  if (!fs.existsSync(paths.environment)) {
-    return yieldConfig(paths.environment, defaultConf)
+  if (fs.existsSync(paths.environment)) {
+    return merge(yieldConfig(paths.environment, defaultConf), defaultConf)
   }
 }
 
