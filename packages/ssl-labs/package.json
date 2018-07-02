@@ -1,6 +1,6 @@
 {
-  "name": "@rgrannell/mustache",
-  "version": "5.0.0",
+  "name": "@rgrannell/ssl-labs",
+  "version": "6.15.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
