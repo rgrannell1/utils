@@ -55,10 +55,12 @@ readme.package.extractMetadata = path => {
 readme.package.summariseExports = path => {
   const metadata = readme.package.extractMetadata(path)
   const titles =  metadata.exports.map(exports => {
-    return markdown.mono(markdown.h3(exports.name))
+    const header = markdown.h3(markdown.mono(exports.name))
+
+    return header
   })
 
-  return markdown.document(markdown.list(titles))
+  return markdown.document(titles)
 }
 
 module.exports = readme
