@@ -28,7 +28,6 @@ async function runTask (command, {tasks, emitter}) {
     emitter.emit(constants.events.taskStart, taskData)
     await taskData.task(taskData.cli ? neodoc.run(taskData.cli) : undefined)
     emitter.emit(constants.events.taskOk, taskData)
-
   } catch (err) {
     emitter.emit(constants.events.taskErr, command, err)
   }
@@ -102,6 +101,8 @@ pulp.tasks = () => {
         var [name, dependencies, task] = arguments
       } else if (arguments.length === 4) {
         var [name, dependencies, cli, task] = arguments
+      } else {
+        throw new Error("can't destruct supplied arguments")
       }
 
       state.tasks[name] = {name, cli, dependencies, task}
@@ -109,7 +110,6 @@ pulp.tasks = () => {
     async run (opts) {
       const args = neodoc.run(`Usage: script <command>`, {allowUnknown: true})
       return runTask(args['<command>'], state)
-        .catch(err => process.exit(1))
     }
   }
 }
