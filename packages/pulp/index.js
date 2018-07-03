@@ -42,9 +42,7 @@ const getStack = err => {
 
 const reporters = message => {
   const dateBlock = chalk.white(moment().format('hh:mm:ss'))
-  const output = `[${dateBlock}] ${message}`
-
-  console.log(output)
+  console.log(`[${dateBlock}] ${message}`)
 }
 
 const reactions = {}
@@ -96,7 +94,9 @@ pulp.tasks = () => {
 
   return {
     async add () {
-      if (arguments.length === 2) {
+      if (arguments.length === 1) {
+        var {name, dependencies, cli, task} = arguments
+      } else if (arguments.length === 2) {
         var [name, task] = arguments
       } else if (arguments.length === 3) {
         var [name, dependencies, task] = arguments
