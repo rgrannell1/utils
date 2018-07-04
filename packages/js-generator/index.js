@@ -1,6 +1,5 @@
 
 const ebnf = require('@rgrannell/ebnf')
-const constants = require('./src/shared/constants')
 
 const jsGenerator = {}
 
@@ -21,7 +20,7 @@ jsGenerator.array = function * (elem) {
       )
     })
 
-  yield* parsers.array(generator)
+  yield * parsers.array(generator)
 }
 
 /**
@@ -31,12 +30,12 @@ jsGenerator.array = function * (elem) {
  * @yield {number}           indices of the provided array
  */
 jsGenerator.indices = function * (length) {
-  for (const ith = 0; ith < length; ++ith) {
+  for (let ith = 0; ith < length; ++ith) {
     yield ith
   }
 }
 
-for (const xx of jsGenerator.array(function * () { yield 'x' }) {
+for (const xx of jsGenerator.array(function * () { yield 'x' })) {
   console.log(xx)
 }
 

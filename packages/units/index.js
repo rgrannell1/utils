@@ -1,6 +1,4 @@
 
-const unit = {}
-
 const units = {
   S_TO_MS: 1000,
   MS_TO_S: 1e-3,

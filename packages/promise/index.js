@@ -49,8 +49,6 @@ promise.timeout = (error, duration = 0) => {
  *
  */
 promise.waitUntil = (fn, interval = 0) => {
-  const chain = Promise.resolve()
-
   try {
     if (fn() === true) {
       return Promise.resolve()

@@ -33,8 +33,6 @@ generate[constants.types.grammar] = function * () {
  * @yield {Array} an array of yielded subterms
  */
 generate[constants.types.and] = function * ({value}, bindings) {
-  let result = []
-
   const generators = value.map(subterm => () => ruleGenerator(subterm, bindings))
   yield * genUtils.crossProduct(generators)
 }
@@ -44,7 +42,6 @@ generate[constants.types.and] = function * ({value}, bindings) {
  * @yield {[type]} [description]
  */
 generate[constants.types.optional] = function * ({value}) {
-  yield * ruleGenerator(asType(subterm), bindings)
   yield
 }
 
@@ -91,7 +88,6 @@ generate[constants.types.ref] = function * ({value}, bindings) {
  */
 generate[constants.types.repeat] = function * ({value}, bindings) {
   const iter = () => ruleGenerator(asType(value), bindings)
-  let repeats = 0
 
   for (let repeats of genUtils.increment()) {
     yield * genUtils.crossProduct(array.repeat(iter, repeats))

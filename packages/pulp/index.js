@@ -55,17 +55,23 @@ pulp.tasks = () => {
 
   return {
     async add () {
+      var name
+      var dependencies
+      var cli
+      var task
+
       if (arguments.length === 1) {
         if (typeof arguments !== 'object') {
-          throw new Error('non-object provided.')
+          throw new Error('non-object provided')
         }
+        // eslint-disable-next-line
         var {name, dependencies, cli, task} = arguments[0]
       } else if (arguments.length === 2) {
-        var [name, task] = arguments
+        [name, task] = arguments
       } else if (arguments.length === 3) {
-        var [name, dependencies, task] = arguments
+        [name, dependencies, task] = arguments
       } else if (arguments.length === 4) {
-        var [name, dependencies, cli, task] = arguments
+        [name, dependencies, cli, task] = arguments
       } else {
         throw new Error("can't destruct supplied arguments")
       }

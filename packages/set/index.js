@@ -56,13 +56,13 @@ set.intersection = (set0, set1) => {
   const shared = new Set([])
 
   for (let elem of set0) {
-    if (set1.has(elem) {
+    if (set1.has(elem)) {
       shared.add(elem)
     }
   }
 
   for (let elem of set1) {
-    if (set0.has(elem) {
+    if (set0.has(elem)) {
       shared.add(elem)
     }
   }
