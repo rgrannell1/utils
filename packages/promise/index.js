@@ -64,4 +64,14 @@ promise.waitUntil = (fn, interval = 0) => {
   }
 }
 
+promise.sequence = async tasks => {
+  const res = []
+
+  for (const task of tasks) {
+    res.push(await task())
+  }
+
+  return res
+}
+
 module.exports = promise
