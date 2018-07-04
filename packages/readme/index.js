@@ -1,20 +1,19 @@
 
 const markdown = require('@rgrannell/markdown')
-const parseFunction = require('parse-function')
 
 const readme = {
-  package: {},
+  pkg: {},
   markdown: {}
 }
 
-readme.package.analyseValue = (name, value) => {
+readme.pkg.analyseValue = (name, value) => {
   const type = typeof value
 
   var analyser
   if (type === 'function') {
-    analyser = readme.package.analyseValue.function
+    analyser = readme.pkg.analyseValue.function
   } else if (type === 'object') {
-    analyser = readme.package.analyseValue.object
+    analyser = readme.pkg.analyseValue.object
   }
 
   return {
@@ -25,36 +24,36 @@ readme.package.analyseValue = (name, value) => {
   }
 }
 
-readme.package.analyseValue.function = value => {
+readme.pkg.analyseValue.function = value => {
 
 }
 
-readme.package.analyseValue.object = value => {
+readme.pkg.analyseValue.object = value => {
   return {
     propCount: Object.keys(value).length,
     props: Object.keys(value)
   }
 }
 
-readme.package.extractMetadata = path => {
+readme.pkg.extractMetadata = path => {
   try {
-    var package = require(path)
+    var pkg = require(path)
   } catch (err) {
-    throw new Error(`failed to read package in "${path}"`)
+    throw new Error(`failed to read pkg in "${path}"`)
   }
 
   const metadata = {}
 
-  metadata.exports = Object.keys(package).map(name => {
-    return readme.package.analyseValue(name, package[name])
+  metadata.exports = Object.keys(pkg).map(name => {
+    return readme.pkg.analyseValue(name, pkg[name])
   })
 
   return metadata
 }
 
-readme.package.summariseExports = path => {
-  const metadata = readme.package.extractMetadata(path)
-  const titles =  metadata.exports.map(exports => {
+readme.pkg.summariseExports = path => {
+  const metadata = readme.pkg.extractMetadata(path)
+  const titles = metadata.exports.map(exports => {
     const header = markdown.h3(markdown.mono(exports.name))
 
     return header

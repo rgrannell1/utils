@@ -48,8 +48,7 @@ command.task = async () => {
     })
   })
 
-  const failed = true
-  if (failed) {
+  if (results.errorCount > 0) {
     throw new Error(summariseLintErrors(results))
   }
 }
