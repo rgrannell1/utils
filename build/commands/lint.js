@@ -11,6 +11,8 @@ const command = {
 command.cli = `
 Usage:
   script lint
+Description:
+  lint and autofix package files
 `
 
 const summariseLintErrors = results => {
@@ -20,7 +22,8 @@ const summariseLintErrors = results => {
   message += results.results.map(result => {
     let message = `${chalk.inverse(result.filePath)}\n`
 
-    if (result.messages.length === 0) {
+    const isFine = result.messages.length === 0
+    if (isFine) {
       return
     }
 

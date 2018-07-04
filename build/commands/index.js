@@ -1,4 +1,5 @@
 
 module.exports = {
-  lint: require('./lint')
+  lint: require('./lint'),
+  lernaPublish: require('./lerna-publish')
 }

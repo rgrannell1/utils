@@ -5,8 +5,9 @@ const reactions = require('./src/reactions')
 const neodoc = require('neodoc')
 const EventEmitter = require('events')
 
-async function runTask (command, {tasks, emitter}) {
+async function runTask (command, {passArgs = true}, {tasks, emitter}) {
   const taskData = tasks[command]
+
   if (!taskData) {
     throw new Error(`"${command}" not in ${Object.keys(tasks)}`)
   }
@@ -24,7 +25,7 @@ async function runTask (command, {tasks, emitter}) {
 
   try {
     emitter.emit(constants.events.taskStart, taskData)
-    await taskData.task(taskData.cli ? neodoc.run(taskData.cli) : undefined)
+    await taskData.task(taskData.cli && passArgs ? neodoc.run(taskData.cli) : undefined)
     emitter.emit(constants.events.taskOk, taskData)
   } catch (err) {
     emitter.emit(constants.events.taskErr, command, err)
@@ -71,9 +72,9 @@ pulp.tasks = () => {
 
       state.tasks[name] = {name, cli, dependencies, task}
     },
-    async run (opts) {
+    async run () {
       const args = neodoc.run(`Usage: script <command>`, {allowUnknown: true})
-      return runTask(args['<command>'], state)
+      return runTask(args['<command>'], {passArgs: true}, state)
     }
   }
 }
