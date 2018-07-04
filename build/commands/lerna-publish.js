@@ -8,11 +8,16 @@ const command = {
 
 command.cli = `
 Usage:
-  script lerna-publish
+  script lerna-publish [--candidate]
 `
 
 command.task = async args => {
-  return execa.shell('echo y | node_modules/.bin/lerna publish --canary')
+  let flags = ''
+  if (args['--candidate']) {
+    flags += ` --canary`
+  }
+
+  return execa.shell(`echo y | node_modules/.bin/lerna publish ${flags}`)
     .stdout.pipe(process.stdout)
 }
 
