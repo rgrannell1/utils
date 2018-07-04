@@ -52,7 +52,7 @@ loggers.deps = new Signale({
   }
 })
 
-loggers.task.config({
+loggers.deps.config({
   displayTimestamp: true
 })
 
