@@ -1,4 +1,4 @@
 
 module.exports = {
-	lint: require('./lint')
+  lint: require('./lint')
 }

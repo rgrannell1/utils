@@ -1,10 +1,8 @@
 
-const constants = require('./shared/constants')
+const constants = require('./src/constants')
+const reactions = require('./src/reactions')
 
-const esp = require('error-stack-parser')
-const chalk = require('chalk')
 const neodoc = require('neodoc')
-const moment = require('moment')
 const EventEmitter = require('events')
 
 async function runTask (command, {tasks, emitter}) {
@@ -33,43 +31,6 @@ async function runTask (command, {tasks, emitter}) {
   }
 }
 
-const getStack = err => {
-  const [stack] = esp.parse(err)
-
-  return `(${stack.fileName}:${stack.lineNumber})`
-}
-
-const reporters = message => {
-  const dateBlock = chalk.white(moment().format('hh:mm:ss'))
-  console.log(`[${dateBlock}] ${message}`)
-}
-
-const reactions = {}
-
-reactions.depStart = ({name}) => {
-  reporters(chalk.cyan(`Deferred to "${name}"`))
-}
-
-reactions.depOk = ({name}) => {
-  reporters(chalk.green(`Finished deferral to "${name}"`))
-}
-
-reactions.depErr = (name, err) => {
-  reporters(chalk.red(`Failed "${name}" with "${err}" `) + chalk.white(getStack(err)))
-}
-
-reactions.taskStart = ({name}) => {
-  reporters(chalk.cyan(`Started "${name}"`))
-}
-
-reactions.taskOk = ({name}) => {
-  reporters(chalk.green(`Finished task "${name}"`))
-}
-
-reactions.taskErr = (name, err) => {
-  reporters(chalk.red(`Failed "${name}" with ${err}" `) + chalk.white(getStack(err)))
-}
-
 const pulp = {}
 
 /**
@@ -94,7 +55,10 @@ pulp.tasks = () => {
   return {
     async add () {
       if (arguments.length === 1) {
-        var {name, dependencies, cli, task} = arguments
+        if (typeof arguments !== 'object') {
+          throw new Error('non-object provided.')
+        }
+        var {name, dependencies, cli, task} = arguments[0]
       } else if (arguments.length === 2) {
         var [name, task] = arguments
       } else if (arguments.length === 3) {

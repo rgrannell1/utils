@@ -7,12 +7,13 @@
   "license": "MIT",
   "dependencies": {
     "@rgrannell/markdown": "^5.0.0",
-    "@rgrannell/object": "^6.9.0",
-    "@rgrannell/pulp": "^6.17.0",
+    "@rgrannell/object": "^6.11.0",
+    "@rgrannell/pulp": "file:packages/pulp",
     "acorn": "^5.7.1",
     "deepmerge": "^2.1.1",
     "esprima": "^4.0.0",
-    "esprima-fb": "^15001.1001.0-dev-harmony-fb"
+    "esprima-fb": "^15001.1001.0-dev-harmony-fb",
+    "signale": "^1.2.1"
   },
   "devDependencies": {
     "lerna": "^2.11.0",
