@@ -1,12 +1,12 @@
 {
   "name": "@rgrannell/js-generator",
-  "version": "6.11.0",
+  "version": "6.20.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/ebnf": "^6.11.0"
+    "@rgrannell/ebnf": "^6.20.0"
   }
 }
