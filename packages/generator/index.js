@@ -7,7 +7,7 @@ const generator = {}
  * @param {Generator} gen a generator function
  * @yield {Any}
  */
-generator.cycle = function* (gen) {
+generator.cycle = function * (gen) {
   while (true) {
     for (const elem of gen()) {
       yield elem
@@ -21,7 +21,7 @@ generator.cycle = function* (gen) {
  * @param {Generator} gen a generator function
  * @yield {Any}
  */
-generator.repeat = function* (gen, num) {
+generator.repeat = function * (gen, num) {
   for (let ith = 0; ith < num; ++ith) {
     for (const elem of gen()) {
       yield elem
@@ -36,7 +36,7 @@ generator.repeat = function* (gen, num) {
  * @param {Any}   iter     the iterator to transform
  * @yield {Any}            a transformed iterator
  */
-generator.iterMap = function* (fn, iter) {
+generator.iterMap = function * (fn, iter) {
   for (let elem of iter) {
     yield fn(elem)
   }
@@ -49,7 +49,7 @@ generator.iterMap = function* (fn, iter) {
  * @param {Any}   iter     the iterator to filter
  * @yield {Any}            a filtered iterator
  */
-generator.iterSelect = function* (pred, iter) {
+generator.iterSelect = function * (pred, iter) {
   for (let elem of iter) {
     if (pred(elem)) {
       yield elem
@@ -57,7 +57,7 @@ generator.iterSelect = function* (pred, iter) {
   }
 }
 
-function* cross (iter0, gen0) {
+function * cross (iter0, gen0) {
   for (const elem0 of iter0) {
     for (const elem1 of gen0()) {
       yield elem0.concat(elem1)
@@ -71,7 +71,7 @@ function* cross (iter0, gen0) {
  * @param {Array<Gen>} gens an array of nullary generator functions
  * @yield {Array<Any>}
  */
-generator.crossProduct = function* (gens) {
+generator.crossProduct = function * (gens) {
   if (gens.length === 0) {
     return
   }
@@ -83,7 +83,7 @@ generator.crossProduct = function* (gens) {
     acc = cross(acc, currentGen)
   }
 
-  yield* acc
+  yield * acc
 }
 
 /**
@@ -92,7 +92,7 @@ generator.crossProduct = function* (gens) {
  * @param {number} num an (exclusive) upper limiting number
  * @yield {number}     a list of incrementing numbers
  */
-generator.increment = function* (num) {
+generator.increment = function * (num) {
   let ith = 0
   while (true) {
     if (ith + 1 === num) {
@@ -112,7 +112,7 @@ generator.increment = function* (num) {
  *
  * @yield {String} a character
  */
-generator.charRange = function* (lower, upper) {
+generator.charRange = function * (lower, upper) {
   for (let charCode = lower; charCode <= upper; ++charCode) {
     yield String.fromCharCode(charCode)
   }

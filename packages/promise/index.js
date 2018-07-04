@@ -14,8 +14,8 @@ const promise = {}
  */
 promise.stall = (fn, duration = 0) => {
   return new Promise(resolve => {
-    setTimeout(( ) => {
-      resolve(fn( ))
+    setTimeout(() => {
+      resolve(fn())
     }, duration)
   })
 }
@@ -32,7 +32,7 @@ promise.stall = (fn, duration = 0) => {
  */
 promise.timeout = (error, duration = 0) => {
   return new Promise((resolve, reject) => {
-    setTimeout(( ) => {
+    setTimeout(() => {
       reject(error)
     }, duration)
   })
@@ -60,7 +60,6 @@ promise.waitUntil = (fn, interval = 0) => {
           resolve(promise.waitUntil(fn))
         }, interval)
       })
-
     }
   } catch (err) {
     return Promise.reject(err)

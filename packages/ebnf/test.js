@@ -13,7 +13,7 @@ let grammar = ebnf.grammar()
     value: ebnf.and([
       ebnf.literal('"'),
       ebnf.repeat(ebnf.ref('letter')),
-      ebnf.literal('"'),
+      ebnf.literal('"')
     ])
   })
   .rules()

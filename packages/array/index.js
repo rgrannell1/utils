@@ -41,12 +41,12 @@ array.seqAlong = array => {
 }
 
 array.repeat = (value, count) => {
-	let copies = []
+  let copies = []
 
-	for (let ith = 0; ith < count; ith++) {
-		copies.push(value)
-	}
-	return copies
+  for (let ith = 0; ith < count; ith++) {
+    copies.push(value)
+  }
+  return copies
 }
 
 module.exports = array

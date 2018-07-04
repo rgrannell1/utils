@@ -26,7 +26,7 @@ const asType = value => {
  *
  * @yield {[type]} [description]
  */
-generate[constants.types.grammar] = function* () {
+generate[constants.types.grammar] = function * () {
 
 }
 /**
@@ -34,19 +34,19 @@ generate[constants.types.grammar] = function* () {
  *
  * @yield {Array} an array of yielded subterms
  */
-generate[constants.types.and] = function* ({value}, bindings) {
+generate[constants.types.and] = function * ({value}, bindings) {
   let result = []
 
   const generators = value.map(subterm => () => ruleGenerator(subterm, bindings))
-  yield* genUtils.crossProduct(generators)
+  yield * genUtils.crossProduct(generators)
 }
 /**
  * [* description]
  *
  * @yield {[type]} [description]
  */
-generate[constants.types.optional] = function* ({value}) {
-  yield* ruleGenerator(asType(subterm), bindings)
+generate[constants.types.optional] = function * ({value}) {
+  yield * ruleGenerator(asType(subterm), bindings)
   yield
 }
 
@@ -55,7 +55,7 @@ generate[constants.types.optional] = function* ({value}) {
  *
  * @yield {[type]} [description]
  */
-generate[constants.types.excluding] = function* ({value}) {
+generate[constants.types.excluding] = function * ({value}) {
 
 }
 
@@ -64,7 +64,7 @@ generate[constants.types.excluding] = function* ({value}) {
  *
  * @yield {any} A literal value
  */
-generate[constants.types.literal] = function* (term) {
+generate[constants.types.literal] = function * (term) {
   yield term.value
 }
 /**
@@ -72,9 +72,9 @@ generate[constants.types.literal] = function* (term) {
  *
  * @yield {[type]} [description]
  */
-generate[constants.types.or] = function* ({value}, bindings) {
+generate[constants.types.or] = function * ({value}, bindings) {
   for (let subterm of value) {
-    yield* ruleGenerator(asType(subterm), bindings)
+    yield * ruleGenerator(asType(subterm), bindings)
   }
 }
 /**
@@ -82,8 +82,8 @@ generate[constants.types.or] = function* ({value}, bindings) {
  *
  * @yield {Any} values from a named EBNF
  */
-generate[constants.types.ref] = function* ({value}, bindings) {
-  yield* bindings[value]();
+generate[constants.types.ref] = function * ({value}, bindings) {
+  yield * bindings[value]()
 }
 
 /**
@@ -91,12 +91,12 @@ generate[constants.types.ref] = function* ({value}, bindings) {
  *
  * @yield {Array}
  */
-generate[constants.types.repeat] = function* ({value}, bindings) {
+generate[constants.types.repeat] = function * ({value}, bindings) {
   const iter = () => ruleGenerator(asType(value), bindings)
   let repeats = 0
 
   for (let repeats of genUtils.increment()) {
-    yield* genUtils.crossProduct(array.repeat(iter, repeats))
+    yield * genUtils.crossProduct(array.repeat(iter, repeats))
   }
 }
 
@@ -112,7 +112,7 @@ const ruleGenerator = function * (term, bindings) {
   const {type} = term
 
   if (generate.hasOwnProperty(type)) {
-    yield* generate[type](term, bindings)
+    yield * generate[type](term, bindings)
   } else {
     throw new Error(`unknown type provided`)
   }
@@ -137,7 +137,6 @@ const generator = rules => {
     })
 
     return bindings
-
   } else {
     throw new Error(`unknown type "${type}"`)
   }

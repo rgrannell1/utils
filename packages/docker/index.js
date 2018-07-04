@@ -2,7 +2,6 @@
 const docker = {}
 
 docker.FILE = lines => {
-
   lines.forEach(line => {
     if (typeof line === 'undefined') {
       throw new Error(`line was undefined in: \n${lines.join('\n')}`)
@@ -25,7 +24,7 @@ docker.FROM = (id, name) => {
 }
 
 docker.RUN = commands => {
-  return commands.map(command => `RUN ${command}`).join('\n');
+  return commands.map(command => `RUN ${command}`).join('\n')
 }
 
 docker.CMD = command => {
@@ -37,7 +36,7 @@ docker.CMD = command => {
 docker.LABEL = obj => {
   return Object.entries(obj).map(([key, val]) => {
     return `LABEL ${key}=${val}`
-  }).join('\n');
+  }).join('\n')
 }
 
 docker.EXPOSE = port => {
@@ -47,7 +46,7 @@ docker.EXPOSE = port => {
 docker.ENV = obj => {
   return Object.entries(obj).map(([key, val]) => {
     return `ENV ${key}=${val}`
-  }).join('\n');
+  }).join('\n')
 }
 
 docker.ADD = (sources, dest) => {
@@ -55,7 +54,6 @@ docker.ADD = (sources, dest) => {
 }
 
 docker.COPY = (source, dest, opts = {}) => {
-
   if (!source) {
     throw new Error('source not specifed')
   }

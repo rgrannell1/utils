@@ -83,8 +83,8 @@ methods.rule = (state, {id, value}) => {
  * @yield {string}
  */
 ebnf.sets.ALPHABET = function * () {
-  yield* generator.charRange(0x41, 0x5A)
-  yield* generator.charRange(0x61, 0x7A)
+  yield * generator.charRange(0x41, 0x5A)
+  yield * generator.charRange(0x61, 0x7A)
 }
 
 /**
@@ -93,7 +93,7 @@ ebnf.sets.ALPHABET = function * () {
  * @yield {string}
  */
 ebnf.sets.DIGITS = function * () {
-  yield* generator.charRange(0x30, 0x39)
+  yield * generator.charRange(0x30, 0x39)
 }
 
 /**
@@ -102,8 +102,8 @@ ebnf.sets.DIGITS = function * () {
  * @yield {string}
  */
 ebnf.sets.HEX_DIGITS = function * () {
-  yield* ebnf.sets.DIGITS()
-  yield* generator.charRange(0x41, 0x46)
+  yield * ebnf.sets.DIGITS()
+  yield * generator.charRange(0x41, 0x46)
 }
 
 /**
@@ -112,7 +112,7 @@ ebnf.sets.HEX_DIGITS = function * () {
  * @yield {string}
  */
 ebnf.sets.BITS = function * () {
-  yield* generator.charRange(0x30, 0x31)
+  yield * generator.charRange(0x30, 0x31)
 }
 
 /**

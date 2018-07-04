@@ -19,6 +19,6 @@ markdown.mono = text => `\`${text}\``
 markdown.rule = () => '---'
 markdown.list = lines => lines.map(line => `- ${line}`)
 markdown.code = text => '```\n' + text + '\n```'
-markdown.document =lines => lines.join('\n')
+markdown.document = lines => lines.join('\n')
 
 module.exports = markdown

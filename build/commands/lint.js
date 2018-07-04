@@ -25,7 +25,7 @@ const summariseLintErrors = results => {
     }
 
     message += result.messages.map(({ruleId, message, source, line, column}) => {
-      const prefix = chalk.bold(`[${ruleId} ${line}:${column}]`)
+      const prefix = chalk.red(`[${ruleId} ${line}:${column}]`)
       return `  ${prefix} ${chalk.white(message)}`
     }).join('\n')
 
@@ -39,7 +39,7 @@ command.task = () => {
   const target = process.cwd() + '/packages/**/*.js'
 
   return new Promise((resolve, reject) => {
-    standard.lintFiles(target, {}, (err, res) => {
+    standard.lintFiles(target, {fix: true}, (err, res) => {
       err ? reject(err) : resolve(res)
     })
   }).then(results => {

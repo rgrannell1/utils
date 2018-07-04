@@ -25,7 +25,7 @@ const sslLabsClient = () => {
   methods.scan = (host) => {
     return new Promise((resolve, reject) => {
       ssllabs.scan(host, (err, host) => {
-        err ? reject(err) :  resolve(host)
+        err ? reject(err) : resolve(host)
       })
     })
   }
