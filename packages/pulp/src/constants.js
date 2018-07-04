@@ -1,11 +1,11 @@
 
 module.exports = {
   events: {
-  	depStart: Symbol(),
-    depOk: Symbol(),
-    depErr: Symbol(),
-    taskStart: Symbol(),
-    taskOk: Symbol(),
-    taskErr: Symbol()
+    depStart: Symbol('depStart'),
+    depOk: Symbol('depOk'),
+    depErr: Symbol('depErr'),
+    taskStart: Symbol('taskStart'),
+    taskOk: Symbol('taskOk'),
+    taskErr: Symbol('taskErr')
   }
 }

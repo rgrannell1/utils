@@ -2,8 +2,6 @@
 const chai = require('chai')
 chai.config.useProxy = false
 
-const {expect} = chai
-
 const array = require('@rgrannell/array')
 const genUtils = require('@rgrannell/generator')
 const ebnf = require('../index')

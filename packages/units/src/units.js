@@ -1,6 +1,4 @@
 
-const chain = require('@rgrannell/chain')
-
 const units = {}
 
 const numericPrefixes = {
@@ -22,6 +20,8 @@ const numericPrefixes = {
   zepto: 10e-21,
   yocto: 10e-24
 }
+
+units.numericPrefixes = numericPrefixes
 
 units.time = [
   'seconds'

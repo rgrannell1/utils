@@ -1,24 +1,6 @@
 
 const ssllabs = require('node-ssllabs')
 
-/**
- * @param {string} mathod the HTTP method to use
- * @param {string} path the ssl-labs API uri-path
- * @param {object} params query-parameters
- *
- * @returns {Promise}
- */
-const makeRequest = async (method, path, params = {}) => {
-  return JSON.parse(await request[method]({
-    uri: `https://api.ssllabs.com/api/v2/${path}`,
-    qs: Object.assign({}, params)
-  }))
-}
-
-let rest = {
-  get: makeRequest.bind(null, 'get')
-}
-
 const sslLabsClient = () => {
   const methods = {}
 
