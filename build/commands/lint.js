@@ -1,4 +1,5 @@
 
+const {id} = require('@rgrannell/fp')
 const standard = require('standard')
 const chalk = require('chalk')
 
@@ -13,8 +14,15 @@ Usage:
 `
 
 const summariseLintErrors = results => {
-  return results.results.map(result => {
+  let message = `${results.errorCount} errors encountered (${results.fixableErrorCount} autofixeable)\n`
+  message = `${chalk.red(message)}`
+
+  message += results.results.map(result => {
     let message = `${chalk.inverse(result.filePath)}\n`
+
+    if (result.messages.length === 0) {
+      return
+    }
 
     message += result.messages.map(({ruleId, message, source, line, column}) => {
       const prefix = chalk.bold(`[${ruleId} ${line}:${column}]`)
@@ -22,7 +30,9 @@ const summariseLintErrors = results => {
     }).join('\n')
 
     return message
-  }).join('\n\n') + '\n\n'
+  }).filter(id).join('\n\n') + '\n\n'
+
+  return message
 }
 
 command.task = () => {

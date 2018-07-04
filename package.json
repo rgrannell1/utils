@@ -6,6 +6,7 @@
   "author": "rgrannell1 <r.grannell2@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rgrannell/fp": "^6.11.0",
     "@rgrannell/markdown": "^5.0.0",
     "@rgrannell/object": "^6.11.0",
     "@rgrannell/pulp": "file:packages/pulp",
