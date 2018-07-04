@@ -1,13 +1,13 @@
 {
   "name": "@rgrannell/readme",
-  "version": "6.20.0",
+  "version": "6.21.0-alpha.dfb1a68f",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/markdown": "^6.20.0",
+    "@rgrannell/markdown": "^6.21.0-alpha.dfb1a68f",
     "parse-function": "^5.2.10"
   }
 }

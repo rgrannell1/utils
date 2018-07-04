@@ -1,6 +1,6 @@
 {
   "name": "@rgrannell/config",
-  "version": "6.17.0",
+  "version": "6.21.0-alpha.dfb1a68f",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {

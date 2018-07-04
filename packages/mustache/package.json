@@ -1,6 +1,6 @@
 {
   "name": "@rgrannell/mustache",
-  "version": "5.0.0",
+  "version": "6.21.0-alpha.dfb1a68f",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {

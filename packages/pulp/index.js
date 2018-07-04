@@ -16,7 +16,7 @@ async function runTask (command, {passArgs = true}, {tasks, emitter}) {
     emitter.emit(constants.events.depStart, tasks[subtask])
 
     try {
-      await runTask(subtask, {tasks, emitter})
+      await runTask(subtask, {passArgs: false}, {tasks, emitter})
       emitter.emit(constants.events.depOk, tasks[subtask])
     } catch (depErr) {
       emitter.emit(constants.events.depErr, subtask, depErr)

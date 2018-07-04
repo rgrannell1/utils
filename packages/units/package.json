@@ -1,12 +1,12 @@
 {
   "name": "@rgrannell/units",
-  "version": "6.20.0",
+  "version": "6.21.0-alpha.dfb1a68f",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/chain": "^6.5.0"
+    "@rgrannell/chain": "^6.21.0-alpha.dfb1a68f"
   }
 }

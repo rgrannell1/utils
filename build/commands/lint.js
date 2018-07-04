@@ -2,6 +2,7 @@
 const {id} = require('@rgrannell/fp')
 const standard = require('standard')
 const chalk = require('chalk')
+const path = require('path')
 
 const command = {
   name: 'lint',
@@ -38,19 +39,19 @@ const summariseLintErrors = results => {
   return message
 }
 
-command.task = () => {
-  const target = process.cwd() + '/packages/**/*.js'
+command.task = async () => {
+  const target = path.join(process.cwd(), '/packages/**/*.js')
 
-  return new Promise((resolve, reject) => {
+  const results = await new Promise((resolve, reject) => {
     standard.lintFiles(target, {fix: true}, (err, res) => {
       err ? reject(err) : resolve(res)
     })
-  }).then(results => {
-    const failed = true
-    if (failed) {
-      throw new Error(summariseLintErrors(results))
-    }
   })
+
+  const failed = true
+  if (failed) {
+    throw new Error(summariseLintErrors(results))
+  }
 }
 
 module.exports = command

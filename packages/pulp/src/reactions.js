@@ -74,6 +74,7 @@ reactions.depOk = ({name}) => {
 
 reactions.depErr = (name, err) => {
   loggers.deps.err(`Failed "${name}" with "${err}" ${getStack(err)}`)
+  process.exit(1)
 }
 
 reactions.taskStart = ({name}) => {
@@ -86,6 +87,7 @@ reactions.taskOk = ({name}) => {
 
 reactions.taskErr = (name, err) => {
   loggers.task.err(`Failed "${name}" with ${err}" ${getStack(err)}`)
+  process.exit(1)
 }
 
 module.exports = reactions

@@ -1,16 +1,16 @@
 {
   "name": "@rgrannell/ebnf",
-  "version": "6.20.0",
+  "version": "6.21.0-alpha.dfb1a68f",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/array": "^6.20.0",
-    "@rgrannell/chain": "^6.5.0",
-    "@rgrannell/fp": "^6.20.0",
-    "@rgrannell/generator": "^6.20.0",
-    "@rgrannell/object": "^6.11.0"
+    "@rgrannell/array": "^6.21.0-alpha.dfb1a68f",
+    "@rgrannell/chain": "^6.21.0-alpha.dfb1a68f",
+    "@rgrannell/fp": "^6.21.0-alpha.dfb1a68f",
+    "@rgrannell/generator": "^6.21.0-alpha.dfb1a68f",
+    "@rgrannell/object": "^6.21.0-alpha.dfb1a68f"
   }
 }
