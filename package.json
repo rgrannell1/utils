@@ -11,6 +11,7 @@
     "@rgrannell/object": "^6.11.0",
     "@rgrannell/pulp": "file:packages/pulp",
     "acorn": "^5.7.1",
+    "buddy.js": "^0.9.3",
     "deepmerge": "^2.1.1",
     "esprima": "^4.0.0",
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
@@ -18,6 +19,7 @@
     "signale": "^1.2.1"
   },
   "devDependencies": {
+    "cost-of-modules": "^1.0.1",
     "lerna": "^2.11.0",
     "longjohn": "^0.2.12",
     "standard": "^11.0.1"

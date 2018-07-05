@@ -15,12 +15,12 @@ Options:
 `
 
 command.task = async args => {
-  let flags = ''
+  let flags = []
   if (args['--candidate']) {
-    flags += ` --canary`
+    flags.push('--canary')
   }
 
-  return execa.shell(`echo y | node_modules/.bin/lerna publish ${flags}`)
+  return execa(`node_modules/.bin/lerna`, ['publish', '--cd-version major', '--yes'].concat(flags))
     .stdout.pipe(process.stdout)
 }
 
