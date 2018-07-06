@@ -39,6 +39,4 @@ npm.ls = async ({json, production}) => {
   return execa('npm', ['ls'].concat(flags))
 }
 
-npm.ls({json: true})
-
 module.exports = npm

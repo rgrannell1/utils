@@ -1,7 +1,13 @@
 
+const chain = require('@rgrannell/chain')
+
 const units = {}
 
-const numericPrefixes = {
+const factor = factor => quantity => factor * quantity
+const offset = offset => quantity => quantity - offset
+const convert = transform => quantity => transform(quantity)
+
+units.prefixes = {
   yotta: 10e24,
   zetta: 10e21,
   exa: 10e18,
@@ -21,10 +27,21 @@ const numericPrefixes = {
   yocto: 10e-24
 }
 
-units.numericPrefixes = numericPrefixes
-
-units.time = [
-  'seconds'
-]
+units.definitions = {
+  second: {
+    minute: convert(factor(1 / 60)),
+    hour: convert(factor(1 / 3600)),
+    day: convert(factor(1 / 86400)),
+    year: convert(factor(1 / 31557600))
+  },
+  metre: {
+    inch: convert(factor(39.3701)),
+    feet: convert(factor(3.28084)),
+    mile: convert(factor(0.000621371))
+  },
+  kelvin: {
+    celsius: convert(offset(-273.15))
+  }
+}
 
 module.exports = units
