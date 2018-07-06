@@ -2,6 +2,8 @@
 const fs = require('fs').promises
 const path = require('path')
 const documentation = require('documentation')
+const md = require('@rgrannell/markdown')
+
 const constants = {
   paths: {
     packages: path.join(__dirname, '../../packages'),
@@ -43,21 +45,23 @@ const listTargets = async packages => {
       }
       return {
         package: packageJson.package,
-        main: path.join(packageJson.package, packageJson.data.main)
+        main: path.join(packageJson.package, packageJson.data.main),
+        data: packageJson.data
       }
     })
 }
 
 const generateJsonDocs = async path => {
   const mains = await listTargets(path)
-  return Promise.all(mains.map(async ({main, package}) => {
-    const data = await documentation.build([main], {})
-    const parsedData = await documentation.formats.md(data, {})
+  return Promise.all(mains.map(async ({main, package, data}) => {
+    const buildData = await documentation.build([main], {})
+    const parsedData = await documentation.formats.md(buildData, {})
 
     return {
       main,
       package,
-      docs: parsedData
+      docs: parsedData.split('\n'),
+      data
     }
   }))
 }
@@ -65,12 +69,18 @@ const generateJsonDocs = async path => {
 command.task = async args => {
   const docs = await generateJsonDocs(constants.paths.packages)
 
-  const xx = docs.map(doc => {
+  const writeDocs = docs.map(doc => {
     const packageName = path.basename(doc.package)
-    return fs.writeFile(path.join(constants.paths.docs, `${packageName}.md`), doc.docs)
+
+    const packageDocs = md.document([
+      md.h1(`${packageName} (v${doc.data.version})`),
+      ''
+    ].concat(doc.docs))
+
+    return fs.writeFile(path.join(constants.paths.docs, `${packageName}.md`), packageDocs)
   })
 
-  return Promise.all(xx)
+  return Promise.all(writeDocs)
 }
 
 module.exports = command
