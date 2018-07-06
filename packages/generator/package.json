@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/generator",
   "description": "An itertools like library",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
