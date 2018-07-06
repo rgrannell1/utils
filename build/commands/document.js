@@ -2,6 +2,12 @@
 const fs = require('fs').promises
 const path = require('path')
 const documentation = require('documentation')
+const constants = {
+  paths: {
+    packages: path.join(__dirname, '../../packages'),
+    docs: path.join(__dirname, '../../docs')
+  }
+}
 
 const command = {
   name: 'document',
@@ -42,16 +48,29 @@ const listTargets = async packages => {
     })
 }
 
-command.task = async args => {
-  const mains = await listTargets(path.join(__dirname, '../../packages'))
-  const jsonDocs = await Promise.all(mains.map(async ({main, package}) => {
+const generateJsonDocs = async path => {
+  const mains = await listTargets(path)
+  return Promise.all(mains.map(async ({main, package}) => {
     const data = await documentation.build([main], {})
-    const parsedData = await documentation.formats.json(data, {})
+    const parsedData = await documentation.formats.md(data, {})
 
-    return {main, package, docs: JSON.parse(parsedData)}
+    return {
+      main,
+      package,
+      docs: parsedData
+    }
   }))
+}
 
-  console.log(jsonDocs)
+command.task = async args => {
+  const docs = await generateJsonDocs(constants.paths.packages)
+
+  const xx = docs.map(doc => {
+    const packageName = path.basename(doc.package)
+    return fs.writeFile(path.join(constants.paths.docs, `${packageName}.md`), doc.docs)
+  })
+
+  return Promise.all(xx)
 }
 
 module.exports = command
