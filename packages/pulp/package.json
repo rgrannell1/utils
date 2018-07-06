@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/pulp",
+  "description": "A rational, tiny build system",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

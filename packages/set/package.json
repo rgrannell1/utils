@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/set",
+  "description": "Utilities for working with sets",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

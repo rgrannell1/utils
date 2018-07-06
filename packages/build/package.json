@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/build",
+  "description": "Various package.json build utilities",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

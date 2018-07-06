@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/array",
+  "description": "Various array utilities",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

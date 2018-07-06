@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/ssl-labs",
+  "description": "A wrapper for SSL-Labs",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

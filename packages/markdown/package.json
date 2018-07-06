@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/markdown",
+  "description": "A utility library for generating markdown from JavaScript",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

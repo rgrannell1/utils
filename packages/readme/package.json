@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/readme",
+  "description": "A tool for generating readme's",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

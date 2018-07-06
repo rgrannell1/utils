@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/object",
+  "description": "A utility library for working with objects",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

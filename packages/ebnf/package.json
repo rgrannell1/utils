@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/ebnf",
+  "description": "Construct a generator for an EBNF grammar",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/mustache",
+  "description": "A utility library for generating mustache templates from JavaScript",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

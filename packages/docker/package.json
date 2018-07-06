@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/docker",
+  "description": "Utilities for constructing docker files from JavaScript",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",

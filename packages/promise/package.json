@@ -1,5 +1,6 @@
 {
   "name": "@rgrannell/promise",
+  "description": "Utilities for working with promises",
   "version": "7.0.0",
   "main": "index.js",
   "license": "MIT",
