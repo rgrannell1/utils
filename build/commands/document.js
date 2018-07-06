@@ -35,10 +35,12 @@ command.task = async args => {
   const docs = await generateJsonDocs(constants.paths.packages)
 
   const writeDocs = docs.map(doc => {
+    const {description, packageName, version} = doc.json
+
     const packageDocs = md.document([
-      md.h1(`${doc.packageName} (v${doc.json.version})`),
+      md.h1(`${doc.packageName} (v${version})`),
       '',
-      doc.json.description,
+      description,
       ''
     ].concat(doc.docs))
 
