@@ -13,6 +13,9 @@ async function runTask (command, {passArgs = true}, {tasks, emitter}) {
   }
 
   for (const subtask of taskData.dependencies) {
+    if (!tasks || !tasks[subtask]) {
+      throw new Error(`missing task data for "${subtask}"`)
+    }
     emitter.emit(constants.events.depStart, tasks[subtask])
 
     try {

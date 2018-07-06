@@ -1,5 +1,6 @@
 
 const esp = require('error-stack-parser')
+const assert = require('assert')
 const {Signale} = require('signale')
 
 const loggers = {}
@@ -58,28 +59,34 @@ loggers.deps.config({
 
 const reactions = {}
 
-reactions.depStart = ({name}) => {
-  loggers.task.start(`Deferred to "${name}"`)
+reactions.depStart = data => {
+  assert(data, 'missing depStart data argument')
+  loggers.task.start(`Deferred to "${data.name}"`)
 }
 
-reactions.depOk = ({name}) => {
-  loggers.task.ok(`Finished deferral to "${name}"`)
+reactions.depOk = data => {
+  assert(data, 'missing depOk data argument')
+  loggers.task.ok(`Finished deferral to "${data.name}"`)
 }
 
 reactions.depErr = (name, err) => {
+  assert(name, 'missing depErr name argument')
   loggers.deps.err(`Failed "${name}" with "${err}"\n${err.stack}`)
   process.exit(1)
 }
 
-reactions.taskStart = ({name}) => {
-  loggers.task.start(`Started "${name}"`)
+reactions.taskStart = data => {
+  assert(data, 'missing taskStart data argument')
+  loggers.task.start(`Started "${data.name}"`)
 }
 
-reactions.taskOk = ({name}) => {
-  loggers.task.ok(`Finished task "${name}"`)
+reactions.taskOk = data => {
+  assert(data, 'missing taskOk data argument')
+  loggers.task.ok(`Finished task "${data.name}"`)
 }
 
 reactions.taskErr = (name, err) => {
+  assert(name, 'missing depStart name argument')
   loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack}`)
   process.exit(1)
 }
