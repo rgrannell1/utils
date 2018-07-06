@@ -6,6 +6,7 @@ const tasks = pulp.tasks()
 
 tasks.add(commands.lint)
 tasks.add(commands.lernaPublish)
+tasks.add(commands.document)
 
 tasks.run().catch(err => {
   console.log(err)
