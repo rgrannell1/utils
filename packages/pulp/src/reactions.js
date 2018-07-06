@@ -56,12 +56,6 @@ loggers.deps.config({
   displayTimestamp: true
 })
 
-const getStack = err => {
-  const [stack] = esp.parse(err)
-
-  return `(${stack.fileName}:${stack.lineNumber})`
-}
-
 const reactions = {}
 
 reactions.depStart = ({name}) => {
@@ -73,7 +67,7 @@ reactions.depOk = ({name}) => {
 }
 
 reactions.depErr = (name, err) => {
-  loggers.deps.err(`Failed "${name}" with "${err}" ${getStack(err)}`)
+  loggers.deps.err(`Failed "${name}" with "${err}"\n${err.stack}`)
   process.exit(1)
 }
 
@@ -86,7 +80,7 @@ reactions.taskOk = ({name}) => {
 }
 
 reactions.taskErr = (name, err) => {
-  loggers.task.err(`Failed "${name}" with ${err}" ${getStack(err)}`)
+  loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack}`)
   process.exit(1)
 }
 

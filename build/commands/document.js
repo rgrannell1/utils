@@ -4,16 +4,12 @@ const path = require('path')
 const documentation = require('documentation')
 const md = require('@rgrannell/markdown')
 
-const constants = {
-  paths: {
-    packages: path.join(__dirname, '../../packages'),
-    docs: path.join(__dirname, '../../docs')
-  }
-}
+const utils = require('../utils')
+const constants = require('../constants')
 
 const command = {
   name: 'document',
-  dependencies: []
+  dependencies: ['assert-valid-packages']
 }
 
 command.cli = `
@@ -23,46 +19,15 @@ Description:
   Generate package documentation.
 `
 
-const listTargets = async packages => {
-  const files = await fs.readdir(packages)
-  const packageJsons = await Promise.all(files)
-
-  return packageJsons
-    .map(dir => path.join(packages, dir, 'package.json'))
-    .map(jsonPath => {
-      try {
-        return {
-          package: path.dirname(jsonPath),
-          data: require(jsonPath)
-        }
-      } catch (err) {
-        throw new Error(`could not require "${jsonPath}"`)
-      }
-    })
-    .map(packageJson => {
-      if (!packageJson.data.main) {
-        throw new Error(`package.json for "${path.basename(packageJson.data.main)}" did not have main field`)
-      }
-      return {
-        package: packageJson.package,
-        main: path.join(packageJson.package, packageJson.data.main),
-        data: packageJson.data
-      }
-    })
-}
-
 const generateJsonDocs = async path => {
-  const mains = await listTargets(path)
-  return Promise.all(mains.map(async ({main, package, data}) => {
-    const buildData = await documentation.build([main], {})
+  const mains = await utils.listPackageJsons(path)
+  return Promise.all(mains.map(async data => {
+    const buildData = await documentation.build([data.main], {})
     const parsedData = await documentation.formats.md(buildData, {})
 
-    return {
-      main,
-      package,
-      docs: parsedData.split('\n'),
-      data
-    }
+    return Object.assign({}, data, {
+      docs: parsedData.split('\n')
+    })
   }))
 }
 
@@ -70,14 +35,14 @@ command.task = async args => {
   const docs = await generateJsonDocs(constants.paths.packages)
 
   const writeDocs = docs.map(doc => {
-    const packageName = path.basename(doc.package)
-
     const packageDocs = md.document([
-      md.h1(`${packageName} (v${doc.data.version})`),
+      md.h1(`${doc.packageName} (v${doc.json.version})`),
+      '',
+      doc.json.description,
       ''
     ].concat(doc.docs))
 
-    return fs.writeFile(path.join(constants.paths.docs, `${packageName}.md`), packageDocs)
+    return fs.writeFile(path.join(constants.paths.docs, `${doc.packageName}.md`), packageDocs)
   })
 
   return Promise.all(writeDocs)
