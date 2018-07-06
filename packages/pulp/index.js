@@ -14,7 +14,7 @@ async function runTask (command, {passArgs = true}, {tasks, emitter}) {
 
   for (const subtask of taskData.dependencies) {
     if (!tasks || !tasks[subtask]) {
-      throw new Error(`missing task data for "${subtask}"`)
+      throw new Error(`missing task data for "${subtask}". Did you forget to bind it to your "pulpfile.js"?`)
     }
     emitter.emit(constants.events.depStart, tasks[subtask])
 

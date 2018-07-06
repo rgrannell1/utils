@@ -1,4 +1,6 @@
 
+const assert = require('assert')
+
 const utils = require('../utils')
 const constants = require('../constants')
 
@@ -14,11 +16,10 @@ Usage:
 
 command.task = async args => {
   const mains = await utils.listPackageJsons(constants.paths.packages)
-  return Promise.all(mains.map(async ({json}) => {
-    console.log(json)
-    console.log(json)
-    console.log(json)
-    console.log(json)
+  return Promise.all(mains.map(async ({json, name}) => {
+    for (const property of ['description', 'version']) {
+      assert(json.hasOwnProperty(property), `"${name}" package.json missing property "${property}"`)
+    }
   }))
 }
 
