@@ -20,8 +20,9 @@ command.task = async args => {
     flags.push('--canary')
   }
 
-  return execa(`node_modules/.bin/lerna`, ['publish', '--cd-version major', '--yes'].concat(flags))
-    .stdout.pipe(process.stdout)
+  const cmd = execa(`node_modules/.bin/lerna`, ['publish', '--cd-version major', '--yes'].concat(flags))
+  cmd.stdout.pipe(process.stdout)
+  cmd.stderr.pipe(process.stderr)
 }
 
 module.exports = command

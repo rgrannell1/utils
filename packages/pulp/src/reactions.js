@@ -1,5 +1,4 @@
 
-const esp = require('error-stack-parser')
 const assert = require('assert')
 const {Signale} = require('signale')
 

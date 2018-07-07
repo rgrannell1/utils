@@ -1,6 +1,4 @@
 
-const chain = require('@rgrannell/chain')
-
 const units = {}
 
 const factor = factor => quantity => factor * quantity
