@@ -88,9 +88,12 @@ document.packages = async args => {
 
 document.utils = async args => {
   const packages = await utils.listPackageJsons(constants.paths.packages)
+  const rootPackage = require(path.join(constants.paths.root, 'package.json'))
 
   const packageDocs = md.document([
     md.h1('utils'),
+    '',
+    rootPackage.description,
     '',
     md.h2('Packages'),
     '',

@@ -1,5 +1,7 @@
 # utils
 
+A monorepository for publishing utility modules
+
 ## Packages
 
 - **@rgrannell/array (v8.0.0)**: Various array utilities
