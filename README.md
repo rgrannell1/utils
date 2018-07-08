@@ -2,25 +2,25 @@
 
 ## Packages
 
-- @rgrannell/array (v8.0.0): Various array utilities
-- @rgrannell/async (v8.0.0): Various async utilities
-- @rgrannell/build (v8.0.0): Various package.json build utilities
-- @rgrannell/chain (v8.0.0): Builder-pattern utility
-- @rgrannell/config (v8.0.0): An alternative to config.js
-- @rgrannell/docker (v8.0.0): Utilities for constructing docker files from JavaScript
-- @rgrannell/ebnf (v8.0.0): Construct a generator for an EBNF grammar
-- @rgrannell/fp (v8.0.0): Functional programming utilities
-- @rgrannell/generator (v8.0.0): An itertools like library
-- @rgrannell/js-generator (v8.0.0): An itertools-like library
-- @rgrannell/markdown (v8.0.0): A utility library for generating markdown from JavaScript
-- @rgrannell/mustache (v8.0.0): A utility library for generating mustache templates from JavaScript
-- @rgrannell/object (v8.0.0): A utility library for working with objects
-- @rgrannell/promise (v8.0.0): Utilities for working with promises
-- @rgrannell/pulp (v8.0.0): A rational, tiny build system
-- @rgrannell/readme (v8.0.0): A tool for generating readme's
-- @rgrannell/set (v8.0.0): Utilities for working with sets
-- @rgrannell/ssl-labs (v8.0.0): A wrapper for SSL-Labs
-- @rgrannell/units (v8.0.0): A library for working with promises
+- **@rgrannell/array (v8.0.0)**: Various array utilities
+- **@rgrannell/async (v8.0.0)**: Various async utilities
+- **@rgrannell/build (v8.0.0)**: Various package.json build utilities
+- **@rgrannell/chain (v8.0.0)**: Builder-pattern utility
+- **@rgrannell/config (v8.0.0)**: An alternative to config.js
+- **@rgrannell/docker (v8.0.0)**: Utilities for constructing docker files from JavaScript
+- **@rgrannell/ebnf (v8.0.0)**: Construct a generator for an EBNF grammar
+- **@rgrannell/fp (v8.0.0)**: Functional programming utilities
+- **@rgrannell/generator (v8.0.0)**: An itertools like library
+- **@rgrannell/js-generator (v8.0.0)**: An itertools-like library
+- **@rgrannell/markdown (v8.0.0)**: A utility library for generating markdown from JavaScript
+- **@rgrannell/mustache (v8.0.0)**: A utility library for generating mustache templates from JavaScript
+- **@rgrannell/object (v8.0.0)**: A utility library for working with objects
+- **@rgrannell/promise (v8.0.0)**: Utilities for working with promises
+- **@rgrannell/pulp (v8.0.0)**: A rational, tiny build system
+- **@rgrannell/readme (v8.0.0)**: A tool for generating readme's
+- **@rgrannell/set (v8.0.0)**: Utilities for working with sets
+- **@rgrannell/ssl-labs (v8.0.0)**: A wrapper for SSL-Labs
+- **@rgrannell/units (v8.0.0)**: A library for working with promises
 
 ## License
 

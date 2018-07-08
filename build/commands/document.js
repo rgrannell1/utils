@@ -87,15 +87,16 @@ document.packages = async args => {
 }
 
 document.utils = async args => {
-  const mains = await utils.listPackageJsons(constants.paths.packages)
+  const packages = await utils.listPackageJsons(constants.paths.packages)
 
   const packageDocs = md.document([
     md.h1('utils'),
     '',
     md.h2('Packages'),
     '',
-    md.list(mains.map(data => {
-      return `${data.json.name} (v${data.json.version}): ${data.json.description}`
+    md.list(packages.map(data => {
+      const prefix = md.bold(`${data.json.name} (v${data.json.version})`)
+      return `${prefix}: ${data.json.description}`
     })).join('\n'),
     '',
     md.h2('License'),
