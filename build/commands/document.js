@@ -22,7 +22,7 @@ Description:
   Generate package documentation.
 `
 
-const generateJsonDocs = async path => {
+const generatePackageDocs = async path => {
   const mains = await utils.listPackageJsons(path)
   return Promise.all(mains.map(async data => {
     const buildData = await documentation.build([data.main], {})
@@ -58,7 +58,7 @@ SOFTWARE.`
 const document = {}
 
 document.packages = async args => {
-  const docs = await generateJsonDocs(constants.paths.packages)
+  const docs = await generatePackageDocs(constants.paths.packages)
 
   const writeDocs = docs.map(doc => {
     const {description, version} = doc.json
@@ -86,8 +86,33 @@ document.packages = async args => {
   return Promise.all(writeDocs)
 }
 
+document.utils = async args => {
+  const mains = await utils.listPackageJsons(constants.paths.packages)
+
+  const packageDocs = md.document([
+    md.h1('utils'),
+    '',
+    md.h2('Packages'),
+    '',
+    md.list(mains.map(data => {
+      return `${data.json.name} (v${data.json.version}): ${data.json.description}`
+    })).join('\n'),
+    '',
+    md.h2('License'),
+    '',
+    license
+  ])
+
+  return fs.writeFile(path.join(constants.paths.root, `README.md`), packageDocs)
+}
+
 command.task = async args => {
-  return await document.packages(args)
+  try {
+    // await document.packages(args)
+    await document.utils(args)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 module.exports = command
