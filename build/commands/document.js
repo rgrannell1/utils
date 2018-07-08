@@ -2,7 +2,6 @@
 const documentation = require('documentation')
 const fs = require('fs').promises
 const md = require('@rgrannell/markdown')
-const mustache = require('@rgrannell/mustache')
 
 const path = require('path')
 const toc = require('markdown-toc')
@@ -111,12 +110,8 @@ document.utils = async args => {
 }
 
 command.task = async args => {
-  try {
-    // await document.packages(args)
-    await document.utils(args)
-  } catch (err) {
-    console.log(err)
-  }
+  await document.packages(args)
+  await document.utils(args)
 }
 
 module.exports = command

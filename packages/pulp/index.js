@@ -56,35 +56,48 @@ pulp.tasks = () => {
   state.emitter.on(constants.events.taskOk, reactions.taskOk)
   state.emitter.on(constants.events.taskErr, reactions.taskErr)
 
-  return {
-    async add () {
-      var name
-      var dependencies
-      var cli
-      var task
+  const methods = {}
 
-      if (arguments.length === 1) {
-        if (typeof arguments !== 'object') {
-          throw new Error('non-object provided')
-        }
-        // eslint-disable-next-line
-        var {name, dependencies, cli, task} = arguments[0]
-      } else if (arguments.length === 2) {
-        [name, task] = arguments
-      } else if (arguments.length === 3) {
-        [name, dependencies, task] = arguments
-      } else if (arguments.length === 4) {
-        [name, dependencies, cli, task] = arguments
-      } else {
-        throw new Error("can't destruct supplied arguments")
+  methods.add = function () {
+    var name
+    var dependencies
+    var cli
+    var task
+
+    if (arguments.length === 1) {
+      if (typeof arguments !== 'object') {
+        throw new Error('non-object provided')
       }
-
-      state.tasks[name] = {name, cli, dependencies, task}
-    },
-    async run () {
-      const args = neodoc.run(`Usage: script <command>`, {allowUnknown: true})
-      return runTask(args['<command>'], {passArgs: true}, state)
+      // eslint-disable-next-line
+      var {name, dependencies, cli, task} = arguments[0]
+    } else if (arguments.length === 2) {
+      [name, task] = arguments
+    } else if (arguments.length === 3) {
+      [name, dependencies, task] = arguments
+    } else if (arguments.length === 4) {
+      [name, dependencies, cli, task] = arguments
+    } else {
+      throw new Error(`can't destruct supplied arguments; "${arguments.length}" arguments supplied`)
     }
+
+    state.tasks[name] = {name, cli, dependencies, task}
+  }
+
+  methods.addAll = function (tasks) {
+    for (const name of Object.keys(tasks)) {
+      methods.add(tasks[name])
+    }
+  }
+
+  methods.run = function () {
+    const args = neodoc.run(`Usage: script <command>`, {allowUnknown: true})
+    return runTask(args['<command>'], {passArgs: true}, state)
+  }
+
+  return {
+    add: methods.add,
+    addAll: methods.addAll,
+    run: methods.run
   }
 }
 
