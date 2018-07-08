@@ -50,7 +50,7 @@ Returns **[Array][1]&lt;[Number][2]>** return an array of indices
 ## License
 
 
-Copyright (c) 118 Ryan Grannell
+Copyright (c) 2018 Ryan Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

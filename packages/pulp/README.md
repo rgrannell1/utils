@@ -19,7 +19,7 @@ Returns **[Object][1]** an object with a pair of methods; `add` and `run`
 ## License
 
 
-Copyright (c) 118 Ryan Grannell
+Copyright (c) 2018 Ryan Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

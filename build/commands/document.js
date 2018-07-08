@@ -34,7 +34,7 @@ const generatePackageDocs = async path => {
 }
 
 const license = `
-Copyright (c) ${(new Date()).getYear()} Ryan Grannell
+Copyright (c) ${(new Date()).getFullYear()} Ryan Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
