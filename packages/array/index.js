@@ -2,18 +2,18 @@
 const array = { }
 
 /**
- * Choose a single value from an array
+ * Select a random value from an input array, using a non-cryptographically secure selector.
  *
- * @param  {Array<any>} value an array of values
+ * @param  {Array<any>} value An array of arbitrary values
  *
- * @return {any}        a randomly selected value from the array
+ * @return {any}        a randomly selected element from the array
  */
 array.oneOf = value => {
   return value[Math.floor(Math.random() * value.length)]
 }
 
 /**
- * Create indices up to a number
+ * Create an array of indices up to but not including a ceiling value provided.
  *
  * @param  {Number} number a positive number
  *
@@ -30,16 +30,24 @@ array.seqTo = number => {
 }
 
 /**
- * Return an array of indices for an array
+ * Return an array of indices for an input array
  *
  * @param  {Array<Any>} array an arbitrary array
  *
- * @return {Array<Number>} return an array of indices
+ * @return {Array<Number>} return an array of indices for that array
  */
 array.seqAlong = array => {
   return array.map((_, ith) => ith)
 }
 
+/**
+ * Repeat an arbitrary value several times
+ *
+ * @param  {Any} value    an arbitrary value to repeat
+ * @param  {Number} count a nonnegative number describing the number of times to repeat the arbitrary value provided
+ *
+ * @return {Array<Any>}   an array of repeated values.
+ */
 array.repeat = (value, count) => {
   let copies = []
 
