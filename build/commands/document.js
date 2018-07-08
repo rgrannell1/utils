@@ -98,7 +98,7 @@ document.utils = async args => {
     '',
     md.list(packages.map(data => {
       const prefix = md.bold(`${data.json.name} (v${data.json.version})`)
-      return `${prefix}: ${data.json.description}`
+      return md.link(`${prefix}: ${data.json.description}`, `../packages/${data.name}`)
     })).join('\n'),
     '',
     md.h2('License'),

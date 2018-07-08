@@ -7,10 +7,10 @@
   "author": "rgrannell1 <r.grannell2@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@rgrannell/fp": "^6.11.0",
+    "@rgrannell/fp": "file:packages/fp",
     "@rgrannell/markdown": "file:packages/markdown",
     "@rgrannell/mustache": "file:packages/mustache",
-    "@rgrannell/object": "^6.11.0",
+    "@rgrannell/object": "file:packages/object",
     "@rgrannell/pulp": "file:packages/pulp",
     "acorn": "^5.7.1",
     "buddy.js": "^0.9.3",

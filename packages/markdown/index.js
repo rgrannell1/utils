@@ -51,6 +51,7 @@ markdown.h6 = markdown.header.bind(null, 6)
 markdown.italic = text => `*${text}*`
 markdown.bold = text => `**${text}**`
 markdown.mono = text => `\`${text}\``
+markdown.link = (text, link) => `[${text}](${link})`
 
 markdown.rule = () => '---'
 markdown.list = lines => lines.map(line => `- ${line}`)

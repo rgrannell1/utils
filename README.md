@@ -4,25 +4,25 @@ A monorepository for publishing utility modules
 
 ## Packages
 
-- **@rgrannell/array (v8.0.0)**: Various array utilities
-- **@rgrannell/async (v8.0.0)**: Various async utilities
-- **@rgrannell/build (v8.0.0)**: Various package.json build utilities
-- **@rgrannell/chain (v8.0.0)**: Builder-pattern utility
-- **@rgrannell/config (v8.0.0)**: An alternative to config.js
-- **@rgrannell/docker (v8.0.0)**: Utilities for constructing docker files from JavaScript
-- **@rgrannell/ebnf (v8.0.0)**: Construct a generator for an EBNF grammar
-- **@rgrannell/fp (v8.0.0)**: Functional programming utilities
-- **@rgrannell/generator (v8.0.0)**: An itertools like library
-- **@rgrannell/js-generator (v8.0.0)**: An itertools-like library
-- **@rgrannell/markdown (v8.0.0)**: A utility library for generating markdown from JavaScript
-- **@rgrannell/mustache (v8.0.0)**: A utility library for generating mustache templates from JavaScript
-- **@rgrannell/object (v8.0.0)**: A utility library for working with objects
-- **@rgrannell/promise (v8.0.0)**: Utilities for working with promises
-- **@rgrannell/pulp (v8.0.0)**: A rational, tiny build system
-- **@rgrannell/readme (v8.0.0)**: A tool for generating readme's
-- **@rgrannell/set (v8.0.0)**: Utilities for working with sets
-- **@rgrannell/ssl-labs (v8.0.0)**: A wrapper for SSL-Labs
-- **@rgrannell/units (v8.0.0)**: A library for working with promises
+- [**@rgrannell/array (v8.0.0)**: Various array utilities](../packages/array)
+- [**@rgrannell/async (v8.0.0)**: Various async utilities](../packages/async)
+- [**@rgrannell/build (v8.0.0)**: Various package.json build utilities](../packages/build)
+- [**@rgrannell/chain (v8.0.0)**: Builder-pattern utility](../packages/chain)
+- [**@rgrannell/config (v8.0.0)**: An alternative to config.js](../packages/config)
+- [**@rgrannell/docker (v8.0.0)**: Utilities for constructing docker files from JavaScript](../packages/docker)
+- [**@rgrannell/ebnf (v8.0.0)**: Construct a generator for an EBNF grammar](../packages/ebnf)
+- [**@rgrannell/fp (v8.0.0)**: Functional programming utilities](../packages/fp)
+- [**@rgrannell/generator (v8.0.0)**: An itertools like library](../packages/generator)
+- [**@rgrannell/js-generator (v8.0.0)**: An itertools-like library](../packages/js-generator)
+- [**@rgrannell/markdown (v8.0.0)**: A utility library for generating markdown from JavaScript](../packages/markdown)
+- [**@rgrannell/mustache (v8.0.0)**: A utility library for generating mustache templates from JavaScript](../packages/mustache)
+- [**@rgrannell/object (v8.0.0)**: A utility library for working with objects](../packages/object)
+- [**@rgrannell/promise (v8.0.0)**: Utilities for working with promises](../packages/promise)
+- [**@rgrannell/pulp (v8.0.0)**: A rational, tiny build system](../packages/pulp)
+- [**@rgrannell/readme (v8.0.0)**: A tool for generating readme's](../packages/readme)
+- [**@rgrannell/set (v8.0.0)**: Utilities for working with sets](../packages/set)
+- [**@rgrannell/ssl-labs (v8.0.0)**: A wrapper for SSL-Labs](../packages/ssl-labs)
+- [**@rgrannell/units (v8.0.0)**: A library for working with promises](../packages/units)
 
 ## License
 
