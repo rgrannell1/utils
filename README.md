@@ -4,7 +4,7 @@ A monorepository for publishing utility modules
 
 ## Packages
 
-- **@rgrannell/array (v8.0.0)**: Various array utilities
+- [**@rgrannell/array (v8.0.0)**: Various array utilities](../)
 - **@rgrannell/async (v8.0.0)**: Various async utilities
 - **@rgrannell/build (v8.0.0)**: Various package.json build utilities
 - **@rgrannell/chain (v8.0.0)**: Builder-pattern utility
