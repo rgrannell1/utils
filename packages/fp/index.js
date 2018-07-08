@@ -4,6 +4,10 @@ const fp = {}
 /**
  * Identity function
  *
+ * @example
+ *  // return 1
+ *  fp.id(1)
+ *
  * @param  {any}       value an arbitrary value
  *
  * @return {any}       the same input value

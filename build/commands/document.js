@@ -2,6 +2,8 @@
 const documentation = require('documentation')
 const fs = require('fs').promises
 const md = require('@rgrannell/markdown')
+const mustache = require('@rgrannell/mustache')
+
 const path = require('path')
 const toc = require('markdown-toc')
 
@@ -32,7 +34,30 @@ const generateJsonDocs = async path => {
   }))
 }
 
-command.task = async args => {
+const license = `
+Copyright (c) ${(new Date()).getYear()} Ryan Grannell
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`
+
+const document = {}
+
+document.packages = async args => {
   const docs = await generateJsonDocs(constants.paths.packages)
 
   const writeDocs = docs.map(doc => {
@@ -43,18 +68,26 @@ command.task = async args => {
     const packageDocs = md.document([
       md.h1(`${doc.name} (v${version})`),
       '',
+      description,
+      '',
       md.h2('Table of Contents'),
       '',
       tableOfContent,
-      '',
-      description,
       ''
-    ].concat(doc.docs))
+    ].concat(doc.docs).concat([
+      md.h2('License'),
+      '',
+      license
+    ]))
 
-    return fs.writeFile(path.join(constants.paths.docs, `${doc.name}.md`), packageDocs)
+    return fs.writeFile(path.join(doc.path, `README.md`), packageDocs)
   })
 
   return Promise.all(writeDocs)
+}
+
+command.task = async args => {
+  return await document.packages(args)
 }
 
 module.exports = command

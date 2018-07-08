@@ -8,6 +8,7 @@
   "dependencies": {
     "@rgrannell/fp": "^6.11.0",
     "@rgrannell/markdown": "file:packages/markdown",
+    "@rgrannell/mustache": "file:packages/mustache",
     "@rgrannell/object": "^6.11.0",
     "@rgrannell/pulp": "file:packages/pulp",
     "acorn": "^5.7.1",
