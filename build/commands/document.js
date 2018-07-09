@@ -92,6 +92,8 @@ document.utils = async args => {
   const packageDocs = md.document([
     md.h1('utils'),
     '',
+    '[![Build Status](https://travis-ci.org/rgrannell1/utils.svg?branch=master)](https://travis-ci.org/rgrannell1/utils)',
+    '',
     rootPackage.description,
     '',
     md.h2('Packages'),

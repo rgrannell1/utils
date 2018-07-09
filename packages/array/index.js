@@ -46,6 +46,9 @@ array.seqAlong = array => {
  * @param  {Any} value    an arbitrary value to repeat
  * @param  {Number} count a nonnegative number describing the number of times to repeat the arbitrary value provided
  *
+ * @example
+ *   array.repeat('a',3)
+ *
  * @return {Array<Any>}   an array of repeated values.
  */
 array.repeat = (value, count) => {
