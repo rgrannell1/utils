@@ -2,7 +2,9 @@
 const documentation = require('documentation')
 const fs = require('fs').promises
 const md = require('@rgrannell/markdown')
+const oUtils = require('@rgrannell/object')
 const build = require('../commands')
+const mustache = require('mustache')
 
 const path = require('path')
 const toc = require('markdown-toc')
@@ -29,7 +31,7 @@ const generatePackageDocs = async path => {
     const parsedData = await documentation.formats.md(buildData, {})
 
     return Object.assign({}, data, {
-      docs: parsedData.split('\n')
+      docs: parsedData
     })
   }))
 }
@@ -58,30 +60,24 @@ SOFTWARE.`
 const document = {}
 
 document.packages = async args => {
-  const docs = await generatePackageDocs(constants.paths.packages)
+  const template = await fs.readFile(constants.paths.packageReadmeTemplate)
+  const api = await generatePackageDocs(constants.paths.packages)
 
-  const writeDocs = docs.map(doc => {
-    const {description, version} = doc.json
+  const writeDocs = api.map(api => {
+    const {description, version} = api.json
 
-    const tableOfContent = toc(doc.docs.join('\n')).content
+    const tableOfContent = toc(api.docs).content
 
-    const packageDocs = md.document([
-      md.h1(`${doc.name} (v${version})`),
-      '',
+    const vars = {
+      name: api.name,
+      version,
       description,
-      '',
-      md.h2('Table of Contents'),
-      '',
       tableOfContent,
-      '',
-      'API'
-    ].concat(doc.docs).concat([
-      md.h2('License'),
-      '',
-      license
-    ]))
+      api,
+      year: (new Date()).getFullYear()
+    }
 
-    return fs.writeFile(path.join(doc.path, `README.md`), packageDocs)
+    return fs.writeFile(path.join(api.path, `README.md`), mustache.render(template.toString(), vars))
   })
 
   return Promise.all(writeDocs)
@@ -91,43 +87,20 @@ document.utils = async args => {
   const packages = await utils.listPackageJsons(constants.paths.packages)
   const rootPackage = require(path.join(constants.paths.root, 'package.json'))
 
-  const buildSystem = Object.values(require('.')).map(data => {
-    return md.document([
-      md.h3(data.name),
-      '',
-      md.list([
-        `dependencies: ${data.dependencies}`
-      ]),
-      '',
-      md.code(data.cli),
-      ''
-    ])
+  const template = await fs.readFile(constants.paths.utilsReadmeTemplate)
+  const vars = Object.assign({}, oUtils.restrict(rootPackage, [
+    'version'
+  ]))
+
+  vars.year = (new Date()).getFullYear()
+  vars.packages = packages.map(data => {
+    return oUtils.restrict(data.json, ['name', 'version', 'description'])
+  })
+  vars.commands = Object.values(require('.')).map(data => {
+    return oUtils.restrict(data, ['name', 'dependencies', 'cli'])
   })
 
-  const packageDocs = md.document([
-    md.h1('utils'),
-    '',
-    '[![Build Status](https://travis-ci.org/rgrannell1/utils.svg?branch=master)](https://travis-ci.org/rgrannell1/utils)',
-    '',
-    rootPackage.description,
-    '',
-    md.h2('Packages'),
-    '',
-    md.list(packages.map(data => {
-      const prefix = md.bold(`${data.json.name} (v${data.json.version})`)
-      return md.link(`${prefix}: ${data.json.description}`, `../../tree/master/packages/${data.name}`)
-    })).join('\n'),
-    '',
-    md.h2('Build System'),
-    '',
-    buildSystem.join('\n'),
-    '',
-    md.h2('License'),
-    '',
-    license
-  ])
-
-  return fs.writeFile(path.join(constants.paths.root, `README.md`), packageDocs)
+  return fs.writeFile(path.join(constants.paths.root, `README.md`), mustache.render(template.toString(), vars))
 }
 
 command.task = async args => {
