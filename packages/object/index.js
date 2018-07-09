@@ -10,7 +10,7 @@ const object = {}
  * @returns {Object} an object with a subset of
  *                     properties from an input object.
  */
-object.restrict = (object, props) => asdasd{
+object.restrict = (object, props) => {
   const restricted = {}
   const propSet = new Set(props)
 
