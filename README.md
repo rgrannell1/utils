@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/rgrannell1/utils.svg?branch=master)](https://travis-ci.org/rgrannell1/utils)
 
-
+A monorepository for publishing utility modules
 
 ## Packages
 
