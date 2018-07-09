@@ -5,7 +5,8 @@ An itertools-like library
 
 ## Table of Contents
 
-
+- [indices](#indices)
+  * [Parameters](#parameters)
 
 ## API
 

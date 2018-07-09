@@ -5,7 +5,12 @@ Utilities for working with sets
 
 ## Table of Contents
 
-
+- [equals](#equals)
+  * [Parameters](#parameters)
+- [union](#union)
+  * [Parameters](#parameters-1)
+- [intersection](#intersection)
+  * [Parameters](#parameters-2)
 
 ## API
 

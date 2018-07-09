@@ -5,7 +5,13 @@ Functional programming utilities
 
 ## Table of Contents
 
-
+- [id](#id)
+  * [Parameters](#parameters)
+  * [Examples](#examples)
+- [constant](#constant)
+  * [Parameters](#parameters-1)
+- [pluck](#pluck)
+  * [Parameters](#parameters-2)
 
 ## API
 

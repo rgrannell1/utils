@@ -5,7 +5,7 @@ A rational, tiny build system
 
 ## Table of Contents
 
-
+- [tasks](#tasks)
 
 ## API
 

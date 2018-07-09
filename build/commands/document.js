@@ -66,13 +66,13 @@ document.packages = async args => {
   const writeDocs = api.map(api => {
     const {description, version} = api.json
 
-    const tableOfContent = toc(api.docs).content
+    const tableOfContents = toc(api.docs).content
 
     const vars = {
       name: api.name,
       version,
       description,
-      tableOfContent,
+      tableOfContents,
       api,
       year: (new Date()).getFullYear()
     }

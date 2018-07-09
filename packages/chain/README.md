@@ -5,7 +5,8 @@ Builder-pattern utility
 
 ## Table of Contents
 
-
+- [chain](#chain)
+  * [Parameters](#parameters)
 
 ## API
 

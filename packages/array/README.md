@@ -5,7 +5,15 @@ Various array utilities
 
 ## Table of Contents
 
-
+- [oneOf](#oneof)
+  * [Parameters](#parameters)
+- [seqTo](#seqto)
+  * [Parameters](#parameters-1)
+- [seqAlong](#seqalong)
+  * [Parameters](#parameters-2)
+- [repeat](#repeat)
+  * [Parameters](#parameters-3)
+  * [Examples](#examples)
 
 ## API
 

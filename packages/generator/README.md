@@ -5,7 +5,20 @@ An itertools like library
 
 ## Table of Contents
 
-
+- [cycle](#cycle)
+  * [Parameters](#parameters)
+- [repeat](#repeat)
+  * [Parameters](#parameters-1)
+- [iterMap](#itermap)
+  * [Parameters](#parameters-2)
+- [iterSelect](#iterselect)
+  * [Parameters](#parameters-3)
+- [crossProduct](#crossproduct)
+  * [Parameters](#parameters-4)
+- [increment](#increment)
+  * [Parameters](#parameters-5)
+- [charRange](#charrange)
+  * [Parameters](#parameters-6)
 
 ## API
 

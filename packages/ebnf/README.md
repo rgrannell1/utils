@@ -5,7 +5,18 @@ Construct a generator for an EBNF grammar
 
 ## Table of Contents
 
-
+- [makeEsbnType](#makeesbntype)
+  * [Parameters](#parameters)
+- [grammar](#grammar)
+- [ALPHABET](#alphabet)
+- [DIGITS](#digits)
+- [HEX_DIGITS](#hex_digits)
+- [BITS](#bits)
+- [DOUBLE_QUOTE](#double_quote)
+- [SINGLE_QUOTE](#single_quote)
+- [SPACE](#space)
+- [ASCII](#ascii)
+- [LINE_FEED](#line_feed)
 
 ## API
 

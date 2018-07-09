@@ -5,7 +5,12 @@ Utilities for working with promises
 
 ## Table of Contents
 
-
+- [stall](#stall)
+  * [Parameters](#parameters)
+- [timeout](#timeout)
+  * [Parameters](#parameters-1)
+- [waitUntil](#waituntil)
+  * [Parameters](#parameters-2)
 
 ## API
 

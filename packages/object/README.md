@@ -5,7 +5,12 @@ A utility library for working with objects
 
 ## Table of Contents
 
-
+- [restrict](#restrict)
+  * [Parameters](#parameters)
+- [remove](#remove)
+  * [Parameters](#parameters-1)
+- [take](#take)
+  * [Parameters](#parameters-2)
 
 ## API
 

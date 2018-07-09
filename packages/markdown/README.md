@@ -5,7 +5,18 @@ A utility library for generating markdown from JavaScript
 
 ## Table of Contents
 
-
+- [h1](#h1)
+  * [Parameters](#parameters)
+- [h2](#h2)
+  * [Parameters](#parameters-1)
+- [h3](#h3)
+  * [Parameters](#parameters-2)
+- [h4](#h4)
+  * [Parameters](#parameters-3)
+- [h5](#h5)
+  * [Parameters](#parameters-4)
+- [h6](#h6)
+  * [Parameters](#parameters-5)
 
 ## API
 
