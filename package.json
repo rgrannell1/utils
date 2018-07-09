@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "cost-of-modules": "^1.0.1",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0-rc.13",
     "lerna": "^2.11.0",
     "longjohn": "^0.2.12",
     "standard": "^11.0.1"
