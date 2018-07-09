@@ -30,7 +30,7 @@ A monorepository for publishing utility modules
 
 ### lint
 
-- dependencies: undefined
+- dependencies: 
 
 ```
 
@@ -40,9 +40,10 @@ Description:
   lint and autofix package files
 
 ```
-,### lerna-publish
 
-- dependencies: undefined
+### lerna-publish
+
+- dependencies: lint,document
 
 ```
 
@@ -50,9 +51,10 @@ Usage:
   script lerna-publish
 
 ```
-,### assert-valid-packages
 
-- dependencies: undefined
+### assert-valid-packages
+
+- dependencies: 
 
 ```
 
@@ -60,9 +62,10 @@ Usage:
   script assert-valid-packages
 
 ```
-,### document
 
-- dependencies: undefined
+### document
+
+- dependencies: assert-valid-packages
 
 ```
 

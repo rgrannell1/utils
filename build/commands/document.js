@@ -95,7 +95,7 @@ document.utils = async args => {
       md.h3(data.name),
       '',
       md.list([
-        `dependencies: ${data.deps}`
+        `dependencies: ${data.dependencies}`
       ]),
       '',
       md.code(data.cli),
@@ -119,7 +119,7 @@ document.utils = async args => {
     '',
     md.h2('Build System'),
     '',
-    buildSystem,
+    buildSystem.join('\n'),
     '',
     md.h2('License'),
     '',
