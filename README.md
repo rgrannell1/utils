@@ -3,7 +3,9 @@
 
 [![Build Status](https://travis-ci.org/rgrannell1/utils.svg?branch=master)](https://travis-ci.org/rgrannell1/utils)
 
-A monorepository for publishing utility modules
+A monorepository for publishing my utility modules 🎁⚙️
+
+This module contains code I constantly copied as per-package utilities, and a few experimental modules & build systems. Feel free to clone / contribute, but these modules are **NOT** production-ready yet.
 
 ## Packages
 
@@ -31,7 +33,7 @@ A monorepository for publishing utility modules
 
 ### lint
 
-- dependencies: 
+- dependencies:
 
 ```
 
@@ -55,7 +57,7 @@ Usage:
 
 ### assert-valid-packages
 
-- dependencies: 
+- dependencies:
 
 ```
 

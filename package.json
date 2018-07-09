@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell1/utils",
   "version": "1.0.0",
-  "description": "A monorepository for publishing utility modules",
+  "description": "A monorepository for publishing my utility modules 🎁⚙️",
   "main": "src/index.js",
   "repository": "git@github.com:rgrannell1/utils.git",
   "author": "Ryan Grannell <r.grannell2@gmail.com>",
