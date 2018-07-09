@@ -33,7 +33,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ### lint
 
-- dependencies:
+- dependencies: none
 
 ```
 
@@ -57,7 +57,7 @@ Usage:
 
 ### assert-valid-packages
 
-- dependencies:
+- dependencies: none
 
 ```
 
