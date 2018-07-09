@@ -73,7 +73,8 @@ document.packages = async args => {
       md.h2('Table of Contents'),
       '',
       tableOfContent,
-      ''
+      '',
+      'API'
     ].concat(doc.docs).concat([
       md.h2('License'),
       '',
