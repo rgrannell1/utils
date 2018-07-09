@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pulp lint"
+      "pre-commit": "npm run pulp pre-commit"
     }
   }
 }
