@@ -2,6 +2,7 @@
 const documentation = require('documentation')
 const fs = require('fs').promises
 const md = require('@rgrannell/markdown')
+const build = require('../commands')
 
 const path = require('path')
 const toc = require('markdown-toc')
@@ -89,6 +90,19 @@ document.utils = async args => {
   const packages = await utils.listPackageJsons(constants.paths.packages)
   const rootPackage = require(path.join(constants.paths.root, 'package.json'))
 
+  const buildSystem = Object.values(require('.')).map(data => {
+    return md.document([
+      md.h3(data.name),
+      '',
+      md.list([
+        `dependencies: ${data.deps}`
+      ]),
+      '',
+      md.code(data.cli),
+      ''
+    ])
+  })
+
   const packageDocs = md.document([
     md.h1('utils'),
     '',
@@ -102,6 +116,10 @@ document.utils = async args => {
       const prefix = md.bold(`${data.json.name} (v${data.json.version})`)
       return md.link(`${prefix}: ${data.json.description}`, `../../tree/master/packages/${data.name}`)
     })).join('\n'),
+    '',
+    md.h2('Build System'),
+    '',
+    buildSystem,
     '',
     md.h2('License'),
     '',

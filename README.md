@@ -26,6 +26,54 @@ A monorepository for publishing utility modules
 - [**@rgrannell/ssl-labs (v8.0.0)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
 - [**@rgrannell/units (v8.0.0)**: A library for working with promises](../../tree/master/packages/units)
 
+## Build System
+
+### lint
+
+- dependencies: undefined
+
+```
+
+Usage:
+  script lint
+Description:
+  lint and autofix package files
+
+```
+,### lerna-publish
+
+- dependencies: undefined
+
+```
+
+Usage:
+  script lerna-publish
+
+```
+,### assert-valid-packages
+
+- dependencies: undefined
+
+```
+
+Usage:
+  script assert-valid-packages
+
+```
+,### document
+
+- dependencies: undefined
+
+```
+
+Usage:
+  script document
+Description:
+  Generate package documentation.
+
+```
+
+
 ## License
 
 
