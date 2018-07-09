@@ -8,4 +8,5 @@ tasks.addAll(commands)
 
 tasks.run().catch(err => {
   console.log(err)
+  process.exit(1)
 })
