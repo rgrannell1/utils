@@ -93,9 +93,11 @@ pulp.tasks = () => {
     const docs = [
       'Usage:',
       '  script <command>',
+      '  script <command> (-h|--help)',
       '',
       'Description:',
-      '    ' + Object.keys(state.tasks)
+      '  Valid commands are:',
+      Object.keys(state.tasks).map(term => `    - ${term}`).join('\n')
     ].join('\n')
 
     const args = neodoc.run(docs, {allowUnknown: true})
