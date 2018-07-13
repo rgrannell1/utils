@@ -9,6 +9,9 @@ const command = {
 command.cli = `
 Usage:
   script lerna-publish
+
+Description:
+  Use lerna to deploy each submodule to deploy each submodule to NPM.
 `
 
 command.task = async args => {

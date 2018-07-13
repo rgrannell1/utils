@@ -12,6 +12,9 @@ const command = {
 command.cli = `
 Usage:
   script assert-valid-packages
+
+Description:
+  Ensure that package configuration is valid
 `
 
 command.task = async args => {

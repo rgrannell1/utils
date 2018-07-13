@@ -9,7 +9,7 @@ async function runTask (command, {passArgs = true}, {tasks, emitter}) {
   const taskData = tasks[command]
 
   if (!taskData) {
-    throw new Error(`"${command}" not in ${Object.keys(tasks)}`)
+    throw new Error(`"${command}" not in list of available tasks:\n${Object.keys(tasks).map(term => `  - ${term}`).join('\n')}`)
   }
 
   for (const subtask of taskData.dependencies) {

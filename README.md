@@ -40,6 +40,9 @@ This module contains code I constantly copied as per-package utilities, and a fe
 Usage:
   script assert-valid-packages
 
+Description:
+  Ensure that package configuration is valid
+
 ```
 
 ### depcheck
@@ -86,6 +89,9 @@ Description:
 Usage:
   script lerna-publish
 
+Description:
+  Use lerna to deploy each submodule to deploy each submodule to NPM.
+
 ```
 
 ### lint
@@ -116,11 +122,17 @@ Description:
 
 ```
 
-### 
+### test
 
 - dependencies: none
 
 ```
+
+Usage:
+  script test
+
+Description:
+  Run tests for each submodule
 
 ```
 
