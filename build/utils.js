@@ -4,6 +4,13 @@ const path = require('path')
 
 const utils = {}
 
+/**
+ * Load package.jsons & associated metadata for a list of packages
+ *
+ * @param  {Array<string>} packages a list of packages
+ *
+ * @return {Array<Object>}          an array of package.jsons & metadata for that package
+ */
 utils.listPackageJsons = async packages => {
   const files = await fs.readdir(packages)
   const packageJsons = await Promise.all(files)

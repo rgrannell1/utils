@@ -3,7 +3,7 @@ const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 const constants = require('./src/shared/constants')
 const generator = require('@rgrannell/generator')
-const object = require('@rgrannell/object')
+const Obj = require('@rgrannell/object')
 const fp = require('@rgrannell/fp')
 
 /**
@@ -72,7 +72,7 @@ methods.rule = (state, {id, value}) => {
     type: constants.types.rule
   }
 
-  return chain(object.take(methods, ['rule', 'rules']), {
+  return chain(Object[Obj.take](methods, ['rule', 'rules']), {
     value: state.value.concat(rule)
   })
 }

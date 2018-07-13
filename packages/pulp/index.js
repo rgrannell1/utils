@@ -90,7 +90,15 @@ pulp.tasks = () => {
   }
 
   methods.run = function () {
-    const args = neodoc.run(`Usage: script <command>`, {allowUnknown: true})
+    const docs = [
+      'Usage:',
+      '  script <command>',
+      '',
+      'Description:',
+      '    ' + Object.keys(state.tasks)
+    ].join('\n')
+
+    const args = neodoc.run(docs, {allowUnknown: true})
     return runTask(args['<command>'], {passArgs: true}, state)
   }
 

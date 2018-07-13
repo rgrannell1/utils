@@ -87,6 +87,11 @@ Returns **[text][2]** a markdown string displaying a header.
 [2]: https://developer.mozilla.org/docs/Web/HTML
 
 
+## Dependencies
+
+- Node.js >= v10.6.0
+- NPM >= v10.6.0
+
 ## License
 
 Copyright (c) 2018 Ryan Grannell

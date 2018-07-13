@@ -23,6 +23,11 @@ Yield indices of a function,
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
 
+## Dependencies
+
+- Node.js >= v10.6.0
+- NPM >= v10.6.0
+
 ## License
 
 Copyright (c) 2018 Ryan Grannell

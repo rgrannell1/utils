@@ -1,5 +1,9 @@
 
-const object = {}
+const object = {
+  restrict: Symbol('restrict'),
+  remove: Symbol('remove'),
+  take: Symbol('take')
+}
 
 /**
  * Return a clone of an object only containing the provided properties.
@@ -10,7 +14,7 @@ const object = {}
  * @returns {Object} an object with a subset of
  *                     properties from an input object.
  */
-object.restrict = (object, props) => {
+Object[object.restrict] = (object, props) => {
   const restricted = {}
   const propSet = new Set(props)
 
@@ -32,7 +36,7 @@ object.restrict = (object, props) => {
  * @returns {Object} an object with a subset of
  *                     properties from an input object.
  */
-object.remove = (object, props) => {
+Object[object.remove] = (object, props) => {
   const restricted = {}
   const propSet = new Set(props)
 
@@ -53,7 +57,7 @@ object.remove = (object, props) => {
  *
  * @return {Object}
  */
-object.take = (object, props) => {
+Object[object.take] = (object, props) => {
   const restricted = {}
 
   props.forEach(prop => {

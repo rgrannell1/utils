@@ -84,6 +84,11 @@ A line-feed character
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
 
+## Dependencies
+
+- Node.js >= v10.6.0
+- NPM >= v10.6.0
+
 ## License
 
 Copyright (c) 2018 Ryan Grannell

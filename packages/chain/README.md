@@ -29,6 +29,11 @@ Returns **[Proxy][2]** A proxy that intercepts the method name & dispatches the 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy
 
 
+## Dependencies
+
+- Node.js >= v10.6.0
+- NPM >= v10.6.0
+
 ## License
 
 Copyright (c) 2018 Ryan Grannell

@@ -1,7 +1,8 @@
 
+const Obj = require('@rgrannell/object')
+
 const documentation = require('documentation')
 const fs = require('fs').promises
-const oUtils = require('@rgrannell/object')
 const mustache = require('mustache')
 
 const path = require('path')
@@ -22,6 +23,12 @@ Description:
   Generate package documentation.
 `
 
+/**
+ * generate documentation for a package
+ *
+ * @param  {string} path to the package.
+ * @return {Promise}
+ */
 const generatePackageDocs = async path => {
   const mains = await utils.listPackageJsons(path)
   return Promise.all(mains.map(async data => {
@@ -36,8 +43,14 @@ const generatePackageDocs = async path => {
 
 const document = {}
 
+/**
+ * Create per-packages documentation
+ *
+ * @param  {Object} args command-line arguments
+ * @return {Promises}
+ */
 document.packages = async args => {
-  const template = await fs.readFile(constants.paths.packageReadmeTemplate)
+  const template = await fs.readFile(constants.paths.templates.packageReadme)
   const api = await generatePackageDocs(constants.paths.packages)
 
   const writeDocs = api.map(api => {
@@ -60,30 +73,69 @@ document.packages = async args => {
   return Promise.all(writeDocs)
 }
 
+/**
+ * Create overall README
+ *
+ * @param  {Object} args command-line arguments
+ * @return {Promises}
+ */
 document.utils = async args => {
   const packages = await utils.listPackageJsons(constants.paths.packages)
   const rootPackage = require(path.join(constants.paths.root, 'package.json'))
 
-  const template = await fs.readFile(constants.paths.utilsReadmeTemplate)
-  const vars = Object.assign({}, oUtils.restrict(rootPackage, [
+  const template = await fs.readFile(constants.paths.templates.utilsReadme)
+  const vars = Object.assign({}, Object[Obj.restrict](rootPackage, [
     'version',
     'description'
   ]))
 
   vars.year = (new Date()).getFullYear()
   vars.packages = packages.map(data => {
-    return oUtils.restrict(data.json, ['name', 'version', 'description'])
+    return Object.assign({}, Object[Obj.restrict](data.json, ['name', 'version', 'description']), {
+      shortName: data.json.name.split('/')[1]
+    })
   })
   vars.commands = Object.values(require('.')).map(data => {
-    return oUtils.restrict(data, ['name', 'dependencies', 'cli'])
+    return Object[Obj.restrict](data, ['name', 'dependencies', 'cli'])
   })
 
   return fs.writeFile(path.join(constants.paths.root, `README.md`), mustache.render(template.toString(), vars))
 }
 
+/**
+ * Create build documentation
+ *
+ * @param  {Object} args command-line arguments
+ * @return {Promises}
+ */
+document.build = async args => {
+  const template = await fs.readFile(constants.paths.templates.buildReadme)
+  const vars = {}
+
+  vars.commands = Object.values(require('.')).map(data => {
+    return Object[Obj.restrict](data, ['name', 'dependencies', 'cli'])
+  })
+
+  const buildData = await documentation.build([constants.paths.commands], {})
+  const parsedData = await documentation.formats.md(buildData, {})
+
+  vars.apiDocs = parsedData
+
+  return fs.writeFile(path.join(constants.paths.buildReadme), mustache.render(template.toString(), vars))
+}
+
+/**
+ * Generate documentation
+ *
+ * @param  {Object} args command-line arguments
+ * @return {Promise}
+ */
 command.task = async args => {
-  await document.packages(args)
-  await document.utils(args)
+  await Promise.all([
+    document.packages(args),
+    document.utils(args),
+    document.build(args)
+  ])
 }
 
 module.exports = command
