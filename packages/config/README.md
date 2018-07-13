@@ -1,5 +1,5 @@
 
-# config (v8.0.0)
+# config (v8.1.0-alpha.687ac587)
 
 An alternative to config.js
 

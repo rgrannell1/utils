@@ -1,8 +1,4 @@
 
-module.exports = {
-  lint: require('./lint'),
-  lernaPublish: require('./lerna-publish'),
-  assertValidPackages: require('./assert-valid-packages'),
-  document: require('./document'),
-  preCommit: require('./pre-commit')
-}
+const index = require('@rgrannell/index')
+
+module.exports = index.load({source: __dirname})

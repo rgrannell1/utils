@@ -3,58 +3,34 @@
 
 [![Build Status](https://travis-ci.org/rgrannell1/utils.svg?branch=master)](https://travis-ci.org/rgrannell1/utils)
 
-A monorepository for publishing my utility modules 🎁⚙️
+A monorepository for publishing my utility modules 🎁🎁🎁⚙️
 
 This module contains code I constantly copied as per-package utilities, and a few experimental modules & build systems. Feel free to clone / contribute, but these modules are **NOT** production-ready yet.
 
 ## Packages
 
-- [**@rgrannell/array (v8.0.0)**: Various array utilities](../../tree/master/packages/array)
-- [**@rgrannell/async (v8.0.0)**: Various async utilities](../../tree/master/packages/async)
-- [**@rgrannell/build (v8.0.0)**: Various package.json build utilities](../../tree/master/packages/build)
-- [**@rgrannell/chain (v8.0.0)**: Builder-pattern utility](../../tree/master/packages/chain)
-- [**@rgrannell/config (v8.0.0)**: An alternative to config.js](../../tree/master/packages/config)
-- [**@rgrannell/docker (v8.0.0)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
-- [**@rgrannell/ebnf (v8.0.0)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
-- [**@rgrannell/fp (v8.0.0)**: Functional programming utilities](../../tree/master/packages/fp)
-- [**@rgrannell/generator (v8.0.0)**: An itertools like library](../../tree/master/packages/generator)
-- [**@rgrannell/index (v8.0.0)**: A utility library for loading submodules](../../tree/master/packages/index)
-- [**@rgrannell/js-generator (v8.0.0)**: An itertools-like library](../../tree/master/packages/js-generator)
-- [**@rgrannell/markdown (v8.0.0)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
-- [**@rgrannell/mustache (v8.0.0)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
-- [**@rgrannell/object (v8.0.0)**: A utility library for working with objects](../../tree/master/packages/object)
-- [**@rgrannell/promise (v8.0.0)**: Utilities for working with promises](../../tree/master/packages/promise)
-- [**@rgrannell/pulp (v8.0.0)**: A rational, tiny build system](../../tree/master/packages/pulp)
-- [**@rgrannell/readme (v8.0.0)**: A tool for generating readme's](../../tree/master/packages/readme)
-- [**@rgrannell/set (v8.0.0)**: Utilities for working with sets](../../tree/master/packages/set)
-- [**@rgrannell/ssl-labs (v8.0.0)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
-- [**@rgrannell/units (v8.0.0)**: A library for working with promises](../../tree/master/packages/units)
+- [**@rgrannell/array (v8.1.0-alpha.687ac587)**: Various array utilities](../../tree/master/packages/array)
+- [**@rgrannell/async (v8.1.0-alpha.687ac587)**: Various async utilities](../../tree/master/packages/async)
+- [**@rgrannell/build (v8.1.0-alpha.687ac587)**: Various package.json build utilities](../../tree/master/packages/build)
+- [**@rgrannell/chain (v8.1.0-alpha.687ac587)**: Builder-pattern utility](../../tree/master/packages/chain)
+- [**@rgrannell/config (v8.1.0-alpha.687ac587)**: An alternative to config.js](../../tree/master/packages/config)
+- [**@rgrannell/docker (v8.1.0-alpha.687ac587)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
+- [**@rgrannell/ebnf (v8.1.0-alpha.687ac587)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
+- [**@rgrannell/fp (v8.1.0-alpha.687ac587)**: Functional programming utilities](../../tree/master/packages/fp)
+- [**@rgrannell/generator (v8.1.0-alpha.687ac587)**: An itertools like library](../../tree/master/packages/generator)
+- [**@rgrannell/index (v8.1.0-alpha.687ac587)**: A utility library for loading submodules](../../tree/master/packages/index)
+- [**@rgrannell/js-generator (v8.1.0-alpha.687ac587)**: An itertools-like library](../../tree/master/packages/js-generator)
+- [**@rgrannell/markdown (v8.1.0-alpha.687ac587)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
+- [**@rgrannell/mustache (v8.1.0-alpha.687ac587)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
+- [**@rgrannell/object (v8.1.0-alpha.687ac587)**: A utility library for working with objects](../../tree/master/packages/object)
+- [**@rgrannell/promise (v8.1.0-alpha.687ac587)**: Utilities for working with promises](../../tree/master/packages/promise)
+- [**@rgrannell/pulp (v8.1.0-alpha.687ac587)**: A rational, tiny build system](../../tree/master/packages/pulp)
+- [**@rgrannell/readme (v8.1.0-alpha.687ac587)**: A tool for generating readme's](../../tree/master/packages/readme)
+- [**@rgrannell/set (v8.1.0-alpha.687ac587)**: Utilities for working with sets](../../tree/master/packages/set)
+- [**@rgrannell/ssl-labs (v8.1.0-alpha.687ac587)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
+- [**@rgrannell/units (v8.1.0-alpha.687ac587)**: A library for working with promises](../../tree/master/packages/units)
 
 ## Build System
-
-### lint
-
-- dependencies: none
-
-```
-
-Usage:
-  script lint
-Description:
-  lint and autofix package files
-
-```
-
-### lerna-publish
-
-- dependencies: lint,document
-
-```
-
-Usage:
-  script lerna-publish
-
-```
 
 ### assert-valid-packages
 
@@ -64,6 +40,20 @@ Usage:
 
 Usage:
   script assert-valid-packages
+
+```
+
+### depcheck
+
+- dependencies: none
+
+```
+
+Usage:
+  script depcheck
+
+Description:
+  Find unused dependencies
 
 ```
 
@@ -80,6 +70,39 @@ Description:
 
 ```
 
+### 
+
+- dependencies: none
+
+```
+
+```
+
+### lerna-publish
+
+- dependencies: lint,document
+
+```
+
+Usage:
+  script lerna-publish
+
+```
+
+### lint
+
+- dependencies: none
+
+```
+
+Usage:
+  script lint
+
+Description:
+  lint and autofix package files
+
+```
+
 ### pre-commit
 
 - dependencies: lint
@@ -88,6 +111,17 @@ Description:
 
 Usage:
   script pre-commit
+
+Description:
+  Run precommit checks against this repository.
+
+```
+
+### 
+
+- dependencies: none
+
+```
 
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell1/utils",
   "version": "1.0.0",
-  "description": "A monorepository for publishing my utility modules 🎁⚙️",
+  "description": "A monorepository for publishing my utility modules 🎁🎁🎁⚙️",
   "main": "src/index.js",
   "repository": "git@github.com:rgrannell1/utils.git",
   "author": "Ryan Grannell <r.grannell2@gmail.com>",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@rgrannell/fp": "file:packages/fp",
+    "@rgrannell/index": "file:packages/index",
     "@rgrannell/markdown": "file:packages/markdown",
     "@rgrannell/mustache": "file:packages/mustache",
     "@rgrannell/object": "file:packages/object",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "cost-of-modules": "^1.0.1",
+    "depcheck": "^0.6.9",
     "husky": "^1.0.0-rc.13",
     "lerna": "^2.11.0",
     "longjohn": "^0.2.12",

@@ -1,5 +1,5 @@
 
-# mustache (v8.0.0)
+# mustache (v8.1.0-alpha.687ac587)
 
 A utility library for generating mustache templates from JavaScript
 

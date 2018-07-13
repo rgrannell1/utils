@@ -12,6 +12,7 @@ const command = {
 command.cli = `
 Usage:
   script lint
+
 Description:
   lint and autofix package files
 `

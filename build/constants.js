@@ -9,9 +9,9 @@ const constants = {
     root: path.join(__dirname, '..'),
     buildReadme: path.join(__dirname, 'README.md'),
     templates: {
-      utilsReadme: path.join(__dirname, './resources/utils-README.md.mustache'),
-      packageReadme: path.join(__dirname, './resources/package-README.md.mustache'),
-      buildReadme: path.join(__dirname, './resources/build-README.md.mustache')
+      utilsReadme: path.join(__dirname, './resources/utils-readme.md.mustache'),
+      packageReadme: path.join(__dirname, './resources/package-readme.md.mustache'),
+      buildReadme: path.join(__dirname, './resources/build-readme.md.mustache')
     }
   }
 }

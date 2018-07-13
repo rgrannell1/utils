@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/mustache",
   "description": "A utility library for generating mustache templates from JavaScript",
-  "version": "8.0.0",
+  "version": "8.1.0-alpha.687ac587",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {

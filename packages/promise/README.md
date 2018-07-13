@@ -1,5 +1,5 @@
 
-# promise (v8.0.0)
+# promise (v8.1.0-alpha.687ac587)
 
 Utilities for working with promises
 
