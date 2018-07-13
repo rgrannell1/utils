@@ -10,7 +10,6 @@ This module contains code I constantly copied as per-package utilities, and a fe
 ## Packages
 
 - [**@rgrannell/array (v8.1.0-alpha.687ac587)**: Various array utilities](../../tree/master/packages/array)
-- [**@rgrannell/async (v8.1.0-alpha.687ac587)**: Various async utilities](../../tree/master/packages/async)
 - [**@rgrannell/build (v8.1.0-alpha.687ac587)**: Various package.json build utilities](../../tree/master/packages/build)
 - [**@rgrannell/chain (v8.1.0-alpha.687ac587)**: Builder-pattern utility](../../tree/master/packages/chain)
 - [**@rgrannell/config (v8.1.0-alpha.687ac587)**: An alternative to config.js](../../tree/master/packages/config)

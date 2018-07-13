@@ -51,6 +51,13 @@ readme.pkg.extractMetadata = path => {
   return metadata
 }
 
+/**
+ * Summarise a packages exports
+ *
+ * @param  {string} path    the package path
+ *
+ * @return {string}         a markdown document describing a package's exports
+ */
 readme.pkg.summariseExports = path => {
   const metadata = readme.pkg.extractMetadata(path)
   const titles = metadata.exports.map(exports => {
