@@ -57,6 +57,8 @@ command.task = async args => {
   }
   message += '\n'
   console.log(message)
+
+  throw new Error('dependencies missing')
 }
 
 module.exports = command

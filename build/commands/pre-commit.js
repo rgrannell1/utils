@@ -1,7 +1,7 @@
 
 const command = {
   name: 'pre-commit',
-  dependencies: ['lint']
+  dependencies: ['lint', 'depcheck']
 }
 
 command.cli = `

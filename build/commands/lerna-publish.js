@@ -3,7 +3,7 @@ const execa = require('execa')
 
 const command = {
   name: 'lerna-publish',
-  dependencies: ['lint', 'document']
+  dependencies: ['lint', 'depcheck', 'document']
 }
 
 command.cli = `
