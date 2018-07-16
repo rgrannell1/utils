@@ -8,6 +8,5 @@
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/chain": "^8.1.0-alpha.687ac587"
   }
 }

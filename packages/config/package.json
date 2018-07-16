@@ -8,8 +8,6 @@
     "access": "public"
   },
   "dependencies": {
-    "deepmerge": "^2.1.1",
-    "error-stack-parser": "^2.0.2",
-    "find-package-json": "^1.1.0"
+    "deepmerge": "^2.1.1"
   }
 }

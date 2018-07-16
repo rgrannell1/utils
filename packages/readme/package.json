@@ -8,7 +8,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/markdown": "^8.1.0-alpha.687ac587",
-    "parse-function": "^5.2.10"
+    "@rgrannell/markdown": "^8.1.0-alpha.687ac587"
   }
 }

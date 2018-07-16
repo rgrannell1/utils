@@ -96,9 +96,11 @@ document.utils = async args => {
     })
   })
   vars.packageMetadata = packages.map(data => {
+    const {dependencies, devDependencies} = data.json
     return {
       shortName: data.json.name.split('/')[1],
-      dependencies: 'unknown',
+      dependencies: dependencies ? dependencies.length : 0,
+      devDependencies: devDependencies ? devDependencies.length : 0,
       size: 'unknown'
     }
   })

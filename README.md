@@ -31,27 +31,27 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ## Package Metadata
 
-| Name          | Dependencies     | Estimated Size |
-| ------------- | ---------------- | -------------- |
-| array | unknown | unknown       |
-| build | unknown | unknown       |
-| chain | unknown | unknown       |
-| config | unknown | unknown       |
-| docker | unknown | unknown       |
-| ebnf | unknown | unknown       |
-| fp | unknown | unknown       |
-| generator | unknown | unknown       |
-| index | unknown | unknown       |
-| js-generator | unknown | unknown       |
-| markdown | unknown | unknown       |
-| mustache | unknown | unknown       |
-| object | unknown | unknown       |
-| promise | unknown | unknown       |
-| pulp | unknown | unknown       |
-| readme | unknown | unknown       |
-| set | unknown | unknown       |
-| ssl-labs | unknown | unknown       |
-| units | unknown | unknown       |
+| Name          | Dependencies     | Dependencies        | Estimated Size |
+| ------------- | ---------------- | ------------------- | -------------- |
+| array |  | 0 | unknown       |
+| build |  | 0 | unknown       |
+| chain |  | 0 | unknown       |
+| config |  | 0 | unknown       |
+| docker | 0 | 0 | unknown       |
+| ebnf |  | 0 | unknown       |
+| fp | 0 | 0 | unknown       |
+| generator | 0 | 0 | unknown       |
+| index | 0 | 0 | unknown       |
+| js-generator |  | 0 | unknown       |
+| markdown | 0 | 0 | unknown       |
+| mustache | 0 | 0 | unknown       |
+| object | 0 | 0 | unknown       |
+| promise | 0 | 0 | unknown       |
+| pulp |  | 0 | unknown       |
+| readme |  | 0 | unknown       |
+| set | 0 | 0 | unknown       |
+| ssl-labs |  | 0 | unknown       |
+| units |  | 0 | unknown       |
 
 ## Build System
 
@@ -106,7 +106,7 @@ Description:
 
 ### lerna-publish
 
-- dependencies: lint,document
+- dependencies: lint,depcheck,document
 
 ```
 
@@ -134,7 +134,7 @@ Description:
 
 ### pre-commit
 
-- dependencies: lint
+- dependencies: lint,depcheck
 
 ```
 
