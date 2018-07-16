@@ -1,5 +1,5 @@
 
-# js-generator (v8.1.0-alpha.687ac587)
+# js-generator (v8.1.0-alpha.849b3614)
 
 An itertools-like library
 
