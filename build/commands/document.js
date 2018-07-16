@@ -54,7 +54,7 @@ document.packages = async args => {
   const template = await fs.readFile(constants.paths.templates.packageReadme)
   const api = await generatePackageDocs(constants.paths.packages)
 
-  const writeDocs = api.map(api => {
+  const writeDocs = api.map(async api => {
     const {description, version} = api.json
 
     const tableOfContents = toc(api.docs).content
@@ -67,6 +67,15 @@ document.packages = async args => {
       api,
       year: (new Date()).getFullYear()
     }
+
+    const overviewPath = path.join(api.path, 'docs', 'overview.md')
+
+    try {
+      const overview = await fs.lstat(overviewPath)
+      if (overview.isFile()) {
+        vars.overview = await fs.readFile(overviewPath)
+      }
+    } catch (err) { }
 
     return fs.writeFile(path.join(api.path, `README.md`), mustache.render(template.toString(), vars))
   })
