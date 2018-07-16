@@ -19,11 +19,13 @@ const EventEmitter = require('events')
  *
  * @return {Promise} a result promise
  */
-async function runTask (command, {passArgs = true}, {tasks, emitter}) {
+async function runTask (command, {passArgs = true}, state) {
+  const {tasks, emitter} = state
   const taskData = tasks[command]
 
   if (!taskData) {
-    throw new Error(`"${command}" not in list of available tasks:\n${Object.keys(tasks).map(term => `  - ${term}`).join('\n')}`)
+    const joinedDependencies = Object.keys(tasks).map(term => `  - ${term}`).join('\n')
+    throw new Error(`"${command}" not in list of available tasks:\n${joinedDependencies}`)
   }
 
   for (const subtask of taskData.dependencies) {
@@ -69,26 +71,25 @@ const methods = {}
  * @param {function}       task a binary function, taking args provided by the CLI and an emitter that
  *   can emit `pulp.events.subTaskProgress` to provide progress updates from the task
  */
-methods.add = function (state) {
+methods.add = function () {
   var name
   var dependencies
   var cli
   var task
 
-  if (arguments.length === 1) {
-    if (typeof arguments !== 'object') {
-      throw new Error('non-object provided')
-    }
+  const [state, ...rest] = arguments
+
+  if (rest.length === 1) {
     // eslint-disable-next-line
-    var {name, dependencies, cli, task} = arguments[0]
-  } else if (arguments.length === 2) {
-    [name, task] = arguments
-  } else if (arguments.length === 3) {
-    [name, dependencies, task] = arguments
-  } else if (arguments.length === 4) {
-    [name, dependencies, cli, task] = arguments
+    var {name, dependencies, cli, task} = rest[0]
+  } else if (rest.length === 2) {
+    [name, task] = rest
+  } else if (rest.length === 3) {
+    [name, dependencies, task] = rest
+  } else if (rest.length === 4) {
+    [name, dependencies, cli, task] = rest
   } else {
-    throw new Error(`can't destruct supplied arguments; "${arguments.length}" arguments supplied`)
+    throw new Error(`can't destruct supplied arguments; "${rest.length}" arguments supplied`)
   }
 
   state.tasks[name] = {name, cli, dependencies, task}
@@ -102,9 +103,9 @@ methods.add = function (state) {
  *
  * @param {Object} tasks an object of command-name : task pairs
  */
-methods.addAll = function (tasks) {
+methods.addAll = function (state, tasks) {
   for (const name of Object.keys(tasks)) {
-    methods.add(tasks[name])
+    methods.add(state, tasks[name])
   }
 }
 
@@ -134,6 +135,7 @@ methods.run = function (state) {
   ].join('\n')
 
   const args = neodoc.run(docs, {allowUnknown: true})
+
   return runTask(args['<command>'], {passArgs: true}, state)
 }
 

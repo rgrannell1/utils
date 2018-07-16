@@ -13,7 +13,7 @@ Pulp is a build system designed to perform a handful of tasks:
 - Run a tasks dependencies
 - Allow a task to communicate progress to the reporter
 
-It was designed to be a less bulky alternative to &#x60;gulp&#x60; and similar tools
+It was designed to be a less bulky alternative to `gulp` and similar tools
 
 
 ## Table of Contents
@@ -38,7 +38,6 @@ Add a named task to pulp. If this name is provided to pulp by the CLI then this 
 
 ### Parameters
 
--   `state`  
 -   `name` **[string][1]** the name of a task
 -   `dependencies` **[Array][2]&lt;[string][1]>** an array of dependency task-names. These dependencies will be
       serially executed (as of this version) before finally executing the task itself.
@@ -53,6 +52,7 @@ Add a dictionary of tasks to pulp. This method delegates to .add(), and is a con
 
 ### Parameters
 
+-   `state`  
 -   `tasks` **[Object][4]** an object of command-name : task pairs
 
 ## run
