@@ -9,25 +9,26 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ## Packages
 
-- [**@rgrannell/array (v8.1.0-alpha.849b3614)**: Various array utilities](../../tree/master/packages/array)
-- [**@rgrannell/build (v8.1.0-alpha.849b3614)**: Various package.json build utilities](../../tree/master/packages/build)
-- [**@rgrannell/chain (v8.1.0-alpha.849b3614)**: Builder-pattern utility](../../tree/master/packages/chain)
-- [**@rgrannell/config (v8.1.0-alpha.849b3614)**: An alternative to config.js](../../tree/master/packages/config)
-- [**@rgrannell/docker (v8.1.0-alpha.849b3614)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
-- [**@rgrannell/ebnf (v8.1.0-alpha.849b3614)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
-- [**@rgrannell/fp (v8.1.0-alpha.849b3614)**: Functional programming utilities](../../tree/master/packages/fp)
-- [**@rgrannell/generator (v8.1.0-alpha.849b3614)**: An itertools like library](../../tree/master/packages/generator)
-- [**@rgrannell/index (v8.1.0-alpha.849b3614)**: A utility library for loading submodules](../../tree/master/packages/index)
-- [**@rgrannell/js-generator (v8.1.0-alpha.849b3614)**: An itertools-like library](../../tree/master/packages/js-generator)
-- [**@rgrannell/markdown (v8.1.0-alpha.849b3614)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
-- [**@rgrannell/mustache (v8.1.0-alpha.849b3614)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
-- [**@rgrannell/object (v8.1.0-alpha.849b3614)**: A utility library for working with objects](../../tree/master/packages/object)
-- [**@rgrannell/promise (v8.1.0-alpha.849b3614)**: Utilities for working with promises](../../tree/master/packages/promise)
-- [**@rgrannell/pulp (v8.1.0-alpha.849b3614)**: A rational, tiny build system](../../tree/master/packages/pulp)
-- [**@rgrannell/readme (v8.1.0-alpha.849b3614)**: A tool for generating readme's](../../tree/master/packages/readme)
-- [**@rgrannell/set (v8.1.0-alpha.849b3614)**: Utilities for working with sets](../../tree/master/packages/set)
-- [**@rgrannell/ssl-labs (v8.1.0-alpha.849b3614)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
-- [**@rgrannell/units (v8.1.0-alpha.849b3614)**: A library for working with promises](../../tree/master/packages/units)
+- [**@rgrannell/array (v8.1.0-alpha.687ac587)**: Various array utilities](../../tree/master/packages/array)
+- [**@rgrannell/build (v8.1.0-alpha.687ac587)**: Various package.json build utilities](../../tree/master/packages/build)
+- [**@rgrannell/chain (v8.1.0-alpha.687ac587)**: Builder-pattern utility](../../tree/master/packages/chain)
+- [**@rgrannell/config (v8.1.0-alpha.687ac587)**: An alternative to config.js](../../tree/master/packages/config)
+- [**@rgrannell/docker (v8.1.0-alpha.687ac587)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
+- [**@rgrannell/ebnf (v8.1.0-alpha.687ac587)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
+- [**@rgrannell/erros (v8.1.0-alpha.687ac587)**: Construct errors](../../tree/master/packages/erros)
+- [**@rgrannell/fp (v8.1.0-alpha.687ac587)**: Functional programming utilities](../../tree/master/packages/fp)
+- [**@rgrannell/generator (v8.1.0-alpha.687ac587)**: An itertools like library](../../tree/master/packages/generator)
+- [**@rgrannell/index (v8.1.0-alpha.687ac587)**: A utility library for loading submodules](../../tree/master/packages/index)
+- [**@rgrannell/js-generator (v8.1.0-alpha.687ac587)**: An itertools-like library](../../tree/master/packages/js-generator)
+- [**@rgrannell/markdown (v8.1.0-alpha.687ac587)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
+- [**@rgrannell/mustache (v8.1.0-alpha.687ac587)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
+- [**@rgrannell/object (v8.1.0-alpha.687ac587)**: A utility library for working with objects](../../tree/master/packages/object)
+- [**@rgrannell/promise (v8.1.0-alpha.687ac587)**: Utilities for working with promises](../../tree/master/packages/promise)
+- [**@rgrannell/pulp (v8.1.0-alpha.687ac587)**: A rational, tiny build system](../../tree/master/packages/pulp)
+- [**@rgrannell/readme (v8.1.0-alpha.687ac587)**: A tool for generating readme's](../../tree/master/packages/readme)
+- [**@rgrannell/set (v8.1.0-alpha.687ac587)**: Utilities for working with sets](../../tree/master/packages/set)
+- [**@rgrannell/ssl-labs (v8.1.0-alpha.687ac587)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
+- [**@rgrannell/units (v8.1.0-alpha.687ac587)**: A library for working with promises](../../tree/master/packages/units)
 
 ## Package Metadata
 
@@ -39,6 +40,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | config | 1 | 0      | 0.1Mb       |
 | docker | 0 | 0      | 0.0Mb       |
 | ebnf | 5 | 0      | 1.0Mb       |
+| erros | 0 | 0      | 0.0Mb       |
 | fp | 0 | 0      | 0.0Mb       |
 | generator | 0 | 0      | 0.0Mb       |
 | index | 0 | 0      | 0.0Mb       |
@@ -120,7 +122,7 @@ Description:
 
 ### lerna-publish
 
-- dependencies: `lint,depcheck,document`
+- dependencies: `lint,install-deps,depcheck,document`
 
 ```
 

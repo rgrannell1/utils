@@ -1,5 +1,5 @@
 
-# fp (v8.1.0-alpha.849b3614)
+# fp (v8.1.0-alpha.687ac587)
 
 Functional programming utilities
 

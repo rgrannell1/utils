@@ -1,5 +1,5 @@
 
-# ssl-labs (v8.1.0-alpha.849b3614)
+# ssl-labs (v8.1.0-alpha.687ac587)
 
 A wrapper for SSL-Labs
 
