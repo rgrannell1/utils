@@ -22,9 +22,9 @@ command.task = async (args, emitter) => {
   const startDir = process.cwd()
 
   try {
-    const entries = [...(await packages).entries()]
-    for (let [index, pck] of entries) {
-      emitter.emit(pulp.events.subTaskProgress, `Installing package ${pck.name} [${index} / ${entries.length}]`)
+    const pkgData = await packages
+    for (let [index, pck] of pkgData.entries()) {
+      emitter.emit(pulp.events.subTaskProgress, `Installing package ${pck.name} [${index} / ${pkgData.length}]`)
 
       process.chdir(pck.path)
       try {
