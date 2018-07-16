@@ -5,6 +5,20 @@ const reactions = require('./src/reactions')
 const neodoc = require('neodoc')
 const EventEmitter = require('events')
 
+/**
+ * Run a task by name, and provide state-updates to an event-emitter to display
+ *   updates
+ *
+ * @private
+ *
+ * @param  {string}     command the name of the command that is being run.
+ * @param  {Boolean}    options.passArgs should args be passed to the task?
+ * @param  {Object}     options.tasks an object of task-name:task pairs
+ * @param  {[type]}     options.emitter an event-emitter that can be used to provide
+ *   progress updates
+ *
+ * @return {Promise} a result promise
+ */
 async function runTask (command, {passArgs = true}, {tasks, emitter}) {
   const taskData = tasks[command]
 
@@ -42,7 +56,9 @@ const pulp = {
 const methods = {}
 
 /**
- * Add a task to pulp
+ * Add a named task to pulp. If this name is provided to pulp by the CLI then this task
+ *   will be executed with additional command-line arguments & an event-emitter for reporting
+ *   status. An array of dependencies will be run before this task.
  *
  * @public
  *
@@ -79,7 +95,8 @@ methods.add = function (state) {
 }
 
 /**
- * Add a dictionary of tasks to pulp
+ * Add a dictionary of tasks to pulp. This method delegates to .add(), and is a convenience method
+ *   to allow an entire CLI be defined in one command.
  *
  * @public
  *
@@ -92,7 +109,9 @@ methods.addAll = function (tasks) {
 }
 
 /**
- * Run the pulp task specified in the command-line arguments.
+ * Run the pulp task specified in the command-line arguments. When this command
+ *   is executed pulp will look read the CLI arguments for to find the command specified, and
+ *   will pass the remaining command-line arguments to the named-task selected.
  *
  * @public
  *
@@ -132,11 +151,12 @@ pulp.tasks = () => {
   state.emitter.on(constants.events.depStart, reactions.depStart)
   state.emitter.on(constants.events.depOk, reactions.depOk)
   state.emitter.on(constants.events.depErr, reactions.depErr)
-  state.emitter.on(constants.events.subTaskProgress, reactions.subTaskProgress)
 
   state.emitter.on(constants.events.taskStart, reactions.taskStart)
   state.emitter.on(constants.events.taskOk, reactions.taskOk)
   state.emitter.on(constants.events.taskErr, reactions.taskErr)
+
+  state.emitter.on(constants.events.subTaskProgress, reactions.subTaskProgress)
 
   return {
     add: methods.add.bind(null, state),

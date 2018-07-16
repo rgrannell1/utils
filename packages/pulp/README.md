@@ -19,7 +19,9 @@ A rational, tiny build system
 
 ## add
 
-Add a task to pulp
+Add a named task to pulp. If this name is provided to pulp by the CLI then this task
+  will be executed with additional command-line arguments & an event-emitter for reporting
+  status. An array of dependencies will be run before this task.
 
 ### Parameters
 
@@ -33,7 +35,8 @@ Add a task to pulp
 
 ## addAll
 
-Add a dictionary of tasks to pulp
+Add a dictionary of tasks to pulp. This method delegates to .add(), and is a convenience method
+  to allow an entire CLI be defined in one command.
 
 ### Parameters
 
@@ -41,7 +44,9 @@ Add a dictionary of tasks to pulp
 
 ## run
 
-Run the pulp task specified in the command-line arguments.
+Run the pulp task specified in the command-line arguments. When this command
+  is executed pulp will look read the CLI arguments for to find the command specified, and
+  will pass the remaining command-line arguments to the named-task selected.
 
 ### Parameters
 
