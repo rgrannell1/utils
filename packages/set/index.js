@@ -70,4 +70,16 @@ set.intersection = (set0, set1) => {
   return shared
 }
 
+set.diff = (set0, set1) => {
+  const diffed = new Set([])
+
+  for (let elem of set1) {
+    if (!set0.has(elem)) {
+      diffed.add(elem)
+    }
+  }
+
+  return diffed
+}
+
 module.exports = set

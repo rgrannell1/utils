@@ -29,6 +29,30 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/ssl-labs (v8.1.0-alpha.687ac587)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
 - [**@rgrannell/units (v8.1.0-alpha.687ac587)**: A library for working with promises](../../tree/master/packages/units)
 
+## Package Metadata
+
+| Name          | Dependencies     | Estimated Size |
+| ------------- | ---------------- | -------------- |
+| array | unknown | unknown       |
+| build | unknown | unknown       |
+| chain | unknown | unknown       |
+| config | unknown | unknown       |
+| docker | unknown | unknown       |
+| ebnf | unknown | unknown       |
+| fp | unknown | unknown       |
+| generator | unknown | unknown       |
+| index | unknown | unknown       |
+| js-generator | unknown | unknown       |
+| markdown | unknown | unknown       |
+| mustache | unknown | unknown       |
+| object | unknown | unknown       |
+| promise | unknown | unknown       |
+| pulp | unknown | unknown       |
+| readme | unknown | unknown       |
+| set | unknown | unknown       |
+| ssl-labs | unknown | unknown       |
+| units | unknown | unknown       |
+
 ## Build System
 
 ### assert-valid-packages

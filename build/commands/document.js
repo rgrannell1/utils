@@ -95,6 +95,13 @@ document.utils = async args => {
       shortName: data.json.name.split('/')[1]
     })
   })
+  vars.packageMetadata = packages.map(data => {
+    return {
+      shortName: data.json.name.split('/')[1],
+      dependencies: 'unknown',
+      size: 'unknown'
+    }
+  })
   vars.commands = Object.values(require('.')).map(data => {
     return Object[Obj.restrict](data, ['name', 'dependencies', 'cli'])
   })

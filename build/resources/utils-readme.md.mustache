@@ -13,6 +13,14 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**{{{name}}} (v{{version}})**: {{{description}}}](../../tree/master/packages/{{shortName}})
 {{/packages}}
 
+## Package Metadata
+
+| Name          | Dependencies     | Estimated Size |
+| ------------- | ---------------- | -------------- |
+{{#packageMetadata}}
+| {{shortName}} | {{dependencies}} | {{size}}       |
+{{/packageMetadata}}
+
 ## Build System
 
 {{#commands}}
