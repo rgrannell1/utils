@@ -1,5 +1,5 @@
 {
-  "name": "@rgrannell/erros",
+  "name": "@rgrannell/errors",
   "description": "Construct errors",
   "version": "8.1.0-alpha.687ac587",
   "main": "index.js",
