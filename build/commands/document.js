@@ -99,11 +99,16 @@ document.utils = async args => {
     const {dependencies, devDependencies} = data.json
     return {
       shortName: data.json.name.split('/')[1],
-      dependencies: dependencies ? dependencies.length : 0,
-      devDependencies: devDependencies ? devDependencies.length : 0,
+      dependencies: dependencies
+        ? Object.keys(dependencies).length
+        : 0,
+      devDependencies: devDependencies
+        ? Object.keys(devDependencies).length
+        : 0,
       size: 'unknown'
     }
   })
+  console.log(vars.packageMetadata)
   vars.commands = Object.values(require('.')).map(data => {
     return Object[Obj.restrict](data, ['name', 'dependencies', 'cli'])
   })

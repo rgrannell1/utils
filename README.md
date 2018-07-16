@@ -31,27 +31,27 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ## Package Metadata
 
-| Name          | Dependencies     | Dependencies        | Estimated Size |
-| ------------- | ---------------- | ------------------- | -------------- |
-| array |  | 0 | unknown       |
-| build |  | 0 | unknown       |
-| chain |  | 0 | unknown       |
-| config |  | 0 | unknown       |
-| docker | 0 | 0 | unknown       |
-| ebnf |  | 0 | unknown       |
-| fp | 0 | 0 | unknown       |
-| generator | 0 | 0 | unknown       |
-| index | 0 | 0 | unknown       |
-| js-generator |  | 0 | unknown       |
-| markdown | 0 | 0 | unknown       |
-| mustache | 0 | 0 | unknown       |
-| object | 0 | 0 | unknown       |
-| promise | 0 | 0 | unknown       |
-| pulp |  | 0 | unknown       |
-| readme |  | 0 | unknown       |
-| set | 0 | 0 | unknown       |
-| ssl-labs |  | 0 | unknown       |
-| units |  | 0 | unknown       |
+| Name          | Dependencies     | Dev Dependencies        | Estimated Size |
+| ------------- | ---------------- | ----------------------- | -------------- |
+| array | 0 | 0      | unknown       |
+| build | 1 | 0      | unknown       |
+| chain | 1 | 0      | unknown       |
+| config | 1 | 0      | unknown       |
+| docker | 0 | 0      | unknown       |
+| ebnf | 5 | 0      | unknown       |
+| fp | 0 | 0      | unknown       |
+| generator | 0 | 0      | unknown       |
+| index | 0 | 0      | unknown       |
+| js-generator | 1 | 0      | unknown       |
+| markdown | 0 | 0      | unknown       |
+| mustache | 0 | 0      | unknown       |
+| object | 0 | 0      | unknown       |
+| promise | 0 | 0      | unknown       |
+| pulp | 1 | 0      | unknown       |
+| readme | 1 | 0      | unknown       |
+| set | 0 | 0      | unknown       |
+| ssl-labs | 1 | 0      | unknown       |
+| units | 0 | 0      | unknown       |
 
 ## Build System
 
