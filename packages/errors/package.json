@@ -1,0 +1,11 @@
+{
+  "name": "@rgrannell/erros",
+  "description": "Construct errors",
+  "version": "8.1.0-alpha.687ac587",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}
