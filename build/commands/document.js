@@ -1,6 +1,5 @@
 
 const Obj = require('@rgrannell/object')
-// const build = require('@rgrannell/build')
 
 const documentation = require('documentation')
 const {fsize} = require('nodejs-fs-utils')
@@ -15,7 +14,7 @@ const constants = require('../constants')
 
 const command = {
   name: 'document',
-  dependencies: ['assert-valid-packages', 'install-deps']
+  dependencies: ['assert-valid-packages']
 }
 
 command.cli = `
@@ -54,8 +53,6 @@ const document = {}
 document.packages = async args => {
   const template = await fs.readFile(constants.paths.templates.packageReadme)
   const api = await generatePackageDocs(constants.paths.packages)
-
-  // const $state = build.state.create(constants.paths.state)
 
   const writeDocs = api.map(async api => {
     const {description, version} = api.json

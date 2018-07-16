@@ -85,7 +85,7 @@ Description:
 
 ### document
 
-- dependencies: `assert-valid-packages,install-deps`
+- dependencies: `assert-valid-packages`
 
 ```
 

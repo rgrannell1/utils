@@ -23,6 +23,7 @@ command.task = async (args, emitter) => {
 
   try {
     const pkgData = await packages
+
     for (let [index, pck] of pkgData.entries()) {
       emitter.emit(pulp.events.subTaskProgress, `Installing package ${pck.name} 🎁 [${index} / ${pkgData.length}]`)
 

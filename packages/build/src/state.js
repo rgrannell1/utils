@@ -14,11 +14,15 @@ methods.store = (state, opts) => {
 }
 
 stateModule.create = fpath => {
-  const data = {}
+  let data = {}
+
+  try {
+    data = JSON.stringify(fs.readFile(fpath))
+  } catch (err) {}
 
   return {
     data,
-    store: methods.store({path: fpath, data})
+    store: methods.store.bind(null, {path: fpath, data})
   }
 }
 
