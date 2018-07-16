@@ -33,31 +33,31 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 | Name          | Dependencies     | Dev Dependencies        | Estimated Size |
 | ------------- | ---------------- | ----------------------- | -------------- |
-| array | 0 | 0      | 0.0mb       |
-| build | 1 | 0      | 0.3mb       |
-| chain | 1 | 0      | 1.0mb       |
-| config | 1 | 0      | 0.1mb       |
-| docker | 0 | 0      | 0.0mb       |
-| ebnf | 5 | 0      | 1.0mb       |
-| fp | 0 | 0      | 0.0mb       |
-| generator | 0 | 0      | 0.0mb       |
-| index | 0 | 0      | 0.0mb       |
-| js-generator | 1 | 0      | 1.0mb       |
-| markdown | 0 | 0      | 0.0mb       |
-| mustache | 0 | 0      | 0.0mb       |
-| object | 0 | 0      | 0.0mb       |
-| promise | 0 | 0      | 0.0mb       |
-| pulp | 1 | 0      | 1.3mb       |
-| readme | 1 | 0      | 0.0mb       |
-| set | 0 | 0      | 0.0mb       |
-| ssl-labs | 1 | 0      | 0.3mb       |
-| units | 0 | 0      | 0.0mb       |
+| array | 0 | 0      | 0.0Mb       |
+| build | 1 | 0      | 0.3Mb       |
+| chain | 1 | 0      | 1.0Mb       |
+| config | 1 | 0      | 0.1Mb       |
+| docker | 0 | 0      | 0.0Mb       |
+| ebnf | 5 | 0      | 1.0Mb       |
+| fp | 0 | 0      | 0.0Mb       |
+| generator | 0 | 0      | 0.0Mb       |
+| index | 0 | 0      | 0.0Mb       |
+| js-generator | 1 | 0      | 1.0Mb       |
+| markdown | 0 | 0      | 0.0Mb       |
+| mustache | 0 | 0      | 0.0Mb       |
+| object | 0 | 0      | 0.0Mb       |
+| promise | 0 | 0      | 0.0Mb       |
+| pulp | 1 | 0      | 1.3Mb       |
+| readme | 1 | 0      | 0.0Mb       |
+| set | 0 | 0      | 0.0Mb       |
+| ssl-labs | 1 | 0      | 0.3Mb       |
+| units | 0 | 0      | 0.0Mb       |
 
 ## Build System
 
 ### assert-valid-packages
 
-- dependencies: none
+- dependencies: `none`
 
 ```
 
@@ -71,7 +71,7 @@ Description:
 
 ### depcheck
 
-- dependencies: none
+- dependencies: `none`
 
 ```
 
@@ -85,7 +85,7 @@ Description:
 
 ### document
 
-- dependencies: assert-valid-packages,install-deps
+- dependencies: `assert-valid-packages,install-deps`
 
 ```
 
@@ -98,7 +98,7 @@ Description:
 
 ### 
 
-- dependencies: none
+- dependencies: `none`
 
 ```
 
@@ -106,7 +106,7 @@ Description:
 
 ### install-deps
 
-- dependencies: assert-valid-packages
+- dependencies: `assert-valid-packages`
 
 ```
 
@@ -120,7 +120,7 @@ Description:
 
 ### lerna-publish
 
-- dependencies: lint,depcheck,document
+- dependencies: `lint,depcheck,document`
 
 ```
 
@@ -134,7 +134,7 @@ Description:
 
 ### lint
 
-- dependencies: none
+- dependencies: `none`
 
 ```
 
@@ -148,7 +148,7 @@ Description:
 
 ### pre-commit
 
-- dependencies: lint,depcheck
+- dependencies: `lint,depcheck`
 
 ```
 
@@ -162,7 +162,7 @@ Description:
 
 ### test
 
-- dependencies: none
+- dependencies: `none`
 
 ```
 
