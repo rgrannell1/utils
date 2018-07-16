@@ -33,25 +33,25 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 | Name          | Dependencies     | Dev Dependencies        | Estimated Size |
 | ------------- | ---------------- | ----------------------- | -------------- |
-| array | 0 | 0      | unknown       |
-| build | 1 | 0      | unknown       |
-| chain | 1 | 0      | unknown       |
-| config | 1 | 0      | unknown       |
-| docker | 0 | 0      | unknown       |
-| ebnf | 5 | 0      | unknown       |
-| fp | 0 | 0      | unknown       |
-| generator | 0 | 0      | unknown       |
-| index | 0 | 0      | unknown       |
-| js-generator | 1 | 0      | unknown       |
-| markdown | 0 | 0      | unknown       |
-| mustache | 0 | 0      | unknown       |
-| object | 0 | 0      | unknown       |
-| promise | 0 | 0      | unknown       |
-| pulp | 1 | 0      | unknown       |
-| readme | 1 | 0      | unknown       |
-| set | 0 | 0      | unknown       |
-| ssl-labs | 1 | 0      | unknown       |
-| units | 0 | 0      | unknown       |
+| array | 0 | 0      | 0.0mb       |
+| build | 1 | 0      | 0.3mb       |
+| chain | 1 | 0      | 1.0mb       |
+| config | 1 | 0      | 0.1mb       |
+| docker | 0 | 0      | 0.0mb       |
+| ebnf | 5 | 0      | 1.0mb       |
+| fp | 0 | 0      | 0.0mb       |
+| generator | 0 | 0      | 0.0mb       |
+| index | 0 | 0      | 0.0mb       |
+| js-generator | 1 | 0      | 1.0mb       |
+| markdown | 0 | 0      | 0.0mb       |
+| mustache | 0 | 0      | 0.0mb       |
+| object | 0 | 0      | 0.0mb       |
+| promise | 0 | 0      | 0.0mb       |
+| pulp | 1 | 0      | 1.3mb       |
+| readme | 1 | 0      | 0.0mb       |
+| set | 0 | 0      | 0.0mb       |
+| ssl-labs | 1 | 0      | 0.3mb       |
+| units | 0 | 0      | 0.0mb       |
 
 ## Build System
 
@@ -85,7 +85,7 @@ Description:
 
 ### document
 
-- dependencies: assert-valid-packages
+- dependencies: assert-valid-packages,install-deps
 
 ```
 
@@ -101,6 +101,20 @@ Description:
 - dependencies: none
 
 ```
+
+```
+
+### install-deps
+
+- dependencies: assert-valid-packages
+
+```
+
+Usage:
+  script install-deps
+
+Description:
+  Install npm dependencies for each package
 
 ```
 

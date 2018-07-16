@@ -10,6 +10,7 @@
     "pulp": "node pulpfile.js"
   },
   "dependencies": {
+    "@rgrannell/build": "file:packages/build",
     "@rgrannell/fp": "file:packages/fp",
     "@rgrannell/index": "file:packages/index",
     "@rgrannell/markdown": "file:packages/markdown",
@@ -27,6 +28,7 @@
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "execa": "^0.10.0",
     "markdown-toc": "^1.2.0",
+    "nodejs-fs-utils": "^1.1.0",
     "signale": "^1.2.1"
   },
   "devDependencies": {

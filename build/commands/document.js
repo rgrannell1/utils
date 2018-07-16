@@ -2,6 +2,7 @@
 const Obj = require('@rgrannell/object')
 
 const documentation = require('documentation')
+const {fsize} = require('nodejs-fs-utils')
 const fs = require('fs').promises
 const mustache = require('mustache')
 
@@ -13,7 +14,7 @@ const constants = require('../constants')
 
 const command = {
   name: 'document',
-  dependencies: ['assert-valid-packages']
+  dependencies: ['assert-valid-packages', 'install-deps']
 }
 
 command.cli = `
@@ -73,6 +74,14 @@ document.packages = async args => {
   return Promise.all(writeDocs)
 }
 
+const getDirSize = fpath => {
+  return new Promise((resolve, reject) => {
+    fsize(fpath, (err, size) => {
+      err ? reject(err) : resolve(size)
+    })
+  })
+}
+
 /**
  * Create overall README
  *
@@ -95,8 +104,9 @@ document.utils = async args => {
       shortName: data.json.name.split('/')[1]
     })
   })
-  vars.packageMetadata = packages.map(data => {
+  const metadata = packages.map(async data => {
     const {dependencies, devDependencies} = data.json
+    const size = ((await getDirSize(data.path)) * 1e-6).toFixed(1)
     return {
       shortName: data.json.name.split('/')[1],
       dependencies: dependencies
@@ -105,10 +115,12 @@ document.utils = async args => {
       devDependencies: devDependencies
         ? Object.keys(devDependencies).length
         : 0,
-      size: 'unknown'
+      size: `${size}mb`
     }
   })
-  console.log(vars.packageMetadata)
+
+  vars.packageMetadata = await Promise.all(metadata)
+
   vars.commands = Object.values(require('.')).map(data => {
     return Object[Obj.restrict](data, ['name', 'dependencies', 'cli'])
   })
