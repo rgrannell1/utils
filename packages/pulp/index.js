@@ -39,10 +39,89 @@ const pulp = {
   events: constants.events
 }
 
+const methods = {}
+
+/**
+ * Add a task to pulp
+ *
+ * @public
+ *
+ * @param {string}         name the name of a task
+ * @param {Array<string>}  dependencies an array of dependency task-names. These dependencies will be
+ *   serially executed (as of this version) before finally executing the task itself.
+ * @param {string}         cli an optional CLI specififying arguments consumed by this task.
+ * @param {function}       task a binary function, taking args provided by the CLI and an emitter that
+ *   can emit `pulp.events.subTaskProgress` to provide progress updates from the task
+ */
+methods.add = function (state) {
+  var name
+  var dependencies
+  var cli
+  var task
+
+  if (arguments.length === 1) {
+    if (typeof arguments !== 'object') {
+      throw new Error('non-object provided')
+    }
+    // eslint-disable-next-line
+    var {name, dependencies, cli, task} = arguments[0]
+  } else if (arguments.length === 2) {
+    [name, task] = arguments
+  } else if (arguments.length === 3) {
+    [name, dependencies, task] = arguments
+  } else if (arguments.length === 4) {
+    [name, dependencies, cli, task] = arguments
+  } else {
+    throw new Error(`can't destruct supplied arguments; "${arguments.length}" arguments supplied`)
+  }
+
+  state.tasks[name] = {name, cli, dependencies, task}
+}
+
+/**
+ * Add a dictionary of tasks to pulp
+ *
+ * @public
+ *
+ * @param {Object} tasks an object of command-name : task pairs
+ */
+methods.addAll = function (tasks) {
+  for (const name of Object.keys(tasks)) {
+    methods.add(tasks[name])
+  }
+}
+
+/**
+ * Run the pulp task specified in the command-line arguments.
+ *
+ * @public
+ *
+ * @return {Promise} a result promise
+ */
+methods.run = function (state) {
+  const commands = Object.keys(state.tasks)
+    .sort()
+    .map(term => `    - ${term}`)
+    .join('\n')
+
+  const docs = [
+    'Usage:',
+    '  script <command>',
+    '  script <command> (-h|--help)',
+    '',
+    'Description:',
+    '  Available commands:',
+    commands
+  ].join('\n')
+
+  const args = neodoc.run(docs, {allowUnknown: true})
+  return runTask(args['<command>'], {passArgs: true}, state)
+}
+
 /**
  * Create a new task-list
  *
- * @return {Object} an object with a pair of methods; `add` and `run`
+ * @return {Object} an object with three  methods; `add`, `addAll`, and `run`
  */
 pulp.tasks = () => {
   const state = {
@@ -59,63 +138,10 @@ pulp.tasks = () => {
   state.emitter.on(constants.events.taskOk, reactions.taskOk)
   state.emitter.on(constants.events.taskErr, reactions.taskErr)
 
-  const methods = {}
-
-  methods.add = function () {
-    var name
-    var dependencies
-    var cli
-    var task
-
-    if (arguments.length === 1) {
-      if (typeof arguments !== 'object') {
-        throw new Error('non-object provided')
-      }
-      // eslint-disable-next-line
-      var {name, dependencies, cli, task} = arguments[0]
-    } else if (arguments.length === 2) {
-      [name, task] = arguments
-    } else if (arguments.length === 3) {
-      [name, dependencies, task] = arguments
-    } else if (arguments.length === 4) {
-      [name, dependencies, cli, task] = arguments
-    } else {
-      throw new Error(`can't destruct supplied arguments; "${arguments.length}" arguments supplied`)
-    }
-
-    state.tasks[name] = {name, cli, dependencies, task}
-  }
-
-  methods.addAll = function (tasks) {
-    for (const name of Object.keys(tasks)) {
-      methods.add(tasks[name])
-    }
-  }
-
-  methods.run = function () {
-    const commands = Object.keys(state.tasks)
-      .sort()
-      .map(term => `    - ${term}`)
-      .join('\n')
-
-    const docs = [
-      'Usage:',
-      '  script <command>',
-      '  script <command> (-h|--help)',
-      '',
-      'Description:',
-      '  Available commands:',
-      commands
-    ].join('\n')
-
-    const args = neodoc.run(docs, {allowUnknown: true})
-    return runTask(args['<command>'], {passArgs: true}, state)
-  }
-
   return {
-    add: methods.add,
-    addAll: methods.addAll,
-    run: methods.run
+    add: methods.add.bind(null, state),
+    addAll: methods.addAll.bind(null, state),
+    run: methods.run.bind(null, state)
   }
 }
 
