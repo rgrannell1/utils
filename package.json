@@ -29,6 +29,7 @@
     "execa": "^0.10.0",
     "markdown-toc": "^1.2.0",
     "nodejs-fs-utils": "^1.1.0",
+    "npm": "^6.2.0",
     "signale": "^1.2.1"
   },
   "devDependencies": {

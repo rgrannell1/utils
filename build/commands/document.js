@@ -115,7 +115,7 @@ document.utils = async args => {
       devDependencies: devDependencies
         ? Object.keys(devDependencies).length
         : 0,
-      size: `${size}mb`
+      size: `${size}Mb`
     }
   })
 

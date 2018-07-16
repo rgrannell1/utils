@@ -28,14 +28,16 @@ async function runTask (command, {passArgs = true}, {tasks, emitter}) {
 
   try {
     emitter.emit(constants.events.taskStart, taskData)
-    await taskData.task(taskData.cli && passArgs ? neodoc.run(taskData.cli) : undefined)
+    await taskData.task(taskData.cli && passArgs ? neodoc.run(taskData.cli) : undefined, emitter)
     emitter.emit(constants.events.taskOk, taskData)
   } catch (err) {
     emitter.emit(constants.events.taskErr, command, err)
   }
 }
 
-const pulp = {}
+const pulp = {
+  events: constants.events
+}
 
 /**
  * Create a new task-list
@@ -51,6 +53,7 @@ pulp.tasks = () => {
   state.emitter.on(constants.events.depStart, reactions.depStart)
   state.emitter.on(constants.events.depOk, reactions.depOk)
   state.emitter.on(constants.events.depErr, reactions.depErr)
+  state.emitter.on(constants.events.subTaskProgress, reactions.subTaskProgress)
 
   state.emitter.on(constants.events.taskStart, reactions.taskStart)
   state.emitter.on(constants.events.taskOk, reactions.taskOk)

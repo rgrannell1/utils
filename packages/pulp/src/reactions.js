@@ -26,6 +26,18 @@ loggers.task = new Signale({
   }
 })
 
+loggers.subTask = new Signale({
+  interactive: true,
+  scope: 'task',
+  types: {
+    progress: {
+      badge: '...',
+      color: 'blue',
+      label: 'progress'
+    }
+  }
+})
+
 loggers.task.config({
   displayTimestamp: true
 })
@@ -88,6 +100,10 @@ reactions.taskErr = (name, err) => {
   assert(name, 'missing depStart name argument')
   loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack}`)
   process.exit(1)
+}
+
+reactions.subTaskProgress = message => {
+  loggers.subTask.progress(message)
 }
 
 module.exports = reactions
