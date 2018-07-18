@@ -1,42 +1,23 @@
 
-const ebnf = require('@rgrannell/ebnf')
+const jsGen = {}
 
-const jsGenerator = {}
-
-const parsers = {}
-
-parsers.array = function * (generator) {
-  for (let array of generator()) {
-    yield array
+jsGen.literal = function * (iter) {
+  for (const value of iter) {
+    yield {
+      type: 'Literal',
+      value
+    }
   }
 }
 
-jsGenerator.array = function * (elem) {
-  const generator = ebnf.grammar()
-    .rule({
-      id: 'array',
-      value: ebnf.and(
-        ebnf.repeat(elem)
-      )
-    })
-
-  yield * parsers.array(generator)
+function * foo () {
+  yield 1
+  yield 2
+  yield 3
 }
 
-/**
- * Yield indices of a function,
- *
- * @param {number} length    the length of an array
- * @yield {number}           indices of the provided array
- */
-jsGenerator.indices = function * (length) {
-  for (let ith = 0; ith < length; ++ith) {
-    yield ith
-  }
+for (const x of jsGen.literal(foo())) {
+  console.log(x)
 }
 
-for (const xx of jsGenerator.array(function * () { yield 'x' })) {
-  console.log(xx)
-}
-
-module.exports = jsGenerator
+module.exports = jsGen

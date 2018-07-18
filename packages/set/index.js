@@ -4,6 +4,8 @@ const set = {}
 /**
  * Do two sets contain the same values?
  *
+ * @name set.equals
+ *
  * @param  {Set} set0 a set
  * @param  {Set} set1 a set
  *
@@ -24,6 +26,8 @@ set.equals = (set0, set1) => {
 
 /**
  * Return a set containing the conjunction of two sets
+ *
+ * @name set.union
  *
  * @param  {Set} set0 a set
  * @param  {Set} set1 a set
@@ -46,6 +50,8 @@ set.union = (set0, set1) => {
 
 /**
  * Return a set containing elements in both sets
+ *
+ * @name set.intersection
  *
  * @param  {Set} set0 a set
  * @param  {Set} set1 a set
@@ -70,6 +76,16 @@ set.intersection = (set0, set1) => {
   return shared
 }
 
+/**
+ * Return the elements in set1 not in set0
+ *
+ * @name set.diff
+ *
+ * @param  {Set} set0 a set
+ * @param  {Set} set1 a set
+ *
+ * @return {Set} the subset of the two provided sets
+ */
 set.diff = (set0, set1) => {
   const diffed = new Set([])
 
