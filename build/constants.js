@@ -14,6 +14,9 @@ const constants = {
       packageReadme: path.join(__dirname, './resources/package-readme.md.mustache'),
       buildReadme: path.join(__dirname, './resources/build-readme.md.mustache')
     }
+  },
+  stability: {
+    experimental: '0 - Experimental'
   }
 }
 

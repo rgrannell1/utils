@@ -61,6 +61,7 @@ document.packages = async args => {
 
     const vars = {
       name: api.name,
+      stability: constants.stability.experimental,
       version,
       description,
       tableOfContents,

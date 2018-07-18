@@ -1,6 +1,10 @@
 
 # generator (v8.1.0-alpha.687ac587)
 
+## Stability
+
+> 0 - Experimental
+
 An itertools like library
 
 
