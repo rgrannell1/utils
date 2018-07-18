@@ -26,25 +26,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -84,15 +74,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### depcheck
@@ -120,25 +120,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -178,15 +168,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### document
@@ -213,25 +213,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -271,15 +261,119 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+---
+### edit
+
+- dependencies: none
+
+```
+
+Usage:
+  script edit
+
+Description:
+  Manage the utils repository interactively
+
+```
+
+### API Docs
+
+<!-- Generated by documentation.js. Update this documentation by updating the source code. -->
+
+## 
+
+console.log(unused.dependencies); // an array containing the unused dependencies
+console.log(unused.devDependencies); // an array containing the unused devDependencies
+console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
+console.log(unused.using); // a lookup indicating each dependency is used by which files
+
+## generatePackageDocs
+
+generate documentation for a package
+
+### Parameters
+
+-   `path` **[string][1]** to the package.
+
+Returns **[Promise][2]** 
+
+## packages
+
+Create per-packages documentation
+
+### Parameters
+
+-   `args` **[Object][3]** command-line arguments
+
+Returns **Promises** 
+
+## utils
+
+Create overall README
+
+### Parameters
+
+-   `args` **[Object][3]** command-line arguments
+
+Returns **Promises** 
+
+## build
+
+Create build documentation
+
+### Parameters
+
+-   `args` **[Object][3]** command-line arguments
+
+Returns **Promises** 
+
+## task
+
+Generate documentation
+
+### Parameters
+
+-   `args` **[Object][3]** command-line arguments
+
+Returns **[Promise][2]** 
+
+## listPackageJsons
+
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### 
@@ -301,25 +395,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -359,15 +443,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### install-deps
@@ -395,25 +489,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -453,15 +537,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### lerna-publish
@@ -489,25 +583,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -547,15 +631,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### lint
@@ -583,25 +677,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -641,15 +725,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### pre-commit
@@ -677,25 +771,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -735,15 +819,25 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
 ### test
@@ -771,25 +865,15 @@ console.log(unused.devDependencies); // an array containing the unused devDepend
 console.log(unused.missing); // a lookup containing the dependencies missing in `package.json` and where they are used
 console.log(unused.using); // a lookup indicating each dependency is used by which files
 
-## listPackageJsons
-
-Load package.jsons & associated metadata for a list of packages
-
-### Parameters
-
--   `packages` **[Array][1]&lt;[string][2]>** a list of packages
-
-Returns **[Array][1]&lt;[Object][3]>** an array of package.jsons & metadata for that package
-
 ## generatePackageDocs
 
 generate documentation for a package
 
 ### Parameters
 
--   `path` **[string][2]** to the package.
+-   `path` **[string][1]** to the package.
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
 ## packages
 
@@ -829,14 +913,24 @@ Generate documentation
 
 -   `args` **[Object][3]** command-line arguments
 
-Returns **[Promise][4]** 
+Returns **[Promise][2]** 
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+## listPackageJsons
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+Load package.jsons & associated metadata for a list of packages
+
+### Parameters
+
+-   `packages` **[Array][4]&lt;[string][1]>** a list of packages
+
+Returns **[Array][4]&lt;[Object][3]>** an array of package.jsons & metadata for that package
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ---
