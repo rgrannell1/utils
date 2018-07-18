@@ -12,6 +12,7 @@
   "dependencies": {
     "@rgrannell/build": "file:packages/build",
     "@rgrannell/fp": "file:packages/fp",
+    "@rgrannell/github": "file:packages/github",
     "@rgrannell/index": "file:packages/index",
     "@rgrannell/markdown": "file:packages/markdown",
     "@rgrannell/mustache": "file:packages/mustache",
