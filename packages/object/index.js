@@ -8,7 +8,7 @@ const object = {
 /**
  * Return a clone of an object only containing the provided properties.
  *
- * @name  Object[object.restrict]
+ * @name  Object\[object.restrict\]
  *
  * @param  {Object} object an arbitrary object
  * @param  {Array<String>} props an array of property names to keep.
@@ -32,7 +32,7 @@ Object[object.restrict] = (object, props) => {
 /**
  * Return a clone of an object removing selected properties.
  *
- * @name  Object[object.remove]
+ * @name  Object\[object.remove\]
  *
  * @param  {Object} object an arbitrary object
  * @param  {Array<String>} props an array of property names to keep.
@@ -56,7 +56,7 @@ Object[object.remove] = (object, props) => {
 /**
  * Select listed properties from an object
  *
- * @name  Object[object.take]
+ * @name  Object\[object.take\]
  *
  * @param  {Object} object
  * @param  {Array} props   a list of string
