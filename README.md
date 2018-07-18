@@ -18,6 +18,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/errors (v8.1.0-alpha.687ac587)**: Construct errors](../../tree/master/packages/errors)
 - [**@rgrannell/fp (v8.1.0-alpha.687ac587)**: Functional programming utilities](../../tree/master/packages/fp)
 - [**@rgrannell/generator (v8.1.0-alpha.687ac587)**: An itertools like library](../../tree/master/packages/generator)
+- [**@rgrannell/github (vnone)**: Utilities for working with Github](../../tree/master/packages/github)
 - [**@rgrannell/index (v8.1.0-alpha.687ac587)**: A utility library for loading submodules](../../tree/master/packages/index)
 - [**@rgrannell/js-generator (v8.1.0-alpha.687ac587)**: An itertools-like library](../../tree/master/packages/js-generator)
 - [**@rgrannell/markdown (v8.1.0-alpha.687ac587)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
@@ -43,6 +44,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | errors | 0 | 0      | 0.0Mb       |
 | fp | 0 | 0      | 0.0Mb       |
 | generator | 0 | 0      | 0.0Mb       |
+| github | 1 | 0      | 3.0Mb       |
 | index | 0 | 0      | 0.0Mb       |
 | js-generator | 0 | 0      | 1.0Mb       |
 | markdown | 0 | 0      | 0.0Mb       |

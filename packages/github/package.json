@@ -1,0 +1,13 @@
+{
+  "name": "@rgrannell/github",
+  "description": "Utilities for working with Github",
+  "main": "index.js",
+  "version": "none",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@octokit/rest": "^15.9.4"
+  }
+}
