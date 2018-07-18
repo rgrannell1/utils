@@ -1,7 +1,4 @@
 
-const fs = require('fs').promises
-const path = require('path')
-const constants = require('../constants')
 const inquirer = require('inquirer')
 
 const command = {
