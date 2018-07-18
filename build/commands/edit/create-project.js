@@ -39,6 +39,7 @@ module.exports = async () => {
     name: `@rgrannell/${name}`,
     description,
     main: 'index.js',
+    version: 'none',
     license: 'MIT',
     publishConfig: {
       access: 'public'

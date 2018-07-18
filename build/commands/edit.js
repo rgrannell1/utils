@@ -15,7 +15,7 @@ Description:
 `
 
 const commands = {
-  'Create a Project': require('./edit/createProject'),
+  'Create a Project': require('./edit/create-project'),
   'Exit CLI' () {}
 }
 
