@@ -34,14 +34,4 @@ github.createPR = async ({owner, repo, branches, message, token}) => {
   })
 }
 
-github.createPR({
-  owner: 'rgrannell1',
-  repo: 'utils',
-  branches: {
-    head: 'test/pr-target-branch',
-    base: 'master'
-  },
-  message: 'Bing Bong test PR'
-})
-
 module.exports = github
