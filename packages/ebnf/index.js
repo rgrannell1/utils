@@ -9,6 +9,10 @@ const fp = require('@rgrannell/fp')
 /**
  * Constructs boilerplate for each EBNF type
  *
+ * @name makeEsbnType
+ *
+ * @private
+ *
  * @param  {string} prop        the type to create
  * @param  {function} transform a validate / transform function
  * @param  {any} value          a value
@@ -56,6 +60,8 @@ for (let type of esbnTypes) {
 /**
  * Create an EBNF grammar
  *
+ * @name ebnf.grammar
+ *
  * @return {Object} chaining methods & state to create a EBNF ruleset
  */
 ebnf.grammar = () => {
@@ -80,6 +86,8 @@ methods.rule = (state, {id, value}) => {
 /**
  * Lower & upper-case characters
  *
+ * @name ebnf.sets.ALPHABET
+ *
  * @yield {string}
  */
 ebnf.sets.ALPHABET = function * () {
@@ -90,6 +98,8 @@ ebnf.sets.ALPHABET = function * () {
 /**
  * Arabic digits
  *
+ * @name ebnf.sets.DIGITS
+ *
  * @yield {string}
  */
 ebnf.sets.DIGITS = function * () {
@@ -98,6 +108,8 @@ ebnf.sets.DIGITS = function * () {
 
 /**
  * Hexidecimal characters
+ *
+ * @name ebnf.sets.HEX_DIGITS
  *
  * @yield {string}
  */
@@ -109,6 +121,8 @@ ebnf.sets.HEX_DIGITS = function * () {
 /**
  * Binary bits
  *
+ * @name ebnf.sets.BITS
+ *
  * @yield {string}
  */
 ebnf.sets.BITS = function * () {
@@ -117,6 +131,8 @@ ebnf.sets.BITS = function * () {
 
 /**
  * A double-quote
+ *
+ * @name ebnf.sets.DOUBLE_QUOTE
  *
  * @yield {string}
  */
@@ -127,6 +143,8 @@ ebnf.sets.DOUBLE_QUOTE = function * () {
 /**
  * A single-quote
  *
+ * @name ebnf.sets.SINGLE_QUOTE
+ *
  * @yield {string}
  */
 ebnf.sets.SINGLE_QUOTE = function * () {
@@ -135,6 +153,8 @@ ebnf.sets.SINGLE_QUOTE = function * () {
 
 /**
  * A space
+ *
+ * @name ebnf.sets.SPACE
  *
  * @yield {string}
  */
@@ -145,6 +165,8 @@ ebnf.sets.SPACE = function * () {
 /**
  * ASCII characters
  *
+ * @name ebnf.sets.ASCII
+ *
  * @yield {string}
  */
 ebnf.sets.ASCII = function * () {
@@ -153,6 +175,8 @@ ebnf.sets.ASCII = function * () {
 
 /**
  * A line-feed character
+ *
+ * @name ebnf.sets.LINE_FEED
  *
  * @yield {string}
  */

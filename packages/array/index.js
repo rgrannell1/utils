@@ -4,6 +4,8 @@ const array = { }
 /**
  * Select a random value from an input array, using a non-cryptographically secure selector.
  *
+ * @name array.oneOf
+ *
  * @param  {Array<any>} value An array of arbitrary values
  *
  * @return {any}        a randomly selected element from the array
@@ -14,6 +16,8 @@ array.oneOf = value => {
 
 /**
  * Create an array of indices up to but not including a ceiling value provided.
+ *
+ * @name array.seqTo
  *
  * @param  {Number} number a positive number
  *
@@ -32,6 +36,8 @@ array.seqTo = number => {
 /**
  * Return an array of indices for an input array
  *
+ * @name array.seqAlong
+ *
  * @param  {Array<Any>} array an arbitrary array
  *
  * @return {Array<Number>} return an array of indices for that array
@@ -42,6 +48,8 @@ array.seqAlong = array => {
 
 /**
  * Repeat an arbitrary value several times
+ *
+ * @name array.repeat
  *
  * @param  {Any} value    an arbitrary value to repeat
  * @param  {Number} count a nonnegative number describing the number of times to repeat the arbitrary value provided

@@ -44,7 +44,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | fp | 0 | 0      | 0.0Mb       |
 | generator | 0 | 0      | 0.0Mb       |
 | index | 0 | 0      | 0.0Mb       |
-| js-generator | 1 | 0      | 1.0Mb       |
+| js-generator | 0 | 0      | 1.0Mb       |
 | markdown | 0 | 0      | 0.0Mb       |
 | mustache | 0 | 0      | 0.0Mb       |
 | object | 0 | 0      | 0.0Mb       |

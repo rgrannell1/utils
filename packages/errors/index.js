@@ -9,6 +9,8 @@ const CustomError = function (name, message, code, stackFrame) {
 /**
  * Easily construct custom-errors
  *
+ * @name  errors
+ *
  * @example
  *   errors.notFoundError('user-account was not found', 'ENOTFOUND')
  */

@@ -4,6 +4,8 @@ const generator = {}
 /**
  * Infinitly cycle a generator
  *
+ * @name generator.cycle
+ *
  * @param {Generator} gen a generator function
  * @yield {Any}
  */
@@ -17,6 +19,8 @@ generator.cycle = function * (gen) {
 
 /**
  * Repeat a generator a fixed number of times
+ *
+ * @name generator.repeat
  *
  * @param {Generator} gen a generator function
  * @yield {Any}
@@ -32,6 +36,8 @@ generator.repeat = function * (gen, num) {
 /**
  * Map across an iterable
  *
+ * @name generator.iterMap
+ *
  * @param {Function} fn    an arbitrary non-generator function
  * @param {Any}   iter     the iterator to transform
  * @yield {Any}            a transformed iterator
@@ -44,6 +50,8 @@ generator.iterMap = function * (fn, iter) {
 
 /**
  * Filter an iterable
+ *
+ * @name generator.iterSelect
  *
  * @param {Function} pred  a boolean function
  * @param {Any}   iter     the iterator to filter
@@ -68,6 +76,8 @@ function * cross (iter0, gen0) {
 /**
  * Take the cross-product of several generators
  *
+ * @name generator.crossProduct
+ *
  * @param {Array<Gen>} gens an array of nullary generator functions
  * @yield {Array<Any>}
  */
@@ -89,6 +99,8 @@ generator.crossProduct = function * (gens) {
 /**
  * Yield an incrementing sequence of numbers
  *
+ * @name generator.increment
+ *
  * @param {number} num an (exclusive) upper limiting number
  * @yield {number}     a list of incrementing numbers
  */
@@ -106,6 +118,8 @@ generator.increment = function * (num) {
 
 /**
  * Yield a list of characters in an inclusive range
+ *
+ * @name generator.charRange
  *
  * @param {Number} lower         The lower char-code used
  * @param {Number} upper         The upper char-code used

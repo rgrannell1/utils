@@ -7,6 +7,8 @@ const index = {}
 /**
  * Convert a filename to a javascript property name
  *
+ * @name index.deriveName
+ *
  * @param  {string} fileName    a file path
  *
  * @return {string}             a property name
@@ -23,6 +25,8 @@ index.deriveName = fileName => {
 
 /**
  * Load modules from all files in a directory into an object of modules
+ *
+ * @name index.load
  *
  * @param  {Object} opts    options used to configure module-loading.
  * @return {Object}         returns an object of submodules exports.
