@@ -14,10 +14,10 @@ Description:
   Manage the utils repository interactively
 `
 
-const commands = {}
-
-commands['Create a Project'] = require('./edit/createProject')
-commands['Exit CLI'] = () => {}
+const commands = {
+  'Create a Project': require('./edit/createProject'),
+  'Exit CLI' () {}
+}
 
 command.task = async args => {
   const prompt = inquirer.createPromptModule()
