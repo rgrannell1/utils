@@ -98,6 +98,20 @@ Description:
 
 ```
 
+### edit
+
+- dependencies: `none`
+
+```
+
+Usage:
+  script edit
+
+Description:
+  Manage the utils repository interactively
+
+```
+
 ### 
 
 - dependencies: `none`
