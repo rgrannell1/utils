@@ -17,7 +17,12 @@ const constants = {
   },
   stability: {
     experimental: '0 - Experimental'
-  }
+  },
+  allowedBranchPrefixes: [
+    'bugfix',
+    'feature',
+    'test'
+  ]
 }
 
 module.exports = constants
