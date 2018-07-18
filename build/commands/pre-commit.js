@@ -18,14 +18,17 @@ Description:
 command.task = async args => {
   const name = await branch(constants.paths.root)
 
-  console.log(name)
-  console.log(name)
-  console.log(name)
-  console.log(name)
-  console.log(name)
-
   if (name.includes('master')) {
     console.error('\nWill not commit directly to master line; merge in from github from a feature branch-s\n')
+    process.exit(1)
+  }
+
+  const hasPrefix = constants.allowedBranchPrefixes.some(prefix => {
+    return name.startsWith(prefix)
+  })
+
+  if (!hasPrefix) {
+    console.error(`\nunsupported prefix on branch "${name}"; supported prefixes are ${constants.allowedBranchPrefixes.join(', ')}\n`)
     process.exit(1)
   }
 }
