@@ -13,13 +13,7 @@ Description:
 `
 
 command.task = async args => {
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
+  console.log(process.env)
 }
 
 module.exports = command
