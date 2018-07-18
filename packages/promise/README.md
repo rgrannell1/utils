@@ -13,10 +13,12 @@ Utilities for working with promises
 
 - [stall](#stall)
   * [Parameters](#parameters)
-- [timeout](#timeout)
+- [promise.timeout](#promisetimeout)
   * [Parameters](#parameters-1)
-- [waitUntil](#waituntil)
+- [promise.waitUntil](#promisewaituntil)
   * [Parameters](#parameters-2)
+- [promise.sequence](#promisesequence)
+  * [Parameters](#parameters-3)
 
 ## API Documentation
 
@@ -24,36 +26,48 @@ Utilities for working with promises
 
 ## stall
 
-~
+Wait for a set time-period before resolving
 
 ### Parameters
 
 -   `fn`  
 -   `duration`   (optional, default `0`)
 -   `the` **[function][1]** function to call post stall
--   `the` **[number][2]** timeout in millisecondsWait for a set time-period before resolving
+-   `the` **[number][2]** timeout in milliseconds
 
 Returns **[promise][3]** 
 
-## timeout
+## promise.timeout
+
+Trello API wrapper
 
 ### Parameters
 
--   `error`  
--   `duration`   (optional, default `0`)
 -   `the` **[error][4]** error to throw
--   `the` **[number][2]** timeout in millisecondsTrello API wrapper
+-   `the` **[number][2]** timeout in milliseconds
 
 Returns **[promise][3]** 
 
-## waitUntil
+## promise.waitUntil
+
+Wait until a sync or async function resolves.
 
 ### Parameters
 
 -   `fn` **[function][1]** a sync or async function.
--   `interval` **[number][2]** the polling interval.Wait until a sync or async function resolves. (optional, default `0`)
+-   `interval` **[number][2]** the polling interval.
 
 Returns **[promise][3]** 
+
+## promise.sequence
+
+Run a series of asyncronous nullary functions sequentially
+
+### Parameters
+
+-   `tasks` **[Array][5]&lt;[function][1]>** a list of functions to run
+
+Returns **[Promise][3]&lt;[Array][5]&lt;any>>** an array of values
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
@@ -62,6 +76,8 @@ Returns **[promise][3]**
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 
 ## Dependencies

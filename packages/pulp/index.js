@@ -62,6 +62,8 @@ const methods = {}
  *   will be executed with additional command-line arguments & an event-emitter for reporting
  *   status. An array of dependencies will be run before this task.
  *
+ * @name pulp.add(...)
+ *
  * @public
  *
  * @param {string}         name the name of a task
@@ -99,6 +101,8 @@ methods.add = function () {
  * Add a dictionary of tasks to pulp. This method delegates to .add(), and is a convenience method
  *   to allow an entire CLI be defined in one command.
  *
+ * @name pulp.addAll(...)
+ *
  * @public
  *
  * @param {Object} tasks an object of command-name : task pairs
@@ -113,6 +117,8 @@ methods.addAll = function (state, tasks) {
  * Run the pulp task specified in the command-line arguments. When this command
  *   is executed pulp will look read the CLI arguments for to find the command specified, and
  *   will pass the remaining command-line arguments to the named-task selected.
+ *
+ * @name pulp.addAll(...).run()
  *
  * @public
  *

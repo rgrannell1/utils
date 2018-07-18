@@ -3,11 +3,10 @@ const promise = {}
 
 /**
  *
- ~
+ * Wait for a set time-period before resolving
+ *
  * @param {function} the function to call post stall
  * @param {number} the timeout in milliseconds
- *
- * Wait for a set time-period before resolving
  *
  * @returns {promise}
  *
@@ -22,10 +21,12 @@ promise.stall = (fn, duration = 0) => {
 
 /**
  *
+ *  Trello API wrapper
+ *
+ * @name promise.timeout
+ *
  * @param {error} the error to throw
  * @param {number} the timeout in milliseconds
- *
- * Trello API wrapper
  *
  * @returns {promise}
  *
@@ -40,10 +41,12 @@ promise.timeout = (error, duration = 0) => {
 
 /**
  *
+ * Wait until a sync or async function resolves.
+ *
+ * @name promise.waitUntil
+ *
  * @param {function} fn a sync or async function.
  * @param {number} interval the polling interval.
- *
- * Wait until a sync or async function resolves.
  *
  * @returns {promise}
  *
@@ -64,6 +67,14 @@ promise.waitUntil = (fn, interval = 0) => {
   }
 }
 
+/**
+ * Run a series of asyncronous nullary functions sequentially
+ *
+ * @name promise.sequence
+ *
+ * @param  {Array<function>} tasks    a list of functions to run
+ * @return {Promise<Array<any>>}      an array of values
+ */
 promise.sequence = async tasks => {
   const res = []
 
