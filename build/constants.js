@@ -12,7 +12,8 @@ const constants = {
     templates: {
       utilsReadme: path.join(__dirname, './resources/utils-readme.md.mustache'),
       packageReadme: path.join(__dirname, './resources/package-readme.md.mustache'),
-      buildReadme: path.join(__dirname, './resources/build-readme.md.mustache')
+      buildReadme: path.join(__dirname, './resources/build-readme.md.mustache'),
+      pullRequest: path.join(__dirname, '../pull_request_template.md')
     }
   },
   stability: {
