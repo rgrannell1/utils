@@ -48,7 +48,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run pulp pre-commit",
-      "prepare-commit-msg": "npm run pulp prepare-commit-msg"
+      "prepare-commit-msg": "npm run pulp prepare-commit-msg --params ${GIT_PARAMS}"
     }
   }
 }
