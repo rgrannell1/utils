@@ -9,26 +9,23 @@ const command = {
 
 command.cli = `
 Usage:
-  script prepare-commit-msg [--params PARAMS]
+  script prepare-commit-msg <params>
 
 Description:
   Run commit-message checks against this repository.
-
-Options:
-  --params PARAMS [env: GIT_PARAMS]
 `
 
 const assert = {}
 
 command.task = async args => {
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
-  console.log(process.env.GIT_PARAMS)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
 }
 
 module.exports = command
