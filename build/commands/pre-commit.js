@@ -9,10 +9,13 @@ const command = {
 
 command.cli = `
 Usage:
-  script pre-commit
+  script pre-commit [--params PARAMS]
 
 Description:
   Run precommit checks against this repository.
+
+Options:
+  --params PARAMS    [env: GIT_PARAMS]
 `
 
 const assert = {}
@@ -36,6 +39,12 @@ assert.validBranchName = (name, validPrefixes) => {
 }
 
 command.task = async args => {
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
+  console.log(args)
   const name = await branch(constants.paths.root)
 
   assert.notMaster(name)
