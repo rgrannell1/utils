@@ -62,7 +62,7 @@ module.exports = async () => {
     return
   }
 
-  return github.createPr({
+  return github.createPR({
     owner: 'rgrannell1',
     repo: 'utils',
     branches,
