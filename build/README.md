@@ -758,6 +758,9 @@ Usage:
 Description:
   Run precommit checks against this repository.
 
+Options:
+  --params PARAMS
+
 ```
 
 ### API Docs
