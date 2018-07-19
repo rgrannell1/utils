@@ -18,7 +18,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/errors (v8.1.0-alpha.687ac587)**: Construct errors](../../tree/master/packages/errors)
 - [**@rgrannell/fp (v8.1.0-alpha.687ac587)**: Functional programming utilities](../../tree/master/packages/fp)
 - [**@rgrannell/generator (v8.1.0-alpha.687ac587)**: An itertools like library](../../tree/master/packages/generator)
-- [**@rgrannell/github (vv0.0.0)**: Utilities for working with Github](../../tree/master/packages/github)
+- [**@rgrannell/github (v0.0.0)**: Utilities for working with Github](../../tree/master/packages/github)
 - [**@rgrannell/index (v8.1.0-alpha.687ac587)**: A utility library for loading submodules](../../tree/master/packages/index)
 - [**@rgrannell/js-generator (v8.1.0-alpha.687ac587)**: An itertools-like library](../../tree/master/packages/js-generator)
 - [**@rgrannell/markdown (v8.1.0-alpha.687ac587)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
@@ -175,6 +175,9 @@ Usage:
 
 Description:
   Run precommit checks against this repository.
+
+Options:
+  --params PARAMS
 
 ```
 

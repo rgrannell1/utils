@@ -23,6 +23,12 @@ command.task = async args => {
     for (const property of ['description', 'version']) {
       assert(json.hasOwnProperty(property), `"${name}" package.json missing property "${property}"`)
     }
+
+    const versionPattern = /^[0-9]+\.[0-9]+\.[0-9]+.*/g
+
+    if (!versionPattern.test(json.version)) {
+      throw new Error(`Invalid version "${json.version}" in package "${name}"`)
+    }
   }))
 }
 
