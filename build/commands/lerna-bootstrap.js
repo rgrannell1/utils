@@ -2,22 +2,22 @@
 const execa = require('execa')
 
 const command = {
-  name: 'lerna-publish',
+  name: 'lerna-bootstrap',
   dependencies: ['assert-valid-packages', 'lint', 'install-deps', 'depcheck', 'document']
 }
 
 command.cli = `
 Usage:
-  script lerna-publish
+  script lerna-bootstrap
 
 Description:
-  Use lerna to deploy each submodule to deploy each submodule to NPM.
+  Bootstrap lerna packages.
 `
 
 command.task = async args => {
   let flags = []
 
-  const cmd = execa(`node_modules/.bin/lerna`, ['publish', '--canary', '--yes'].concat(flags))
+  const cmd = execa(`node_modules/.bin/lerna`, ['bootstrap'].concat(flags))
   cmd.stdout.pipe(process.stdout)
   cmd.stderr.pipe(process.stderr)
 }

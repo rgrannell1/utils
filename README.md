@@ -46,7 +46,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | generator | 0 | 0      | 0.0Mb       |
 | github | 1 | 0      | 3.0Mb       |
 | index | 0 | 0      | 0.0Mb       |
-| js-generator | 0 | 0      | 1.0Mb       |
+| js-generator | 0 | 0      | 0.0Mb       |
 | markdown | 0 | 0      | 0.0Mb       |
 | mustache | 0 | 0      | 0.0Mb       |
 | object | 0 | 0      | 0.0Mb       |
@@ -136,9 +136,23 @@ Description:
 
 ```
 
+### lerna-bootstrap
+
+- dependencies: `assert-valid-packages,lint,install-deps,depcheck,document`
+
+```
+
+Usage:
+  script lerna-bootstrap
+
+Description:
+  Bootstrap lerna packages.
+
+```
+
 ### lerna-publish
 
-- dependencies: `lint,install-deps,depcheck,document`
+- dependencies: `assert-valid-packages,lint,install-deps,depcheck,document`
 
 ```
 
