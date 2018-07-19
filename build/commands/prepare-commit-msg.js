@@ -21,14 +21,14 @@ Options:
 const assert = {}
 
 command.task = async args => {
-  console.log(args)
-  console.log(args)
-  console.log(args)
-  console.log(args)
-  console.log(args)
-  console.log(args)
-  console.log(args)
-  console.log(args)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
+  console.log(process.env.GIT_PARAMS)
 }
 
 module.exports = command
