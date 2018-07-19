@@ -70,7 +70,7 @@ module.exports = async () => {
   })
 
   if (!prMessageConfirmation) {
-
+    return
   }
 
   return github.createPR({
