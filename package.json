@@ -47,8 +47,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pulp pre-commit",
-      "prepare-commit-msg": "echo ${GIT_PARAMS}; echo ${GIT_PARAMS}; echo ${GIT_PARAMS}; echo ${GIT_PARAMS}; echo ${GIT_PARAMS}; echo ${GIT_PARAMS}; echo ${GIT_PARAMS}"
+      "pre-commit": "npm run pulp pre-commit"
     }
   }
 }
