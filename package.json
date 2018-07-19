@@ -34,7 +34,8 @@
     "nodejs-fs-utils": "^1.1.0",
     "npm": "^6.2.0",
     "nyc": "^12.0.2",
-    "signale": "^1.2.1"
+    "signale": "^1.2.1",
+    "tape": "^4.9.1"
   },
   "devDependencies": {
     "cost-of-modules": "^1.0.1",
