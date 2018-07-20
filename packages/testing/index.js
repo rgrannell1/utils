@@ -3,20 +3,23 @@ const chain = require('@rgrannell/chain')
 
 const testing = {}
 
-const methods = {}
+const methods = {
+  hypotheses: {},
+  theory: {}
+}
 
-methods.cases = (state, gen) => {
+methods.hypotheses.cases = (state, gen) => {
   state.cases = gen
   return chain({
-    always: methods.always
+    always: methods.hypotheses.always
   }, state)
 }
 
-methods.always = (state, pred) => {
+methods.hypotheses.always = (state, pred) => {
   state.conditions.push(pred)
   return chain({
-    always: methods.always,
-    run: methods.run
+    always: methods.hypotheses.always,
+    run: methods.hypotheses.run
   }, state)
 }
 
@@ -38,7 +41,7 @@ function summarise ({passed, failed}) {
   return Object.assign(out, {stats})
 }
 
-methods.run = state => {
+methods.hypotheses.run = state => {
   const results = {
     passed: [],
     failed: []
@@ -66,12 +69,34 @@ methods.run = state => {
   return summarise(results)
 }
 
-testing.hypotheses = (...hypotheses) => {
+testing.hypotheses = hypothesis => {
   return chain({
-    cases: methods.cases
+    cases: methods.hypotheses.cases
   }, {
     conditions: [],
-    hypotheses
+    hypothesis
+  })
+}
+
+methods.theory.given = (state, hypothesis) => {
+  state.hypotheses.push(hypothesis)
+
+  return chain({
+    given: methods.theory.given,
+    run: methods.theory.run
+  }, state)
+}
+
+methods.theory.run = (state, pred) => {
+  console.log(state)
+}
+
+testing.theory = opts => {
+  return chain({
+    run: methods.theory.run,
+    given: methods.theory.given
+  }, {
+    hypotheses: []
   })
 }
 
