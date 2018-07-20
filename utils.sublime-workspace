@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"vers",
+				"version"
+			],
+			[
+				"pro",
+				"projects"
+			],
+			[
+				"inp",
+				"indexPromise"
+			],
+			[
+				"st",
+				"string"
+			],
+			[
+				"ovv",
+				"overviewPath"
+			],
+			[
+				"emit",
+				"emitter"
+			],
+			[
+				"gf",
+				"getFolderSize"
+			],
+			[
+				"nom",
+				"nodeModules"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"n",
+				"npm"
+			],
+			[
+				"pac",
+				"packageMetadata"
+			],
+			[
+				"an",
+				"analysis"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"dep",
+				"depcheck"
+			],
+			[
 				"Ob",
 				"Obj"
 			],
@@ -28,10 +84,6 @@
 				"packages"
 			],
 			[
-				"pac",
-				"packageDir"
-			],
-			[
 				"cn",
 				"console"
 			],
@@ -44,16 +96,8 @@
 				"getDependenciesRecursively"
 			],
 			[
-				"res",
-				"results"
-			],
-			[
 				"re",
 				"require"
-			],
-			[
-				"pa",
-				"paths"
 			],
 			[
 				"env",
@@ -62,10 +106,6 @@
 			[
 				"get",
 				"getStack"
-			],
-			[
-				"dep",
-				"depErr"
 			],
 			[
 				"ev",
@@ -180,10 +220,6 @@
 				"createTable"
 			],
 			[
-				"pro",
-				"property"
-			],
-			[
 				"m",
 				"methods"
 			],
@@ -266,10 +302,6 @@
 			[
 				"sub",
 				"submit_button"
-			],
-			[
-				"st",
-				"styles"
 			],
 			[
 				"new",
@@ -482,43 +514,28 @@
 			[
 				"back",
 				"background-color"
-			],
-			[
-				"loading",
-				"loadingBar"
-			],
-			[
-				"po",
-				"position"
-			],
-			[
-				"dr",
-				"dropdownShown"
-			],
-			[
-				"d",
-				"dropdownShown"
-			],
-			[
-				"oncli",
-				"onclick"
-			],
-			[
-				"sy",
-				"styles"
-			],
-			[
-				"see",
-				"settings_menu_hidden"
-			],
-			[
-				"colo",
-				"colours"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"contents": "363a4dbd5ecf554d2c9c2486f5aec63b0cf1d6d4",
+			"settings":
+			{
+				"buffer_size": 40,
+				"line_ending": "Unix",
+				"name": "363a4dbd5ecf554d2c9c2486f5aec63b0cf1d6d4"
+			}
+		},
+		{
+			"file": "packages/set/package-lock.json",
+			"settings":
+			{
+				"buffer_size": 92,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -534,6 +551,26 @@
 			[
 				"color",
 				"UI: Select Color Scheme"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"lua",
+				"Set Syntax: Lua"
+			],
+			[
+				"ARIT",
+				"Arithmetic"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
 			],
 			[
 				"colo",
@@ -574,10 +611,6 @@
 			[
 				"ari",
 				"Arithmetic"
-			],
-			[
-				"wrap",
-				"Word Wrap: Toggle"
 			],
 			[
 				"ja",
@@ -632,14 +665,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"javasc",
-				"Set Syntax: JavaScript"
-			],
-			[
-				"lua",
-				"Set Syntax: Lua"
-			],
-			[
 				"wra",
 				"Word Wrap: Toggle"
 			],
@@ -658,10 +683,6 @@
 			[
 				"jsx",
 				"Set Syntax: JSX"
-			],
-			[
-				"json",
-				"JSON Reindent: reindent file or selection"
 			],
 			[
 				"javas",
@@ -798,41 +819,80 @@
 	"expanded_folders":
 	[
 		"/home/ryan/Code/utils",
-		"/home/ryan/Code/utils/build",
-		"/home/ryan/Code/utils/build/commands"
+		"/home/ryan/Code/utils/packages"
 	],
 	"file_history":
 	[
-		"/home/ryan/Code/utils/build/resources/utils-readme.md.mustache",
-		"/home/ryan/Code/utils/build/commands/document.js",
-		"/home/ryan/Code/utils/build/resources/build-readme.md.mustache",
+		"/home/ryan/Code/utils/packages/set/tests/index.js",
+		"/home/ryan/Code/utils/packages/set/tests/bing.js",
+		"/home/ryan/Code/utils/packages/set/index.js",
+		"/home/ryan/Code/utils/build/commands/lerna-bootstrap.js",
+		"/home/ryan/Code/utils/build/commands/edit/create-pr.js",
 		"/home/ryan/Code/utils/build/commands/assert-valid-packages.js",
 		"/home/ryan/Code/utils/build/commands/lerna-publish.js",
-		"/home/ryan/Code/utils/build/commands/test.js",
-		"/home/ryan/Code/utils/packages/pulp/index.js",
-		"/home/ryan/Code/utils/packages/readme/index.js",
-		"/home/ryan/Code/utils/packages/index/index.js",
-		"/home/ryan/Code/utils/build/commands/depcheck.js",
-		"/home/ryan/Code/utils/build/commands/index.js",
-		"/home/ryan/Code/utils/build/commands/pre-commit.js",
-		"/home/ryan/Code/utils/build/commands/lint.js",
-		"/home/ryan/Code/utils/build/constants.js",
-		"/home/ryan/Code/utils/build/resources/package-README.md.mustache",
+		"/home/ryan/Code/utils/build/utils.js",
+		"/home/ryan/Code/utils/packages/github/package.json",
 		"/home/ryan/Code/utils/package.json",
-		"/home/ryan/Code/utils/README.md",
-		"/home/ryan/Code/utils/packages/ebnf/index.js",
-		"/home/ryan/Code/utils/packages/index/package.json",
+		"/home/ryan/Code/utils/build/commands/depcheck.js",
+		"/home/ryan/Code/utils/build/commands/pre-commit.js",
+		"/home/ryan/Code/utils/build/commands/prepare-commit-msg.js",
+		"/home/ryan/Code/utils/packages/github/index.js",
+		"/home/ryan/Code/utils/build/constants.js",
+		"/home/ryan/Code/utils/build/commands/edit.js",
+		"/home/ryan/Code/utils/build/commands/edit/create-project.js",
+		"/home/ryan/Code/utils/build/commands/edit/createProject.js",
+		"/home/ryan/Code/utils/pull_request_template.md",
+		"/home/ryan/Code/utils/utils.sublime-project",
+		"/home/ryan/Code/utils/packages/build/src/shared/constants.js",
+		"/home/ryan/Code/utils/pulpfile.js",
 		"/home/ryan/Code/utils/packages/object/index.js",
+		"/home/ryan/Code/utils/packages/pulp/index.js",
+		"/home/ryan/Code/utils/packages/promise/index.js",
+		"/home/ryan/Code/utils/packages/markdown/index.js",
+		"/home/ryan/Code/utils/build/resources/package-readme.md.mustache",
+		"/home/ryan/Code/utils/build/commands/document.js",
+		"/home/ryan/Code/utils/packages/index/index.js",
+		"/home/ryan/Code/utils/packages/js-generator/package.json",
+		"/home/ryan/Code/utils/packages/errors/index.js",
+		"/home/ryan/Code/utils/packages/fp/index.js",
+		"/home/ryan/Code/utils/packages/generator/index.js",
+		"/home/ryan/Code/utils/packages/ebnf/index.js",
+		"/home/ryan/Code/utils/packages/array/index.js",
+		"/home/ryan/Code/utils/packages/js-generator/index.js",
+		"/home/ryan/Code/utils/packages/errors/package.json",
+		"/home/ryan/Code/utils/packages/errors/package-lock.json",
+		"/home/ryan/Code/utils/packages/build/src/state.js",
+		"/home/ryan/Code/utils/build/commands/test.js",
+		"/home/ryan/Code/utils/.state.json",
+		"/home/ryan/Code/utils/build/commands/install-deps.js",
+		"/home/ryan/Code/utils/.editorconfig",
+		"/home/ryan/Code/utils/packages/build/index.js",
+		"/home/ryan/Code/utils/packages/pulp/README.md",
+		"/home/ryan/Code/utils/packages/pulp/docs/overview.md",
+		"/home/ryan/Code/utils/build/resources/utils-readme.md.mustache",
+		"/home/ryan/Code/utils/packages/build/src/yarn.js",
+		"/home/ryan/Code/utils/packages/build/src/npm.js",
+		"/home/ryan/Code/utils/packages/pulp/src/reactions.js",
+		"/home/ryan/Code/utils/build/commands/index.js",
+		"/home/ryan/Code/utils/README.md",
+		"/home/ryan/Code/utils/packages/config/package.json",
+		"/home/ryan/Code/utils/packages/build/package.json",
+		"/home/ryan/Code/utils/packages/pulp/package.json",
+		"/home/ryan/Code/utils/packages/units/package.json",
+		"/home/ryan/Code/utils/packages/readme/package.json",
+		"/home/ryan/Code/utils/packages/array/package.json",
+		"/home/ryan/Code/utils/build/resources/build-readme.md.mustache",
+		"/home/ryan/Code/utils/packages/readme/index.js",
+		"/home/ryan/Code/utils/build/commands/lint.js",
+		"/home/ryan/Code/utils/build/resources/package-README.md.mustache",
+		"/home/ryan/Code/utils/packages/index/package.json",
 		"/home/ryan/Code/utils/packages/index/test.js",
 		"/home/ryan/Code/utils/packages/index/bing/a-r.js",
 		"/home/ryan/Code/utils/packages/index/bing/b.js",
 		"/home/ryan/Code/utils/packages/index/bing/a.js",
 		"/home/ryan/Code/utils/packages/index/src/constants.js",
-		"/home/ryan/Code/utils/pulpfile.js",
 		"/home/ryan/Code/utils/.travis.yml",
 		"/home/ryan/Code/utils/packages/config/index.js",
-		"/home/ryan/Code/utils/build/utils.js",
-		"/home/ryan/Code/utils/.editorconfig",
 		"/home/ryan/Code/utils/build/README.md",
 		"/home/ryan/Code/utils/build/resources/build-README.md.mustache",
 		"/home/ryan/Code/utils/build/resources/utils-README.md.mustache",
@@ -842,46 +902,29 @@
 		"/home/ryan/Code/utils/packages/fp/README.md",
 		"/home/ryan/Code/utils/packages/array/README.md",
 		"/home/ryan/Code/utils/build/resources/README.md.mustache",
-		"/home/ryan/Code/utils/packages/pulp/src/reactions.js",
-		"/home/ryan/Code/utils/packages/array/index.js",
-		"/home/ryan/Code/utils/packages/markdown/index.js",
-		"/home/ryan/Code/utils/packages/fp/index.js",
 		"/home/ryan/Code/utils/docs/chain.md",
 		"/home/ryan/Code/utils/docs/generator.md",
 		"/home/ryan/Code/utils/docs/markdown.md",
 		"/home/ryan/Code/utils/packages/units/src/units.js",
-		"/home/ryan/Code/utils/packages/units/package.json",
 		"/home/ryan/Code/utils/packages/ssl-labs/package.json",
 		"/home/ryan/Code/utils/packages/set/package.json",
-		"/home/ryan/Code/utils/packages/readme/package.json",
-		"/home/ryan/Code/utils/packages/pulp/package.json",
 		"/home/ryan/Code/utils/packages/promise/package.json",
 		"/home/ryan/Code/utils/packages/object/package.json",
 		"/home/ryan/Code/utils/packages/mustache/package.json",
-		"/home/ryan/Code/utils/packages/js-generator/package.json",
 		"/home/ryan/Code/utils/packages/ebnf/package.json",
 		"/home/ryan/Code/utils/packages/docker/package.json",
-		"/home/ryan/Code/utils/packages/array/package.json",
 		"/home/ryan/Code/utils/packages/async/package.json",
-		"/home/ryan/Code/utils/packages/build/package.json",
 		"/home/ryan/Code/utils/packages/chain/package.json",
-		"/home/ryan/Code/utils/packages/config/package.json",
 		"/home/ryan/Code/utils/node_modules/markdown-escapes/index.js",
 		"/home/ryan/Code/utils/packages/markdown/package.json",
 		"/home/ryan/Code/utils/packages/generator/package.json",
 		"/home/ryan/Code/utils/packages/fp/package.json",
 		"/home/ryan/Code/utils/docs/async.md",
-		"/home/ryan/Code/utils/packages/build/src/npm.js",
 		"/home/ryan/Code/utils/packages/build/src/module-cost.js",
-		"/home/ryan/Code/utils/packages/build/src/shared/constants.js",
-		"/home/ryan/Code/utils/packages/build/index.js",
 		"/home/ryan/Code/utils/packages/build/src/generate.js",
 		"/home/ryan/Code/utils/packages/build/README.md",
 		"/home/ryan/Code/utils/packages/build/test.js",
-		"/home/ryan/Code/utils/packages/promise/index.js",
-		"/home/ryan/Code/utils/packages/js-generator/index.js",
 		"/home/ryan/Code/utils/packages/units/index.js",
-		"/home/ryan/Code/utils/packages/set/index.js",
 		"/home/ryan/Code/utils/packages/ssl-labs/index.js",
 		"/home/ryan/Code/utils/packages/ebnf/src/generate.js",
 		"/home/ryan/Code/utils/packages/pulp/src/constants.js",
@@ -889,7 +932,6 @@
 		"/home/ryan/Code/FOO/config/development.js",
 		"/home/ryan/Code/FOO/index.js",
 		"/home/ryan/Code/FOO/config/default.js",
-		"/home/ryan/Code/utils/packages/pulp/README.md",
 		"/home/ryan/Code/utils/packages/config/README.md",
 		"/home/ryan/Code/utils/packages/async/README.md",
 		"/home/ryan/Code/utils/packages/pulp/shared/constants.js",
@@ -900,7 +942,6 @@
 		"/home/ryan/Code/utils/packages/ebnf/src/generators/javascript.js",
 		"/home/ryan/Code/utils/packages/ebnf/src/generators/email.js",
 		"/home/ryan/Code/utils/packages/generator/README.md",
-		"/home/ryan/Code/utils/packages/generator/index.js",
 		"/home/ryan/Code/utils/packages/ebnf/src/shared/constants.js",
 		"/home/ryan/Code/utils/packages/chain/index.js",
 		"/home/ryan/Code/utils/packages/ebnf/node_modules/@rgrannell/chain/index.js",
@@ -909,38 +950,20 @@
 		"/home/ryan/Code/utils/node_modules/color-name/test.js",
 		"/home/ryan/Code/utils/packages/units/README.md",
 		"/home/ryan/Code/utils/packages/ssl-labs/README.md",
-		"/home/ryan/Code/utils/packages/object/README.md",
-		"/home/ryan/Code/utils/packages/chain/README.md",
-		"/home/ryan/Code/utils/packages/docker/README.md",
-		"/home/ryan/Code/utils/packages/mustache/README.md",
-		"/home/ryan/Code/utils/packages/promise/README.md",
-		"/home/ryan/Code/utils/packages/set/README.md",
-		"/home/ryan/Code/utils/utils.sublime-project",
-		"/home/ryan/Code/utils/src/chain/LICENSE.md",
-		"/home/ryan/Code/utils/src/chain/index.js",
-		"/home/ryan/Code/utils/src/chain/package.json",
-		"/home/ryan/Code/utils/src/set/package.json",
-		"/home/ryan/Code/utils/src/set/LICENSE.md",
-		"/home/ryan/Code/utils/.old/trello-api.js",
-		"/home/ryan/Code/utils/.old/promise.js",
-		"/home/ryan/Code/utils/src/promise/LICENSE.md",
-		"/home/ryan/Code/utils/src/promise/package.json",
-		"/home/ryan/Code/utils/src/promise/index.js",
-		"/home/ryan/Code/utils/src/ssl-labs/package.json",
-		"/home/ryan/Code/utils/src/ssl-labs/LICENSE.md",
-		"/home/ryan/Code/utils/src/ssl-labs/index.js",
-		"/home/ryan/Code/utils/src/docker/LICENSE.md",
-		"/home/ryan/Code/utils/src/docker/package.json"
+		"/home/ryan/Code/utils/packages/object/README.md"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
 		"height": 650.0,
 		"where_history":
 		[
+			"/home/ryan/Code/utils/build/commands",
+			"/home/ryan/Code/utils/packages",
+			"/home/ryan/Code/utils/build"
 		]
 	},
 	"find_state":
@@ -948,6 +971,112 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tests.",
+			"length",
+			")",
+			"equals",
+			"()",
+			"et.",
+			"lerna-publish",
+			"template",
+			"fs.read",
+			"version",
+			"process.env.GIT_PARAMS",
+			"console.log(args)",
+			"pre-commit",
+			"args",
+			"[type]",
+			"rgrannell1",
+			"confirmation",
+			"head",
+			"request",
+			"pr",
+			"request",
+			"main",
+			";",
+			"Description",
+			"constants.paths.packages, name",
+			"const ",
+			"await",
+			"name",
+			"'",
+			";",
+			"assert-valid-packages",
+			"assertValidBranchName",
+			"constants.allowedBranchPrefixes",
+			"allowedBranchPrefixes",
+			"__dirname",
+			"branch",
+			"master",
+			"[",
+			"Object[object",
+			"markdown.",
+			"@param",
+			"[type]",
+			"gen",
+			"literal",
+			"xxx",
+			"bing",
+			"errors",
+			"state",
+			"build",
+			"arguments",
+			"arguments.",
+			"addAll",
+			".run",
+			"runTask",
+			"tasks",
+			"runTask",
+			"new error",
+			"tasks",
+			"add",
+			"Add",
+			"add",
+			"tasks",
+			"state",
+			"checksum",
+			"yarn",
+			"overview",
+			"stat",
+			"isDirectory",
+			"stat",
+			"lstatSync",
+			"exists",
+			".emit",
+			"emit",
+			"package ",
+			"overall",
+			"methods.",
+			"dependencies",
+			"none",
+			"depend",
+			"install",
+			"args",
+			"emitter",
+			"args",
+			"install",
+			"start",
+			"Args",
+			"args",
+			"runTask",
+			"yarn",
+			"yarn.install",
+			"{yarn}",
+			"install",
+			"npm",
+			"getDirSize",
+			"new Promise(",
+			"npm.in",
+			".length",
+			"devDependencies",
+			"log",
+			"module",
+			"foopa",
+			"foo",
+			"opts",
+			"constants",
+			"packages",
+			"generatePackageDocs",
 			"100",
 			"__dirn",
 			"README.md"
@@ -968,8 +1097,400 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 1,
+								"count": 1,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"auto_name": "363a4dbd5ecf554d2c9c2486f5aec63b0cf1d6d4",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"default_dir": "/home/ryan/Code/utils/packages/github",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "packages/set/package-lock.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 92,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "json"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 612,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										90,
+										91
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1016,7 +1537,7 @@
 	"project": "utils.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1025,6 +1546,34 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"githu",
+				"packages/github/index.js"
+			],
+			[
+				"constants",
+				"packages/build/src/shared/constants.js"
+			],
+			[
+				"state.js",
+				".state.json"
+			],
+			[
+				"state.json",
+				".state.json"
+			],
+			[
+				"st",
+				"build/commands/test.js"
+			],
+			[
+				".state",
+				".state.json"
+			],
+			[
+				"docu",
+				"build/commands/document.js"
+			],
 			[
 				"docume",
 				"build/commands/document.js"
@@ -1508,34 +2057,6 @@
 			[
 				"primar.c",
 				"public/css/primary.css"
-			],
-			[
-				"dropd",
-				"public/js/components/dropdown.jsx"
-			],
-			[
-				"cons",
-				"shared/constants.js"
-			],
-			[
-				"loadba",
-				"public/js/components/loading-bar.jsx"
-			],
-			[
-				"loadbarcs",
-				"public/js/components/loading-bar.css.jsx"
-			],
-			[
-				"submitb",
-				"public/js/app-components/submit-button.jsx"
-			],
-			[
-				"passwofor",
-				"public/js/app-components/password-form.jsx"
-			],
-			[
-				"passinpu",
-				"public/js/app-components/password-input.jsx"
 			]
 		],
 		"width": 0.0

@@ -42,7 +42,7 @@ index.load = opts => {
   const targetFiles = contents
     .filter(item => {
       const fullPath = path.join(source, item)
-      return fs.lstatSync(fullPath).isFile()
+      return item !== 'index.js' && fs.lstatSync(fullPath).isFile()
     })
     .map(item => path.join(source, item))
 

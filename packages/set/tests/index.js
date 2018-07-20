@@ -1,43 +1,4 @@
 
-const set = require('../index')
-const testing = require('@rgrannell/testing')
+const index = require('@rgrannell/index')
 
-const hypotheses = {}
-
-hypotheses.setsEqual = testing.hypotheses('set.equals always returns true for equal sets')
-  .cases(function * () {
-    yield [new Set([])]
-    yield [new Set([1])]
-    yield [new Set([{x: 1}])]
-  })
-  .always(set0 => {
-    return set.equals(set0, set0)
-  })
-
-hypotheses.setsNotEqual = testing.hypotheses('set.equals always returns false for unequal sets')
-  .cases(function * () {
-    yield [
-      new Set([]),
-      new Set([1])
-    ]
-    yield [
-      new Set([1]),
-      new Set([2])
-    ]
-    yield [
-      new Set([{x: 1}]),
-      new Set([{x: 2}])
-    ]
-    yield [
-      new Set([1, 2]),
-      new Set([2, 4])
-    ]
-  })
-  .always(set0 => {
-    return !set.equals(set0, set0)
-  })
-
-module.exports = testing.theory({description: 'Establish the set module works as expected for known test-cases'})
-  .given(hypotheses.setsEqual)
-  .given(hypotheses.setsNotEqual)
-  .run()
+module.exports = index.load({source: __dirname})
