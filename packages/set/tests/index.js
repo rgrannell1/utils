@@ -1,6 +1,5 @@
 
 const set = require('../index')
-const tape = require('tape')
 const testing = require('@rgrannell/testing')
 
 testing.hypotheses('set.equals always returns true for equal sets')
