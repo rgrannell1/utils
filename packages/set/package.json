@@ -6,5 +6,8 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@rgrannell/testing": "file:../testing"
   }
 }

@@ -1,12 +1,29 @@
 
 const set = require('../index')
 const tape = require('tape')
+const testing = require('@rgrannell/testing')
 
-const tests = {}
+testing.hypotheses('set.equals always returns true for equal sets')
+  .cases(function * () {
+    yield [new Set([])]
+    yield [new Set([1])]
+    yield [new Set([{x: 1}])]
+  })
+  .always(set0 => {
+    return set.equals(set0, set0)
+  })
+  .run()
 
-tests.equals = {}
+/*
+
+const tests = {
+  equals: {},
+  union: {},
+  intersection: {}
+}
+
 tests.equals.equal = {
-  description: '#set.equals (equal cases)',
+  description: '#set.equals (equal sets)',
   data: [
     [new Set([]), new Set([])],
     [new Set([1]), new Set([1])]
@@ -14,7 +31,7 @@ tests.equals.equal = {
 }
 
 tests.equals.unequal = {
-  description: '#set.equals (unequal cases)',
+  description: '#set.equals (unequal sets)',
   data: [
     [new Set([]), new Set([1])],
     [new Set([1]), new Set([])],
@@ -37,3 +54,5 @@ tape.test(tests.equals.unequal.description, assert => {
 
   assert.end()
 })
+
+ */
