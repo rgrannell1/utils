@@ -4,3 +4,4 @@ lerna-debug.log
 yarn-error.log
 yarn.lock
 docs/undefined.md
+*.sublime-workspace
