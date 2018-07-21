@@ -87,8 +87,23 @@ methods.theory.given = (state, hypothesis) => {
   }, state)
 }
 
-methods.theory.run = (state, pred) => {
-  console.log(state)
+methods.theory.run = async (state, pred) => {
+  const results = await Promise.all(state.hypotheses.map(hypothesis => {
+    return hypothesis.run()
+  }))
+
+  const stats = {
+    totalHypotheses: results.length,
+    counts: {
+      failed: results.reduce((sum, hypothesis) => sum + hypothesis.stats.counts.failed === 0 ? 0 : 1, 0),
+      passed: results.reduce((sum, hypothesis) => sum + hypothesis.stats.counts.passed === 0 ? 0 : 1, 0)
+    }
+  }
+
+  return {
+    hypotheses: results,
+    stats
+  }
 }
 
 testing.theory = opts => {

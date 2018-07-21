@@ -61,6 +61,11 @@ command.task = async args => {
   }
 
   const testResults = await Promise.all(testeable.map(testPackage))
+
+  console.log((testResults))
+  console.log((testResults))
+  console.log((testResults))
+  console.log((testResults))
   // -- finally, report?
 }
 
