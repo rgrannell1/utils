@@ -66,12 +66,12 @@ methods.hypotheses.run = state => {
       try {
         const asExpected = pred.apply(null, tcase)
         if (!asExpected) {
-          results.push({pred, tcase, state: 'failed'})
+          results.push({pred, tcase, hypothesis: state.hypothesis, state: 'failed'})
         } else {
-          results.push({pred, tcase, state: 'passed'})
+          results.push({pred, tcase, hypothesis: state.hypothesis, state: 'passed'})
         }
       } catch (err) {
-        results.push({pred, tcase, err, state: 'errored'})
+        results.push({pred, tcase, err, hypothesis: state.hypothesis, state: 'errored'})
       }
     }
   }

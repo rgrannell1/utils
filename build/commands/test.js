@@ -18,15 +18,19 @@ Description:
   Run tests for each submodule
 `
 
+function summariseMetadata (obj) {
+  return YAML.stringify(obj, 4).split('\n').map(line => `  ${line}`).join('\n')
+}
+
 const summarise = {}
 
 summarise.failed = (pkg, test, count) => {
   const summary = {
     testCase: test.tcase
   }
-  return `not ok ${count} - ${pkg.data.json.name}` +
+  return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
     '\n  ---\n' +
-    YAML.stringify(summary, 4) +
+    summariseMetadata(summary) +
     '\n  ...'
 }
 
@@ -34,9 +38,9 @@ summarise.errored = (pkg, test, count) => {
   const summary = {
     testCase: test.tcase
   }
-  return `not ok ${count} - ${pkg.data.json.name}` +
+  return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
     '\n  ---\n' +
-    YAML.stringify(summary, 4) +
+    summariseMetadata(summary) +
     '\n  ...'
 }
 
@@ -44,17 +48,17 @@ summarise.passed = (pkg, test, count) => {
   const summary = {
     testCase: test.tcase
   }
-  return `ok ${count} - ${pkg.data.json.name}` +
+  return `ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
     '\n  ---\n' +
-    YAML.stringify(summary, 4) +
+    summariseMetadata(summary) +
     '\n  ...'
 }
 
 async function reporter (packageResults) {
   const iterable = [].concat.apply([], packageResults)
-  let tapReport = 'TAP version 13'
+  let tapReport = ''
 
-  let count = 0
+  let count = 1
   for ({pkg, results} of iterable) {
     (await results).results.forEach(result => {
       result.errored().forEach(test => {
@@ -68,6 +72,11 @@ async function reporter (packageResults) {
       })
     })
   }
+
+  tapReport = 'TAP version 13\n' + `1..${count - 1}\n` + tapReport
+
+  require('fs').writeFile('test.txt', tapReport, () => {})
+
   console.log(tapReport)
   console.log(tapReport)
   console.log(tapReport)
