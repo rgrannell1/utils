@@ -8,6 +8,6 @@
     "access": "public"
   },
   "dependencies": {
-    "neodoc": "^2.0.0"
+    "neodoc": "^2.0.2"
   }
 }
