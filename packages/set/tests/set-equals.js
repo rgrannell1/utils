@@ -33,8 +33,8 @@ hypotheses.setsNotEqual = testing.hypotheses('set.equals always returns false fo
       new Set([2, 4])
     ]
   })
-  .always(set0 => {
-    return !set.equals(set0, set0)
+  .always((set0, set1) => {
+    return !set.equals(set0, set1)
   })
 
 module.exports = testing.theory({description: 'Establish the set module works as expected for known test-cases'})
