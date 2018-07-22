@@ -19,9 +19,9 @@ Description:
 `
 
 function summariseMetadata (obj) {
-  Object.keys(obj).forEach(prop => {
-    if (obj[prop].has) {
-      obj[prop] = Array.from(obj[prop])
+  Object.keys(obj.testCase).forEach(prop => {
+    if (obj.testCase[prop].has) {
+      obj.testCase[prop] = Array.from(obj.testCase[prop])
     }
   })
   return YAML.stringify(obj, 4).split('\n').map(line => `  ${line}`).join('\n')
