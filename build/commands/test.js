@@ -2,6 +2,7 @@
 const fs = require('fs').promises
 const path = require('path')
 const utils = require('../utils')
+const YAML = require('yamljs')
 const constants = require('../constants')
 
 const command = {
@@ -17,25 +18,85 @@ Description:
   Run tests for each submodule
 `
 
+const summarise = {}
+
+summarise.failed = (pkg, test, count) => {
+  const summary = {
+    testCase: test.tcase
+  }
+  return `not ok ${count} - ${pkg.data.json.name}` +
+    '\n  ---\n' +
+    YAML.stringify(summary, 4) +
+    '\n  ...'
+}
+
+summarise.errored = (pkg, test, count) => {
+  const summary = {
+    testCase: test.tcase
+  }
+  return `not ok ${count} - ${pkg.data.json.name}` +
+    '\n  ---\n' +
+    YAML.stringify(summary, 4) +
+    '\n  ...'
+}
+
+summarise.passed = (pkg, test, count) => {
+  const summary = {
+    testCase: test.tcase
+  }
+  return `ok ${count} - ${pkg.data.json.name}` +
+    '\n  ---\n' +
+    YAML.stringify(summary, 4) +
+    '\n  ...'
+}
+
+async function reporter (packageResults) {
+  const iterable = [].concat.apply([], packageResults)
+  let tapReport = 'TAP version 13'
+
+  let count = 0
+  for ({pkg, results} of iterable) {
+    (await results).results.forEach(result => {
+      result.errored().forEach(test => {
+        tapReport += '\n' + summarise.errored(pkg, test, count++)
+      })
+      result.failed().forEach(test => {
+        tapReport += '\n' + summarise.failed(pkg, test, count++)
+      })
+      result.passed().forEach(test => {
+        tapReport += '\n' + summarise.passed(pkg, test, count++)
+      })
+    })
+  }
+  console.log(tapReport)
+  console.log(tapReport)
+  console.log(tapReport)
+  console.log(tapReport)
+  console.log(tapReport)
+}
+
 /**
  * Run tests for a particular project
  *
- * @param  {Object} pck package data
+ * @param  {Object} pkg package data
  *
  * @return {Promise<Array<testResult>>    an array of test-results
  */
-function testPackage (pck) {
-  const testPath = path.join(pck.data.path, 'tests/index')
+function testPackage (pkg) {
+  const testPath = path.join(pkg.data.path, 'tests/index')
   const testSuite = require(testPath)
 
   const packageTestResults = Object.keys(testSuite).map(name => {
     const test = testSuite[name]
 
     if (!test.run) {
-      throw new Error(`".run" method missing for "${pck.data.name}/${name}" missing`)
+      throw new Error(`".run" method missing for "${pkg.data.name}/${name}" missing`)
     }
 
-    return test.run()
+    return {
+      pkg,
+      results: test.run()
+    }
   })
 
   return Promise.all(packageTestResults)
@@ -60,13 +121,8 @@ command.task = async args => {
     throw new Error('no tests found.')
   }
 
-  const testResults = await Promise.all(testeable.map(testPackage))
-
-  console.log((testResults))
-  console.log((testResults))
-  console.log((testResults))
-  console.log((testResults))
-  // -- finally, report?
+  const results = await Promise.all(testeable.map(testPackage))
+  reporter(results)
 }
 
 module.exports = command

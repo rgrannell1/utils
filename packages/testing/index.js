@@ -23,29 +23,39 @@ methods.hypotheses.always = (state, pred) => {
   }, state)
 }
 
-function summarise ({passed, failed}) {
-  const out = {passed, failed}
-  const stats = {
-    totalCases: passed.length + failed.length,
-    counts: {
-      passed: passed.length,
-      failed: failed.length
+const summarise = {}
+
+summarise.hypotheses = results => {
+  const output = {results}
+
+  output.all = () => {
+    return output.results
+  }
+  output.failed = () => {
+    return output.results.filter(result => result.state === 'failed')
+  }
+  output.passed = () => {
+    return output.results.filter(result => result.state === 'passed')
+  }
+  output.errored = () => {
+    return output.results.filter(result => result.state === 'errored')
+  }
+  output.percentages = () => {
+    return {
+      results,
+      status: output.failed().length > 0,
+      pct: {
+        failed: output.failed().length / output.all().length,
+        passed: output.passed().length / output.all().length
+      }
     }
   }
 
-  stats.pct = {
-    passed: stats.counts.passed / stats.totalCases,
-    failed: stats.counts.failed / stats.totalCases
-  }
-
-  return Object.assign(out, {stats})
+  return output
 }
 
 methods.hypotheses.run = state => {
-  const results = {
-    passed: [],
-    failed: []
-  }
+  const results = []
 
   if (!state.conditions || state.conditions.length === 0) {
     throw new Error('missing conditions')
@@ -56,17 +66,17 @@ methods.hypotheses.run = state => {
       try {
         const asExpected = pred.apply(null, tcase)
         if (!asExpected) {
-          results.failed.push({pred, tcase})
+          results.push({pred, tcase, state: 'failed'})
         } else {
-          results.passed.push({pred, tcase})
+          results.push({pred, tcase, state: 'passed'})
         }
       } catch (err) {
-        results.failed.push({pred, tcase, err})
+        results.push({pred, tcase, err, state: 'errored'})
       }
     }
   }
 
-  return summarise(results)
+  return summarise.hypotheses(results)
 }
 
 testing.hypotheses = hypothesis => {
@@ -92,18 +102,12 @@ methods.theory.run = async (state, pred) => {
     return hypothesis.run()
   }))
 
-  const stats = {
-    totalHypotheses: results.length,
-    counts: {
-      failed: results.reduce((sum, hypothesis) => sum + hypothesis.stats.counts.failed === 0 ? 0 : 1, 0),
-      passed: results.reduce((sum, hypothesis) => sum + hypothesis.stats.counts.passed === 0 ? 0 : 1, 0)
-    }
+  const output = {
+    results,
+    state: results.some(({state}) => state === 'failed')
   }
 
-  return {
-    hypotheses: results,
-    stats
-  }
+  return output
 }
 
 testing.theory = opts => {
