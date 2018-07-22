@@ -70,8 +70,8 @@ methods.hypotheses.run = state => {
         } else {
           results.push({pred, tcase, hypothesis: state.hypothesis, state: 'passed'})
         }
-      } catch (err) {
-        results.push({pred, tcase, err, hypothesis: state.hypothesis, state: 'errored'})
+      } catch (error) {
+        results.push({pred, tcase, error: error.toString(), hypothesis: state.hypothesis, state: 'errored'})
       }
     }
   }

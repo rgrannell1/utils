@@ -19,6 +19,11 @@ Description:
 `
 
 function summariseMetadata (obj) {
+  Object.keys(obj).forEach(prop => {
+    if (obj[prop].has) {
+      obj[prop] = Array.from(obj[prop])
+    }
+  })
   return YAML.stringify(obj, 4).split('\n').map(line => `  ${line}`).join('\n')
 }
 
@@ -36,8 +41,10 @@ summarise.failed = (pkg, test, count) => {
 
 summarise.errored = (pkg, test, count) => {
   const summary = {
-    testCase: test.tcase
+    testCase: test.tcase,
+    error: test.error
   }
+
   return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
     '\n  ---\n' +
     summariseMetadata(summary) +
