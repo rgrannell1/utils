@@ -2,7 +2,6 @@ node_modules/
 *.log
 lerna-debug.log
 yarn-error.log
-yarn.lock
 docs/undefined.md
 *.sublime-workspace
 .mp4
