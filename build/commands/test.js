@@ -4,6 +4,7 @@ const path = require('path')
 const utils = require('../utils')
 const YAML = require('yamljs')
 const constants = require('../constants')
+const colourise = require('tap-colorize')
 
 const command = {
   name: 'test',
@@ -82,13 +83,12 @@ async function reporter (packageResults) {
 
   tapReport = 'TAP version 13\n' + `1..${count - 1}\n` + tapReport
 
-  require('fs').writeFile('test.txt', tapReport, () => {})
+  const Readable = require('stream').Readable
+  const stream = new Readable()
+  stream.push(tapReport)
+  stream.push(null)
 
-  console.log(tapReport)
-  console.log(tapReport)
-  console.log(tapReport)
-  console.log(tapReport)
-  console.log(tapReport)
+  stream.pipe(colourise()).pipe(process.stdout)
 }
 
 /**
