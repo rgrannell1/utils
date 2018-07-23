@@ -29,6 +29,8 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/readme (v8.1.0-alpha.687ac587)**: A tool for generating readme's](../../tree/master/packages/readme)
 - [**@rgrannell/set (v8.1.0-alpha.687ac587)**: Utilities for working with sets](../../tree/master/packages/set)
 - [**@rgrannell/ssl-labs (v8.1.0-alpha.687ac587)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
+- [**@rgrannell/tap (v0.0.0)**: tap](../../tree/master/packages/tap)
+- [**@rgrannell/testing (v0.0.0)**: test utilities](../../tree/master/packages/testing)
 - [**@rgrannell/units (v8.1.0-alpha.687ac587)**: A library for working with promises](../../tree/master/packages/units)
 
 ## Package Metadata
@@ -51,10 +53,12 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | mustache | 0 | 0      | 0.0Mb       |
 | object | 0 | 0      | 0.0Mb       |
 | promise | 0 | 0      | 0.0Mb       |
-| pulp | 1 | 0      | 1.3Mb       |
+| pulp | 1 | 0      | 0.0Mb       |
 | readme | 1 | 0      | 0.0Mb       |
-| set | 0 | 0      | 0.0Mb       |
+| set | 1 | 0      | 0.0Mb       |
 | ssl-labs | 1 | 0      | 0.3Mb       |
+| tap | 0 | 0      | 0.0Mb       |
+| testing | 1 | 0      | 1.0Mb       |
 | units | 0 | 0      | 0.0Mb       |
 
 ## Build System
@@ -111,14 +115,6 @@ Usage:
 
 Description:
   Manage the utils repository interactively
-
-```
-
-### 
-
-- dependencies: `none`
-
-```
 
 ```
 
