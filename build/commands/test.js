@@ -109,7 +109,7 @@ async function reporter (packageResults) {
  *
  * @param  {Object} pkg package data
  *
- * @return {Promise<Array<testResult>>    an array of test-results
+ * @return {Promise<Array<testResult>>}    an array of test-results
  */
 function testPackage (pkg) {
   const testPath = path.join(pkg.data.path, 'tests/index')
@@ -118,12 +118,12 @@ function testPackage (pkg) {
   const packageTestResults = Object.keys(testSuite).map(name => {
     const test = testSuite[name]
 
+    expect(pkg).to.be.a('object', '"pkg" was not an object')
+    expect(test.description).to.be.a('string', '"test.description" was not a string')
+
     if (!test.run) {
       throw new Error(`".run" method missing for "${pkg.data.name}/${name}" missing`)
     }
-
-    expect(pkg).to.be.a('object', '"pkg" was not an object')
-    expect(test.description).to.be.a('string', '"test.description" was not a string')
 
     return {
       pkg,
