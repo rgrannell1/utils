@@ -2,7 +2,7 @@
   "name": "@rgrannell/tap",
   "description": "tap",
   "main": "index.js",
-  "version": "none",
+  "version": "0.0.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
