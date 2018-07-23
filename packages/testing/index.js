@@ -115,7 +115,8 @@ testing.theory = opts => {
     run: methods.theory.run,
     given: methods.theory.given
   }, {
-    hypotheses: []
+    hypotheses: [],
+    description: opts.description
   })
 }
 
