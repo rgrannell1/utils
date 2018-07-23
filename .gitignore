@@ -1,6 +1,8 @@
 node_modules/
+.nyc_output/
 *.log
+*.sublime-workspace
+.mp4
+docs/undefined.md
 lerna-debug.log
 yarn-error.log
-yarn.lock
-docs/undefined.md

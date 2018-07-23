@@ -7,7 +7,8 @@
   "author": "Ryan Grannell <r.grannell2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "pulp": "node pulpfile.js"
+    "pulp": "node pulpfile.js",
+    "test": "node_modules/.bin/nyc node pulpfile.js test"
   },
   "dependencies": {
     "@rgrannell/build": "file:packages/build",
@@ -28,13 +29,19 @@
     "esprima": "^4.0.0",
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "execa": "^0.10.0",
+    "faucet": "^0.0.1",
     "git-branch": "^2.0.1",
     "inquirer": "^6.0.0",
     "markdown-toc": "^1.2.0",
     "nodejs-fs-utils": "^1.1.0",
     "npm": "^6.2.0",
     "nyc": "^12.0.2",
-    "signale": "^1.2.1"
+    "signale": "^1.2.1",
+    "tap": "^12.0.1",
+    "tap-colorize": "^1.2.0",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.9.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "cost-of-modules": "^1.0.1",
@@ -44,6 +51,14 @@
     "longjohn": "^0.2.12",
     "mustache": "^2.3.0",
     "standard": "^11.0.1"
+  },
+  "nyc": {
+    "exclude": [
+      "build/**",
+      "pulpfile.js",
+      "**/packages/testing/**",
+      "**/tests"
+    ]
   },
   "husky": {
     "hooks": {

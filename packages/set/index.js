@@ -12,10 +12,10 @@ const set = {}
  * @return {boolean} true
  */
 set.equals = (set0, set1) => {
-  if (set0.length !== set1.length) {
+  if (set0.size !== set1.size) {
     return false
   } else {
-    for (let val of Array.from(set0)) {
+    for (let val of set1) {
       if (!set0.has(val)) {
         return false
       }
