@@ -23,6 +23,7 @@
     "acorn": "^5.7.1",
     "ava": "^0.25.0",
     "buddy.js": "^0.9.3",
+    "chai": "^4.1.2",
     "chalk": "^2.4.1",
     "deepmerge": "^2.1.1",
     "documentation": "^8.0.0",

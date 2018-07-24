@@ -79,7 +79,6 @@ async function reporter (packageResults) {
 
     expect(pkg).to.be.an('object', '"pkg" was not an object')
     expect(description).to.be.a('string', '"description" was not a string')
-    expect(results).to.be.an('array', '"results" was not an array')
 
     ;(await results).results.forEach(result => {
       result.errored().forEach(test => {
@@ -118,17 +117,18 @@ function testPackage (pkg) {
   const packageTestResults = Object.keys(testSuite).map(name => {
     const test = testSuite[name]
 
-    expect(pkg).to.be.a('object', '"pkg" was not an object')
-    expect(test.description).to.be.a('string', '"test.description" was not a string')
+    expect(pkg).to.be.a('object', `"pkg" was not an object for ${name}`)
 
     if (!test.run) {
       throw new Error(`".run" method missing for "${pkg.data.name}/${name}" missing`)
     }
 
+    const results = test.run()
+
     return {
       pkg,
-      description: test.description,
-      results: test.run()
+      description: test.state().description,
+      results
     }
   })
 
