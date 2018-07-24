@@ -93,7 +93,10 @@ methods.theory.given = (state, hypothesis) => {
 
   return chain({
     given: methods.theory.given,
-    run: methods.theory.run
+    run: methods.theory.run,
+    state (state) {
+      return state
+    }
   }, state)
 }
 
@@ -104,18 +107,26 @@ methods.theory.run = async (state, pred) => {
 
   const output = {
     results,
-    state: results.some(({state}) => state === 'failed')
+    state: results.some(({state}) => state === 'failed'),
+    description: state.description
   }
 
   return output
 }
 
 testing.theory = opts => {
+  if (!opts.description) {
+    throw new Error('supply a theory please!')
+  }
   return chain({
     run: methods.theory.run,
-    given: methods.theory.given
+    given: methods.theory.given,
+    description (state) {
+      return state.description
+    }
   }, {
-    hypotheses: []
+    hypotheses: [],
+    description: opts.description
   })
 }
 
