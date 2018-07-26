@@ -12,7 +12,7 @@ const methods = {
 
 /**
  *
- * @name  hypotheses.cases
+ * @name hypotheses.cases
  *
  * Declare test-cases for a particular hypothesis
  *
@@ -29,7 +29,7 @@ methods.hypotheses.cases = (state, gen) => {
 
 /**
  *
- * @name  hypotheses.always
+ * @name hypotheses.always
  *
  * Declare test-cases for a particular hypothesis
  *
@@ -48,7 +48,7 @@ methods.hypotheses.always = (state, condition) => {
 
 /**
  *
- * @name  hypotheses.run
+ * @name hypotheses.run
  *
  * Test a hypothesis
  *
