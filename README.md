@@ -52,11 +52,11 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | mustache | 0 | 0      | 0.0Mb       |
 | object | 0 | 0      | 0.0Mb       |
 | promise | 0 | 0      | 0.0Mb       |
-| pulp | 1 | 0      | 0.0Mb       |
+| pulp | 1 | 0      | 1.3Mb       |
 | readme | 1 | 0      | 0.0Mb       |
 | set | 1 | 0      | 0.0Mb       |
 | ssl-labs | 1 | 0      | 0.3Mb       |
-| testing | 2 | 0      | 2.1Mb       |
+| testing | 2 | 0      | 2.2Mb       |
 | units | 0 | 0      | 0.0Mb       |
 
 ## Build System
