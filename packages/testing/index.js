@@ -10,6 +10,16 @@ const methods = {
   theory: {}
 }
 
+/**
+ *
+ * @name  hypotheses.cases
+ *
+ * Declare test-cases for a particular hypothesis
+ *
+ * @param  {GeneratorFunction} gen    a function yielding test-cases
+ * @return {Object}                   an object with the following methods:
+ *   - always()
+ */
 methods.hypotheses.cases = (state, gen) => {
   state.cases = gen
   return chain({
@@ -17,14 +27,35 @@ methods.hypotheses.cases = (state, gen) => {
   }, state)
 }
 
-methods.hypotheses.always = (state, pred) => {
-  state.conditions.push(pred)
+/**
+ *
+ * @name  hypotheses.always
+ *
+ * Declare test-cases for a particular hypothesis
+ *
+ * @param  {function} condition a function returning true or false
+ * @return {Object}            an object with the following methods:
+ *   - always()
+ *   - run()
+ */
+methods.hypotheses.always = (state, condition) => {
+  state.conditions.push(condition)
   return chain({
     always: methods.hypotheses.always,
     run: methods.hypotheses.run
   }, state)
 }
 
+/**
+ *
+ * @name  hypotheses.run
+ *
+ * Test a hypothesis
+ *
+ * @return {HypothesisResultSet}    a description of the test-execution
+ *
+ *
+ */
 methods.hypotheses.run = state => {
   const results = []
 
@@ -55,6 +86,14 @@ methods.hypotheses.run = state => {
 
   return models.hypothesisResultSet(state, results)
 }
+
+/**
+ * Create a hypothesis object
+ *
+ * @param  {string} hypothesis    a description of the hypothesis
+ * @return {Object}               an object with the method:
+ *   - cases()
+ */
 testing.hypotheses = hypothesis => {
   return chain({
     cases: methods.hypotheses.cases
