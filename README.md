@@ -204,6 +204,10 @@ Description:
 ```
 
 
+## Stability Index
+
+> 0 - Experimental - Back-incompatible changes will be made arbitrarily, testing and documentation is poor, and there are probably many bugs.
+
 ## License
 
 Copyright (c) 2018 Ryan Grannell
