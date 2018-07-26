@@ -1,5 +1,7 @@
 
 const chain = require('@rgrannell/chain')
+const models = require('./src/models')
+const reporters = require('./src/reporters')
 
 const testing = {}
 
@@ -23,37 +25,6 @@ methods.hypotheses.always = (state, pred) => {
   }, state)
 }
 
-const summarise = {}
-
-summarise.hypotheses = results => {
-  const output = {results}
-
-  output.all = () => {
-    return output.results
-  }
-  output.failed = () => {
-    return output.results.filter(result => result.state === 'failed')
-  }
-  output.passed = () => {
-    return output.results.filter(result => result.state === 'passed')
-  }
-  output.errored = () => {
-    return output.results.filter(result => result.state === 'errored')
-  }
-  output.percentages = () => {
-    return {
-      results,
-      status: output.failed().length > 0,
-      pct: {
-        failed: output.failed().length / output.all().length,
-        passed: output.passed().length / output.all().length
-      }
-    }
-  }
-
-  return output
-}
-
 methods.hypotheses.run = state => {
   const results = []
 
@@ -61,24 +32,29 @@ methods.hypotheses.run = state => {
     throw new Error('missing conditions')
   }
 
-  for (const tcase of state.cases()) {
-    for (const pred of state.conditions) {
+  for (const testCase of state.cases()) {
+    for (const condition of state.conditions) {
+      const opts = {
+        condition,
+        testCase,
+        hypothesis: state.hypothesis
+      }
+
       try {
-        const asExpected = pred.apply(null, tcase)
+        const asExpected = condition.apply(null, testCase)
         if (!asExpected) {
-          results.push({pred, tcase, hypothesis: state.hypothesis, state: 'failed'})
+          results.push(models.hypothesisResult.failed({...opts}))
         } else {
-          results.push({pred, tcase, hypothesis: state.hypothesis, state: 'passed'})
+          results.push(models.hypothesisResult.passed({...opts}))
         }
       } catch (error) {
-        results.push({pred, tcase, error: error.toString(), hypothesis: state.hypothesis, state: 'errored'})
+        results.push(models.hypothesisResult.errorer({...opts, error}))
       }
     }
   }
 
-  return summarise.hypotheses(results)
+  return models.hypothesisResultSet(state, results)
 }
-
 testing.hypotheses = hypothesis => {
   return chain({
     cases: methods.hypotheses.cases
@@ -88,33 +64,90 @@ testing.hypotheses = hypothesis => {
   })
 }
 
+/**
+ * @name theory.given
+ *
+ * Add a single hypotheses to a theory
+ *
+ * @param  {Object} hypothesis    a hypothesis object.
+ * @return {Object} an object with several methods:
+ *   - given()
+ *   - givenAll()
+ *   - run()
+ *
+ */
 methods.theory.given = (state, hypothesis) => {
   state.hypotheses.push(hypothesis)
 
   return chain({
     given: methods.theory.given,
+    givenAll: methods.theory.givenAll,
     run: methods.theory.run
   }, state)
 }
 
-methods.theory.run = async (state, pred) => {
+/**
+ * @name theory.givenAll
+ *
+ * Add multiple hypotheses to a theory
+ *
+ * @param  {Object} hypotheses    an object of name - hypothesis mappings.
+ * @return {Object}               an object with several methods:
+ *   - given()
+ *   - givenAll()
+ *   - run()
+ *
+ */
+methods.theory.givenAll = (state, hypotheses) => {
+  for (const name of Object.keys(hypotheses)) {
+    const hypothesis = hypotheses[name]
+    state.hypotheses.push(hypothesis)
+  }
+
+  return chain({
+    given: methods.theory.given,
+    givenAll: methods.theory.givenAll,
+    run: methods.theory.run
+  }, state)
+}
+
+/**
+ * @name theory.run
+ *
+ * @param  {string} options.report    should the report be displayed?
+ * @return {theoryResultSet}          returns a data-model
+ *
+ */
+methods.theory.run = async (state, opts = {}) => {
   const results = await Promise.all(state.hypotheses.map(hypothesis => {
     return hypothesis.run()
   }))
 
-  const output = {
-    results,
-    state: results.some(({state}) => state === 'failed')
+  const data = models.theoryResultSet(state, results)
+
+  if (opts.report) {
+    reporters.tap(results, opts)
   }
 
-  return output
+  return data
 }
 
-testing.theory = opts => {
+/**
+ * @name testing.theory
+ *
+ * @param  {string} options.description    the description of the hypothesis being tested.
+ * @return {Object}                        returns an object with several methods:
+ *   - .run()
+ *   - .given()
+ *   - .givenAll()
+ */
+testing.theory = ({description}) => {
   return chain({
     run: methods.theory.run,
-    given: methods.theory.given
+    given: methods.theory.given,
+    givenAll: methods.theory.givenAll
   }, {
+    description,
     hypotheses: []
   })
 }

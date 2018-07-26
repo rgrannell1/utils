@@ -8,6 +8,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/chain": "^8.0.0"
+    "@rgrannell/chain": "^8.0.0",
+    "yamljs": "^0.3.0"
   }
 }
