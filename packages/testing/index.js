@@ -88,6 +88,8 @@ methods.hypotheses.run = state => {
 }
 
 /**
+ * @name testing.hypotheses
+ *
  * Create a hypothesis object
  *
  * @param  {string} hypothesis    a description of the hypothesis

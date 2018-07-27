@@ -89,8 +89,6 @@ Returns **[Object][1]** an object with several methods:-   given()
 
 ## hypotheses
 
-Create a hypothesis object
-
 ### Parameters
 
 -   `hypothesis` **[string][3]** a description of the hypothesis
