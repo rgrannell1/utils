@@ -1,6 +1,7 @@
 
 const fs = require('fs').promises
 const path = require('path')
+const {expect} = require('chai')
 const utils = require('../utils')
 const YAML = require('yamljs')
 const constants = require('../constants')
@@ -30,8 +31,9 @@ function summariseMetadata (obj) {
 
 const summarise = {}
 
-summarise.failed = (pkg, test, count) => {
+summarise.failed = (pkg, test, description, count) => {
   const summary = {
+    theory: description,
     testCase: test.tcase
   }
   return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
@@ -40,8 +42,9 @@ summarise.failed = (pkg, test, count) => {
     '\n  ...'
 }
 
-summarise.errored = (pkg, test, count) => {
+summarise.errored = (pkg, test, description, count) => {
   const summary = {
+    theory: description,
     testCase: test.tcase,
     error: test.error
   }
@@ -52,10 +55,12 @@ summarise.errored = (pkg, test, count) => {
     '\n  ...'
 }
 
-summarise.passed = (pkg, test, count) => {
+summarise.passed = (pkg, test, description, count) => {
   const summary = {
+    theory: description,
     testCase: test.tcase
   }
+
   return `ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
     '\n  ---\n' +
     summariseMetadata(summary) +
@@ -63,20 +68,27 @@ summarise.passed = (pkg, test, count) => {
 }
 
 async function reporter (packageResults) {
-  const iterable = [].concat.apply([], packageResults)
+  const flattened = [].concat.apply([], packageResults)
+  expect(flattened).to.be.an('array')
+
   let tapReport = ''
 
   let count = 1
-  for ({pkg, results} of iterable) {
-    (await results).results.forEach(result => {
+  for (const res of flattened) {
+    const {pkg, description, results} = res
+
+    expect(pkg).to.be.an('object', '"pkg" was not an object')
+    expect(description).to.be.a('string', '"description" was not a string')
+
+    ;(await results).results.forEach(result => {
       result.errored().forEach(test => {
-        tapReport += '\n' + summarise.errored(pkg, test, count++)
+        tapReport += '\n' + summarise.errored(pkg, test, description, count++)
       })
       result.failed().forEach(test => {
-        tapReport += '\n' + summarise.failed(pkg, test, count++)
+        tapReport += '\n' + summarise.failed(pkg, test, description, count++)
       })
       result.passed().forEach(test => {
-        tapReport += '\n' + summarise.passed(pkg, test, count++)
+        tapReport += '\n' + summarise.passed(pkg, test, description, count++)
       })
     })
   }
@@ -96,7 +108,7 @@ async function reporter (packageResults) {
  *
  * @param  {Object} pkg package data
  *
- * @return {Promise<Array<testResult>>    an array of test-results
+ * @return {Promise<Array<testResult>>}    an array of test-results
  */
 function testPackage (pkg) {
   const testPath = path.join(pkg.data.path, 'tests/index')
@@ -105,13 +117,18 @@ function testPackage (pkg) {
   const packageTestResults = Object.keys(testSuite).map(name => {
     const test = testSuite[name]
 
+    expect(pkg).to.be.a('object', `"pkg" was not an object for ${name}`)
+
     if (!test.run) {
       throw new Error(`".run" method missing for "${pkg.data.name}/${name}" missing`)
     }
 
+    const results = test.run()
+
     return {
       pkg,
-      results: test.run()
+      description: test.state().description,
+      results
     }
   })
 
@@ -137,8 +154,7 @@ command.task = async args => {
     throw new Error('no tests found.')
   }
 
-  const results = await Promise.all(testeable.map(testPackage))
-  reporter(results)
+  reporter(await Promise.all(testeable.map(testPackage)))
 }
 
 module.exports = command

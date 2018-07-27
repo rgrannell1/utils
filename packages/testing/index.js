@@ -146,7 +146,10 @@ methods.theory.givenAll = (state, hypotheses) => {
   return chain({
     given: methods.theory.given,
     givenAll: methods.theory.givenAll,
-    run: methods.theory.run
+    run: methods.theory.run,
+    state (state) {
+      return state
+    }
   }, state)
 }
 

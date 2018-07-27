@@ -94,6 +94,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -196,6 +198,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -296,6 +300,8 @@ Run tests for a particular project
 ### Parameters
 
 -   `pkg` **[Object][3]** package data
+
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
@@ -399,6 +405,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -500,6 +508,8 @@ Run tests for a particular project
 ### Parameters
 
 -   `pkg` **[Object][3]** package data
+
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
@@ -603,6 +613,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -705,6 +717,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -806,6 +820,8 @@ Run tests for a particular project
 ### Parameters
 
 -   `pkg` **[Object][3]** package data
+
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
@@ -912,6 +928,8 @@ Run tests for a particular project
 
 -   `pkg` **[Object][3]** package data
 
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
+
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -1013,6 +1031,8 @@ Run tests for a particular project
 ### Parameters
 
 -   `pkg` **[Object][3]** package data
+
+Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
