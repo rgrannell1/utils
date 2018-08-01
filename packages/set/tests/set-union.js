@@ -4,7 +4,7 @@ const testing = require('@rgrannell/testing')
 
 const hypotheses = {}
 
-hypotheses.setDiffEmpty = testing.hypotheses('set.union with an empty set adds no elements')
+hypotheses.setDiffEmpty = testing.hypothesis('set.union with an empty set adds no elements')
   .cases(function * () {
     yield [new Set([])]
     yield [new Set([1])]

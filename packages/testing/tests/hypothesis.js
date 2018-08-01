@@ -4,6 +4,24 @@ const {expect} = require('chai')
 const sinon = require('sinon')
 
 const testCases = {}
+const assertions = {}
+
+assertions.isValidHypothesisSuccess = (assertionSpy, results) => {
+  expect(assertionSpy.callCount).to.equal(1, 'test not called.')
+  expect(assertionSpy.callCount).to.equal(1, 'test not called.')
+  expect(results.hypothesis).to.be.a('string')
+  expect(results.conditions).to.be.an('array')
+  expect(results.results).to.be.an('array')
+  expect(results.type).to.equal('hypothesis-result-set')
+}
+
+assertions.isValidHypothesisFailure = (assertionSpy, results) => {
+  expect(assertionSpy.callCount).to.equal(1, 'test not called.')
+  expect(results.hypothesis).to.be.a('string')
+  expect(results.conditions).to.be.an('array')
+  expect(results.results).to.be.an('array')
+  expect(results.type).to.equal('hypothesis-result-set')
+}
 
 testCases.hypothesis = async () => {
   await testCases.hypothesis.success()
@@ -22,14 +40,14 @@ testCases.hypothesis.success = async () => {
     expect(c).to.equal(3)
   }
 
-  const spy = sinon.spy(assertion)
+  const assertionSpy = sinon.spy(assertion)
 
-  await testing.hypotheses('testing.hypothesis')
+  const results = await testing.hypothesis('testing.hypothesis')
     .cases(generator)
-    .always(spy)
+    .always(assertionSpy)
     .run()
 
-  expect(spy.callCount).to.equal(1, 'test not called.')
+  assertions.isValidHypothesisSuccess(assertionSpy, results)
 }
 
 testCases.hypothesis.failure = async () => {
@@ -44,20 +62,14 @@ testCases.hypothesis.failure = async () => {
     expect(c).to.equal(3)
   }
 
-  const spy = sinon.spy(assertion)
+  const assertionSpy = sinon.spy(assertion)
 
-  const results = testing.hypotheses('testing.hypothesis')
+  const results = testing.hypothesis('testing.hypothesis')
     .cases(generator)
-    .always(spy)
+    .always(assertionSpy)
     .run()
 
-  expect(spy.callCount).to.equal(1, 'test not called.')
-  expect(results.hypothesis).to.be.a('string')
-  expect(results.conditions).to.be.an('array')
-  expect(results.results).to.be.an('array')
-  expect(results.type).to.equal('hypothesis-result-set')
-
-  console.log(Object.keys(results))
+  assertions.isValidHypothesisFailure(assertionSpy, results)
 }
 
 module.exports = testCases

@@ -4,14 +4,14 @@ const testing = require('@rgrannell/testing')
 
 const hypotheses = {}
 
-hypotheses.setDiffEmpty = testing.hypotheses('set.diff against against an empty set is the original set')
+hypotheses.setDiffEmpty = testing.hypothesis('set.diff against against an empty set is the original set')
   .cases(function * () {
   })
   .always(set0 => {
     return true
   })
 
-hypotheses.setDiffSelf = testing.hypotheses('set.diff against the same set is the empty set')
+hypotheses.setDiffSelf = testing.hypothesis('set.diff against the same set is the empty set')
   .cases(function * () {
     yield [new Set([])]
     yield [new Set([1])]
