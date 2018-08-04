@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/object",
   "description": "A utility library for working with objects",
-  "version": "8.1.0-alpha.687ac587",
+  "version": "8.1.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {

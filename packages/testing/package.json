@@ -2,7 +2,7 @@
   "name": "@rgrannell/testing",
   "description": "test utilities",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "8.1.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
