@@ -33,9 +33,11 @@ index.deriveName = fileName => {
  */
 index.load = opts => {
   let defaulted = Object.assign({
-    source: __dirname
+    source: __dirname,
+    excludes: []
   }, opts)
 
+  const excludes = new Set(defaulted.excludes)
   const source = path.resolve(defaulted.source)
 
   const contents = fs.readdirSync(source)
@@ -43,6 +45,9 @@ index.load = opts => {
     .filter(item => {
       const fullPath = path.join(source, item)
       return item !== 'index.js' && fs.lstatSync(fullPath).isFile()
+    })
+    .filter(file => {
+      return !excludes.has(index.deriveName(file))
     })
     .map(item => path.join(source, item))
 
