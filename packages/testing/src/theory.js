@@ -4,7 +4,6 @@ const chain = require('@rgrannell/chain')
 const models = require('./models')
 const reporters = require('./reporters')
 
-const testing = {}
 const methods = {}
 
 /**

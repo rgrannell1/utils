@@ -3,8 +3,6 @@ const {expect} = require('chai')
 const chain = require('@rgrannell/chain')
 const models = require('./models')
 
-const testing = {}
-
 const methods = {
   hypotheses: {},
   theory: {}
