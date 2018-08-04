@@ -51,6 +51,9 @@ methods.givenAll = (state, hypotheses) => {
     const hypothesis = hypotheses[name]
 
     expect(hypothesis).to.be.an('object')
+
+    const run = Reflect.get(hypothesis, 'run')
+    expect(run).to.be.a('function', `${name}.run was not a function`)
     state.hypotheses.push(hypothesis)
   }
 
