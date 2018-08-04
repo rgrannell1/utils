@@ -2,6 +2,7 @@
 const constants = require('./src/constants')
 const reactions = require('./src/reactions')
 
+const {expect} = require('chai')
 const neodoc = require('neodoc')
 const EventEmitter = require('events')
 
@@ -92,6 +93,16 @@ methods.add = function () {
     [name, dependencies, cli, task] = rest
   } else {
     throw new Error(`can't destruct supplied arguments; "${rest.length}" arguments supplied`)
+  }
+
+  expect(name).to.be.a('string', 'task name missing or invalid')
+
+  if (!task) {
+    task = () => {}
+  }
+
+  if (!dependencies) {
+    dependencies = []
   }
 
   state.tasks[name] = {name, cli, dependencies, task}
