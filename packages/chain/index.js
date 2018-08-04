@@ -17,7 +17,9 @@ const chain = (methods, state = {}) => {
     expect(method, `invalid value for methods.${key}`).to.be.a('function')
   })
 
-  const obj = {}
+  const obj = {
+    state
+  }
 
   for (const method of Object.keys(methods)) {
     obj[method] = methods[method].bind(null, state)
