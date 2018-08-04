@@ -52,18 +52,14 @@ methods.givenAll = (state, hypotheses) => {
 
     expect(hypothesis).to.be.an('object')
 
-    const run = Reflect.get(hypothesis, 'run')
-    expect(run).to.be.a('function', `${name}.run was not a function`)
+    expect(hypothesis.run).to.be.a('function', `${name}.run was not a function`)
     state.hypotheses.push(hypothesis)
   }
 
   return chain({
     given: methods.given,
     givenAll: methods.givenAll,
-    run: methods.run,
-    state (state) {
-      return state
-    }
+    run: methods.run
   }, state)
 }
 
@@ -81,7 +77,6 @@ methods.run = async (state, opts = {}) => {
   }))
 
   const data = models.theoryResultSet(state, results)
-
   if (opts.report) {
     expect(opts.report).to.be.a('boolean', 'if present, "options.report" must be a boolean')
     reporters.tap(results, opts)
