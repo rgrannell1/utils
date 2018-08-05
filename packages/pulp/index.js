@@ -167,13 +167,17 @@ pulp.tasks = () => {
     emitter: new EventEmitter()
   }
 
-  state.emitter.on(constants.events.depStart, reactions.depStart)
-  state.emitter.on(constants.events.depOk, reactions.depOk)
-  state.emitter.on(constants.events.depErr, reactions.depErr)
+  const eventState = {
 
-  state.emitter.on(constants.events.taskStart, reactions.taskStart)
-  state.emitter.on(constants.events.taskOk, reactions.taskOk)
-  state.emitter.on(constants.events.taskErr, reactions.taskErr)
+  }
+
+  state.emitter.on(constants.events.depStart, reactions.depStart.bind(null, eventState))
+  state.emitter.on(constants.events.depOk, reactions.depOk.bind(null, eventState))
+  state.emitter.on(constants.events.depErr, reactions.depErr.bind(null, eventState))
+
+  state.emitter.on(constants.events.taskStart, reactions.taskStart.bind(null, eventState))
+  state.emitter.on(constants.events.taskOk, reactions.taskOk.bind(null, eventState))
+  state.emitter.on(constants.events.taskErr, reactions.taskErr.bind(null, eventState))
 
   state.emitter.on(constants.events.subTaskProgress, reactions.subTaskProgress)
 

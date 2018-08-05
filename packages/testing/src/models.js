@@ -95,7 +95,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
   }
 
   /**
-   * @name  hypothesisResultSet.all
+   * @name hypothesisResultSet.all
    *
    * Return all hypothesis test-results
    *
@@ -105,7 +105,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
     return results
   }
   /**
-   * @name  hypothesisResultSet.failed
+   * @name hypothesisResultSet.failed
    *
    * Return failed hypothesis test-results
    *
