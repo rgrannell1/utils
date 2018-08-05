@@ -62,10 +62,13 @@ methods.hypotheses.run = state => {
   const results = []
 
   if (!state.conditions || state.conditions.length === 0) {
-    throw new Error('missing conditions')
+    throw new Error('hypothesis missing conditions')
   }
 
+  let hadTestCase = false
+
   for (const testCase of state.cases()) {
+    hadTestCase = true
     for (const condition of state.conditions) {
       const opts = {
         condition,
@@ -84,6 +87,10 @@ methods.hypotheses.run = state => {
         results.push(models.hypothesisResult.errorer({...opts, error}))
       }
     }
+  }
+
+  if (!hadTestCase) {
+    throw new Error(`no test-case provided for hypothesis "${state.hypothesis}"`)
   }
 
   return models.hypothesisResultSet(state, results)

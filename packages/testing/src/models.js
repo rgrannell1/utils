@@ -1,4 +1,6 @@
 
+const {expect} = require('chai')
+
 const models = {}
 
 models.hypothesisResult = {}
@@ -32,6 +34,12 @@ models.hypothesisResult.errored = ({condition, testCase, hypothesis, error}) => 
 }
 
 models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
+  expect(results).to.be.an('array')
+
+  if (results.length === 0) {
+    throw new Error(`no results provided for hypothesis "${hypothesis}"`)
+  }
+
   const output = {
     hypothesis,
     conditions,
