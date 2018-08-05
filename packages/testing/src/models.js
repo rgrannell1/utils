@@ -75,7 +75,13 @@ models.hypothesisResult.errored = ({condition, testCase, hypothesis, error}) => 
 }
 
 models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
+  expect(hypothesis).to.be.a('string')
+  expect(conditions).to.be.an('array')
   expect(results).to.be.an('array')
+
+  if (conditions.length === 0) {
+    throw new Error(`no conditions provided for hypothesis "${hypothesis}"`)
+  }
 
   if (results.length === 0) {
     throw new Error(`no results provided for hypothesis "${hypothesis}"`)
@@ -88,26 +94,67 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
     type: 'hypothesis-result-set'
   }
 
+  /**
+   * @name  hypothesisResultSet.all
+   *
+   * Return all hypothesis test-results
+   *
+   * @return {[type]} [description]
+   */
   output.all = () => {
     return results
   }
+  /**
+   * @name  hypothesisResultSet.failed
+   *
+   * Return failed hypothesis test-results
+   *
+   * @return {[type]} [description]
+   */
   output.failed = () => {
     return results.filter(result => result.state === 'failed')
   }
+  /**
+   * @name  hypothesisResultSet.passed
+   *
+   * Return passed test-results
+   *
+   * @return {[type]} [description]
+   */
   output.passed = () => {
     return results.filter(result => result.state === 'passed')
   }
+  /**
+   * @name  hypothesisResultSet.passed
+   *
+   * Return error-throwing hypothesis test-results
+   *
+   * @return {[type]} [description]
+   */
   output.errored = () => {
     return results.filter(result => result.state === 'errored')
   }
-
+  /**
+   * @name  hypothesisResultSet.percentages
+   *
+   * Aggregate statistics describing the test-results.
+   *
+   * @return {Object} an object describing the test-results. Contains the fields:
+   *   - results  the raw test-results
+   *   - status
+   *   - pct:
+   *     - failed: the percentage of failed results
+   *     - passed: the percentage of passed results
+   *     - errored: the percentage of error-throwing results
+   */
   output.percentages = () => {
     return {
       results,
       status: output.failed().length > 0,
       pct: {
         failed: output.failed().length / output.all().length,
-        passed: output.passed().length / output.all().length
+        passed: output.passed().length / output.all().length,
+        errored: output.errored().length / output.all().length
       }
     }
   }
