@@ -1,5 +1,5 @@
 
-# testing (v0.0.0)
+# testing (v8.1.0)
 
 ## Stability
 
@@ -31,9 +31,21 @@ this framework is a pure-JS test-runner, as opposed to `mocha` or `ava` which re
   * [Parameters](#parameters-3)
 - [theory.run](#theoryrun)
 - [testing.theory](#testingtheory)
+- [failed](#failed)
   * [Parameters](#parameters-4)
-- [hypothesis](#hypothesis)
+- [passed](#passed)
   * [Parameters](#parameters-5)
+- [errored](#errored)
+  * [Parameters](#parameters-6)
+- [failed](#failed-1)
+- [passed](#passed-1)
+- [errored](#errored-1)
+- [percentages](#percentages)
+- [tap](#tap)
+  * [Parameters](#parameters-7)
+  * [Parameters](#parameters-8)
+- [hypothesis](#hypothesis)
+  * [Parameters](#parameters-9)
 
 ## API Documentation
 
@@ -89,6 +101,82 @@ Returns **[Object][1]** returns an object with several methods:-   .run()
 -   .given()
 -   .givenAll()
 
+## failed
+
+Validate & construct failed hypotheses results
+
+### Parameters
+
+-   `$0` **[Object][1]** 
+    -   `$0.condition`  
+    -   `$0.testCase`  
+    -   `$0.hypothesis`  
+
+Returns **[Object][1]** 
+
+## passed
+
+Validate & construct passed hypotheses results
+
+### Parameters
+
+-   `$0` **[Object][1]** 
+    -   `$0.condition`  
+    -   `$0.testCase`  
+    -   `$0.hypothesis`  
+
+Returns **[Object][1]** 
+
+## errored
+
+Validate & construct errored hypotheses results
+
+### Parameters
+
+-   `$0` **[Object][1]** 
+    -   `$0.condition`  
+    -   `$0.testCase`  
+    -   `$0.hypothesis`  
+    -   `$0.error`  
+
+Returns **[Object][1]** 
+
+## 
+
+Returns **\[type]** [description]
+
+## failed
+
+Returns **\[type]** [description]
+
+## passed
+
+Returns **\[type]** [description]
+
+## errored
+
+Returns **\[type]** [description]
+
+## percentages
+
+Returns **[Object][1]** an object describing the test-results. Contains the fields:-   results  the raw test-results
+-   status
+-   pct:
+    -   failed: the percentage of failed results
+    -   passed: the percentage of passed results
+    -   errored: the percentage of error-throwing results
+
+## tap
+
+Create a TAP report for a test-run.
+
+### Parameters
+
+-   `results` **[Array][3]&lt;[Object][1]>** An array of test-results
+-   `opts` **[Object][1]** Various options
+
+Returns **[undefined][4]** 
+
 ## 
 
 ### Parameters
@@ -101,7 +189,7 @@ Returns **[Object][1]** an object with the following methods:-   always()
 
 ### Parameters
 
--   `hypothesis` **[string][3]** a description of the hypothesis
+-   `hypothesis` **[string][5]** a description of the hypothesis
 
 Returns **[Object][1]** an object with the method:-   cases()
 
@@ -109,7 +197,11 @@ Returns **[Object][1]** an object with the method:-   cases()
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
 
 ## Dependencies

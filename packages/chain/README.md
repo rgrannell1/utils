@@ -1,5 +1,5 @@
 
-# chain (v8.1.0-alpha.687ac587)
+# chain (v8.1.0)
 
 ## Stability
 
