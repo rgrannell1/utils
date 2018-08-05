@@ -143,19 +143,19 @@ Returns **[Object][1]**
 
 ## 
 
-Returns **\[type]** [description]
+Returns **[Array][3]&lt;HypothesisResult>** all test-results
 
 ## failed
 
-Returns **\[type]** [description]
+Returns **[Array][3]&lt;HypothesisResult>** all test-results
 
 ## passed
 
-Returns **\[type]** [description]
+Returns **[Array][3]&lt;HypothesisResult>** passed test-results
 
 ## errored
 
-Returns **\[type]** [description]
+Returns **[Array][3]&lt;HypothesisResult>** error-throwing test-results
 
 ## percentages
 

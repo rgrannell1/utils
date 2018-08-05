@@ -99,7 +99,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
    *
    * Return all hypothesis test-results
    *
-   * @return {[type]} [description]
+   * @return {Array<HypothesisResult>} all test-results
    */
   output.all = () => {
     return results
@@ -109,7 +109,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
    *
    * Return failed hypothesis test-results
    *
-   * @return {[type]} [description]
+   * @return {Array<HypothesisResult>} all test-results
    */
   output.failed = () => {
     return results.filter(result => result.state === 'failed')
@@ -119,7 +119,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
    *
    * Return passed test-results
    *
-   * @return {[type]} [description]
+   * @return {Array<HypothesisResult>} passed test-results
    */
   output.passed = () => {
     return results.filter(result => result.state === 'passed')
@@ -129,7 +129,7 @@ models.hypothesisResultSet = ({hypothesis, conditions}, results) => {
    *
    * Return error-throwing hypothesis test-results
    *
-   * @return {[type]} [description]
+   * @return {Array<HypothesisResult>} error-throwing test-results
    */
   output.errored = () => {
     return results.filter(result => result.state === 'errored')
