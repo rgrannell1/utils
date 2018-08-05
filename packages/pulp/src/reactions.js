@@ -123,7 +123,7 @@ reactions.taskErr = (state, name, err) => {
   process.exit(1)
 }
 
-reactions.subTaskProgress = (state, message) => {
+reactions.subTaskProgress = message => {
   loggers.subTask.progress(message)
 }
 
