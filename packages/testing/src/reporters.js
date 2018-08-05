@@ -67,6 +67,10 @@ reporters.tap.theory = ({hypotheses, theory, results}) => {
   expect(theory).to.be.a('string')
   expect(results).to.be.an('array')
 
+  if (results.length === 0) {
+    throw new Error(`no results present for theory "${theory}"`)
+  }
+
   for (const result of results) {
     if (result.type === 'hypothesis-result-set') {
       theorySummaries = theorySummaries.concat(reporters.tap.hypothesis(theory, result))
