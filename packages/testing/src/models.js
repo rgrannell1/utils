@@ -5,7 +5,20 @@ const models = {}
 
 models.hypothesisResult = {}
 
+/**
+ * Validate & construct failed hypotheses results
+ *
+ * @param  {function} options.condition  a condition function
+ * @param  {array} options.testCase      the arguments array used for this test-case
+ * @param  {string} options.hypothesis   a description of the hypothesis
+ *
+ * @return {Object}
+ */
 models.hypothesisResult.failed = ({condition, testCase, hypothesis}) => {
+  expect(condition).to.be.a('function')
+  expect(testCase).to.be.an('array')
+  expect(hypothesis).to.be.a('string')
+
   return {
     condition,
     testCase,
@@ -14,7 +27,20 @@ models.hypothesisResult.failed = ({condition, testCase, hypothesis}) => {
   }
 }
 
+/**
+ * Validate & construct passed hypotheses results
+ *
+ * @param  {function} options.condition  a condition function
+ * @param  {array} options.testCase      the arguments array used for this test-case
+ * @param  {string} options.hypothesis   a description of the hypothesis
+ *
+ * @return {Object}
+ */
 models.hypothesisResult.passed = ({condition, testCase, hypothesis}) => {
+  expect(condition).to.be.a('function')
+  expect(testCase).to.be.an('array')
+  expect(hypothesis).to.be.a('string')
+
   return {
     condition,
     testCase,
@@ -23,7 +49,22 @@ models.hypothesisResult.passed = ({condition, testCase, hypothesis}) => {
   }
 }
 
+/**
+ * Validate & construct errored hypotheses results
+ *
+ * @param  {function} options.condition  a condition function
+ * @param  {array} options.testCase      the arguments array used for this test-case
+ * @param  {string} options.hypothesis   a description of the hypothesis
+ * @param  {error} options.error         the error thrown by the test-case
+ *
+ * @return {Object}
+ */
 models.hypothesisResult.errored = ({condition, testCase, hypothesis, error}) => {
+  expect(condition).to.be.a('function')
+  expect(testCase).to.be.an('array')
+  expect(hypothesis).to.be.a('string')
+  expect(error).to.be.an('error')
+
   return {
     condition,
     testCase,
