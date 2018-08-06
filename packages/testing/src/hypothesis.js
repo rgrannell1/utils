@@ -84,7 +84,7 @@ methods.hypotheses.run = state => {
           results.push(models.hypothesisResult.passed({...opts}))
         }
       } catch (error) {
-        results.push(models.hypothesisResult.errorer({...opts, error}))
+        results.push(models.hypothesisResult.errored({...opts, error}))
       }
     }
   }

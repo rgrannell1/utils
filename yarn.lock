@@ -147,51 +147,51 @@
     url-template "^2.0.8"
 
 "@rgrannell/build@file:packages/build":
-  version "8.1.0"
+  version "8.2.0"
   dependencies:
     execa "^0.10.0"
 
-"@rgrannell/chain@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.0.0.tgz#11bcd53fe0f43bd817164c47c8625f6065c9c1a3"
+"@rgrannell/chain@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.2.0.tgz#0521e7c629167fc0aba2c109febb3712591f65b1"
   dependencies:
     chai "^4.1.2"
 
 "@rgrannell/fp@file:packages/fp":
-  version "8.1.0"
+  version "8.2.0"
 
 "@rgrannell/github@file:packages/github":
-  version "8.1.0"
+  version "8.2.0"
   dependencies:
     "@octokit/rest" "^15.9.4"
 
 "@rgrannell/index@file:packages/index":
-  version "8.1.0"
+  version "8.2.0"
 
 "@rgrannell/markdown@file:packages/markdown":
-  version "8.1.0"
+  version "8.2.0"
 
 "@rgrannell/mustache@file:packages/mustache":
-  version "8.1.0"
+  version "8.2.0"
 
 "@rgrannell/object@file:packages/object":
-  version "8.1.0"
+  version "8.2.0"
 
 "@rgrannell/pulp@file:packages/pulp":
-  version "8.1.0"
+  version "8.2.0"
   dependencies:
     neodoc "^2.0.2"
     signale "^1.2.1"
 
 "@rgrannell/set@file:packages/set":
-  version "8.1.0"
+  version "8.2.0"
   dependencies:
     "@rgrannell/testing" "file:../../.cache/yarn/v1/npm-@rgrannell/testing"
 
 "@rgrannell/testing@file:packages/testing":
-  version "8.1.0"
+  version "8.2.0"
   dependencies:
-    "@rgrannell/chain" "^8.0.0"
+    "@rgrannell/chain" "^8.2.0"
     chai "^4.1.2"
     sinon "^6.1.4"
     yamljs "^0.3.0"
