@@ -54,7 +54,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | promise | 0 | 0      | 0.0Mb       |
 | pulp | 2 | 0      | 2.5Mb       |
 | readme | 1 | 0      | 0.0Mb       |
-| set | 1 | 0      | 0.0Mb       |
+| set | 1 | 0      | 18.3Mb       |
 | ssl-labs | 1 | 0      | 0.3Mb       |
 | testing | 4 | 0      | 9.2Mb       |
 | units | 0 | 0      | 0.0Mb       |

@@ -2,28 +2,6 @@
 # yarn lockfile v1
 
 
-"@rgrannell/array@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-8.1.0.tgz#b154d63392826b196a5443b244e681178786fc0e"
-
-"@rgrannell/chain@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.1.0.tgz#59546a7e8f3209e484c594d1d9ba90244ae677a2"
-  dependencies:
-    chai "^4.1.2"
-
-"@rgrannell/fp@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/fp/-/fp-8.1.0.tgz#91d61ec6cb8626f15e1079b9d07b671687f6f531"
-
-"@rgrannell/generator@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/generator/-/generator-8.1.0.tgz#b640b6c23f4cba5cd099d1defa86000345185571"
-
-"@rgrannell/object@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/object/-/object-8.1.0.tgz#d452f6b2f13ffa54ebf6ec1cfb1305ddb65ffb0d"
-
 assertion-error@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"

@@ -65,10 +65,10 @@ methods.hypotheses.run = state => {
     throw new Error('hypothesis missing conditions')
   }
 
-  let hadTestCase = false
+  let wasRun = false
 
   for (const testCase of state.cases()) {
-    hadTestCase = true
+    wasRun = true
     for (const condition of state.conditions) {
       const opts = {
         condition,
@@ -89,7 +89,7 @@ methods.hypotheses.run = state => {
     }
   }
 
-  if (!hadTestCase) {
+  if (!wasRun) {
     throw new Error(`no test-case provided for hypothesis "${state.hypothesis}"`)
   }
 

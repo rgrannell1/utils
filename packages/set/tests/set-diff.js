@@ -6,6 +6,7 @@ const hypotheses = {}
 
 hypotheses.setDiffEmpty = testing.hypothesis('set.diff against against an empty set is the original set')
   .cases(function * () {
+    yield []
   })
   .always(set0 => {
     return true

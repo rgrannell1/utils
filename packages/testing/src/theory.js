@@ -21,6 +21,8 @@ const methods = {}
 methods.given = (state, hypothesis) => {
   expect(hypothesis).to.be.an('object', `"hypothesis" must be an object for theory "${state.description}"`)
 
+  state.hypotheses.push(hypothesis)
+
   return chain({
     given: methods.given,
     givenAll: methods.givenAll,
@@ -72,6 +74,11 @@ methods.givenAll = (state, hypotheses) => {
  */
 methods.run = async (state, opts = {}) => {
   expect(state.hypotheses).to.be.an('array')
+
+  if (state.hypotheses.length === 0) {
+    throw new Error(`no hypotheses for theory "${state.description}"`)
+  }
+
   const results = await Promise.all(state.hypotheses.map(hypothesis => {
     return hypothesis.run()
   }))
@@ -103,6 +110,7 @@ module.exports = ({description}) => {
     givenAll: methods.givenAll
   }, {
     description,
-    hypotheses: []
+    hypotheses: [],
+    type: 'theory'
   })
 }
