@@ -70,12 +70,12 @@ loggers.deps.config({
 
 const reactions = {}
 
-reactions.depStart = data => {
+reactions.depStart = (state, data) => {
   assert(data, 'missing depStart data argument')
   loggers.task.start(`Deferred to "${data.name}"`)
 }
 
-reactions.depOk = data => {
+reactions.depOk = (state, data) => {
   assert(data, 'missing depOk data argument')
   loggers.task.ok(`Finished deferral to "${data.name}"`)
 }
@@ -86,19 +86,40 @@ reactions.depErr = (name, err) => {
   process.exit(1)
 }
 
-reactions.taskStart = data => {
+reactions.taskStart = (state, data) => {
+  state[data.name] = {
+    time: new Date()
+  }
+
   assert(data, 'missing taskStart data argument')
   loggers.task.start(`Started "${data.name}"`)
 }
 
-reactions.taskOk = data => {
+reactions.taskOk = (state, data) => {
   assert(data, 'missing taskOk data argument')
-  loggers.task.ok(`Finished task "${data.name}"`)
+
+  const taskData = state[data.name]
+
+  if (taskData) {
+    const elapsed = new Date() - taskData.time
+    loggers.task.ok(`Finished task "${data.name}" in ${elapsed}ms`)
+  } else {
+    loggers.task.ok(`Finished task "${data.name}"`)
+  }
 }
 
-reactions.taskErr = (name, err) => {
+reactions.taskErr = (state, name, err) => {
   assert(name, 'missing depStart name argument')
-  loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack}`)
+
+  const taskData = state[name]
+
+  if (taskData) {
+    const elapsed = new Date() - taskData.time
+    loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack} after ${elapsed}ms`)
+  } else {
+    loggers.task.err(`Failed "${name}" with ${err}"\n${err.stack}`)
+  }
+
   process.exit(1)
 }
 

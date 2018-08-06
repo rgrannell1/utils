@@ -17,13 +17,15 @@ const chain = (methods, state = {}) => {
     expect(method, `invalid value for methods.${key}`).to.be.a('function')
   })
 
-  return new Proxy(state, {
-    get (_, prop) {
-      if (methods.hasOwnProperty(prop)) {
-        return methods[prop].bind(null, state)
-      }
-    }
-  })
+  const obj = {
+    state
+  }
+
+  for (const method of Object.keys(methods)) {
+    obj[method] = methods[method].bind(null, state)
+  }
+
+  return obj
 }
 
 module.exports = chain

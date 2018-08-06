@@ -2,17 +2,27 @@
 # yarn lockfile v1
 
 
-"@rgrannell/array@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-6.0.1.tgz#6a5b1cfa6c8a4c2a36616c0b8fc9445236bd346a"
+"@rgrannell/array@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-8.1.0.tgz#b154d63392826b196a5443b244e681178786fc0e"
+
+"@rgrannell/chain@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.1.0.tgz#59546a7e8f3209e484c594d1d9ba90244ae677a2"
   dependencies:
     chai "^4.1.2"
 
-"@rgrannell/chain@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-5.0.0.tgz#c0734280c8fa1201f6a7c26a8ae27f240b773b72"
-  dependencies:
-    chai "^4.1.2"
+"@rgrannell/fp@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/fp/-/fp-8.1.0.tgz#91d61ec6cb8626f15e1079b9d07b671687f6f531"
+
+"@rgrannell/generator@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/generator/-/generator-8.1.0.tgz#b640b6c23f4cba5cd099d1defa86000345185571"
+
+"@rgrannell/object@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/object/-/object-8.1.0.tgz#d452f6b2f13ffa54ebf6ec1cfb1305ddb65ffb0d"
 
 assertion-error@^1.0.1:
   version "1.1.0"

@@ -1,17 +1,17 @@
 {
   "name": "@rgrannell/ebnf",
   "description": "Construct a generator for an EBNF grammar",
-  "version": "8.1.0-alpha.687ac587",
+  "version": "8.2.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/array": "^8.1.0-alpha.687ac587",
-    "@rgrannell/chain": "^8.1.0-alpha.687ac587",
-    "@rgrannell/fp": "^8.1.0-alpha.687ac587",
-    "@rgrannell/generator": "^8.1.0-alpha.687ac587",
-    "@rgrannell/object": "^8.1.0-alpha.687ac587"
+    "@rgrannell/array": "^8.2.0",
+    "@rgrannell/chain": "^8.2.0",
+    "@rgrannell/fp": "^8.2.0",
+    "@rgrannell/generator": "^8.2.0",
+    "@rgrannell/object": "^8.2.0"
   }
 }

@@ -4,7 +4,7 @@ const testing = require('@rgrannell/testing')
 
 const hypotheses = {}
 
-hypotheses.setsEqual = testing.hypotheses('set.equals always returns true for equal sets')
+hypotheses.setsEqual = testing.hypothesis('set.equals always returns true for equal sets')
   .cases(function * () {
     yield [new Set([])]
     yield [new Set([1])]
@@ -14,7 +14,7 @@ hypotheses.setsEqual = testing.hypotheses('set.equals always returns true for eq
     return set.equals(set0, set0)
   })
 
-hypotheses.setsNotEqual = testing.hypotheses('set.equals always returns false for unequal sets')
+hypotheses.setsNotEqual = testing.hypothesis('set.equals always returns false for unequal sets')
   .cases(function * () {
     yield [
       new Set([]),

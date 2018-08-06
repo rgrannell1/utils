@@ -2,13 +2,15 @@
   "name": "@rgrannell/testing",
   "description": "test utilities",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "8.2.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/chain": "^8.0.0",
+    "@rgrannell/chain": "^8.2.0",
+    "chai": "^4.1.2",
+    "sinon": "^6.1.4",
     "yamljs": "^0.3.0"
   }
 }

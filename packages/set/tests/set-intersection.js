@@ -4,7 +4,7 @@ const testing = require('@rgrannell/testing')
 
 const hypotheses = {}
 
-hypotheses.setIntersectionEmptySet = testing.hypotheses('set.intersection with an empty set is empty set')
+hypotheses.setIntersectionEmptySet = testing.hypothesis('set.intersection with an empty set is empty set')
   .cases(function * () {
     yield [new Set([])]
     yield [new Set([1])]

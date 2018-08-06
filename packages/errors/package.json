@@ -1,11 +1,10 @@
 {
   "name": "@rgrannell/errors",
   "description": "Construct errors",
-  "version": "8.1.0-alpha.687ac587",
+  "version": "8.2.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {}
+  }
 }

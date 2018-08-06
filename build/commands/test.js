@@ -1,11 +1,9 @@
 
 const fs = require('fs').promises
 const path = require('path')
-const {expect} = require('chai')
 const utils = require('../utils')
 const YAML = require('yamljs')
 const constants = require('../constants')
-const colourise = require('tap-colorize')
 
 const command = {
   name: 'test',
@@ -20,89 +18,6 @@ Description:
   Run tests for each submodule
 `
 
-function summariseMetadata (obj) {
-  Object.keys(obj.testCase).forEach(prop => {
-    if (obj.testCase[prop].has) {
-      obj.testCase[prop] = Array.from(obj.testCase[prop])
-    }
-  })
-  return YAML.stringify(obj, 4).split('\n').map(line => `  ${line}`).join('\n')
-}
-
-const summarise = {}
-
-summarise.failed = (pkg, test, description, count) => {
-  const summary = {
-    theory: description,
-    testCase: test.tcase
-  }
-  return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
-    '\n  ---\n' +
-    summariseMetadata(summary) +
-    '\n  ...'
-}
-
-summarise.errored = (pkg, test, description, count) => {
-  const summary = {
-    theory: description,
-    testCase: test.tcase,
-    error: test.error
-  }
-
-  return `not ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
-    '\n  ---\n' +
-    summariseMetadata(summary) +
-    '\n  ...'
-}
-
-summarise.passed = (pkg, test, description, count) => {
-  const summary = {
-    theory: description,
-    testCase: test.tcase
-  }
-
-  return `ok ${count} - ${pkg.data.json.name}: ${test.hypothesis}` +
-    '\n  ---\n' +
-    summariseMetadata(summary) +
-    '\n  ...'
-}
-
-async function reporter (packageResults) {
-  const flattened = [].concat.apply([], packageResults)
-  expect(flattened).to.be.an('array')
-
-  let tapReport = ''
-
-  let count = 1
-  for (const res of flattened) {
-    const {pkg, description, results} = res
-
-    expect(pkg).to.be.an('object', '"pkg" was not an object')
-    expect(description).to.be.a('string', '"description" was not a string')
-
-    ;(await results).results.forEach(result => {
-      result.errored().forEach(test => {
-        tapReport += '\n' + summarise.errored(pkg, test, description, count++)
-      })
-      result.failed().forEach(test => {
-        tapReport += '\n' + summarise.failed(pkg, test, description, count++)
-      })
-      result.passed().forEach(test => {
-        tapReport += '\n' + summarise.passed(pkg, test, description, count++)
-      })
-    })
-  }
-
-  tapReport = 'TAP version 13\n' + `1..${count - 1}\n` + tapReport
-
-  const Readable = require('stream').Readable
-  const stream = new Readable()
-  stream.push(tapReport)
-  stream.push(null)
-
-  stream.pipe(colourise()).pipe(process.stdout)
-}
-
 /**
  * Run tests for a particular project
  *
@@ -111,34 +26,15 @@ async function reporter (packageResults) {
  * @return {Promise<Array<testResult>>}    an array of test-results
  */
 function testPackage (pkg) {
-  const testPath = path.join(pkg.data.path, 'tests/index')
-  const testSuite = require(testPath)
+  const testPath = path.join(pkg.data.path, 'tests/runner')
 
-  const packageTestResults = Object.keys(testSuite).map(name => {
-    const test = testSuite[name]
-
-    expect(pkg).to.be.a('object', `"pkg" was not an object for ${name}`)
-
-    if (!test.run) {
-      throw new Error(`".run" method missing for "${pkg.data.name}/${name}" missing`)
-    }
-
-    const results = test.run()
-
-    return {
-      pkg,
-      description: test.state().description,
-      results
-    }
-  })
-
-  return Promise.all(packageTestResults)
+  require(testPath)
 }
 
 command.task = async args => {
   const packages = await utils.listPackageJsons(constants.paths.packages)
   const labelledPackages = await Promise.all(packages.map(async data => {
-    const indexPath = path.join(data.path, 'tests/index.js')
+    const indexPath = path.join(data.path, 'tests/runner.js')
 
     try {
       var exists = (await fs.lstat(indexPath)).isFile()
@@ -154,7 +50,7 @@ command.task = async args => {
     throw new Error('no tests found.')
   }
 
-  reporter(await Promise.all(testeable.map(testPackage)))
+  testeable.map(testPackage)
 }
 
 module.exports = command

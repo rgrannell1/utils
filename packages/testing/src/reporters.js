@@ -1,18 +1,41 @@
 
 const YAML = require('yamljs')
 const util = require('util')
+const {expect} = require('chai')
 
 const reporters = {}
 
+/**
+ * Create a TAP report for a test-run.
+ *
+ * @param  {Array<Object>} results An array of test-results
+ * @param  {Object} opts           Various options
+ *
+ * @return {undefined}
+ */
 reporters.tap = (results, opts) => {
   let summaries = []
 
+  expect(results).to.be.an('array')
+
+  // eslint-disable-next-line no-unused-expressions
+  expect(results).to.not.be.empty
+  expect(opts).to.be.an('object')
+
   for (const result of results) {
     if (result.type === 'theory-result-set') {
+      expect(result.hypotheses).to.be.an('array')
+      expect(result.theory).to.be.a('string')
+      expect(result.results).to.be.an('array')
+
       summaries = summaries.concat(reporters.tap.theory(result))
     } else {
       throw new Error(`type ${result.type} not currently supported.`)
     }
+  }
+
+  if (summaries.length === 0) {
+    throw new Error('no test results to report')
   }
 
   let message = 'TAP version 13'
@@ -37,8 +60,16 @@ reporters.tap = (results, opts) => {
   }
 }
 
-reporters.tap.theory = ({hypothesis, theory, results}) => {
+reporters.tap.theory = ({hypotheses, theory, results}) => {
   let theorySummaries = []
+
+  expect(hypotheses).to.be.an('array')
+  expect(theory).to.be.a('string')
+  expect(results).to.be.an('array')
+
+  if (results.length === 0) {
+    throw new Error(`no results present for theory "${theory}"`)
+  }
 
   for (const result of results) {
     if (result.type === 'hypothesis-result-set') {
@@ -51,14 +82,18 @@ reporters.tap.theory = ({hypothesis, theory, results}) => {
   return theorySummaries
 }
 
-reporters.tap.hypothesis = (theory, {results}) => {
+reporters.tap.hypothesis = (theory, result) => {
   const summaries = []
-  for (const hyResult of results) {
+
+  expect(result).to.be.an('object')
+  expect(result.results).to.be.an('array')
+
+  for (const hypothesisResult of result.results) {
     summaries.push({
       theory,
-      testCase: util.inspect(hyResult.testCase, {depth: 10}),
-      state: hyResult.state,
-      hypothesis: hyResult.hypothesis
+      testCase: util.inspect(hypothesisResult.testCase, {depth: 10}),
+      state: hypothesisResult.state,
+      hypothesis: hypothesisResult.hypothesis
     })
   }
   return summaries

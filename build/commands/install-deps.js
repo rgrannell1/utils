@@ -1,7 +1,7 @@
 
 const constants = require('../constants')
 const utils = require('../utils')
-const {npm} = require('@rgrannell/build')
+const {yarn} = require('@rgrannell/build')
 const pulp = require('@rgrannell/pulp')
 
 const command = {
@@ -29,7 +29,7 @@ command.task = async (args, emitter) => {
 
       process.chdir(pck.path)
       try {
-        await npm.install({production: false})
+        await yarn.install({production: false})
       } catch (err) {
         throw new Error(`failed to install module "${pck.name}: ${err.message}"`)
       }

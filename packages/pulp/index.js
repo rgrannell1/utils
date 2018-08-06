@@ -2,6 +2,7 @@
 const constants = require('./src/constants')
 const reactions = require('./src/reactions')
 
+const {expect} = require('chai')
 const neodoc = require('neodoc')
 const EventEmitter = require('events')
 
@@ -94,6 +95,16 @@ methods.add = function () {
     throw new Error(`can't destruct supplied arguments; "${rest.length}" arguments supplied`)
   }
 
+  expect(name).to.be.a('string', 'task name missing or invalid')
+
+  if (!task) {
+    task = () => {}
+  }
+
+  if (!dependencies) {
+    dependencies = []
+  }
+
   state.tasks[name] = {name, cli, dependencies, task}
 }
 
@@ -156,13 +167,17 @@ pulp.tasks = () => {
     emitter: new EventEmitter()
   }
 
-  state.emitter.on(constants.events.depStart, reactions.depStart)
-  state.emitter.on(constants.events.depOk, reactions.depOk)
-  state.emitter.on(constants.events.depErr, reactions.depErr)
+  const eventState = {
 
-  state.emitter.on(constants.events.taskStart, reactions.taskStart)
-  state.emitter.on(constants.events.taskOk, reactions.taskOk)
-  state.emitter.on(constants.events.taskErr, reactions.taskErr)
+  }
+
+  state.emitter.on(constants.events.depStart, reactions.depStart.bind(null, eventState))
+  state.emitter.on(constants.events.depOk, reactions.depOk.bind(null, eventState))
+  state.emitter.on(constants.events.depErr, reactions.depErr.bind(null, eventState))
+
+  state.emitter.on(constants.events.taskStart, reactions.taskStart.bind(null, eventState))
+  state.emitter.on(constants.events.taskOk, reactions.taskOk.bind(null, eventState))
+  state.emitter.on(constants.events.taskErr, reactions.taskErr.bind(null, eventState))
 
   state.emitter.on(constants.events.subTaskProgress, reactions.subTaskProgress)
 
