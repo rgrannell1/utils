@@ -89,12 +89,18 @@ reporters.tap.hypothesis = (theory, result) => {
   expect(result.results).to.be.an('array')
 
   for (const hypothesisResult of result.results) {
-    summaries.push({
+    const summary = {
       theory,
       testCase: util.inspect(hypothesisResult.testCase, {depth: 10}),
       state: hypothesisResult.state,
       hypothesis: hypothesisResult.hypothesis
-    })
+    }
+
+    if (hypothesisResult.error) {
+      summary.error = hypothesisResult.error
+    }
+
+    summaries.push(summary)
   }
   return summaries
 }
