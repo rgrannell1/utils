@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/units",
   "description": "A library for working with promises",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
