@@ -106,6 +106,13 @@ methods.add = function () {
   }
 
   state.tasks[name] = {name, cli, dependencies, task}
+
+  return {
+    add: methods.add.bind(null, state),
+    addAll: methods.addAll.bind(null, state),
+    run: methods.run.bind(null, state),
+    state
+  }
 }
 
 /**
@@ -184,7 +191,8 @@ pulp.tasks = () => {
   return {
     add: methods.add.bind(null, state),
     addAll: methods.addAll.bind(null, state),
-    run: methods.run.bind(null, state)
+    run: methods.run.bind(null, state),
+    state
   }
 }
 
