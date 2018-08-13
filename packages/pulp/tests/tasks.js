@@ -1,5 +1,6 @@
 
 const pulp = require('../index.js')
+const {expect} = require('chai')
 const testing = require('@rgrannell/testing')
 
 const hypotheses = {}
@@ -24,7 +25,7 @@ cases.pulpAdd = function * () {
   }]
 }
 
-hypotheses.pulpAdd = testing.hypothesis('pulp.tasks().add works as expected')
+hypotheses.pulpAdd = testing.hypothesis('pulp.tasks().add() returns valid object')
   .cases(cases.pulpAdd)
   .always(args => {
     const tasks = pulp.tasks()
@@ -36,6 +37,27 @@ hypotheses.pulpAdd = testing.hypothesis('pulp.tasks().add works as expected')
       typeof addAll === 'function' &&
       typeof run === 'function' &&
       typeof state === 'object'
+  })
+
+hypotheses.pulpAdd = testing.hypothesis('pulp.tasks().add() saves')
+  .cases(cases.pulpAdd)
+  .always(args => {
+    const tasks = pulp.tasks()
+    tasks.add(args)
+
+    const {state} = tasks
+
+    for (let prop of ['tasks', 'emitter']) {
+      expect(state).to.have.property(prop)
+    }
+
+    expect(state.tasks).to.have.property('test')
+
+    for (let prop of ['name', 'cli', 'dependencies', 'task']) {
+      expect(state.tasks.test).to.have.property(prop)
+    }
+
+    return true
   })
 
 module.exports = testing.theory({description: 'Establish pulp works as expected for known test-cases'})

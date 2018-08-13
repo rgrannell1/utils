@@ -70,6 +70,7 @@ models.hypothesisResult.errored = ({condition, testCase, hypothesis, error}) => 
     testCase,
     error: error.toString(),
     hypothesis: hypothesis,
+    error,
     state: 'errored'
   }
 }

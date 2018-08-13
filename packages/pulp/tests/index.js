@@ -1,6 +1,6 @@
 
 const index = require('@rgrannell/index')
-const testing = require('@rgrannell/testing')
+const testing = require('../../testing')
 
 const theories = index.load({
   source: __dirname,

@@ -100,6 +100,10 @@ reporters.tap.hypothesis = (theory, result) => {
       summary.error = hypothesisResult.error
     }
 
+    if (hypothesisResult.error) {
+      summary.error = hypothesisResult.error
+    }
+
     summaries.push(summary)
   }
   return summaries

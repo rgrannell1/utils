@@ -6,6 +6,12 @@
   "repository": "git@github.com:rgrannell1/utils.git",
   "author": "Ryan Grannell <r.grannell2@gmail.com>",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "private": true,
   "scripts": {
     "pulp": "node pulpfile.js",
     "test": "node_modules/.bin/nyc node pulpfile.js test"
