@@ -151,6 +151,12 @@
   dependencies:
     execa "^0.10.0"
 
+"@rgrannell/chain@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.2.0.tgz#0521e7c629167fc0aba2c109febb3712591f65b1"
+  dependencies:
+    chai "^4.1.2"
+
 "@rgrannell/fp@file:packages/fp":
   version "8.2.0"
 
