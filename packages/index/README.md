@@ -1,5 +1,5 @@
 
-# index (v8.1.0)
+# index (v8.2.0)
 
 ## Stability
 

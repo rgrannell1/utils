@@ -1,5 +1,5 @@
 
-# object (v8.1.0)
+# object (v8.2.0)
 
 ## Stability
 

@@ -1,5 +1,5 @@
 
-# pulp (v8.1.0)
+# pulp (v8.2.0)
 
 ## Stability
 

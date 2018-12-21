@@ -1,5 +1,5 @@
 
-# js-generator (v8.1.0)
+# js-generator (v8.2.0)
 
 ## Stability
 

@@ -1,5 +1,5 @@
 
-# markdown (v8.1.0)
+# markdown (v8.2.0)
 
 ## Stability
 

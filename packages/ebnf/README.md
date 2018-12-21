@@ -1,5 +1,5 @@
 
-# ebnf (v8.1.0)
+# ebnf (v8.2.0)
 
 ## Stability
 
