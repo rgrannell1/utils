@@ -1,5 +1,5 @@
 
-# mustache (v8.1.0)
+# mustache (v8.2.0)
 
 ## Stability
 

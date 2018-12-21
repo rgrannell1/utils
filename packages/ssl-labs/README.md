@@ -1,5 +1,5 @@
 
-# ssl-labs (v8.1.0)
+# ssl-labs (v8.2.0)
 
 ## Stability
 

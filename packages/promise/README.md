@@ -1,5 +1,5 @@
 
-# promise (v8.1.0)
+# promise (v8.2.0)
 
 ## Stability
 

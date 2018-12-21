@@ -1,5 +1,5 @@
 
-# generator (v8.1.0)
+# generator (v8.2.0)
 
 ## Stability
 

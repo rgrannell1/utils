@@ -1,5 +1,5 @@
 
-# chain (v8.1.0)
+# chain (v8.2.0)
 
 ## Stability
 
