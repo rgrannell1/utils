@@ -1,5 +1,5 @@
 
-# docker (v8.1.0)
+# docker (v8.2.0)
 
 ## Stability
 

@@ -1,5 +1,5 @@
 
-# units (v8.1.0)
+# units (v8.2.0)
 
 ## Stability
 
