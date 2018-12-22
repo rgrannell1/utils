@@ -58,7 +58,6 @@ document.packages = async args => {
     const {description, version} = api.json
 
     const tableOfContents = toc(api.docs).content
-
     const vars = {
       name: api.name,
       stability: constants.stability.experimental,
