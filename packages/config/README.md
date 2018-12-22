@@ -93,7 +93,9 @@ const envConfig = config('production')
 
 ## yieldConfig
 
-Merge default & environmental configuration
+Load configuration from the suppplied file-path, and merge in default configuration. Configuration
+can either be provided as an exported object or function. If a function is exported, the default
+configuration is provided to the environment function.
 
 ### Parameters
 
@@ -104,12 +106,12 @@ Returns **[object][3]**
 
 ## config
 
-Load configuration based on an environmental variable.
+Load configuration based on an 'environment' variable.
 
 ### Parameters
 
--   `environment` **[string][1]** an environment variable. Defaults to NODE_ENV
--   `opts` **[Object][3]** 
+-   `environment` **[string][1]** an environment variable. Defaults to NODE_ENV when not supplied.
+-   `opts` **[Object][3]** an object containing optional arguments. Not currently used.
 
 Returns **[Object][3]** environment configuration
 

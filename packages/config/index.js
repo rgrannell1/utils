@@ -4,7 +4,9 @@ const path = require('path')
 const merge = require('deepmerge')
 
 /**
- * Merge default & environmental configuration
+ * Load configuration from the suppplied file-path, and merge in default configuration. Configuration
+ * can either be provided as an exported object or function. If a function is exported, the default
+ * configuration is provided to the environment function.
  *
  * @param  {string} configPath           the path to environmental configuration
  * @param  {function} defaultConf        configuration to merge in too
@@ -24,10 +26,11 @@ const yieldConfig = (configPath, defaultConf) => {
 }
 
 /**
- * Load configuration based on an environmental variable.
+ * Load configuration based on an 'environment' variable.
  *
- * @param  {string} environment an environment variable. Defaults to NODE_ENV
- * @param  {Object} opts
+ * @param  {string} environment an environment variable. Defaults to NODE_ENV when not supplied.
+ * @param  {Object} opts an object containing optional arguments. Not currently used.
+
  * @return {Object} environment configuration
  */
 const config = (environment, opts) => {
