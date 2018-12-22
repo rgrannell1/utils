@@ -9,6 +9,8 @@ An itertools like library
 
 
 
+
+
 ## Table of Contents
 
 - [generator.cycle](#generatorcycle)

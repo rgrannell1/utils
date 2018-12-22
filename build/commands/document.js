@@ -78,6 +78,15 @@ document.packages = async args => {
       }
     } catch (err) { }
 
+    const usagePath = path.join(api.path, 'docs', 'usage.md')
+
+    try {
+      const usage = await fs.lstat(usagePath)
+      if (usage.isFile()) {
+        vars.usage = await fs.readFile(usagePath)
+      }
+    } catch (err) { }
+
     return fs.writeFile(path.join(api.path, `README.md`), mustache.render(template.toString(), vars))
   })
 
