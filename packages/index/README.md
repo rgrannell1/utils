@@ -8,7 +8,19 @@
 A utility library for loading submodules
 
 
+## Overview
 
+`@rgrannell1/index` simplifies creating `index.js` files. It loads the exported members of each file in the same folder under a camel-case name.
+
+
+
+## Usage
+
+```js
+const index = require('@rgrannell/index')
+
+module.exports = index.load({source: __dirname})
+```
 
 
 ## Table of Contents
