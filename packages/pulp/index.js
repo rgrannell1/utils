@@ -45,7 +45,7 @@ async function runTask (command, {passArgs = true}, state) {
 
   try {
     emitter.emit(constants.events.taskStart, taskData)
-    await taskData.task(taskData.cli && passArgs ? neodoc.run(taskData.cli) : undefined, emitter)
+    await taskData.task(taskData.cli && passArgs ? neodoc.run(taskData.cli) : undefined, emitter, tasks)
     emitter.emit(constants.events.taskOk, taskData)
   } catch (err) {
     emitter.emit(constants.events.taskErr, command, err)

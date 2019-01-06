@@ -34,7 +34,7 @@ index.deriveName = fileName => {
 index.load = opts => {
   let defaulted = Object.assign({
     source: __dirname,
-    excludes: []
+    excludes: ['index']
   }, opts)
 
   const excludes = new Set(defaulted.excludes)
