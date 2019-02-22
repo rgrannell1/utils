@@ -58,6 +58,32 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | ssl-labs | 1 | 0      | 0.0Mb       |
 | testing | 4 | 0      | 0.1Mb       |
 | units | 0 | 0      | 0.0Mb       |
+=======
+| Name          | Version       | Dependencies     | Dev Dependencies        | Estimated Size |
+| ------------- | ------------- | ---------------- | ----------------------- | -------------- |
+| array | 8.2.0   | 0 | 0      | 0.0Mb       |
+| build | 8.2.0   | 1 | 0      | 0.1Mb       |
+| chain | 8.2.0   | 1 | 0      | 0.0Mb       |
+| config | 8.2.0   | 1 | 0      | 0.0Mb       |
+| create | 8.2.0   | 2 | 1      | 0.2Mb       |
+| docker | 8.2.0   | 0 | 0      | 0.0Mb       |
+| ebnf | 8.2.0   | 5 | 0      | 0.0Mb       |
+| errors | 8.2.0   | 0 | 0      | 0.0Mb       |
+| fp | 8.2.0   | 0 | 1      | 0.1Mb       |
+| generator | 8.2.0   | 0 | 0      | 0.0Mb       |
+| github | 8.2.0   | 1 | 0      | 0.0Mb       |
+| index | 8.2.0   | 0 | 0      | 0.0Mb       |
+| js-generator | 8.2.0   | 0 | 0      | 0.0Mb       |
+| markdown | 8.2.0   | 0 | 0      | 0.0Mb       |
+| mustache | 8.2.0   | 0 | 0      | 0.0Mb       |
+| object | 8.2.0   | 0 | 0      | 0.0Mb       |
+| promise | 8.2.0   | 0 | 0      | 0.0Mb       |
+| pulp | 8.2.0   | 2 | 0      | 0.1Mb       |
+| readme | 8.2.0   | 1 | 0      | 0.0Mb       |
+| set | 8.2.0   | 1 | 0      | 0.2Mb       |
+| ssl-labs | 8.2.0   | 1 | 0      | 0.0Mb       |
+| testing | 8.2.0   | 4 | 0      | 0.1Mb       |
+| units | 8.2.0   | 0 | 0      | 0.0Mb       |
 
 ## Build Process
 

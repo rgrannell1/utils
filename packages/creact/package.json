@@ -1,0 +1,17 @@
+{
+  "name": "@rgrannell/create",
+  "description": "Creates a react-app",
+  "version": "8.2.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "nyc": "^12.0.2"
+  },
+  "dependencies": {
+    "inquirer": "6.2.0",
+    "neodoc": "2.0.2"
+  }
+}

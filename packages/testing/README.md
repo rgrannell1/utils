@@ -33,21 +33,21 @@ this framework is a pure-JS test-runner, as opposed to `mocha` or `ava` which re
   * [Parameters](#parameters-3)
 - [theory.run](#theoryrun)
 - [testing.theory](#testingtheory)
-- [failed](#failed)
+- [tap](#tap)
   * [Parameters](#parameters-4)
-- [passed](#passed)
   * [Parameters](#parameters-5)
-- [errored](#errored)
+- [hypothesis](#hypothesis)
   * [Parameters](#parameters-6)
+- [failed](#failed)
+  * [Parameters](#parameters-7)
+- [passed](#passed)
+  * [Parameters](#parameters-8)
+- [errored](#errored)
+  * [Parameters](#parameters-9)
 - [failed](#failed-1)
 - [passed](#passed-1)
 - [errored](#errored-1)
 - [percentages](#percentages)
-- [tap](#tap)
-  * [Parameters](#parameters-7)
-  * [Parameters](#parameters-8)
-- [hypothesis](#hypothesis)
-  * [Parameters](#parameters-9)
 
 ## API Documentation
 
@@ -102,6 +102,33 @@ Returns **theoryResultSet** returns a data-model
 Returns **[Object][1]** returns an object with several methods:-   .run()
 -   .given()
 -   .givenAll()
+
+## tap
+
+Create a TAP report for a test-run.
+
+### Parameters
+
+-   `results` **[Array][3]&lt;[Object][1]>** An array of test-results
+-   `opts` **[Object][1]** Various options
+
+Returns **[undefined][4]** 
+
+## 
+
+### Parameters
+
+-   `generator` **GeneratorFunction** a function yielding test-cases
+
+Returns **[Object][1]** an object with the following methods:-   always()
+
+## hypothesis
+
+### Parameters
+
+-   `hypothesis` **[string][5]** a description of the hypothesis
+
+Returns **[Object][1]** an object with the method:-   cases()
 
 ## failed
 
@@ -167,33 +194,6 @@ Returns **[Object][1]** an object describing the test-results. Contains the fiel
     -   failed: the percentage of failed results
     -   passed: the percentage of passed results
     -   errored: the percentage of error-throwing results
-
-## tap
-
-Create a TAP report for a test-run.
-
-### Parameters
-
--   `results` **[Array][3]&lt;[Object][1]>** An array of test-results
--   `opts` **[Object][1]** Various options
-
-Returns **[undefined][4]** 
-
-## 
-
-### Parameters
-
--   `generator` **GeneratorFunction** a function yielding test-cases
-
-Returns **[Object][1]** an object with the following methods:-   always()
-
-## hypothesis
-
-### Parameters
-
--   `hypothesis` **[string][5]** a description of the hypothesis
-
-Returns **[Object][1]** an object with the method:-   cases()
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
