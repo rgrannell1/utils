@@ -5,9 +5,7 @@
 
 > 0 - Experimental
 
-Construct errors
-
-
+A simple module for constructing errors with custom names & codes, without OO-overhead.
 
 ## Table of Contents
 
