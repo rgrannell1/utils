@@ -24,7 +24,7 @@
     "@rgrannell/markdown": "file:packages/markdown",
     "@rgrannell/mustache": "file:packages/mustache",
     "@rgrannell/object": "file:packages/object",
-    "@rgrannell/pulp": "file:packages/pulp",
+    "@rgrannell/pulp": "../utils/packages/pulp",
     "@rgrannell/set": "file:packages/set",
     "@rgrannell/testing": "file:packages/testing",
     "acorn": "^5.7.1",
