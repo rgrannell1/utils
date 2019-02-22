@@ -20,12 +20,21 @@ Construct errors
 
 ## errors
 
-Easily construct custom-errors
+Easily construct custom-errors with optional error-codes.
 
 ### Examples
 
 ```javascript
+// static error lookup
 errors.notFoundError('user-account was not found', 'ENOTFOUND')
+
+const statuses = {
+  '400': 'BadRequest',
+  '404': 'NotFound'
+}
+
+// -- dynamic error lookup
+errors[statuses[req.status]]('Request failed', `ERR-${req.status}`)
 ```
 
 
