@@ -37,7 +37,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | Name          | Dependencies     | Dev Dependencies        | Estimated Size |
 | ------------- | ---------------- | ----------------------- | -------------- |
 | array | 0 | 0      | 0.0Mb       |
-| build | 1 | 0      | 0.1Mb       |
+| build | 1 | 0      | 0.0Mb       |
 | chain | 1 | 0      | 0.0Mb       |
 | config | 1 | 0      | 0.0Mb       |
 | docker | 0 | 0      | 0.0Mb       |
@@ -52,9 +52,9 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | mustache | 0 | 0      | 0.0Mb       |
 | object | 0 | 0      | 0.0Mb       |
 | promise | 0 | 0      | 0.0Mb       |
-| pulp | 2 | 0      | 0.1Mb       |
+| pulp | 3 | 0      | 0.1Mb       |
 | readme | 1 | 0      | 0.0Mb       |
-| set | 1 | 0      | 0.2Mb       |
+| set | 1 | 0      | 0.1Mb       |
 | ssl-labs | 1 | 0      | 0.0Mb       |
 | testing | 4 | 0      | 0.1Mb       |
 | units | 0 | 0      | 0.0Mb       |
@@ -219,7 +219,7 @@ Description:
 
 ## License
 
-Copyright (c) 2018 Ryan Grannell
+Copyright (c) 2019 Ryan Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
