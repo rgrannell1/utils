@@ -1,0 +1,11 @@
+{
+  "name": "@rgrannell/enum",
+  "description": "Easily create enums in JavaScript",
+  "main": "index.js",
+  "version": "none",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}
