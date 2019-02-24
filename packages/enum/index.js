@@ -14,15 +14,7 @@ const Enum = function (elements, transform) {
     asEnum[elem] = transform ? transform(elem) : elem
   }
 
-  return new Proxy(asEnum, {
-    get (_, prop) {
-      if (asEnum.hasOwnProperty(prop)) {
-        return asEnum[prop]
-      } else {
-        throw new Error(`${Object.keys(asEnum).length}-element Enum does not include property "${prop}"`)
-      }
-    }
-  })
+  return asEnum
 }
 
 module.exports = Enum
