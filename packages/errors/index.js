@@ -1,10 +1,18 @@
 
+const util = require('util')
+
 const state = {}
 
 const CustomError = function (name, message, code, stackFrame) {
-  Object.assign(this, {name, message, code})
   Error.captureStackTrace(this, stackFrame)
+  this.name = name
+  this.message = message
+  this.code = code
+
+  return this
 }
+
+util.inherits(CustomError, Error)
 
 /**
  * Easily construct custom-errors
@@ -17,7 +25,7 @@ const CustomError = function (name, message, code, stackFrame) {
 const errors = new Proxy(state, {
   get: function stackFrame (_, prop) {
     return function (message, code) {
-      return new CustomError(prop, message, code, stackFrame)
+      return new CustomError(prop, `${code}: ${message}`, code, stackFrame)
     }
   }
 })

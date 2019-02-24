@@ -63,7 +63,6 @@ models.hypothesisResult.errored = ({condition, testCase, hypothesis, error}) => 
   expect(condition).to.be.a('function')
   expect(testCase).to.be.an('array')
   expect(hypothesis).to.be.a('string')
-  expect(error).to.be.an('error')
 
   return {
     condition,

@@ -126,8 +126,15 @@ methods.add = function () {
  * @param {Object} tasks an object of command-name : task pairs
  */
 methods.addAll = function (state, tasks) {
+  expect(tasks).to.be.an('object')
+
   for (const name of Object.keys(tasks)) {
-    methods.add(state, tasks[name])
+    const task = tasks[name]
+
+    expect(task).to.be.an('object')
+    expect(task).to.have.property('name')
+
+    methods.add(state, task)
   }
 }
 
