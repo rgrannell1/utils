@@ -29,9 +29,9 @@ command.task = async (args, emitter) => {
 
       process.chdir(pck.path)
       try {
-        await yarn.install({production: false})
+        await yarn.install({ production: false })
       } catch (err) {
-        throw new Error(`failed to install module "${pck.name}: ${err.message}"`)
+        throw new Error(`failed to install module "${pck.json.name}: ${err.message}"`)
       }
     }
   } catch (err) {
