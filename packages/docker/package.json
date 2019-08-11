@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/docker",
   "description": "Utilities for constructing docker files from JavaScript",
-  "version": "8.2.0",
+  "version": "8.3.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
