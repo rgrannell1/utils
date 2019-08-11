@@ -5,7 +5,9 @@
 
 > 0 - Experimental
 
-A simple module for constructing errors with custom names & codes, without OO-overhead.
+Construct errors
+
+
 
 ## Table of Contents
 
@@ -18,21 +20,12 @@ A simple module for constructing errors with custom names & codes, without OO-ov
 
 ## errors
 
-Easily construct custom-errors with optional error-codes.
+Easily construct custom-errors
 
 ### Examples
 
 ```javascript
-// static error lookup
 errors.notFoundError('user-account was not found', 'ENOTFOUND')
-
-const statuses = {
-  '400': 'BadRequest',
-  '404': 'NotFound'
-}
-
-// -- dynamic error lookup
-errors[statuses[req.status]]('Request failed', `ERR-${req.status}`)
 ```
 
 
@@ -43,7 +36,7 @@ errors[statuses[req.status]]('Request failed', `ERR-${req.status}`)
 
 ## License
 
-Copyright (c) 2018 Ryan Grannell
+Copyright (c) 2019 Ryan Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

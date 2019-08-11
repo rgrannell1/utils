@@ -16,11 +16,10 @@ yarn.install = async () => {
 
   let flags = []
 
-  const cmd = execa('yarn', ['install'].concat(flags))
+  const { stdout, stderr } = await execa('yarn', ['install'].concat(flags))
 
-  return cmd
-    .stdout.pipe(process.stdout)
-    .stderr.pipe(process.stderr)
+  console.log(stdout)
+  console.error(stderr)
 }
 
 module.exports = yarn
