@@ -3,7 +3,7 @@ const execa = require('execa')
 
 const command = {
   name: 'lerna-publish',
-  dependencies: ['assert-valid-packages', 'lint', 'install-deps', 'depcheck', 'document']
+//  dependencies: ['assert-valid-packages', 'lint', 'install-deps', 'depcheck', 'document']
 }
 
 command.cli = `
@@ -17,9 +17,11 @@ Description:
 command.task = async args => {
   let flags = []
 
-  const cmd = execa(`node_modules/.bin/lerna`, ['publish', '--cd-version minor', '--yes'].concat(flags))
-  cmd.stdout.pipe(process.stdout)
-  cmd.stderr.pipe(process.stderr)
+  const {stdout, stderr} = await execa(`node_modules/.bin/lerna`, ['publish', '--cd-version minor', '--yes'].concat(flags))
+
+
+  console.log(stdout)
+  console.error(stderr)
 }
 
 module.exports = command

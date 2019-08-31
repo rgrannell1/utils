@@ -15,6 +15,7 @@ An alternative to config.js
   * [Parameters](#parameters)
 - [config](#config)
   * [Parameters](#parameters-1)
+  * [Examples](#examples)
 
 ## API Documentation
 
@@ -22,14 +23,15 @@ An alternative to config.js
 
 ## yieldConfig
 
-Merge default & environmental configuration
+Merge default & environment-specific configuration. Accepts either an object or a function that takes
+the default configuration.
 
 ### Parameters
 
 -   `configPath` **[string][1]** the path to environmental configuration
--   `defaultConf` **[function][2]** configuration to merge in too
+-   `defaultConf` **[function][2]** configuration to merge in to
 
-Returns **[object][3]** 
+Returns **[object][3]** the loaded configuration
 
 ## config
 
@@ -38,7 +40,14 @@ Load configuration based on an environmental variable.
 ### Parameters
 
 -   `environment` **[string][1]** an environment variable. Defaults to NODE_ENV
--   `opts` **[Object][3]** 
+-   `opts` **[Object][3]** options passed to the config module.
+    -   `opts.root` **[string][1]** the root folder to search for configuration in. Defaults to `process.cwd`
+
+### Examples
+
+```javascript
+config('development', { root: '../..' })
+```
 
 Returns **[Object][3]** environment configuration
 
@@ -56,7 +65,7 @@ Returns **[Object][3]** environment configuration
 
 ## License
 
-Copyright (c) 2018 Ryan Grannell
+Copyright (c) 2019 Róisín Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

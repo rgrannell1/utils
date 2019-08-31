@@ -626,7 +626,7 @@ Returns **[Promise][4]&lt;[Array][1]&lt;testResult>>** an array of test-results
 ---
 ### lerna-publish
 
-- dependencies: assert-valid-packages,lint,install-deps,depcheck,document
+- dependencies: none
 
 ```
 

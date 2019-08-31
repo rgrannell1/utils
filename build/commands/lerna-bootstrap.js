@@ -17,9 +17,10 @@ Description:
 command.task = async args => {
   let flags = []
 
-  const cmd = execa(`node_modules/.bin/lerna`, ['bootstrap'].concat(flags))
-  cmd.stdout.pipe(process.stdout)
-  cmd.stderr.pipe(process.stderr)
+  const {stdout, stderr} = await execa(`node_modules/.bin/lerna`, ['bootstrap'].concat(flags))
+
+  console.log(stdout)
+  console.error(stderr)
 }
 
 module.exports = command
