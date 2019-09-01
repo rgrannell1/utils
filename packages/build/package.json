@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/build",
   "description": "Various package.json build utilities",
-  "version": "8.4.0",
+  "version": "9.0.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
