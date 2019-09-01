@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/array",
   "description": "Various array utilities",
-  "version": "8.3.0",
+  "version": "8.4.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
