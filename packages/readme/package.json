@@ -1,13 +1,13 @@
 {
   "name": "@rgrannell/readme",
   "description": "A tool for generating readme's",
-  "version": "8.2.0",
+  "version": "9.0.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rgrannell/markdown": "^8.2.0"
+    "@rgrannell/markdown": "^9.0.0"
   }
 }

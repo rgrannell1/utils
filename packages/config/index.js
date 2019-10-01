@@ -4,12 +4,13 @@ const path = require('path')
 const merge = require('deepmerge')
 
 /**
- * Merge default & environmental configuration
+ * Merge default & environment-specific configuration. Accepts either an object or a function that takes
+ * the default configuration.
  *
  * @param  {string} configPath           the path to environmental configuration
- * @param  {function} defaultConf        configuration to merge in too
+ * @param  {function} defaultConf        configuration to merge in to
  *
- * @return {object}
+ * @return {object} the loaded configuration
  */
 const yieldConfig = (configPath, defaultConf) => {
   const loaded = require(configPath)
@@ -19,15 +20,20 @@ const yieldConfig = (configPath, defaultConf) => {
   } else if (typeof loaded === 'function') {
     return loaded(defaultConf)
   } else {
-    throw new Error('configuration was invalid')
+    throw new Error('invalid configuration type provided.')
   }
 }
 
 /**
  * Load configuration based on an environmental variable.
  *
- * @param  {string} environment an environment variable. Defaults to NODE_ENV
- * @param  {Object} opts
+ * @param {string} environment an environment variable. Defaults to NODE_ENV
+ * @param {Object} opts options passed to the config module.
+ * @param {string} opts.root the root folder to search for configuration in. Defaults to `process.cwd`
+ *
+ * @example
+ * config('development', { root: '../..' })
+ *
  * @return {Object} environment configuration
  */
 const config = (environment, opts) => {
@@ -36,13 +42,13 @@ const config = (environment, opts) => {
   }
 
   const paths = {}
-  paths.root = process.cwd()
+  paths.root = opts.root || process.cwd()
   paths.configDir = path.join(paths.root, 'config')
   paths.default = path.join(paths.configDir, 'default.js')
   paths.environment = path.join(paths.configDir, `${environment}.js`)
 
   if (!fs.existsSync(paths.configDir)) {
-    throw new Error(`folder "${paths.configDir}" missing`)
+    throw new Error(`folder "${paths.configDir}" missing from directory ${paths.root}`)
   }
 
   let defaultConf = {}

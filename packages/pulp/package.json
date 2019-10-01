@@ -1,14 +1,15 @@
 {
   "name": "@rgrannell/pulp",
   "description": "A rational, tiny build system",
-  "version": "8.2.0",
+  "version": "9.0.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "neodoc": "^2.0.2",
-    "signale": "^1.2.1"
+    "signale": "^1.4.0"
   }
 }
