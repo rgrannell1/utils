@@ -19,7 +19,6 @@ command.task = async args => {
 
   const {stdout, stderr} = await execa(`node_modules/.bin/lerna`, ['publish', '--cd-version minor', '--yes'].concat(flags))
 
-
   console.log(stdout)
   console.error(stderr)
 }
