@@ -65,6 +65,11 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ```
 node pulpfile.js --help
+
+git checkout feature/myfeature
+// -- edit things and commit.
+
+
 ```
 
 ## Build System
