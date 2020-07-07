@@ -1,7 +1,7 @@
 {
   "name": "@rgrannell/errors",
   "description": "Construct errors",
-  "version": "9.1.0",
+  "version": "9.2.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
