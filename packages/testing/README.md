@@ -1,5 +1,5 @@
 
-# testing (v9.0.0)
+# testing (v9.1.0)
 
 ## Stability
 
@@ -18,6 +18,30 @@ test utilities
 
 this framework is a pure-JS test-runner, as opposed to `mocha` or `ava` which requires you to use external binaries.
 
+
+## Usage
+
+```js
+const {
+  hypothesis,
+  theory
+} = require('@rgrannell/testing')
+
+const hypotheses = {}
+
+hypotheses.add = hypothesis('adding zero to a number returns that number')
+  .cases(function * () {
+    yield [1]
+    yield [2]
+    yield [3]
+  })
+  .always(num => {
+    return num + 0 === num
+  })
+
+theory({ description: 'Establish basic laws of addition are satisfied over numeric inputs' })
+  .givenAll(hypotheses)
+```
 
 ## Table of Contents
 
@@ -211,7 +235,7 @@ Returns **[Object][1]** an object with the method:-   cases()
 
 ## License
 
-Copyright (c) 2019 Róisín Grannell
+Copyright (c) 2020 Róisín Grannell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
