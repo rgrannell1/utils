@@ -17,6 +17,7 @@
     "test": "node_modules/.bin/nyc node pulpfile.js test"
   },
   "dependencies": {
+    "@rgrannell/depcheck": "file:packages/depcheck",
     "@rgrannell/build": "file:packages/build",
     "@rgrannell/fp": "file:packages/fp",
     "@rgrannell/github": "file:packages/github",
