@@ -2,7 +2,7 @@
   "name": "@rgrannell/depcheck",
   "description": "check that a project has no unused dependencies",
   "main": "index.js",
-  "version": "none",
+  "version": "9.1.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
