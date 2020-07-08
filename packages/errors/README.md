@@ -1,5 +1,5 @@
 
-# errors (v9.1.0)
+# errors (v9.3.0)
 
 ## Stability
 

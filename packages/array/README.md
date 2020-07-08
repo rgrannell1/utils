@@ -1,5 +1,5 @@
 
-# array (v9.1.0)
+# array (v9.3.0)
 
 ## Stability
 

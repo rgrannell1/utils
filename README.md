@@ -9,71 +9,86 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ## Packages
 
-- [**@rgrannell/array (v9.1.0)**: Various array utilities](../../tree/master/packages/array)
-- [**@rgrannell/build (v9.1.0)**: Various package.json build utilities](../../tree/master/packages/build)
-- [**@rgrannell/chain (v9.1.0)**: Builder-pattern utility](../../tree/master/packages/chain)
-- [**@rgrannell/config (v9.1.0)**: An alternative to config.js](../../tree/master/packages/config)
-- [**@rgrannell/create (v9.1.0)**: Creates a react-app](../../tree/master/packages/create)
-- [**@rgrannell/depcheck (v9.1.0)**: check that a project has no unused dependencies](../../tree/master/packages/depcheck)
-- [**@rgrannell/docker (v9.1.0)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
-- [**@rgrannell/ebnf (v9.1.0)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
-- [**@rgrannell/errors (v9.1.0)**: Construct errors](../../tree/master/packages/errors)
-- [**@rgrannell/fp (v9.1.0)**: Functional programming utilities](../../tree/master/packages/fp)
-- [**@rgrannell/generator (v9.1.0)**: An itertools like library](../../tree/master/packages/generator)
-- [**@rgrannell/github (v9.1.0)**: Utilities for working with Github](../../tree/master/packages/github)
-- [**@rgrannell/index (v9.1.0)**: A utility library for loading submodules](../../tree/master/packages/index)
-- [**@rgrannell/js-generator (v9.1.0)**: An itertools-like library](../../tree/master/packages/js-generator)
-- [**@rgrannell/markdown (v9.1.0)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
-- [**@rgrannell/mustache (v9.1.0)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
-- [**@rgrannell/object (v9.1.0)**: A utility library for working with objects](../../tree/master/packages/object)
-- [**@rgrannell/promise (v9.1.0)**: Utilities for working with promises](../../tree/master/packages/promise)
-- [**@rgrannell/pulp (v9.1.0)**: A rational, tiny build system](../../tree/master/packages/pulp)
-- [**@rgrannell/readme (v9.1.0)**: A tool for generating readme's](../../tree/master/packages/readme)
-- [**@rgrannell/set (v9.1.0)**: Utilities for working with sets](../../tree/master/packages/set)
-- [**@rgrannell/ssl-labs (v9.1.0)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
-- [**@rgrannell/testing (v9.1.0)**: test utilities](../../tree/master/packages/testing)
-- [**@rgrannell/units (v9.1.0)**: A library for working with promises](../../tree/master/packages/units)
+- [**@rgrannell/array (v9.3.0)**: Various array utilities](../../tree/master/packages/array)
+- [**@rgrannell/build (v9.3.0)**: Various package.json build utilities](../../tree/master/packages/build)
+- [**@rgrannell/chain (v9.3.0)**: Builder-pattern utility](../../tree/master/packages/chain)
+- [**@rgrannell/config (v9.3.0)**: An alternative to config.js](../../tree/master/packages/config)
+- [**@rgrannell/create (v9.3.0)**: Creates a react-app](../../tree/master/packages/create)
+- [**@rgrannell/depcheck (v9.3.0)**: check that a project has no unused dependencies](../../tree/master/packages/depcheck)
+- [**@rgrannell/docker (v9.3.0)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
+- [**@rgrannell/ebnf (v9.3.0)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
+- [**@rgrannell/errors (v9.3.0)**: Construct errors](../../tree/master/packages/errors)
+- [**@rgrannell/fp (v9.3.0)**: Functional programming utilities](../../tree/master/packages/fp)
+- [**@rgrannell/generator (v9.3.0)**: An itertools like library](../../tree/master/packages/generator)
+- [**@rgrannell/github (v9.3.0)**: Utilities for working with Github](../../tree/master/packages/github)
+- [**@rgrannell/index (v9.3.0)**: A utility library for loading submodules](../../tree/master/packages/index)
+- [**@rgrannell/js-generator (v9.3.0)**: An itertools-like library](../../tree/master/packages/js-generator)
+- [**@rgrannell/markdown (v9.3.0)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
+- [**@rgrannell/mustache (v9.3.0)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
+- [**@rgrannell/object (v9.3.0)**: A utility library for working with objects](../../tree/master/packages/object)
+- [**@rgrannell/promise (v9.3.0)**: Utilities for working with promises](../../tree/master/packages/promise)
+- [**@rgrannell/pulp (v9.3.0)**: A rational, tiny build system](../../tree/master/packages/pulp)
+- [**@rgrannell/readme (v9.3.0)**: A tool for generating readme's](../../tree/master/packages/readme)
+- [**@rgrannell/set (v9.3.0)**: Utilities for working with sets](../../tree/master/packages/set)
+- [**@rgrannell/ssl-labs (v9.3.0)**: A wrapper for SSL-Labs](../../tree/master/packages/ssl-labs)
+- [**@rgrannell/testing (v9.3.0)**: test utilities](../../tree/master/packages/testing)
+- [**@rgrannell/units (v9.3.0)**: A library for working with promises](../../tree/master/packages/units)
 
 ## Package Metadata
 
 | Name          | Version       | Dependencies     | Dev Dependencies        | Estimated Size |
 | ------------- | ------------- | ---------------- | ----------------------- | -------------- |
-| array | 9.1.0   | 0 | 0      | 0.0Mb       |
-| build | 9.1.0   | 1 | 0      | 0.0Mb       |
-| chain | 9.1.0   | 1 | 0      | 0.0Mb       |
-| config | 9.1.0   | 1 | 0      | 0.0Mb       |
-| create | 9.1.0   | 2 | 1      | 0.9Mb       |
-| depcheck | 9.1.0   | 2 | 0      | 15.4Mb       |
-| docker | 9.1.0   | 0 | 0      | 0.0Mb       |
-| ebnf | 9.1.0   | 5 | 0      | 0.0Mb       |
-| errors | 9.1.0   | 0 | 0      | 0.0Mb       |
-| fp | 9.1.0   | 0 | 1      | 0.1Mb       |
-| generator | 9.1.0   | 0 | 0      | 0.0Mb       |
-| github | 9.1.0   | 1 | 0      | 0.0Mb       |
-| index | 9.1.0   | 0 | 0      | 0.0Mb       |
-| js-generator | 9.1.0   | 0 | 0      | 0.0Mb       |
-| markdown | 9.1.0   | 0 | 0      | 0.0Mb       |
-| mustache | 9.1.0   | 0 | 0      | 0.0Mb       |
-| object | 9.1.0   | 0 | 0      | 0.0Mb       |
-| promise | 9.1.0   | 0 | 0      | 0.0Mb       |
-| pulp | 9.1.0   | 3 | 0      | 2.6Mb       |
-| readme | 9.1.0   | 1 | 0      | 0.0Mb       |
-| set | 9.1.0   | 1 | 0      | 0.0Mb       |
-| ssl-labs | 9.1.0   | 1 | 0      | 0.0Mb       |
-| testing | 9.1.0   | 4 | 0      | 4.7Mb       |
-| units | 9.1.0   | 0 | 0      | 0.0Mb       |
+| array | 9.3.0   | 0 | 0      | 0.0Mb       |
+| build | 9.3.0   | 1 | 0      | 0.0Mb       |
+| chain | 9.3.0   | 1 | 0      | 0.0Mb       |
+| config | 9.3.0   | 1 | 0      | 0.0Mb       |
+| create | 9.3.0   | 2 | 1      | 12.4Mb       |
+| depcheck | 9.3.0   | 2 | 0      | 0.1Mb       |
+| docker | 9.3.0   | 0 | 0      | 0.0Mb       |
+| ebnf | 9.3.0   | 5 | 0      | 0.0Mb       |
+| errors | 9.3.0   | 0 | 0      | 0.0Mb       |
+| fp | 9.3.0   | 0 | 1      | 0.1Mb       |
+| generator | 9.3.0   | 0 | 0      | 0.0Mb       |
+| github | 9.3.0   | 1 | 0      | 0.0Mb       |
+| index | 9.3.0   | 0 | 0      | 0.0Mb       |
+| js-generator | 9.3.0   | 0 | 0      | 0.0Mb       |
+| markdown | 9.3.0   | 0 | 0      | 0.0Mb       |
+| mustache | 9.3.0   | 0 | 0      | 0.0Mb       |
+| object | 9.3.0   | 0 | 0      | 0.0Mb       |
+| promise | 9.3.0   | 0 | 0      | 0.0Mb       |
+| pulp | 9.3.0   | 3 | 0      | 0.0Mb       |
+| readme | 9.3.0   | 1 | 0      | 0.0Mb       |
+| set | 9.3.0   | 1 | 0      | 0.0Mb       |
+| ssl-labs | 9.3.0   | 1 | 0      | 0.0Mb       |
+| testing | 9.3.0   | 4 | 0      | 0.1Mb       |
+| units | 9.3.0   | 0 | 0      | 0.0Mb       |
 
 ## Build Guide
 
-```
+Changing an existing package:
+
+```sh
 node pulpfile.js --help
 
 git checkout feature/myfeature
 // -- edit things and commit.
 // -- make sure the package is linked in package.json
-// -- pulpfile.js document
-
+pulpfile.js document
+// -- commit
 ```
+
+Adding a new package
+
+```sh
+node pulpfile.js --help
+
+git checkout feature/myfeature
+node pulpfile.js edit
+// -- make sure the package is linked in package.json
+pulpfile.js document
+// -- commit
+```
+
 
 ## Build System
 

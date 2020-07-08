@@ -23,15 +23,30 @@ This module contains code I constantly copied as per-package utilities, and a fe
 
 ## Build Guide
 
-```
+Changing an existing package:
+
+```sh
 node pulpfile.js --help
 
 git checkout feature/myfeature
 // -- edit things and commit.
 // -- make sure the package is linked in package.json
-// -- pulpfile.js document
-
+pulpfile.js document
+// -- commit
 ```
+
+Adding a new package
+
+```sh
+node pulpfile.js --help
+
+git checkout feature/myfeature
+node pulpfile.js edit
+// -- make sure the package is linked in package.json
+pulpfile.js document
+// -- commit
+```
+
 
 ## Build System
 
