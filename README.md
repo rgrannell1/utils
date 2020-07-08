@@ -14,6 +14,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/chain (v9.1.0)**: Builder-pattern utility](../../tree/master/packages/chain)
 - [**@rgrannell/config (v9.1.0)**: An alternative to config.js](../../tree/master/packages/config)
 - [**@rgrannell/create (v9.1.0)**: Creates a react-app](../../tree/master/packages/create)
+- [**@rgrannell/depcheck (v9.1.0)**: check that a project has no unused dependencies](../../tree/master/packages/depcheck)
 - [**@rgrannell/docker (v9.1.0)**: Utilities for constructing docker files from JavaScript](../../tree/master/packages/docker)
 - [**@rgrannell/ebnf (v9.1.0)**: Construct a generator for an EBNF grammar](../../tree/master/packages/ebnf)
 - [**@rgrannell/errors (v9.1.0)**: Construct errors](../../tree/master/packages/errors)
@@ -41,7 +42,8 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | build | 9.1.0   | 1 | 0      | 0.0Mb       |
 | chain | 9.1.0   | 1 | 0      | 0.0Mb       |
 | config | 9.1.0   | 1 | 0      | 0.0Mb       |
-| create | 9.1.0   | 2 | 1      | 12.3Mb       |
+| create | 9.1.0   | 2 | 1      | 0.9Mb       |
+| depcheck | 9.1.0   | 2 | 0      | 15.4Mb       |
 | docker | 9.1.0   | 0 | 0      | 0.0Mb       |
 | ebnf | 9.1.0   | 5 | 0      | 0.0Mb       |
 | errors | 9.1.0   | 0 | 0      | 0.0Mb       |
@@ -58,7 +60,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | readme | 9.1.0   | 1 | 0      | 0.0Mb       |
 | set | 9.1.0   | 1 | 0      | 0.0Mb       |
 | ssl-labs | 9.1.0   | 1 | 0      | 0.0Mb       |
-| testing | 9.1.0   | 4 | 0      | 0.1Mb       |
+| testing | 9.1.0   | 4 | 0      | 4.7Mb       |
 | units | 9.1.0   | 0 | 0      | 0.0Mb       |
 
 ## Build Guide
@@ -68,7 +70,8 @@ node pulpfile.js --help
 
 git checkout feature/myfeature
 // -- edit things and commit.
-
+// -- make sure the package is linked in package.json
+// -- pulpfile.js document
 
 ```
 
