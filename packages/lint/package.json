@@ -2,7 +2,7 @@
   "name": "@rgrannell/lint",
   "description": "throw an error if a package fails to lint",
   "main": "index.js",
-  "version": "none",
+  "version": "9.3.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

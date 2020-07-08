@@ -23,6 +23,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 - [**@rgrannell/github (v9.3.0)**: Utilities for working with Github](../../tree/master/packages/github)
 - [**@rgrannell/index (v9.3.0)**: A utility library for loading submodules](../../tree/master/packages/index)
 - [**@rgrannell/js-generator (v9.3.0)**: An itertools-like library](../../tree/master/packages/js-generator)
+- [**@rgrannell/lint (v9.3.0)**: throw an error if a package fails to lint](../../tree/master/packages/lint)
 - [**@rgrannell/markdown (v9.3.0)**: A utility library for generating markdown from JavaScript](../../tree/master/packages/markdown)
 - [**@rgrannell/mustache (v9.3.0)**: A utility library for generating mustache templates from JavaScript](../../tree/master/packages/mustache)
 - [**@rgrannell/object (v9.3.0)**: A utility library for working with objects](../../tree/master/packages/object)
@@ -52,6 +53,7 @@ This module contains code I constantly copied as per-package utilities, and a fe
 | github | 9.3.0   | 1 | 0      | 0.0Mb       |
 | index | 9.3.0   | 0 | 0      | 0.0Mb       |
 | js-generator | 9.3.0   | 0 | 0      | 0.0Mb       |
+| lint | 9.3.0   | 2 | 0      | 1.6Mb       |
 | markdown | 9.3.0   | 0 | 0      | 0.0Mb       |
 | mustache | 9.3.0   | 0 | 0      | 0.0Mb       |
 | object | 9.3.0   | 0 | 0      | 0.0Mb       |
@@ -84,6 +86,7 @@ node pulpfile.js --help
 
 git checkout feature/myfeature
 node pulpfile.js edit
+// -- add a dummy version
 // -- make sure the package is linked in package.json
 pulpfile.js document
 // -- commit
