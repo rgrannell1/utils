@@ -1,5 +1,5 @@
 
-# promise (v9.1.0)
+# promise (v9.3.0)
 
 ## Stability
 

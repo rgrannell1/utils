@@ -1,0 +1,14 @@
+{
+  "name": "@rgrannell/lint",
+  "description": "throw an error if a package fails to lint",
+  "main": "index.js",
+  "version": "9.3.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "standard": "^11.0.1"
+  }
+}

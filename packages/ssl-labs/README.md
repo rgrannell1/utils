@@ -1,5 +1,5 @@
 
-# ssl-labs (v9.1.0)
+# ssl-labs (v9.3.0)
 
 ## Stability
 
