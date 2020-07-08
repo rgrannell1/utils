@@ -2,7 +2,7 @@
   "name": "@rgrannell/github",
   "description": "Utilities for working with Github",
   "main": "index.js",
-  "version": "9.3.0",
+  "version": "9.4.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
