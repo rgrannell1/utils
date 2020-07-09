@@ -277,9 +277,12 @@ const loadCommands = async fpath => {
 }
 
 /**
+ * Set up pulp with a directory full of commands
  *
  * @param {string} fpath a file path. This can either point to index.js (commands will be loaded from here)
  *   or from a directory (each file will be loaded as a command under the file-name)
+ *
+ * @return Promise<> a result promise
  */
 pulp.wrap = async fpath => {
   // list, require, build
@@ -288,7 +291,7 @@ pulp.wrap = async fpath => {
   const tasks = pulp.tasks()
 
   tasks.addAll(commands)
-  tasks.run()
+  return tasks.run()
 }
 
 module.exports = pulp
