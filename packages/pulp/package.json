@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
+    "chalk": "^4.1.0",
     "neodoc": "^2.0.2",
     "signale": "^1.4.0"
   }

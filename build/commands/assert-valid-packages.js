@@ -14,7 +14,7 @@ Usage:
   script assert-valid-packages
 
 Description:
-  Ensure that package configuration is valid
+  Ensure that util's packages are configured as expected
 `
 
 command.task = async args => {

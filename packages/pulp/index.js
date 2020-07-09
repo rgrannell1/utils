@@ -1,10 +1,13 @@
 
-const constants = require('./src/constants')
-const reactions = require('./src/reactions')
-
+const fs = require('fs').promises
+const chalk = require('chalk')
+const path = require('path')
 const {expect} = require('chai')
 const neodoc = require('neodoc')
 const EventEmitter = require('events')
+
+const constants = require('./src/constants')
+const reactions = require('./src/reactions')
 
 /**
  * Run a task by name, and provide state-updates to an event-emitter to display
@@ -152,17 +155,46 @@ methods.addAll = function (state, tasks) {
 methods.run = function (state) {
   const commands = Object.keys(state.tasks)
     .sort()
-    .map(term => `    - ${term}`)
+    .map(term => {
+      const docs = state.tasks[term].cli.split('\n')
+      let description = null
+      for (let ith = 0; ith < docs.length - 1; ++ith) {
+        let candidate = docs[ith].toLowerCase()
+
+        if (candidate.startsWith('description')) {
+          description = docs[ith + 1].replace(/^\s+/g, '').trim()
+          break
+        }
+      }
+
+      return description.length > 0
+        ? ` - ${chalk.bold(term)}: ${description}...`
+        : ` - ${chalk.bold(term)}`
+    })
     .join('\n')
+
+  let commandDescription
+
+  if (Object.keys(state.tasks).length > 0) {
+    commandDescription = [
+      'Description:',
+      '  Available commands:\n',
+      commands
+    ].join('\n')
+  } else {
+    commandDescription = [
+      'Description:',
+      '  No available commands:\n'
+    ].join('\n')
+  }
 
   const docs = [
     'Usage:',
-    '  script <command>',
-    '  script <command> (-h|--help)',
+    '  pulpfile.js <command>',
+    '  pulpfile.js <command> (-h|--help)',
     '',
-    'Description:',
-    '  Available commands:',
-    commands
+    commandDescription,
+    '\n'
   ].join('\n')
 
   const args = neodoc.run(docs, {allowUnknown: true})
@@ -201,6 +233,62 @@ pulp.tasks = () => {
     run: methods.run.bind(null, state),
     state
   }
+}
+
+/**
+ * Load commands from a target folder. These commands can either be fully
+ * specified pulp sub-cli's, or simply a function export.
+ *
+ * @param {string} fpath the folder path to load from
+ *
+ * @returns {Object} an object of commands
+ */
+const loadCommands = async fpath => {
+  // -- try load all commands from an index the person was nice enough to add
+  try {
+    return require(path.join(process.cwd(), fpath, 'index.js'))
+  } catch (err) { }
+
+  let stat
+  try {
+    stat = await fs.lstat(fpath)
+  } catch (err) {
+    console.log(err)
+    throw new Error(`failed to check the inode type of ${fpath}`)
+  }
+
+  if (!stat.isDirectory(fpath)) {
+    throw new Error(`${fpath} was not a directory`)
+  }
+
+  // -- no index present; manually emulate and return one
+  const commands = {}
+
+  for (const content of await fs.readdir(fpath)) {
+    const commandPath = path.join(process.cwd(), fpath, content)
+    try {
+      commands[content] = require(commandPath)
+    } catch (err) {
+      throw new Error(`failed to load ${commandPath}`)
+    }
+  }
+
+  return commands
+}
+
+/**
+ *
+ * @param {string} fpath a file path. This can either point to index.js (commands will be loaded from here)
+ *   or from a directory (each file will be loaded as a command under the file-name)
+ */
+pulp.wrap = async fpath => {
+  // list, require, build
+  const commands = await loadCommands(fpath)
+
+  const tasks = pulp.tasks()
+
+  tasks.addAll(commands)
+  tasks.run()
 }
 
 module.exports = pulp

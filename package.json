@@ -17,15 +17,15 @@
     "test": "node_modules/.bin/nyc node pulpfile.js test"
   },
   "dependencies": {
-    "@rgrannell/depcheck": "file:packages/depcheck",
     "@rgrannell/build": "file:packages/build",
+    "@rgrannell/depcheck": "file:packages/depcheck",
     "@rgrannell/fp": "file:packages/fp",
     "@rgrannell/github": "file:packages/github",
     "@rgrannell/index": "file:packages/index",
     "@rgrannell/markdown": "file:packages/markdown",
     "@rgrannell/mustache": "file:packages/mustache",
     "@rgrannell/object": "file:packages/object",
-    "@rgrannell/pulp": "../utils/packages/pulp",
+    "@rgrannell/pulp": "file:packages/pulp",
     "@rgrannell/set": "file:packages/set",
     "@rgrannell/testing": "file:packages/testing",
     "acorn": "^5.7.1",
