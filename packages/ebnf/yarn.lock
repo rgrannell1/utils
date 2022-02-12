@@ -2,27 +2,27 @@
 # yarn lockfile v1
 
 
-"@rgrannell/array@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-8.1.0.tgz#b154d63392826b196a5443b244e681178786fc0e"
+"@rgrannell/array@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/array/-/array-9.4.0.tgz#80818bf0b0110ddec71016b2eeb4e6a2251061c0"
 
-"@rgrannell/chain@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-8.1.0.tgz#59546a7e8f3209e484c594d1d9ba90244ae677a2"
+"@rgrannell/chain@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/chain/-/chain-9.4.0.tgz#852cc81199cb7601311a818a217050f1d7025b86"
   dependencies:
     chai "^4.1.2"
 
-"@rgrannell/fp@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/fp/-/fp-8.1.0.tgz#91d61ec6cb8626f15e1079b9d07b671687f6f531"
+"@rgrannell/fp@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/fp/-/fp-9.4.0.tgz#a24e298ac8d718ec4791b33f7e4a3ef26efe1221"
 
-"@rgrannell/generator@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/generator/-/generator-8.1.0.tgz#b640b6c23f4cba5cd099d1defa86000345185571"
+"@rgrannell/generator@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/generator/-/generator-9.4.0.tgz#0fd9536394f69e70cb3a292315c9ff33e7f371af"
 
-"@rgrannell/object@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@rgrannell/object/-/object-8.1.0.tgz#d452f6b2f13ffa54ebf6ec1cfb1305ddb65ffb0d"
+"@rgrannell/object@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@rgrannell/object/-/object-9.4.0.tgz#99045be84a751a1a3483c6c4b1fdd0efdf4e0366"
 
 assertion-error@^1.0.1:
   version "1.1.0"
@@ -54,8 +54,8 @@ get-func-name@^2.0.0:
   resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
 
 pathval@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/pathval/-/pathval-1.1.0.tgz#b942e6d4bde653005ef6b71361def8727d0645e0"
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/pathval/-/pathval-1.1.1.tgz#8534e77a77ce7ac5a2512ea21e0fdb8fcf6c3d8d"
 
 type-detect@^4.0.0:
   version "4.0.8"
